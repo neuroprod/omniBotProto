@@ -1,4 +1,4 @@
-The system is: Linux - 4.9.13-v7+ - armv7l
+The system is: Linux - 4.4.50-v7+ - armv7l
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/3.6.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/3.6.2/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/3.6.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/3.6.2/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_77ef5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_77ef5.dir/build.make CMakeFiles/cmTC_77ef5.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_77ef5.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_77ef5.dir/testCCompiler.c.o   -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_77ef5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77ef5.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_77ef5.dir/testCCompiler.c.o  -o cmTC_77ef5 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_30d4b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_30d4b.dir/build.make CMakeFiles/cmTC_30d4b.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_30d4b.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_30d4b.dir/testCCompiler.c.o   -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_30d4b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30d4b.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_30d4b.dir/testCCompiler.c.o  -o cmTC_30d4b 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_92f41/fast"
-/usr/bin/make -f CMakeFiles/cmTC_92f41.dir/build.make CMakeFiles/cmTC_92f41.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.6/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_92f41
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92f41.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o  -o cmTC_92f41  
+Run Build Command:"/usr/bin/make" "cmTC_53a30/fast"
+/usr/bin/make -f CMakeFiles/cmTC_53a30.dir/build.make CMakeFiles/cmTC_53a30.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.6/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_53a30
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53a30.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o  -o cmTC_53a30  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper
@@ -59,23 +59,23 @@ Thread model: posix
 gcc version 4.9.2 (Raspbian 4.9.2-10) 
 COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/
 LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_92f41' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
- /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDyhOmn.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_92f41 /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53a30' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
+ /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/cctqACLP.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_53a30 /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_92f41/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_92f41.dir/build.make CMakeFiles/cmTC_92f41.dir/build]
-  ignore line: [make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.6/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_92f41]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92f41.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o  -o cmTC_92f41  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_53a30/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_53a30.dir/build.make CMakeFiles/cmTC_53a30.dir/build]
+  ignore line: [make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.6/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_53a30]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53a30.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o  -o cmTC_53a30  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper]
@@ -85,13 +85,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.9.2 (Raspbian 4.9.2-10) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_92f41' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
-  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDyhOmn.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_92f41 /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53a30' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
+  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/cctqACLP.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_53a30 /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o]
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccDyhOmn.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cctqACLP.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -107,7 +107,7 @@ Parsed C implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_92f41] ==> ignore
+    arg [cmTC_53a30] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o] ==> ignore
@@ -116,7 +116,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../..] ==> dir [/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../..]
     arg [-L/lib/arm-linux-gnueabihf] ==> dir [/lib/arm-linux-gnueabihf]
     arg [-L/usr/lib/arm-linux-gnueabihf] ==> dir [/usr/lib/arm-linux-gnueabihf]
-    arg [CMakeFiles/cmTC_92f41.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_53a30.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -145,17 +145,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_129eb/fast"
-/usr/bin/make -f CMakeFiles/cmTC_129eb.dir/build.make CMakeFiles/cmTC_129eb.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_129eb.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_129eb.dir/feature_tests.c.o   -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/feature_tests.c
-Linking C executable cmTC_129eb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_129eb.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_129eb.dir/feature_tests.c.o  -o cmTC_129eb 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_b7fe5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b7fe5.dir/build.make CMakeFiles/cmTC_b7fe5.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b7fe5.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_b7fe5.dir/feature_tests.c.o   -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/feature_tests.c
+Linking C executable cmTC_b7fe5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7fe5.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_b7fe5.dir/feature_tests.c.o  -o cmTC_b7fe5 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -165,17 +165,17 @@ make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-releas
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ff32c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ff32c.dir/build.make CMakeFiles/cmTC_ff32c.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ff32c.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_ff32c.dir/feature_tests.c.o   -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/feature_tests.c
-Linking C executable cmTC_ff32c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff32c.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_ff32c.dir/feature_tests.c.o  -o cmTC_ff32c 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_5c5d5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5c5d5.dir/build.make CMakeFiles/cmTC_5c5d5.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5c5d5.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_5c5d5.dir/feature_tests.c.o   -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/feature_tests.c
+Linking C executable cmTC_5c5d5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c5d5.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_5c5d5.dir/feature_tests.c.o  -o cmTC_5c5d5 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -185,17 +185,17 @@ make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-releas
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_78277/fast"
-/usr/bin/make -f CMakeFiles/cmTC_78277.dir/build.make CMakeFiles/cmTC_78277.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_78277.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_78277.dir/feature_tests.c.o   -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/feature_tests.c
-Linking C executable cmTC_78277
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78277.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_78277.dir/feature_tests.c.o  -o cmTC_78277 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_fa403/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fa403.dir/build.make CMakeFiles/cmTC_fa403.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fa403.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_fa403.dir/feature_tests.c.o   -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/feature_tests.c
+Linking C executable cmTC_fa403
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa403.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_fa403.dir/feature_tests.c.o  -o cmTC_fa403 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -203,30 +203,30 @@ make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-releas
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_33e43/fast"
-/usr/bin/make -f CMakeFiles/cmTC_33e43.dir/build.make CMakeFiles/cmTC_33e43.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_33e43.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_33e43.dir/testCXXCompiler.cxx.o -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_33e43
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_33e43.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_33e43.dir/testCXXCompiler.cxx.o  -o cmTC_33e43 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_30311/fast"
+/usr/bin/make -f CMakeFiles/cmTC_30311.dir/build.make CMakeFiles/cmTC_30311.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_30311.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_30311.dir/testCXXCompiler.cxx.o -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_30311
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30311.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_30311.dir/testCXXCompiler.cxx.o  -o cmTC_30311 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8cbba/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8cbba.dir/build.make CMakeFiles/cmTC_8cbba.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_8cbba
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cbba.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_8cbba  
+Run Build Command:"/usr/bin/make" "cmTC_9e10e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9e10e.dir/build.make CMakeFiles/cmTC_9e10e.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_9e10e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e10e.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9e10e  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper
@@ -236,23 +236,23 @@ Thread model: posix
 gcc version 4.9.2 (Raspbian 4.9.2-10) 
 COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/
 LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_8cbba' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
- /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKKNw4z.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_8cbba /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9e10e' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
+ /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVSMITY.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_9e10e /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_8cbba/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_8cbba.dir/build.make CMakeFiles/cmTC_8cbba.dir/build]
-  ignore line: [make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_8cbba]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cbba.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_8cbba  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_9e10e/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_9e10e.dir/build.make CMakeFiles/cmTC_9e10e.dir/build]
+  ignore line: [make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_9e10e]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e10e.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9e10e  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper]
@@ -262,13 +262,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.9.2 (Raspbian 4.9.2-10) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/4.9/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_8cbba' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
-  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKKNw4z.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_8cbba /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9e10e' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
+  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVSMITY.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_9e10e /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/4.9 -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/4.9/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crtn.o]
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/4.9/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccKKNw4z.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccVSMITY.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -284,7 +284,7 @@ Parsed CXX implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_8cbba] ==> ignore
+    arg [cmTC_9e10e] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crt1.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../../arm-linux-gnueabihf/crti.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/4.9/crtbegin.o] ==> ignore
@@ -293,7 +293,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../..] ==> dir [/usr/lib/gcc/arm-linux-gnueabihf/4.9/../../..]
     arg [-L/lib/arm-linux-gnueabihf] ==> dir [/lib/arm-linux-gnueabihf]
     arg [-L/usr/lib/arm-linux-gnueabihf] ==> dir [/usr/lib/arm-linux-gnueabihf]
-    arg [CMakeFiles/cmTC_8cbba.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_9e10e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -320,17 +320,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3552d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3552d.dir/build.make CMakeFiles/cmTC_3552d.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3552d.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_3552d.dir/feature_tests.cxx.o -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_3552d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3552d.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_3552d.dir/feature_tests.cxx.o  -o cmTC_3552d 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_fa00c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fa00c.dir/build.make CMakeFiles/cmTC_fa00c.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fa00c.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_fa00c.dir/feature_tests.cxx.o -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_fa00c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa00c.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_fa00c.dir/feature_tests.cxx.o  -o cmTC_fa00c 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -393,17 +393,17 @@ make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-releas
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f798f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_f798f.dir/build.make CMakeFiles/cmTC_f798f.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_f798f.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_f798f.dir/feature_tests.cxx.o -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_f798f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f798f.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_f798f.dir/feature_tests.cxx.o  -o cmTC_f798f 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_a3d01/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a3d01.dir/build.make CMakeFiles/cmTC_a3d01.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a3d01.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_a3d01.dir/feature_tests.cxx.o -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_a3d01
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3d01.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_a3d01.dir/feature_tests.cxx.o  -o cmTC_a3d01 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -466,17 +466,17 @@ make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-releas
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_130ed/fast"
-/usr/bin/make -f CMakeFiles/cmTC_130ed.dir/build.make CMakeFiles/cmTC_130ed.dir/build
-make[1]: Entering directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_130ed.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_130ed.dir/feature_tests.cxx.o -c /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_130ed
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_130ed.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_130ed.dir/feature_tests.cxx.o  -o cmTC_130ed 
-make[1]: Leaving directory '/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_302c5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_302c5.dir/build.make CMakeFiles/cmTC_302c5.dir/build
+make[1]: Entering directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_302c5.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_302c5.dir/feature_tests.cxx.o -c /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_302c5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_302c5.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_302c5.dir/feature_tests.cxx.o  -o cmTC_302c5 
+make[1]: Leaving directory '/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

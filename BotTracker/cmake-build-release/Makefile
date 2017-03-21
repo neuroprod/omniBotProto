@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/CLionProjects/BotTracker
+CMAKE_SOURCE_DIR = /home/pi/Desktop/omniBotProto/BotTracker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/CLionProjects/BotTracker/cmake-build-release
+CMAKE_BINARY_DIR = /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,59 +123,194 @@ untitled/fast:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
-camera.o: camera.cpp.o
+BotTracker.o: BotTracker.cpp.o
 
-.PHONY : camera.o
-
-# target to build an object file
-camera.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera.cpp.o
-.PHONY : camera.cpp.o
-
-camera.i: camera.cpp.i
-
-.PHONY : camera.i
-
-# target to preprocess a source file
-camera.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera.cpp.i
-.PHONY : camera.cpp.i
-
-camera.s: camera.cpp.s
-
-.PHONY : camera.s
-
-# target to generate assembly for a file
-camera.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera.cpp.s
-.PHONY : camera.cpp.s
-
-cameracontrol.o: cameracontrol.cpp.o
-
-.PHONY : cameracontrol.o
+.PHONY : BotTracker.o
 
 # target to build an object file
-cameracontrol.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/cameracontrol.cpp.o
-.PHONY : cameracontrol.cpp.o
+BotTracker.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/BotTracker.cpp.o
+.PHONY : BotTracker.cpp.o
 
-cameracontrol.i: cameracontrol.cpp.i
+BotTracker.i: BotTracker.cpp.i
 
-.PHONY : cameracontrol.i
+.PHONY : BotTracker.i
 
 # target to preprocess a source file
-cameracontrol.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/cameracontrol.cpp.i
-.PHONY : cameracontrol.cpp.i
+BotTracker.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/BotTracker.cpp.i
+.PHONY : BotTracker.cpp.i
 
-cameracontrol.s: cameracontrol.cpp.s
+BotTracker.s: BotTracker.cpp.s
 
-.PHONY : cameracontrol.s
+.PHONY : BotTracker.s
 
 # target to generate assembly for a file
-cameracontrol.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/cameracontrol.cpp.s
-.PHONY : cameracontrol.cpp.s
+BotTracker.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/BotTracker.cpp.s
+.PHONY : BotTracker.cpp.s
+
+CameraHandler.o: CameraHandler.cpp.o
+
+.PHONY : CameraHandler.o
+
+# target to build an object file
+CameraHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/CameraHandler.cpp.o
+.PHONY : CameraHandler.cpp.o
+
+CameraHandler.i: CameraHandler.cpp.i
+
+.PHONY : CameraHandler.i
+
+# target to preprocess a source file
+CameraHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/CameraHandler.cpp.i
+.PHONY : CameraHandler.cpp.i
+
+CameraHandler.s: CameraHandler.cpp.s
+
+.PHONY : CameraHandler.s
+
+# target to generate assembly for a file
+CameraHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/CameraHandler.cpp.s
+.PHONY : CameraHandler.cpp.s
+
+GLProgram.o: GLProgram.cpp.o
+
+.PHONY : GLProgram.o
+
+# target to build an object file
+GLProgram.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLProgram.cpp.o
+.PHONY : GLProgram.cpp.o
+
+GLProgram.i: GLProgram.cpp.i
+
+.PHONY : GLProgram.i
+
+# target to preprocess a source file
+GLProgram.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLProgram.cpp.i
+.PHONY : GLProgram.cpp.i
+
+GLProgram.s: GLProgram.cpp.s
+
+.PHONY : GLProgram.s
+
+# target to generate assembly for a file
+GLProgram.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLProgram.cpp.s
+.PHONY : GLProgram.cpp.s
+
+GLTexture.o: GLTexture.cpp.o
+
+.PHONY : GLTexture.o
+
+# target to build an object file
+GLTexture.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLTexture.cpp.o
+.PHONY : GLTexture.cpp.o
+
+GLTexture.i: GLTexture.cpp.i
+
+.PHONY : GLTexture.i
+
+# target to preprocess a source file
+GLTexture.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLTexture.cpp.i
+.PHONY : GLTexture.cpp.i
+
+GLTexture.s: GLTexture.cpp.s
+
+.PHONY : GLTexture.s
+
+# target to generate assembly for a file
+GLTexture.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLTexture.cpp.s
+.PHONY : GLTexture.cpp.s
+
+GLWindow.o: GLWindow.cpp.o
+
+.PHONY : GLWindow.o
+
+# target to build an object file
+GLWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLWindow.cpp.o
+.PHONY : GLWindow.cpp.o
+
+GLWindow.i: GLWindow.cpp.i
+
+.PHONY : GLWindow.i
+
+# target to preprocess a source file
+GLWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLWindow.cpp.i
+.PHONY : GLWindow.cpp.i
+
+GLWindow.s: GLWindow.cpp.s
+
+.PHONY : GLWindow.s
+
+# target to generate assembly for a file
+GLWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLWindow.cpp.s
+.PHONY : GLWindow.cpp.s
+
+camera/camera.o: camera/camera.cpp.o
+
+.PHONY : camera/camera.o
+
+# target to build an object file
+camera/camera.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/camera.cpp.o
+.PHONY : camera/camera.cpp.o
+
+camera/camera.i: camera/camera.cpp.i
+
+.PHONY : camera/camera.i
+
+# target to preprocess a source file
+camera/camera.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/camera.cpp.i
+.PHONY : camera/camera.cpp.i
+
+camera/camera.s: camera/camera.cpp.s
+
+.PHONY : camera/camera.s
+
+# target to generate assembly for a file
+camera/camera.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/camera.cpp.s
+.PHONY : camera/camera.cpp.s
+
+camera/cameracontrol.o: camera/cameracontrol.cpp.o
+
+.PHONY : camera/cameracontrol.o
+
+# target to build an object file
+camera/cameracontrol.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o
+.PHONY : camera/cameracontrol.cpp.o
+
+camera/cameracontrol.i: camera/cameracontrol.cpp.i
+
+.PHONY : camera/cameracontrol.i
+
+# target to preprocess a source file
+camera/cameracontrol.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/cameracontrol.cpp.i
+.PHONY : camera/cameracontrol.cpp.i
+
+camera/cameracontrol.s: camera/cameracontrol.cpp.s
+
+.PHONY : camera/cameracontrol.s
+
+# target to generate assembly for a file
+camera/cameracontrol.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/cameracontrol.cpp.s
+.PHONY : camera/cameracontrol.cpp.s
 
 graphics.o: graphics.cpp.o
 
@@ -240,12 +375,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... untitled"
-	@echo "... camera.o"
-	@echo "... camera.i"
-	@echo "... camera.s"
-	@echo "... cameracontrol.o"
-	@echo "... cameracontrol.i"
-	@echo "... cameracontrol.s"
+	@echo "... BotTracker.o"
+	@echo "... BotTracker.i"
+	@echo "... BotTracker.s"
+	@echo "... CameraHandler.o"
+	@echo "... CameraHandler.i"
+	@echo "... CameraHandler.s"
+	@echo "... GLProgram.o"
+	@echo "... GLProgram.i"
+	@echo "... GLProgram.s"
+	@echo "... GLTexture.o"
+	@echo "... GLTexture.i"
+	@echo "... GLTexture.s"
+	@echo "... GLWindow.o"
+	@echo "... GLWindow.i"
+	@echo "... GLWindow.s"
+	@echo "... camera/camera.o"
+	@echo "... camera/camera.i"
+	@echo "... camera/camera.s"
+	@echo "... camera/cameracontrol.o"
+	@echo "... camera/cameracontrol.i"
+	@echo "... camera/cameracontrol.s"
 	@echo "... graphics.o"
 	@echo "... graphics.i"
 	@echo "... graphics.s"

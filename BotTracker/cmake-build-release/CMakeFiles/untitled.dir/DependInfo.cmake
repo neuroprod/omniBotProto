@@ -4,10 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pi/CLionProjects/BotTracker/camera.cpp" "/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/camera.cpp.o"
-  "/home/pi/CLionProjects/BotTracker/cameracontrol.cpp" "/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/cameracontrol.cpp.o"
-  "/home/pi/CLionProjects/BotTracker/graphics.cpp" "/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/graphics.cpp.o"
-  "/home/pi/CLionProjects/BotTracker/main.cpp" "/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/main.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/BotTracker.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/BotTracker.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/CameraHandler.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/GLProgram.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/GLTexture.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/GLTexture.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/GLWindow.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/camera/camera.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/graphics.cpp.o"
+  "/home/pi/Desktop/omniBotProto/BotTracker/main.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

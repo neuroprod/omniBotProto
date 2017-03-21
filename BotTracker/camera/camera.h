@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mmalincludes.h"
+#include "../mmalincludes.h"
 #include "cameracontrol.h"
 
 class CCamera;

@@ -5,41 +5,41 @@
 		<Option title="BotTracker"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\OpenCV\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/pi/CLionProjects/BotTracker/cmake-build-release"/>
+				<Option working_dir="/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/pi/CLionProjects/BotTracker/cmake-build-release"/>
+				<Option working_dir="/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/pi/CLionProjects/BotTracker/cmake-build-release"/>
+				<Option working_dir="/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="untitled">
-				<Option output="/home/pi/CLionProjects/BotTracker/cmake-build-release/untitled" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/pi/CLionProjects/BotTracker/cmake-build-release"/>
+				<Option output="/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/untitled" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -61,15 +61,15 @@
 					<Add directory="/usr/include/c++/4.9/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 untitled"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 untitled"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="untitled/fast">
-				<Option output="/home/pi/CLionProjects/BotTracker/cmake-build-release/untitled" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/pi/CLionProjects/BotTracker/cmake-build-release"/>
+				<Option output="/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/untitled" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -91,51 +91,81 @@
 					<Add directory="/usr/include/c++/4.9/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 untitled/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/CLionProjects/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 untitled/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/camera.cpp">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/BotTracker.cpp">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/camera.h">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/BotTracker.h">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/cameracontrol.cpp">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/cameracontrol.h">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.h">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/graphics.cpp">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/graphics.h">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLProgram.h">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/main.cpp">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLTexture.cpp">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/mmalincludes.h">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/CMakeLists.txt">
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/graphics.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/main.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/pi/CLionProjects/BotTracker/../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

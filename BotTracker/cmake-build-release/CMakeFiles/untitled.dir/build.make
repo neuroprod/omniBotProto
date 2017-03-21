@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/CLionProjects/BotTracker
+CMAKE_SOURCE_DIR = /home/pi/Desktop/omniBotProto/BotTracker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/CLionProjects/BotTracker/cmake-build-release
+CMAKE_BINARY_DIR = /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release
 
 # Include any dependencies generated for this target.
 include CMakeFiles/untitled.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/untitled.dir/flags.make
 
 CMakeFiles/untitled.dir/main.cpp.o: CMakeFiles/untitled.dir/flags.make
 CMakeFiles/untitled.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/untitled.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/main.cpp.o -c /home/pi/CLionProjects/BotTracker/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/untitled.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/main.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/main.cpp
 
 CMakeFiles/untitled.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/CLionProjects/BotTracker/main.cpp > CMakeFiles/untitled.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/main.cpp > CMakeFiles/untitled.dir/main.cpp.i
 
 CMakeFiles/untitled.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/CLionProjects/BotTracker/main.cpp -o CMakeFiles/untitled.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/main.cpp -o CMakeFiles/untitled.dir/main.cpp.s
 
 CMakeFiles/untitled.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/untitled.dir/main.cpp.o.provides.build: CMakeFiles/untitled.dir/main.
 
 CMakeFiles/untitled.dir/graphics.cpp.o: CMakeFiles/untitled.dir/flags.make
 CMakeFiles/untitled.dir/graphics.cpp.o: ../graphics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled.dir/graphics.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/graphics.cpp.o -c /home/pi/CLionProjects/BotTracker/graphics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled.dir/graphics.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/graphics.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp
 
 CMakeFiles/untitled.dir/graphics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/graphics.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/CLionProjects/BotTracker/graphics.cpp > CMakeFiles/untitled.dir/graphics.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp > CMakeFiles/untitled.dir/graphics.cpp.i
 
 CMakeFiles/untitled.dir/graphics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/graphics.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/CLionProjects/BotTracker/graphics.cpp -o CMakeFiles/untitled.dir/graphics.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp -o CMakeFiles/untitled.dir/graphics.cpp.s
 
 CMakeFiles/untitled.dir/graphics.cpp.o.requires:
 
@@ -105,68 +105,198 @@ CMakeFiles/untitled.dir/graphics.cpp.o.provides: CMakeFiles/untitled.dir/graphic
 CMakeFiles/untitled.dir/graphics.cpp.o.provides.build: CMakeFiles/untitled.dir/graphics.cpp.o
 
 
-CMakeFiles/untitled.dir/camera.cpp.o: CMakeFiles/untitled.dir/flags.make
-CMakeFiles/untitled.dir/camera.cpp.o: ../camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/untitled.dir/camera.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/camera.cpp.o -c /home/pi/CLionProjects/BotTracker/camera.cpp
+CMakeFiles/untitled.dir/camera/camera.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/camera/camera.cpp.o: ../camera/camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/untitled.dir/camera/camera.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/camera/camera.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp
 
-CMakeFiles/untitled.dir/camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/camera.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/CLionProjects/BotTracker/camera.cpp > CMakeFiles/untitled.dir/camera.cpp.i
+CMakeFiles/untitled.dir/camera/camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/camera/camera.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp > CMakeFiles/untitled.dir/camera/camera.cpp.i
 
-CMakeFiles/untitled.dir/camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/camera.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/CLionProjects/BotTracker/camera.cpp -o CMakeFiles/untitled.dir/camera.cpp.s
+CMakeFiles/untitled.dir/camera/camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/camera/camera.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp -o CMakeFiles/untitled.dir/camera/camera.cpp.s
 
-CMakeFiles/untitled.dir/camera.cpp.o.requires:
+CMakeFiles/untitled.dir/camera/camera.cpp.o.requires:
 
-.PHONY : CMakeFiles/untitled.dir/camera.cpp.o.requires
+.PHONY : CMakeFiles/untitled.dir/camera/camera.cpp.o.requires
 
-CMakeFiles/untitled.dir/camera.cpp.o.provides: CMakeFiles/untitled.dir/camera.cpp.o.requires
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera.cpp.o.provides.build
-.PHONY : CMakeFiles/untitled.dir/camera.cpp.o.provides
+CMakeFiles/untitled.dir/camera/camera.cpp.o.provides: CMakeFiles/untitled.dir/camera/camera.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/camera.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/camera/camera.cpp.o.provides
 
-CMakeFiles/untitled.dir/camera.cpp.o.provides.build: CMakeFiles/untitled.dir/camera.cpp.o
+CMakeFiles/untitled.dir/camera/camera.cpp.o.provides.build: CMakeFiles/untitled.dir/camera/camera.cpp.o
 
 
-CMakeFiles/untitled.dir/cameracontrol.cpp.o: CMakeFiles/untitled.dir/flags.make
-CMakeFiles/untitled.dir/cameracontrol.cpp.o: ../cameracontrol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/untitled.dir/cameracontrol.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/cameracontrol.cpp.o -c /home/pi/CLionProjects/BotTracker/cameracontrol.cpp
+CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o: ../camera/cameracontrol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.cpp
 
-CMakeFiles/untitled.dir/cameracontrol.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/cameracontrol.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/CLionProjects/BotTracker/cameracontrol.cpp > CMakeFiles/untitled.dir/cameracontrol.cpp.i
+CMakeFiles/untitled.dir/camera/cameracontrol.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/camera/cameracontrol.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.cpp > CMakeFiles/untitled.dir/camera/cameracontrol.cpp.i
 
-CMakeFiles/untitled.dir/cameracontrol.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/cameracontrol.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/CLionProjects/BotTracker/cameracontrol.cpp -o CMakeFiles/untitled.dir/cameracontrol.cpp.s
+CMakeFiles/untitled.dir/camera/cameracontrol.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/camera/cameracontrol.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.cpp -o CMakeFiles/untitled.dir/camera/cameracontrol.cpp.s
 
-CMakeFiles/untitled.dir/cameracontrol.cpp.o.requires:
+CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.requires:
 
-.PHONY : CMakeFiles/untitled.dir/cameracontrol.cpp.o.requires
+.PHONY : CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.requires
 
-CMakeFiles/untitled.dir/cameracontrol.cpp.o.provides: CMakeFiles/untitled.dir/cameracontrol.cpp.o.requires
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/cameracontrol.cpp.o.provides.build
-.PHONY : CMakeFiles/untitled.dir/cameracontrol.cpp.o.provides
+CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.provides: CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.provides
 
-CMakeFiles/untitled.dir/cameracontrol.cpp.o.provides.build: CMakeFiles/untitled.dir/cameracontrol.cpp.o
+CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.provides.build: CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o
+
+
+CMakeFiles/untitled.dir/BotTracker.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/BotTracker.cpp.o: ../BotTracker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/untitled.dir/BotTracker.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/BotTracker.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/BotTracker.cpp
+
+CMakeFiles/untitled.dir/BotTracker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/BotTracker.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/BotTracker.cpp > CMakeFiles/untitled.dir/BotTracker.cpp.i
+
+CMakeFiles/untitled.dir/BotTracker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/BotTracker.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/BotTracker.cpp -o CMakeFiles/untitled.dir/BotTracker.cpp.s
+
+CMakeFiles/untitled.dir/BotTracker.cpp.o.requires:
+
+.PHONY : CMakeFiles/untitled.dir/BotTracker.cpp.o.requires
+
+CMakeFiles/untitled.dir/BotTracker.cpp.o.provides: CMakeFiles/untitled.dir/BotTracker.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/BotTracker.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/BotTracker.cpp.o.provides
+
+CMakeFiles/untitled.dir/BotTracker.cpp.o.provides.build: CMakeFiles/untitled.dir/BotTracker.cpp.o
+
+
+CMakeFiles/untitled.dir/CameraHandler.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../CameraHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/untitled.dir/CameraHandler.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/CameraHandler.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp
+
+CMakeFiles/untitled.dir/CameraHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/CameraHandler.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp > CMakeFiles/untitled.dir/CameraHandler.cpp.i
+
+CMakeFiles/untitled.dir/CameraHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/CameraHandler.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp -o CMakeFiles/untitled.dir/CameraHandler.cpp.s
+
+CMakeFiles/untitled.dir/CameraHandler.cpp.o.requires:
+
+.PHONY : CMakeFiles/untitled.dir/CameraHandler.cpp.o.requires
+
+CMakeFiles/untitled.dir/CameraHandler.cpp.o.provides: CMakeFiles/untitled.dir/CameraHandler.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/CameraHandler.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/CameraHandler.cpp.o.provides
+
+CMakeFiles/untitled.dir/CameraHandler.cpp.o.provides.build: CMakeFiles/untitled.dir/CameraHandler.cpp.o
+
+
+CMakeFiles/untitled.dir/GLWindow.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/GLWindow.cpp.o: ../GLWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/untitled.dir/GLWindow.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/GLWindow.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp
+
+CMakeFiles/untitled.dir/GLWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/GLWindow.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp > CMakeFiles/untitled.dir/GLWindow.cpp.i
+
+CMakeFiles/untitled.dir/GLWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/GLWindow.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp -o CMakeFiles/untitled.dir/GLWindow.cpp.s
+
+CMakeFiles/untitled.dir/GLWindow.cpp.o.requires:
+
+.PHONY : CMakeFiles/untitled.dir/GLWindow.cpp.o.requires
+
+CMakeFiles/untitled.dir/GLWindow.cpp.o.provides: CMakeFiles/untitled.dir/GLWindow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLWindow.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/GLWindow.cpp.o.provides
+
+CMakeFiles/untitled.dir/GLWindow.cpp.o.provides.build: CMakeFiles/untitled.dir/GLWindow.cpp.o
+
+
+CMakeFiles/untitled.dir/GLProgram.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/GLProgram.cpp.o: ../GLProgram.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/untitled.dir/GLProgram.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/GLProgram.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp
+
+CMakeFiles/untitled.dir/GLProgram.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/GLProgram.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp > CMakeFiles/untitled.dir/GLProgram.cpp.i
+
+CMakeFiles/untitled.dir/GLProgram.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/GLProgram.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp -o CMakeFiles/untitled.dir/GLProgram.cpp.s
+
+CMakeFiles/untitled.dir/GLProgram.cpp.o.requires:
+
+.PHONY : CMakeFiles/untitled.dir/GLProgram.cpp.o.requires
+
+CMakeFiles/untitled.dir/GLProgram.cpp.o.provides: CMakeFiles/untitled.dir/GLProgram.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLProgram.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/GLProgram.cpp.o.provides
+
+CMakeFiles/untitled.dir/GLProgram.cpp.o.provides.build: CMakeFiles/untitled.dir/GLProgram.cpp.o
+
+
+CMakeFiles/untitled.dir/GLTexture.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/GLTexture.cpp.o: ../GLTexture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/untitled.dir/GLTexture.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/GLTexture.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.cpp
+
+CMakeFiles/untitled.dir/GLTexture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/GLTexture.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.cpp > CMakeFiles/untitled.dir/GLTexture.cpp.i
+
+CMakeFiles/untitled.dir/GLTexture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/GLTexture.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.cpp -o CMakeFiles/untitled.dir/GLTexture.cpp.s
+
+CMakeFiles/untitled.dir/GLTexture.cpp.o.requires:
+
+.PHONY : CMakeFiles/untitled.dir/GLTexture.cpp.o.requires
+
+CMakeFiles/untitled.dir/GLTexture.cpp.o.provides: CMakeFiles/untitled.dir/GLTexture.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLTexture.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/GLTexture.cpp.o.provides
+
+CMakeFiles/untitled.dir/GLTexture.cpp.o.provides.build: CMakeFiles/untitled.dir/GLTexture.cpp.o
 
 
 # Object files for target untitled
 untitled_OBJECTS = \
 "CMakeFiles/untitled.dir/main.cpp.o" \
 "CMakeFiles/untitled.dir/graphics.cpp.o" \
-"CMakeFiles/untitled.dir/camera.cpp.o" \
-"CMakeFiles/untitled.dir/cameracontrol.cpp.o"
+"CMakeFiles/untitled.dir/camera/camera.cpp.o" \
+"CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o" \
+"CMakeFiles/untitled.dir/BotTracker.cpp.o" \
+"CMakeFiles/untitled.dir/CameraHandler.cpp.o" \
+"CMakeFiles/untitled.dir/GLWindow.cpp.o" \
+"CMakeFiles/untitled.dir/GLProgram.cpp.o" \
+"CMakeFiles/untitled.dir/GLTexture.cpp.o"
 
 # External object files for target untitled
 untitled_EXTERNAL_OBJECTS =
 
 untitled: CMakeFiles/untitled.dir/main.cpp.o
 untitled: CMakeFiles/untitled.dir/graphics.cpp.o
-untitled: CMakeFiles/untitled.dir/camera.cpp.o
-untitled: CMakeFiles/untitled.dir/cameracontrol.cpp.o
+untitled: CMakeFiles/untitled.dir/camera/camera.cpp.o
+untitled: CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o
+untitled: CMakeFiles/untitled.dir/BotTracker.cpp.o
+untitled: CMakeFiles/untitled.dir/CameraHandler.cpp.o
+untitled: CMakeFiles/untitled.dir/GLWindow.cpp.o
+untitled: CMakeFiles/untitled.dir/GLProgram.cpp.o
+untitled: CMakeFiles/untitled.dir/GLTexture.cpp.o
 untitled: CMakeFiles/untitled.dir/build.make
 untitled: /usr/local/lib/libopencv_videostab.so.3.1.0
 untitled: /usr/local/lib/libopencv_superres.so.3.1.0
@@ -185,7 +315,7 @@ untitled: /usr/local/lib/libopencv_video.so.3.1.0
 untitled: /usr/local/lib/libopencv_imgproc.so.3.1.0
 untitled: /usr/local/lib/libopencv_core.so.3.1.0
 untitled: CMakeFiles/untitled.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable untitled"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable untitled"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -195,8 +325,13 @@ CMakeFiles/untitled.dir/build: untitled
 
 CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/main.cpp.o.requires
 CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/graphics.cpp.o.requires
-CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/camera.cpp.o.requires
-CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/cameracontrol.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/camera/camera.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/BotTracker.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/CameraHandler.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/GLWindow.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/GLProgram.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/GLTexture.cpp.o.requires
 
 .PHONY : CMakeFiles/untitled.dir/requires
 
@@ -205,6 +340,6 @@ CMakeFiles/untitled.dir/clean:
 .PHONY : CMakeFiles/untitled.dir/clean
 
 CMakeFiles/untitled.dir/depend:
-	cd /home/pi/CLionProjects/BotTracker/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/CLionProjects/BotTracker /home/pi/CLionProjects/BotTracker /home/pi/CLionProjects/BotTracker/cmake-build-release /home/pi/CLionProjects/BotTracker/cmake-build-release /home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/omniBotProto/BotTracker /home/pi/Desktop/omniBotProto/BotTracker /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release /home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/untitled.dir/depend
 

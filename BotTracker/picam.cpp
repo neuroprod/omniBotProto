@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-#include "camera.h"
+#include "camera/camera.h"
 #include "graphics.h"
 
 #define MAIN_TEXTURE_WIDTH 640
