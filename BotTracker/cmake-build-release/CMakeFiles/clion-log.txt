@@ -1,0 +1,8 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /home/pi/CLionProjects/BotTracker
+-- OpenCV library status:
+--     version: 3.1.0
+--     libraries: opencv_videostab;opencv_videoio;opencv_video;opencv_superres;opencv_stitching;opencv_shape;opencv_photo;opencv_objdetect;opencv_ml;opencv_imgproc;opencv_imgcodecs;opencv_highgui;opencv_flann;opencv_features2d;opencv_core;opencv_calib3d
+--     include path: /usr/local/include/opencv;/usr/local/include
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/CLionProjects/BotTracker/cmake-build-release

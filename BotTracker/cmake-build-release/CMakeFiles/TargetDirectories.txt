@@ -1,0 +1,3 @@
+/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/edit_cache.dir
+/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/rebuild_cache.dir
+/home/pi/CLionProjects/BotTracker/cmake-build-release/CMakeFiles/untitled.dir
