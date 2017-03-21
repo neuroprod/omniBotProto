@@ -9,16 +9,20 @@
 #include <assert.h>
 #include <unistd.h>
 #include <iostream>
+#include <string>
 #include "bcm_host.h"
 
 #include "GLProgram.h"
 
-
-void GLProgram::load()
+using namespace std;
+void GLProgram::load( string name)
 {
     Src =NULL;
-    GLuint  vertexShader =loadShader("simplevertshader.glsl", GL_VERTEX_SHADER);
-    GLuint  fragmentShader =loadShader("simplefragshader.glsl", GL_FRAGMENT_SHADER);
+
+    string nameV =name+".v.glsl";
+    string nameF =name+".f.glsl";
+    GLuint  vertexShader =loadShader(nameV.c_str() , GL_VERTEX_SHADER);
+    GLuint  fragmentShader =loadShader(nameF.c_str(), GL_FRAGMENT_SHADER);
 
     id= glCreateProgram();
     glAttachShader(id, vertexShader);
@@ -29,7 +33,7 @@ void GLProgram::load()
     char log[1024];
     glGetProgramInfoLog(id,sizeof log,NULL,log);
     printf("%d:program:\n%s\n", id, log);
-
+cout<< log<<endl;
 
 
 }

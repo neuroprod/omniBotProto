@@ -9,7 +9,7 @@ CMakeFiles/untitled.dir/BotTracker.cpp.o: ../GLTexture.h
 CMakeFiles/untitled.dir/BotTracker.cpp.o: ../GLWindow.h
 CMakeFiles/untitled.dir/BotTracker.cpp.o: ../camera/camera.h
 CMakeFiles/untitled.dir/BotTracker.cpp.o: ../camera/cameracontrol.h
-CMakeFiles/untitled.dir/BotTracker.cpp.o: ../mmalincludes.h
+CMakeFiles/untitled.dir/BotTracker.cpp.o: ../camera/mmalincludes.h
 CMakeFiles/untitled.dir/BotTracker.cpp.o: /opt/vc/include/EGL/egl.h
 CMakeFiles/untitled.dir/BotTracker.cpp.o: /opt/vc/include/EGL/eglext.h
 CMakeFiles/untitled.dir/BotTracker.cpp.o: /opt/vc/include/EGL/eglext_android.h
@@ -168,10 +168,11 @@ CMakeFiles/untitled.dir/BotTracker.cpp.o: /usr/local/include/opencv2/videoio/vid
 
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../CameraHandler.cpp
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../CameraHandler.h
+CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../GLProgram.h
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../GLTexture.h
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../camera/camera.h
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../camera/cameracontrol.h
-CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../mmalincludes.h
+CMakeFiles/untitled.dir/CameraHandler.cpp.o: ../camera/mmalincludes.h
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: /opt/vc/include/EGL/egl.h
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: /opt/vc/include/EGL/eglext.h
 CMakeFiles/untitled.dir/CameraHandler.cpp.o: /opt/vc/include/EGL/eglext_android.h
@@ -618,7 +619,7 @@ CMakeFiles/untitled.dir/GLWindow.cpp.o: /opt/vc/userland-master/interface/vmcs_h
 CMakeFiles/untitled.dir/camera/camera.cpp.o: ../camera/camera.cpp
 CMakeFiles/untitled.dir/camera/camera.cpp.o: ../camera/camera.h
 CMakeFiles/untitled.dir/camera/camera.cpp.o: ../camera/cameracontrol.h
-CMakeFiles/untitled.dir/camera/camera.cpp.o: ../mmalincludes.h
+CMakeFiles/untitled.dir/camera/camera.cpp.o: ../camera/mmalincludes.h
 CMakeFiles/untitled.dir/camera/camera.cpp.o: /opt/vc/include/bcm_host.h
 CMakeFiles/untitled.dir/camera/camera.cpp.o: /opt/vc/include/interface/mmal/mmal.h
 CMakeFiles/untitled.dir/camera/camera.cpp.o: /opt/vc/include/interface/mmal/mmal_buffer.h
@@ -802,8 +803,8 @@ CMakeFiles/untitled.dir/main.cpp.o: ../GLTexture.h
 CMakeFiles/untitled.dir/main.cpp.o: ../GLWindow.h
 CMakeFiles/untitled.dir/main.cpp.o: ../camera/camera.h
 CMakeFiles/untitled.dir/main.cpp.o: ../camera/cameracontrol.h
+CMakeFiles/untitled.dir/main.cpp.o: ../camera/mmalincludes.h
 CMakeFiles/untitled.dir/main.cpp.o: ../main.cpp
-CMakeFiles/untitled.dir/main.cpp.o: ../mmalincludes.h
 CMakeFiles/untitled.dir/main.cpp.o: /opt/vc/include/EGL/egl.h
 CMakeFiles/untitled.dir/main.cpp.o: /opt/vc/include/EGL/eglext.h
 CMakeFiles/untitled.dir/main.cpp.o: /opt/vc/include/EGL/eglext_android.h

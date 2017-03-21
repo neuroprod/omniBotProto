@@ -8,12 +8,12 @@
 #include "GLES2/gl2.h"
 #include "EGL/egl.h"
 #include "EGL/eglext.h"
-
+#include <string>
 
 class GLProgram {
     public:
     GLProgram(){};
-    void load();
+    void load(std::string name);
     void bind();
     GLuint loadShader(const char* filename, GLenum type);
     void  printShaderInfoLog(GLint shader);

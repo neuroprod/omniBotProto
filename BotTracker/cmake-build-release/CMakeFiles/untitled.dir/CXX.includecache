@@ -35,6 +35,12 @@ opencv2/opencv.hpp
 -
 GLTexture.h
 /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
+GLProgram.h
+/home/pi/Desktop/omniBotProto/BotTracker/GLProgram.h
+iostream
+-
+stdio.h
+-
 
 /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp
 stdio.h
@@ -53,6 +59,8 @@ unistd.h
 -
 iostream
 -
+string
+-
 bcm_host.h
 /home/pi/Desktop/omniBotProto/BotTracker/bcm_host.h
 GLProgram.h
@@ -65,6 +73,8 @@ EGL/egl.h
 /home/pi/Desktop/omniBotProto/BotTracker/EGL/egl.h
 EGL/eglext.h
 /home/pi/Desktop/omniBotProto/BotTracker/EGL/eglext.h
+string
+-
 
 /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.cpp
 GLTexture.h
@@ -121,8 +131,8 @@ stdio.h
 -
 
 /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
-../mmalincludes.h
-/home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
+mmalincludes.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/mmalincludes.h
 cameracontrol.h
 /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
 
@@ -152,6 +162,26 @@ cameracontrol.h
 interface/mmal/mmal.h
 /home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/mmal.h
 
+/home/pi/Desktop/omniBotProto/BotTracker/camera/mmalincludes.h
+bcm_host.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/bcm_host.h
+interface/vcos/vcos.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/vcos/vcos.h
+interface/mmal/mmal.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/mmal.h
+interface/mmal/mmal_logging.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/mmal_logging.h
+interface/mmal/mmal_buffer.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/mmal_buffer.h
+interface/mmal/util/mmal_util.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/util/mmal_util.h
+interface/mmal/util/mmal_util_params.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/util/mmal_util_params.h
+interface/mmal/util/mmal_default_components.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/util/mmal_default_components.h
+interface/mmal/util/mmal_connection.h
+/home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/util/mmal_connection.h
+
 /home/pi/Desktop/omniBotProto/BotTracker/main.cpp
 iostream
 -
@@ -175,26 +205,6 @@ camera/camera.h
 /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
 RF24/RF24.h
 -
-
-/home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
-bcm_host.h
-/home/pi/Desktop/omniBotProto/BotTracker/bcm_host.h
-interface/vcos/vcos.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/vcos/vcos.h
-interface/mmal/mmal.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/mmal/mmal.h
-interface/mmal/mmal_logging.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/mmal/mmal_logging.h
-interface/mmal/mmal_buffer.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/mmal/mmal_buffer.h
-interface/mmal/util/mmal_util.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/mmal/util/mmal_util.h
-interface/mmal/util/mmal_util_params.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/mmal/util/mmal_util_params.h
-interface/mmal/util/mmal_default_components.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/mmal/util/mmal_default_components.h
-interface/mmal/util/mmal_connection.h
-/home/pi/Desktop/omniBotProto/BotTracker/interface/mmal/util/mmal_connection.h
 
 /opt/vc/include/EGL/egl.h
 eglplatform.h

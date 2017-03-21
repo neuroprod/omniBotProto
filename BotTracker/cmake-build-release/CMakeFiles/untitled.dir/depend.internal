@@ -10,7 +10,7 @@ CMakeFiles/untitled.dir/BotTracker.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
- /home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
+ /home/pi/Desktop/omniBotProto/BotTracker/camera/mmalincludes.h
  /opt/vc/include/EGL/egl.h
  /opt/vc/include/EGL/eglext.h
  /opt/vc/include/EGL/eglext_android.h
@@ -169,10 +169,11 @@ CMakeFiles/untitled.dir/BotTracker.cpp.o
 CMakeFiles/untitled.dir/CameraHandler.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp
  /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.h
+ /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.h
  /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
- /home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
+ /home/pi/Desktop/omniBotProto/BotTracker/camera/mmalincludes.h
  /opt/vc/include/EGL/egl.h
  /opt/vc/include/EGL/eglext.h
  /opt/vc/include/EGL/eglext_android.h
@@ -619,7 +620,7 @@ CMakeFiles/untitled.dir/camera/camera.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
- /home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
+ /home/pi/Desktop/omniBotProto/BotTracker/camera/mmalincludes.h
  /opt/vc/include/bcm_host.h
  /opt/vc/include/interface/mmal/mmal.h
  /opt/vc/include/interface/mmal/mmal_buffer.h
@@ -803,8 +804,8 @@ CMakeFiles/untitled.dir/main.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
+ /home/pi/Desktop/omniBotProto/BotTracker/camera/mmalincludes.h
  /home/pi/Desktop/omniBotProto/BotTracker/main.cpp
- /home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
  /opt/vc/include/EGL/egl.h
  /opt/vc/include/EGL/eglext.h
  /opt/vc/include/EGL/eglext_android.h

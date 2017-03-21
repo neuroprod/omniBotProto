@@ -16,9 +16,7 @@ public:
     void draw();
     CameraHandler cameraHandler;
     GLWindow window;
-    GLProgram  baseProgram;
 
-    GLuint GQuadVertexBuffer;
 };
 
 
