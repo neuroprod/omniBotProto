@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <iostream>
 #include "bcm_host.h"
-#include "graphics.h"
+
 #include "GLProgram.h"
 
 

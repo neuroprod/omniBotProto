@@ -25,12 +25,16 @@ GLProgram.h
 /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp
 CameraHandler.h
 /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.h
+GLTexture.h
+/home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
 
 /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.h
 camera/camera.h
 /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
 opencv2/opencv.hpp
 -
+GLTexture.h
+/home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
 
 /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp
 stdio.h
@@ -51,8 +55,6 @@ iostream
 -
 bcm_host.h
 /home/pi/Desktop/omniBotProto/BotTracker/bcm_host.h
-graphics.h
-/home/pi/Desktop/omniBotProto/BotTracker/graphics.h
 GLProgram.h
 /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.h
 
@@ -67,6 +69,10 @@ EGL/eglext.h
 /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.cpp
 GLTexture.h
 /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
+iostream
+-
+stdio.h
+-
 
 /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
 GLES2/gl2.h
@@ -75,6 +81,8 @@ EGL/egl.h
 /home/pi/Desktop/omniBotProto/BotTracker/EGL/egl.h
 EGL/eglext.h
 /home/pi/Desktop/omniBotProto/BotTracker/EGL/eglext.h
+opencv2/opencv.hpp
+-
 
 /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp
 stdio.h
@@ -143,36 +151,6 @@ cameracontrol.h
 /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
 interface/mmal/mmal.h
 /home/pi/Desktop/omniBotProto/BotTracker/camera/interface/mmal/mmal.h
-
-/home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp
-stdio.h
--
-fcntl.h
--
-stdlib.h
--
-string.h
--
-math.h
--
-assert.h
--
-unistd.h
--
-iostream
--
-bcm_host.h
-/home/pi/Desktop/omniBotProto/BotTracker/bcm_host.h
-graphics.h
-/home/pi/Desktop/omniBotProto/BotTracker/graphics.h
-
-/home/pi/Desktop/omniBotProto/BotTracker/graphics.h
-GLES2/gl2.h
-/home/pi/Desktop/omniBotProto/BotTracker/GLES2/gl2.h
-EGL/egl.h
-/home/pi/Desktop/omniBotProto/BotTracker/EGL/egl.h
-EGL/eglext.h
-/home/pi/Desktop/omniBotProto/BotTracker/EGL/eglext.h
 
 /home/pi/Desktop/omniBotProto/BotTracker/main.cpp
 iostream

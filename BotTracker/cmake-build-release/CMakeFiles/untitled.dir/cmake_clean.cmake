@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/untitled.dir/main.cpp.o"
-  "CMakeFiles/untitled.dir/graphics.cpp.o"
   "CMakeFiles/untitled.dir/camera/camera.cpp.o"
   "CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o"
   "CMakeFiles/untitled.dir/BotTracker.cpp.o"

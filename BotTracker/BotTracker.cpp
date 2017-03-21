@@ -15,13 +15,12 @@ void BotTracker::setup()
 
     baseProgram.load();
 
-    float sizeW =5.f/640.f;
-    float sizeH =sizeW* 640.f/480.f;
+
     static const GLfloat quad_vertex_positions[] = {
-            -sizeW, -sizeH,	1.0f, 1.0f,
-            sizeW,-sizeH, 1.0f, 1.0f,
-            -sizeW, sizeH, 1.0f, 1.0f,
-            sizeW, sizeH, 1.0f, 1.0f
+            0.0f, 0.0f,	1.0f, 1.0f,
+            1.0f, 0.0f, 1.0f, 1.0f,
+            0.0f, 1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 1.0f, 1.0f
     };
     glGenBuffers(1, &GQuadVertexBuffer);
 
@@ -41,18 +40,42 @@ void BotTracker::draw()
 {
     window.beginFrame();
 
-
-    GLuint program = baseProgram.id;
+GLuint program= baseProgram.id;
     glUseProgram(program);
-    float drawX = 0;
-    float drawY= 0;
-    glUniform2f(glGetUniformLocation(program,"offset"),drawX,drawY);
+
+
+    glUniform2f(glGetUniformLocation(program,"offset"),-1,-1);
+    glUniform2f(glGetUniformLocation(program,"scale"),2,2);
+    glUniform1i(glGetUniformLocation(program,"tex"), 0);
+
+
     glBindBuffer(GL_ARRAY_BUFFER, GQuadVertexBuffer);
+
+
+    glBindTexture(GL_TEXTURE_2D,cameraHandler.texture.Id);
+
+
     GLuint loc = glGetAttribLocation(program,"vertex");
+
+
     glVertexAttribPointer(loc, 4, GL_FLOAT, 0, 16, 0);
+
+
     glEnableVertexAttribArray(loc);
+
+
     glDrawArrays ( GL_TRIANGLE_STRIP, 0, 4 );
+
+
+    glFinish();
+
+
+    glFlush();
+
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
 
 
     window.endFrame();

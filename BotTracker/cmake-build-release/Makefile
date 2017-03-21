@@ -312,33 +312,6 @@ camera/cameracontrol.cpp.s:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/camera/cameracontrol.cpp.s
 .PHONY : camera/cameracontrol.cpp.s
 
-graphics.o: graphics.cpp.o
-
-.PHONY : graphics.o
-
-# target to build an object file
-graphics.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/graphics.cpp.o
-.PHONY : graphics.cpp.o
-
-graphics.i: graphics.cpp.i
-
-.PHONY : graphics.i
-
-# target to preprocess a source file
-graphics.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/graphics.cpp.i
-.PHONY : graphics.cpp.i
-
-graphics.s: graphics.cpp.s
-
-.PHONY : graphics.s
-
-# target to generate assembly for a file
-graphics.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/graphics.cpp.s
-.PHONY : graphics.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -396,9 +369,6 @@ help:
 	@echo "... camera/cameracontrol.o"
 	@echo "... camera/cameracontrol.i"
 	@echo "... camera/cameracontrol.s"
-	@echo "... graphics.o"
-	@echo "... graphics.i"
-	@echo "... graphics.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

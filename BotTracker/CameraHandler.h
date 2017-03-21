@@ -7,7 +7,7 @@
 
 #include "camera/camera.h"
 #include <opencv2/opencv.hpp>
-
+#include "GLTexture.h"
 class CameraHandler {
 
 public:
@@ -19,7 +19,7 @@ public:
     CCamera* cam ;
     int camWidth ;
     int camHeight ;
-
+    GLTexture texture;
 };
 
 

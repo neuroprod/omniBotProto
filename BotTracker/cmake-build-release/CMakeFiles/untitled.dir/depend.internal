@@ -6,6 +6,7 @@ CMakeFiles/untitled.dir/BotTracker.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/BotTracker.h
  /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.h
  /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.h
+ /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
  /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
@@ -168,9 +169,19 @@ CMakeFiles/untitled.dir/BotTracker.cpp.o
 CMakeFiles/untitled.dir/CameraHandler.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.cpp
  /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.h
+ /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
  /home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
+ /opt/vc/include/EGL/egl.h
+ /opt/vc/include/EGL/eglext.h
+ /opt/vc/include/EGL/eglext_android.h
+ /opt/vc/include/EGL/eglext_brcm.h
+ /opt/vc/include/EGL/eglext_nvidia.h
+ /opt/vc/include/EGL/eglplatform.h
+ /opt/vc/include/GLES2/gl2.h
+ /opt/vc/include/GLES2/gl2platform.h
+ /opt/vc/include/KHR/khrplatform.h
  /opt/vc/include/bcm_host.h
  /opt/vc/include/interface/mmal/mmal.h
  /opt/vc/include/interface/mmal/mmal_buffer.h
@@ -262,6 +273,7 @@ CMakeFiles/untitled.dir/CameraHandler.cpp.o
  /opt/vc/include/interface/vmcs_host/vcgencmd.h
  /opt/vc/include/interface/vmcs_host/vchost_platform_config.h
  /opt/vc/include/vcinclude/common.h
+ /opt/vc/userland-master/interface/khronos/common/khrn_client_mangle.h
  /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform.h
  /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform_types.h
  /opt/vc/userland-master/interface/vmcs_host/linux/vchost_config.h
@@ -319,7 +331,6 @@ CMakeFiles/untitled.dir/CameraHandler.cpp.o
 CMakeFiles/untitled.dir/GLProgram.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.cpp
  /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.h
- /home/pi/Desktop/omniBotProto/BotTracker/graphics.h
  /opt/vc/include/EGL/egl.h
  /opt/vc/include/EGL/eglext.h
  /opt/vc/include/EGL/eglext_android.h
@@ -470,6 +481,57 @@ CMakeFiles/untitled.dir/GLTexture.cpp.o
  /opt/vc/userland-master/interface/khronos/common/khrn_client_mangle.h
  /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform.h
  /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform_types.h
+ /usr/local/include/opencv/cxcore.h
+ /usr/local/include/opencv2/calib3d.hpp
+ /usr/local/include/opencv2/calib3d/calib3d_c.h
+ /usr/local/include/opencv2/core.hpp
+ /usr/local/include/opencv2/core/affine.hpp
+ /usr/local/include/opencv2/core/base.hpp
+ /usr/local/include/opencv2/core/bufferpool.hpp
+ /usr/local/include/opencv2/core/core_c.h
+ /usr/local/include/opencv2/core/cvdef.h
+ /usr/local/include/opencv2/core/cvstd.hpp
+ /usr/local/include/opencv2/core/cvstd.inl.hpp
+ /usr/local/include/opencv2/core/fast_math.hpp
+ /usr/local/include/opencv2/core/hal/interface.h
+ /usr/local/include/opencv2/core/mat.hpp
+ /usr/local/include/opencv2/core/mat.inl.hpp
+ /usr/local/include/opencv2/core/matx.hpp
+ /usr/local/include/opencv2/core/neon_utils.hpp
+ /usr/local/include/opencv2/core/operations.hpp
+ /usr/local/include/opencv2/core/optim.hpp
+ /usr/local/include/opencv2/core/persistence.hpp
+ /usr/local/include/opencv2/core/ptr.inl.hpp
+ /usr/local/include/opencv2/core/saturate.hpp
+ /usr/local/include/opencv2/core/traits.hpp
+ /usr/local/include/opencv2/core/types.hpp
+ /usr/local/include/opencv2/core/types_c.h
+ /usr/local/include/opencv2/core/utility.hpp
+ /usr/local/include/opencv2/core/version.hpp
+ /usr/local/include/opencv2/features2d.hpp
+ /usr/local/include/opencv2/flann/config.h
+ /usr/local/include/opencv2/flann/defines.h
+ /usr/local/include/opencv2/flann/miniflann.hpp
+ /usr/local/include/opencv2/highgui.hpp
+ /usr/local/include/opencv2/highgui/highgui_c.h
+ /usr/local/include/opencv2/imgcodecs.hpp
+ /usr/local/include/opencv2/imgcodecs/imgcodecs_c.h
+ /usr/local/include/opencv2/imgproc.hpp
+ /usr/local/include/opencv2/imgproc/imgproc_c.h
+ /usr/local/include/opencv2/imgproc/types_c.h
+ /usr/local/include/opencv2/ml.hpp
+ /usr/local/include/opencv2/objdetect.hpp
+ /usr/local/include/opencv2/objdetect/detection_based_tracker.hpp
+ /usr/local/include/opencv2/objdetect/objdetect_c.h
+ /usr/local/include/opencv2/opencv.hpp
+ /usr/local/include/opencv2/photo.hpp
+ /usr/local/include/opencv2/photo/photo_c.h
+ /usr/local/include/opencv2/video.hpp
+ /usr/local/include/opencv2/video/background_segm.hpp
+ /usr/local/include/opencv2/video/tracking.hpp
+ /usr/local/include/opencv2/video/tracking_c.h
+ /usr/local/include/opencv2/videoio.hpp
+ /usr/local/include/opencv2/videoio/videoio_c.h
 CMakeFiles/untitled.dir/GLWindow.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp
  /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h
@@ -733,97 +795,14 @@ CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o
  /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform.h
  /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform_types.h
  /opt/vc/userland-master/interface/vmcs_host/linux/vchost_config.h
-CMakeFiles/untitled.dir/graphics.cpp.o
- /home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp
- /home/pi/Desktop/omniBotProto/BotTracker/graphics.h
- /opt/vc/include/EGL/egl.h
- /opt/vc/include/EGL/eglext.h
- /opt/vc/include/EGL/eglext_android.h
- /opt/vc/include/EGL/eglext_brcm.h
- /opt/vc/include/EGL/eglext_nvidia.h
- /opt/vc/include/EGL/eglplatform.h
- /opt/vc/include/GLES2/gl2.h
- /opt/vc/include/GLES2/gl2platform.h
- /opt/vc/include/KHR/khrplatform.h
- /opt/vc/include/bcm_host.h
- /opt/vc/include/interface/vchi/connections/connection.h
- /opt/vc/include/interface/vchi/message_drivers/message.h
- /opt/vc/include/interface/vchi/vchi.h
- /opt/vc/include/interface/vchi/vchi_cfg.h
- /opt/vc/include/interface/vchi/vchi_cfg_internal.h
- /opt/vc/include/interface/vchi/vchi_common.h
- /opt/vc/include/interface/vchi/vchi_mh.h
- /opt/vc/include/interface/vcos/generic/vcos_common.h
- /opt/vc/include/interface/vcos/generic/vcos_generic_blockpool.h
- /opt/vc/include/interface/vcos/generic/vcos_generic_event_flags.h
- /opt/vc/include/interface/vcos/generic/vcos_generic_named_sem.h
- /opt/vc/include/interface/vcos/generic/vcos_generic_quickslow_mutex.h
- /opt/vc/include/interface/vcos/generic/vcos_generic_reentrant_mtx.h
- /opt/vc/include/interface/vcos/generic/vcos_mem_from_malloc.h
- /opt/vc/include/interface/vcos/pthreads/vcos_futex_mutex.h
- /opt/vc/include/interface/vcos/pthreads/vcos_platform.h
- /opt/vc/include/interface/vcos/pthreads/vcos_platform_types.h
- /opt/vc/include/interface/vcos/user_nodefs.h
- /opt/vc/include/interface/vcos/vcos.h
- /opt/vc/include/interface/vcos/vcos_assert.h
- /opt/vc/include/interface/vcos/vcos_atomic_flags.h
- /opt/vc/include/interface/vcos/vcos_attr.h
- /opt/vc/include/interface/vcos/vcos_blockpool.h
- /opt/vc/include/interface/vcos/vcos_cfg.h
- /opt/vc/include/interface/vcos/vcos_cmd.h
- /opt/vc/include/interface/vcos/vcos_event.h
- /opt/vc/include/interface/vcos/vcos_event_flags.h
- /opt/vc/include/interface/vcos/vcos_init.h
- /opt/vc/include/interface/vcos/vcos_inttypes.h
- /opt/vc/include/interface/vcos/vcos_isr.h
- /opt/vc/include/interface/vcos/vcos_legacy_isr.h
- /opt/vc/include/interface/vcos/vcos_logging.h
- /opt/vc/include/interface/vcos/vcos_logging_control.h
- /opt/vc/include/interface/vcos/vcos_mem.h
- /opt/vc/include/interface/vcos/vcos_mempool.h
- /opt/vc/include/interface/vcos/vcos_mutex.h
- /opt/vc/include/interface/vcos/vcos_named_semaphore.h
- /opt/vc/include/interface/vcos/vcos_once.h
- /opt/vc/include/interface/vcos/vcos_queue.h
- /opt/vc/include/interface/vcos/vcos_quickslow_mutex.h
- /opt/vc/include/interface/vcos/vcos_reentrant_mutex.h
- /opt/vc/include/interface/vcos/vcos_semaphore.h
- /opt/vc/include/interface/vcos/vcos_stdint.h
- /opt/vc/include/interface/vcos/vcos_string.h
- /opt/vc/include/interface/vcos/vcos_thread.h
- /opt/vc/include/interface/vcos/vcos_thread_attr.h
- /opt/vc/include/interface/vcos/vcos_timer.h
- /opt/vc/include/interface/vcos/vcos_tls.h
- /opt/vc/include/interface/vcos/vcos_types.h
- /opt/vc/include/interface/vctypes/vc_display_types.h
- /opt/vc/include/interface/vctypes/vc_image_types.h
- /opt/vc/include/interface/vmcs_host/linux/vchost_config.h
- /opt/vc/include/interface/vmcs_host/vc_cec.h
- /opt/vc/include/interface/vmcs_host/vc_cecservice.h
- /opt/vc/include/interface/vmcs_host/vc_cecservice_defs.h
- /opt/vc/include/interface/vmcs_host/vc_dispmanx.h
- /opt/vc/include/interface/vmcs_host/vc_dispmanx_types.h
- /opt/vc/include/interface/vmcs_host/vc_dispservice_x_defs.h
- /opt/vc/include/interface/vmcs_host/vc_hdmi.h
- /opt/vc/include/interface/vmcs_host/vc_hdmi_property.h
- /opt/vc/include/interface/vmcs_host/vc_sdtv.h
- /opt/vc/include/interface/vmcs_host/vc_tvservice.h
- /opt/vc/include/interface/vmcs_host/vc_tvservice_defs.h
- /opt/vc/include/interface/vmcs_host/vcgencmd.h
- /opt/vc/include/interface/vmcs_host/vchost_platform_config.h
- /opt/vc/include/vcinclude/common.h
- /opt/vc/userland-master/interface/khronos/common/khrn_client_mangle.h
- /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform.h
- /opt/vc/userland-master/interface/vcos/pthreads/vcos_platform_types.h
- /opt/vc/userland-master/interface/vmcs_host/linux/vchost_config.h
 CMakeFiles/untitled.dir/main.cpp.o
  /home/pi/Desktop/omniBotProto/BotTracker/BotTracker.h
  /home/pi/Desktop/omniBotProto/BotTracker/CameraHandler.h
  /home/pi/Desktop/omniBotProto/BotTracker/GLProgram.h
+ /home/pi/Desktop/omniBotProto/BotTracker/GLTexture.h
  /home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/camera.h
  /home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h
- /home/pi/Desktop/omniBotProto/BotTracker/graphics.h
  /home/pi/Desktop/omniBotProto/BotTracker/main.cpp
  /home/pi/Desktop/omniBotProto/BotTracker/mmalincludes.h
  /opt/vc/include/EGL/egl.h

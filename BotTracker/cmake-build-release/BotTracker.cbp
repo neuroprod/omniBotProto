@@ -140,12 +140,6 @@
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.h">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp">
-			<Option target="untitled"/>
-		</Unit>
-		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/graphics.h">
-			<Option target="untitled"/>
-		</Unit>
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/main.cpp">
 			<Option target="untitled"/>
 		</Unit>

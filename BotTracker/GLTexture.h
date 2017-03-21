@@ -7,21 +7,22 @@
 #include "GLES2/gl2.h"
 #include "EGL/egl.h"
 #include "EGL/eglext.h"
-
+#include <opencv2/opencv.hpp>
 
 class GLTexture {
     int Width;
     int Height;
-    GLuint Id;
+
 
 public:
 
-    GLTexture() : Width(0), Height(0) {}
+    GLTexture() : Width(0), Height(0), Id(0)  {}
     ~GLTexture() {}
 
     bool create(int width, int height, const void* data = NULL);
     void setPixels(const void* data);
-    GLuint GetId() { return Id; }
+    void setMat( cv::Mat &mat);
+    GLuint Id ;
 };
 
 

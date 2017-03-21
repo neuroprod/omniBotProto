@@ -3,13 +3,14 @@
 //
 
 #include "CameraHandler.h"
+#include "GLTexture.h"
 using namespace std;
 void CameraHandler::setup()
 {
     camWidth =640;
     camHeight =480;
-   cam = StartCamera(camWidth , camHeight,60,1,false);
-
+   cam = StartCamera(camWidth , camHeight,40,1,false);
+   // texture.create( camHeight, camWidth);
 }
 void CameraHandler::update()
 {
@@ -17,14 +18,15 @@ void CameraHandler::update()
     std::vector<cv::Point> centers;
     const void* frame_data; int frame_sz;
     if(cam->BeginReadFrame(0,frame_data,frame_sz)) {
-        void *data = const_cast<void * >(frame_data);
+        //void *data = const_cast<void * >(frame_data);
 
 
         cv::Mat greyMat(camHeight, camWidth, CV_8UC1, const_cast<void * >(frame_data));
 
-
-        threshold(greyMat, greyMat, 200, 255, 0);
-
+        threshold(greyMat, greyMat, 230, 255, 0);
+        cv::Mat color;
+        cv::cvtColor(greyMat,color,cv::COLOR_GRAY2RGB);
+        texture.setMat(color);
         std::vector <std::vector<cv::Point>> contours;
         cv::findContours(greyMat, contours, cv::RETR_LIST, cv::CHAIN_APPROX_NONE);
         for (size_t index = 0; index < contours.size(); index++) {
@@ -34,7 +36,7 @@ void CameraHandler::update()
             centers.push_back(p);
 
         }
-cout << "centers"<<centers.size()<<endl;
+
 
         cam->EndReadFrame(0);
     }

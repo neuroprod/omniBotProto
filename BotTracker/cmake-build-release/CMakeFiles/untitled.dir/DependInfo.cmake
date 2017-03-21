@@ -11,7 +11,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/pi/Desktop/omniBotProto/BotTracker/GLWindow.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/GLWindow.cpp.o"
   "/home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/camera/camera.cpp.o"
   "/home/pi/Desktop/omniBotProto/BotTracker/camera/cameracontrol.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/camera/cameracontrol.cpp.o"
-  "/home/pi/Desktop/omniBotProto/BotTracker/graphics.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/graphics.cpp.o"
   "/home/pi/Desktop/omniBotProto/BotTracker/main.cpp" "/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles/untitled.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

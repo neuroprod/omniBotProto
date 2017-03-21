@@ -35,7 +35,7 @@ include_directories(/opt/vc/userland-master/host_applications/linux/libs/bcm_hos
 #include_directories(${CMAKE_CURRENT_SOURCE_DIR}/glm)
 link_directories(/opt/vc/lib)
 
-set(SOURCE_FILES main.cpp graphics.cpp camera/camera.cpp camera/cameracontrol.cpp mmalincludes.h BotTracker.cpp BotTracker.h CameraHandler.cpp CameraHandler.h GLWindow.cpp GLWindow.h GLProgram.cpp GLProgram.h GLTexture.cpp GLTexture.h)
+set(SOURCE_FILES main.cpp camera/camera.cpp camera/cameracontrol.cpp mmalincludes.h BotTracker.cpp BotTracker.h CameraHandler.cpp CameraHandler.h GLWindow.cpp GLWindow.h GLProgram.cpp GLProgram.h GLTexture.cpp GLTexture.h)
 
 add_executable(untitled ${SOURCE_FILES})
 
