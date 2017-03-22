@@ -252,7 +252,7 @@ error:
 bool CCamera::Init(int width, int height, int framerate, int num_levels, bool do_argb_conversion)
 {
 	//init broadcom host - QUESTION: can this be called more than once??
-	bcm_host_init();
+
 
 	//store basic parameters
 	Width = width;       

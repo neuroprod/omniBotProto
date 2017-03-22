@@ -249,6 +249,54 @@ CMakeFiles/untitled.dir/GLTexture.cpp.o.provides: CMakeFiles/untitled.dir/GLText
 CMakeFiles/untitled.dir/GLTexture.cpp.o.provides.build: CMakeFiles/untitled.dir/GLTexture.cpp.o
 
 
+CMakeFiles/untitled.dir/PositionHandler.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/PositionHandler.cpp.o: ../PositionHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/untitled.dir/PositionHandler.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/PositionHandler.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/PositionHandler.cpp
+
+CMakeFiles/untitled.dir/PositionHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/PositionHandler.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/PositionHandler.cpp > CMakeFiles/untitled.dir/PositionHandler.cpp.i
+
+CMakeFiles/untitled.dir/PositionHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/PositionHandler.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/PositionHandler.cpp -o CMakeFiles/untitled.dir/PositionHandler.cpp.s
+
+CMakeFiles/untitled.dir/PositionHandler.cpp.o.requires:
+
+.PHONY : CMakeFiles/untitled.dir/PositionHandler.cpp.o.requires
+
+CMakeFiles/untitled.dir/PositionHandler.cpp.o.provides: CMakeFiles/untitled.dir/PositionHandler.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionHandler.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/PositionHandler.cpp.o.provides
+
+CMakeFiles/untitled.dir/PositionHandler.cpp.o.provides.build: CMakeFiles/untitled.dir/PositionHandler.cpp.o
+
+
+CMakeFiles/untitled.dir/PositionDrawer.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/PositionDrawer.cpp.o: ../PositionDrawer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/untitled.dir/PositionDrawer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/PositionDrawer.cpp.o -c /home/pi/Desktop/omniBotProto/BotTracker/PositionDrawer.cpp
+
+CMakeFiles/untitled.dir/PositionDrawer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/PositionDrawer.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/omniBotProto/BotTracker/PositionDrawer.cpp > CMakeFiles/untitled.dir/PositionDrawer.cpp.i
+
+CMakeFiles/untitled.dir/PositionDrawer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/PositionDrawer.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/omniBotProto/BotTracker/PositionDrawer.cpp -o CMakeFiles/untitled.dir/PositionDrawer.cpp.s
+
+CMakeFiles/untitled.dir/PositionDrawer.cpp.o.requires:
+
+.PHONY : CMakeFiles/untitled.dir/PositionDrawer.cpp.o.requires
+
+CMakeFiles/untitled.dir/PositionDrawer.cpp.o.provides: CMakeFiles/untitled.dir/PositionDrawer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionDrawer.cpp.o.provides.build
+.PHONY : CMakeFiles/untitled.dir/PositionDrawer.cpp.o.provides
+
+CMakeFiles/untitled.dir/PositionDrawer.cpp.o.provides.build: CMakeFiles/untitled.dir/PositionDrawer.cpp.o
+
+
 # Object files for target untitled
 untitled_OBJECTS = \
 "CMakeFiles/untitled.dir/main.cpp.o" \
@@ -258,7 +306,9 @@ untitled_OBJECTS = \
 "CMakeFiles/untitled.dir/CameraHandler.cpp.o" \
 "CMakeFiles/untitled.dir/GLWindow.cpp.o" \
 "CMakeFiles/untitled.dir/GLProgram.cpp.o" \
-"CMakeFiles/untitled.dir/GLTexture.cpp.o"
+"CMakeFiles/untitled.dir/GLTexture.cpp.o" \
+"CMakeFiles/untitled.dir/PositionHandler.cpp.o" \
+"CMakeFiles/untitled.dir/PositionDrawer.cpp.o"
 
 # External object files for target untitled
 untitled_EXTERNAL_OBJECTS =
@@ -271,6 +321,8 @@ untitled: CMakeFiles/untitled.dir/CameraHandler.cpp.o
 untitled: CMakeFiles/untitled.dir/GLWindow.cpp.o
 untitled: CMakeFiles/untitled.dir/GLProgram.cpp.o
 untitled: CMakeFiles/untitled.dir/GLTexture.cpp.o
+untitled: CMakeFiles/untitled.dir/PositionHandler.cpp.o
+untitled: CMakeFiles/untitled.dir/PositionDrawer.cpp.o
 untitled: CMakeFiles/untitled.dir/build.make
 untitled: /usr/local/lib/libopencv_videostab.so.3.1.0
 untitled: /usr/local/lib/libopencv_superres.so.3.1.0
@@ -289,7 +341,7 @@ untitled: /usr/local/lib/libopencv_video.so.3.1.0
 untitled: /usr/local/lib/libopencv_imgproc.so.3.1.0
 untitled: /usr/local/lib/libopencv_core.so.3.1.0
 untitled: CMakeFiles/untitled.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable untitled"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/omniBotProto/BotTracker/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable untitled"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -305,6 +357,8 @@ CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/CameraHandler.cpp.o.re
 CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/GLWindow.cpp.o.requires
 CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/GLProgram.cpp.o.requires
 CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/GLTexture.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/PositionHandler.cpp.o.requires
+CMakeFiles/untitled.dir/requires: CMakeFiles/untitled.dir/PositionDrawer.cpp.o.requires
 
 .PHONY : CMakeFiles/untitled.dir/requires
 

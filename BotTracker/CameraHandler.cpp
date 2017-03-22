@@ -53,15 +53,15 @@ void CameraHandler::update()
             texture.setMat(color);
 
         }
-        threshold(greyMat, greyMat, 230, 255, 0);
+        threshold(greyMat, greyMat, 150, 255, 0);
 
 
         std::vector <std::vector<cv::Point>> contours;
         cv::findContours(greyMat, contours, cv::RETR_LIST, cv::CHAIN_APPROX_NONE);
         for (size_t index = 0; index < contours.size(); index++) {
             cv::Moments moms = cv::moments(cv::Mat(contours[index]));
-            cv::Point p = cv::Point(moms.m10 / moms.m00, moms.m01 / moms.m00);
-
+          //cout<<" moms"<< moms.m10 <<" "<< moms.m00<< " "<< moms.m01 / moms.m00<<endl;
+            glm::vec2 p = glm::vec2(moms.m10 / moms.m00, moms.m01 / moms.m00);
             centers.push_back(p);
 
         }

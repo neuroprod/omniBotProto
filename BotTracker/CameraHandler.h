@@ -5,6 +5,7 @@
 #ifndef BOTTRACKER_CAMERAHANDLER_H
 #define BOTTRACKER_CAMERAHANDLER_H
 
+#include <glm/vec2.hpp>
 #include "camera/camera.h"
 #include <opencv2/opencv.hpp>
 #include "GLTexture.h"
@@ -30,7 +31,7 @@ public:
     GLTexture texture;
     GLProgram  baseProgram;
     GLuint GQuadVertexBuffer;
-    std::vector<cv::Point> centers;
+    std::vector<glm::vec2> centers;
 };
 
 

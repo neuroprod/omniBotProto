@@ -50,6 +50,7 @@
 					<Add directory="/opt/vc/userland-master/interface/vcos/pthreads"/>
 					<Add directory="/opt/vc/userland-master/interface/vmcs_host/linux"/>
 					<Add directory="/opt/vc/userland-master/host_applications/linux/libs/bcm_host/include"/>
+					<Add directory="/usr/local/include/glm"/>
 					<Add directory="/usr/local/include/opencv"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/4.9/include"/>
@@ -80,6 +81,7 @@
 					<Add directory="/opt/vc/userland-master/interface/vcos/pthreads"/>
 					<Add directory="/opt/vc/userland-master/interface/vmcs_host/linux"/>
 					<Add directory="/opt/vc/userland-master/host_applications/linux/libs/bcm_host/include"/>
+					<Add directory="/usr/local/include/glm"/>
 					<Add directory="/usr/local/include/opencv"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/4.9/include"/>
@@ -126,6 +128,18 @@
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/PositionDrawer.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/PositionDrawer.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/PositionHandler.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/PositionHandler.h">
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp">

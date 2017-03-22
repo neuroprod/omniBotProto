@@ -258,6 +258,60 @@ GLWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLWindow.cpp.s
 .PHONY : GLWindow.cpp.s
 
+PositionDrawer.o: PositionDrawer.cpp.o
+
+.PHONY : PositionDrawer.o
+
+# target to build an object file
+PositionDrawer.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionDrawer.cpp.o
+.PHONY : PositionDrawer.cpp.o
+
+PositionDrawer.i: PositionDrawer.cpp.i
+
+.PHONY : PositionDrawer.i
+
+# target to preprocess a source file
+PositionDrawer.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionDrawer.cpp.i
+.PHONY : PositionDrawer.cpp.i
+
+PositionDrawer.s: PositionDrawer.cpp.s
+
+.PHONY : PositionDrawer.s
+
+# target to generate assembly for a file
+PositionDrawer.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionDrawer.cpp.s
+.PHONY : PositionDrawer.cpp.s
+
+PositionHandler.o: PositionHandler.cpp.o
+
+.PHONY : PositionHandler.o
+
+# target to build an object file
+PositionHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionHandler.cpp.o
+.PHONY : PositionHandler.cpp.o
+
+PositionHandler.i: PositionHandler.cpp.i
+
+.PHONY : PositionHandler.i
+
+# target to preprocess a source file
+PositionHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionHandler.cpp.i
+.PHONY : PositionHandler.cpp.i
+
+PositionHandler.s: PositionHandler.cpp.s
+
+.PHONY : PositionHandler.s
+
+# target to generate assembly for a file
+PositionHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionHandler.cpp.s
+.PHONY : PositionHandler.cpp.s
+
 camera/camera.o: camera/camera.cpp.o
 
 .PHONY : camera/camera.o
@@ -363,6 +417,12 @@ help:
 	@echo "... GLWindow.o"
 	@echo "... GLWindow.i"
 	@echo "... GLWindow.s"
+	@echo "... PositionDrawer.o"
+	@echo "... PositionDrawer.i"
+	@echo "... PositionDrawer.s"
+	@echo "... PositionHandler.o"
+	@echo "... PositionHandler.i"
+	@echo "... PositionHandler.s"
 	@echo "... camera/camera.o"
 	@echo "... camera/camera.i"
 	@echo "... camera/camera.s"

@@ -114,7 +114,7 @@ void raspicamcontrol_set_defaults(RASPICAM_CAMERA_PARAMETERS *params)
    params->vflip = 1;
    params->roi.x = params->roi.y = 0.0;
    params->roi.w = params->roi.h = 1.0;
-   params->shutter_speed = 500;          // 0 = auto
+   params->shutter_speed = 200;          // 0 = auto
 }
 
 /**

@@ -15,7 +15,7 @@
 void GLWindow::setup(int width, int height)
 {
 
-    //_host_init();
+
     int32_t success = 0;
     EGLBoolean result;
     EGLint num_config;

@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/untitled.dir/GLWindow.cpp.o"
   "CMakeFiles/untitled.dir/GLProgram.cpp.o"
   "CMakeFiles/untitled.dir/GLTexture.cpp.o"
+  "CMakeFiles/untitled.dir/PositionHandler.cpp.o"
+  "CMakeFiles/untitled.dir/PositionDrawer.cpp.o"
   "untitled.pdb"
   "untitled"
 )

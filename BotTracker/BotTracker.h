@@ -5,6 +5,7 @@
 #ifndef BOTTRACKER_BOTTRACKER_H
 #define BOTTRACKER_BOTTRACKER_H
 #include "CameraHandler.h"
+#include "PositionHandler.h"
 #include "GLWindow.h"
 #include "GLProgram.h"
 class BotTracker {
@@ -14,6 +15,8 @@ public:
     void setup();
     void update(double elapsed);
     void draw();
+
+    PositionHandler positionHandler;
     CameraHandler cameraHandler;
     GLWindow window;
 

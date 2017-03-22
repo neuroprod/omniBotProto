@@ -32,10 +32,11 @@ include_directories(/opt/vc/userland-master)
 include_directories(/opt/vc/userland-master/interface/vcos/pthreads)
 include_directories(/opt/vc/userland-master/interface/vmcs_host/linux)
 include_directories(/opt/vc/userland-master/host_applications/linux/libs/bcm_host/include)
+include_directories(/usr/local/include/glm)
 #include_directories(${CMAKE_CURRENT_SOURCE_DIR}/glm)
 link_directories(/opt/vc/lib)
 
-set(SOURCE_FILES main.cpp camera/camera.cpp camera/cameracontrol.cpp camera/mmalincludes.h BotTracker.cpp BotTracker.h CameraHandler.cpp CameraHandler.h GLWindow.cpp GLWindow.h GLProgram.cpp GLProgram.h GLTexture.cpp GLTexture.h)
+set(SOURCE_FILES main.cpp camera/camera.cpp camera/cameracontrol.cpp camera/mmalincludes.h BotTracker.cpp BotTracker.h CameraHandler.cpp CameraHandler.h GLWindow.cpp GLWindow.h GLProgram.cpp GLProgram.h GLTexture.cpp GLTexture.h PositionHandler.cpp PositionHandler.h PositionDrawer.cpp PositionDrawer.h)
 
 add_executable(untitled ${SOURCE_FILES})
 
