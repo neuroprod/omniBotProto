@@ -17,10 +17,10 @@ void BotTracker::setup()
 
     cameraHandler.setup();
     cameraHandler.setupDraw();
-    //cameraHandler.drawTexture =true;
+    cameraHandler.drawTexture =false;
 
     positionHandler.setup();
-   radioHandler.setup();
+   //radioHandler.setup();
     keyHandler.GScreenHeight =window.GScreenHeightT;
     keyHandler.GScreenWidth =window.GScreenWidthT;
 }
@@ -30,7 +30,7 @@ void BotTracker::update(double ellapsed)
     keyHandler.update();
     positionHandler.setPoints(cameraHandler.centers);
     positionHandler.setMouse(keyHandler.xapp,480-keyHandler.yapp);
-   radioHandler.send(0,positionHandler.motorSpeed.x,positionHandler.motorSpeed.y,positionHandler.motorSpeed.z);
+   //radioHandler.send(0,positionHandler.motorSpeed.x,positionHandler.motorSpeed.y,positionHandler.motorSpeed.z);
     //cout<< 1000/ellapsed<<endl;
 }
 void BotTracker::draw()

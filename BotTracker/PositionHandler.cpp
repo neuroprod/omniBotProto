@@ -47,6 +47,16 @@ void PositionHandler::setPoints(std::vector<glm::vec2> rawPoints)
 
         }
         nDir = glm::normalize(pDir - pCenter);
+
+        dirAngle =atan2(nDir.y,nDir.x)+(3.1415f/2.f)+3.1415f;
+        while( dirAngle >3.1415f)
+        {
+            dirAngle-=3.1415*2.0;
+        }
+        while( dirAngle < -3.1415f)
+        {
+            dirAngle+=3.1415*2.0;
+        }
         makeMoveVector();
         resolveMoveVector();
     }else{
@@ -64,26 +74,42 @@ void PositionHandler::makeMoveVector()
       moveVector.x=0;
       moveVector.y=0;
   }else {
-      moveVector.x = mousePos.x - pCenter.x;
-      moveVector.y = mousePos.y - pCenter.y;
+      moveVector.x = pCenter.x- mousePos.x;
+      moveVector.y =  pCenter.y-mousePos.y ;
+      moveVector.x *= 1;
+      moveVector.y*= 1;
       float size =glm::length(moveVector);
-      if (size>0.3)
+float factor =1;
+      if(size<40)
+      {
+          factor =(size)/40.f;
+
+      }
+     // cout<<factor<<endl;
+
+      if (size>2.0)
       {
 
           moveVector/=size;
-          moveVector*=0.3;
+          moveVector*=2.0;
 
       }
+      moveVector*=factor;
   }
 }
 void PositionHandler::resolveMoveVector()
 {
 
-
-    motorSpeed.x =moveVector.x;
-    motorSpeed.y =moveVector.x*cosM120-moveVector.y*sinM120;
-    motorSpeed.z =moveVector.x*cos120-moveVector.y*sin120;
-
+    moveVectorR.x = moveVector.x*cos( dirAngle)-moveVector.y*sin(dirAngle);
+    moveVectorR.y = moveVector.x*sin( dirAngle)+moveVector.y*cos(dirAngle);
+    float dirAngleComp =dirAngle*5;
+    if(dirAngleComp>1)dirAngleComp=1;
+    float vecX =moveVector.x;
+    float vecY =moveVector.y;
+    motorSpeed.x =vecX -dirAngleComp;
+    motorSpeed.y =vecX*cosM120-vecY *sinM120-dirAngleComp;
+    motorSpeed.z =vecX*cos120-vecY *sin120-dirAngleComp;
+cout<<dirAngle<<" " <<vecX<<" " <<vecY<<endl;
 }
 void PositionHandler::setMouse(int x,int y)
 {
@@ -98,7 +124,9 @@ void PositionHandler::draw()
     drawer.drawCircle( pCenter);
 
     drawer.drawLine( pCenter,pCenter+nDir*20.f);
-
-    drawer.drawLine(  mousePos, mousePos+vec2(10,10));
-    drawer.drawLine( pCenter,pCenter+moveVector);
+    glLineWidth(4);
+    drawer.drawLine(  mousePos-vec2(20,20), mousePos+vec2(20,20));
+    drawer.drawLine(  mousePos-vec2(20,-20), mousePos+vec2(20,-20));
+    //drawer.drawLine( pCenter,pCenter+moveVector*20.f);
+    //drawer.drawLine( pCenter,pCenter+moveVectorR*30.f);
 }

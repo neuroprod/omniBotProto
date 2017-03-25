@@ -26,7 +26,9 @@ public:
     glm::vec2 nDir;
     glm::vec3 motorSpeed;
     glm::vec2 moveVector;
+    glm::vec2 moveVectorR;
     glm::vec2 mousePos;
+    float dirAngle;
 };
 
 

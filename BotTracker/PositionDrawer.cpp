@@ -84,7 +84,7 @@ void PositionDrawer::drawLine(glm::vec2 p1, glm::vec2 p2)
     glUseProgram(program);
 
     glUniform2f(glGetUniformLocation(program, "offset"), 0, 0);
-    glUniform3f(glGetUniformLocation(program, "color"), 1.0, 0.0,0.0);
+    glUniform3f(glGetUniformLocation(program, "color"), 1.0, 1.0,1.0);
     glm::vec2 pd1 =makeGL(p1);
     glm::vec2 pd2 =makeGL(p2);
     GLuint loc = glGetAttribLocation(program, "vertex");
