@@ -73,6 +73,8 @@ void GLWindow::setup(int width, int height)
     // create an EGL window surface
     success = graphics_get_display_size(0 /* LCD */, &GScreenWidth, &GScreenHeight);
     assert( success >= 0 );
+    GScreenWidthT = GScreenWidth;
+    GScreenHeightT =GScreenHeight;
     GScreenWidth = width;
     GScreenHeight =height;
     dst_rect.x = 0;

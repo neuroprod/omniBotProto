@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/untitled.dir/GLTexture.cpp.o"
   "CMakeFiles/untitled.dir/PositionHandler.cpp.o"
   "CMakeFiles/untitled.dir/PositionDrawer.cpp.o"
+  "CMakeFiles/untitled.dir/RadioHandler.cpp.o"
+  "CMakeFiles/untitled.dir/KeyHandler.cpp.o"
   "untitled.pdb"
   "untitled"
 )

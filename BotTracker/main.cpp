@@ -12,13 +12,13 @@
 #include <chrono>
 #include "graphics.h"
 #include "camera/camera.h"
-#include <RF24/RF24.h>
+include <RF24/RF24.h>
 */
-
+#include <RF24/RF24.h>
 
 
 BotTracker tracker;
-//RF24 radio(RPI_V2_GPIO_P1_23, RPI_V2_GPIO_P1_24, BCM2835_SPI_SPEED_8MHZ);
+RF24 radio(RPI_V2_GPIO_P1_23, RPI_V2_GPIO_P1_24, BCM2835_SPI_SPEED_8MHZ);
 //const uint8_t pipes[][6] = {"1Node","2Node"};
 int main() {
 

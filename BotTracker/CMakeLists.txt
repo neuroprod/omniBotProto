@@ -36,7 +36,7 @@ include_directories(/usr/local/include/glm)
 #include_directories(${CMAKE_CURRENT_SOURCE_DIR}/glm)
 link_directories(/opt/vc/lib)
 
-set(SOURCE_FILES main.cpp camera/camera.cpp camera/cameracontrol.cpp camera/mmalincludes.h BotTracker.cpp BotTracker.h CameraHandler.cpp CameraHandler.h GLWindow.cpp GLWindow.h GLProgram.cpp GLProgram.h GLTexture.cpp GLTexture.h PositionHandler.cpp PositionHandler.h PositionDrawer.cpp PositionDrawer.h)
+set(SOURCE_FILES main.cpp camera/camera.cpp camera/cameracontrol.cpp camera/mmalincludes.h BotTracker.cpp BotTracker.h CameraHandler.cpp CameraHandler.h GLWindow.cpp GLWindow.h GLProgram.cpp GLProgram.h GLTexture.cpp GLTexture.h PositionHandler.cpp PositionHandler.h PositionDrawer.cpp PositionDrawer.h RadioHandler.cpp RadioHandler.h KeyHandler.cpp KeyHandler.h)
 
 add_executable(untitled ${SOURCE_FILES})
 

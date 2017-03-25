@@ -130,6 +130,12 @@
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/GLWindow.h">
 			<Option target="untitled"/>
 		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/KeyHandler.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/KeyHandler.h">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/PositionDrawer.cpp">
 			<Option target="untitled"/>
 		</Unit>
@@ -140,6 +146,12 @@
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/PositionHandler.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/RadioHandler.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/RadioHandler.h">
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/pi/Desktop/omniBotProto/BotTracker/camera/camera.cpp">

@@ -8,6 +8,8 @@
 #include "PositionHandler.h"
 #include "GLWindow.h"
 #include "GLProgram.h"
+#include "RadioHandler.h"
+#include "KeyHandler.h"
 class BotTracker {
 
 public:
@@ -19,7 +21,8 @@ public:
     PositionHandler positionHandler;
     CameraHandler cameraHandler;
     GLWindow window;
-
+    RadioHandler radioHandler;
+    KeyHandler keyHandler;
 };
 
 

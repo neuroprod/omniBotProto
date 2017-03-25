@@ -3,6 +3,12 @@
 //
 #include <glm/glm.hpp>
 #include "PositionHandler.h"
+
+
+#define sin120 0.866025
+#define cos120 -0.5
+#define sinM120 -0.866025
+#define cosM120 -0.5
 using namespace std;
 using namespace glm;
 void PositionHandler::setup()
@@ -41,11 +47,50 @@ void PositionHandler::setPoints(std::vector<glm::vec2> rawPoints)
 
         }
         nDir = glm::normalize(pDir - pCenter);
+        makeMoveVector();
+        resolveMoveVector();
+    }else{
+        motorSpeed.x =0;
+        motorSpeed.y =0;
+        motorSpeed.z =0;
     }
 
 
 }
+void PositionHandler::makeMoveVector()
+{
+  if(mousePos.x> 640 ||mousePos.y<0)
+  {
+      moveVector.x=0;
+      moveVector.y=0;
+  }else {
+      moveVector.x = mousePos.x - pCenter.x;
+      moveVector.y = mousePos.y - pCenter.y;
+      float size =glm::length(moveVector);
+      if (size>0.3)
+      {
 
+          moveVector/=size;
+          moveVector*=0.3;
+
+      }
+  }
+}
+void PositionHandler::resolveMoveVector()
+{
+
+
+    motorSpeed.x =moveVector.x;
+    motorSpeed.y =moveVector.x*cosM120-moveVector.y*sinM120;
+    motorSpeed.z =moveVector.x*cos120-moveVector.y*sin120;
+
+}
+void PositionHandler::setMouse(int x,int y)
+{
+    mousePos.x =x;
+    mousePos.y =y;
+
+}
 void PositionHandler::draw()
 {
     glLineWidth(2);
@@ -53,4 +98,7 @@ void PositionHandler::draw()
     drawer.drawCircle( pCenter);
 
     drawer.drawLine( pCenter,pCenter+nDir*20.f);
+
+    drawer.drawLine(  mousePos, mousePos+vec2(10,10));
+    drawer.drawLine( pCenter,pCenter+moveVector);
 }

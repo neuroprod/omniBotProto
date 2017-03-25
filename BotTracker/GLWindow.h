@@ -18,7 +18,8 @@ public:
     void beginFrame();
     void endFrame();
 
-
+    uint32_t GScreenWidthT;
+    uint32_t GScreenHeightT;
 
     uint32_t GScreenWidth;
     uint32_t GScreenHeight;

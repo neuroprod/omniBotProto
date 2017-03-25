@@ -3,6 +3,7 @@
 //
 #include <glm/vec3.hpp>
 #include "BotTracker.h"
+
 #include <iostream>
 #include <stdio.h>
 
@@ -16,18 +17,20 @@ void BotTracker::setup()
 
     cameraHandler.setup();
     cameraHandler.setupDraw();
-    cameraHandler.drawTexture =true;
+    //cameraHandler.drawTexture =true;
 
     positionHandler.setup();
-
-    glm::vec3 a =glm::vec3(10.f,10.f,10.f);
-
+   radioHandler.setup();
+    keyHandler.GScreenHeight =window.GScreenHeightT;
+    keyHandler.GScreenWidth =window.GScreenWidthT;
 }
 void BotTracker::update(double ellapsed)
 {
-
-   cameraHandler.update();
+    cameraHandler.update();
+    keyHandler.update();
     positionHandler.setPoints(cameraHandler.centers);
+    positionHandler.setMouse(keyHandler.xapp,480-keyHandler.yapp);
+   radioHandler.send(0,positionHandler.motorSpeed.x,positionHandler.motorSpeed.y,positionHandler.motorSpeed.z);
     //cout<< 1000/ellapsed<<endl;
 }
 void BotTracker::draw()

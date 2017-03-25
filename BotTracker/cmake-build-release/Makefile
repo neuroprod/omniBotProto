@@ -258,6 +258,33 @@ GLWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/GLWindow.cpp.s
 .PHONY : GLWindow.cpp.s
 
+KeyHandler.o: KeyHandler.cpp.o
+
+.PHONY : KeyHandler.o
+
+# target to build an object file
+KeyHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/KeyHandler.cpp.o
+.PHONY : KeyHandler.cpp.o
+
+KeyHandler.i: KeyHandler.cpp.i
+
+.PHONY : KeyHandler.i
+
+# target to preprocess a source file
+KeyHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/KeyHandler.cpp.i
+.PHONY : KeyHandler.cpp.i
+
+KeyHandler.s: KeyHandler.cpp.s
+
+.PHONY : KeyHandler.s
+
+# target to generate assembly for a file
+KeyHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/KeyHandler.cpp.s
+.PHONY : KeyHandler.cpp.s
+
 PositionDrawer.o: PositionDrawer.cpp.o
 
 .PHONY : PositionDrawer.o
@@ -311,6 +338,33 @@ PositionHandler.s: PositionHandler.cpp.s
 PositionHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/PositionHandler.cpp.s
 .PHONY : PositionHandler.cpp.s
+
+RadioHandler.o: RadioHandler.cpp.o
+
+.PHONY : RadioHandler.o
+
+# target to build an object file
+RadioHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/RadioHandler.cpp.o
+.PHONY : RadioHandler.cpp.o
+
+RadioHandler.i: RadioHandler.cpp.i
+
+.PHONY : RadioHandler.i
+
+# target to preprocess a source file
+RadioHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/RadioHandler.cpp.i
+.PHONY : RadioHandler.cpp.i
+
+RadioHandler.s: RadioHandler.cpp.s
+
+.PHONY : RadioHandler.s
+
+# target to generate assembly for a file
+RadioHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/RadioHandler.cpp.s
+.PHONY : RadioHandler.cpp.s
 
 camera/camera.o: camera/camera.cpp.o
 
@@ -417,12 +471,18 @@ help:
 	@echo "... GLWindow.o"
 	@echo "... GLWindow.i"
 	@echo "... GLWindow.s"
+	@echo "... KeyHandler.o"
+	@echo "... KeyHandler.i"
+	@echo "... KeyHandler.s"
 	@echo "... PositionDrawer.o"
 	@echo "... PositionDrawer.i"
 	@echo "... PositionDrawer.s"
 	@echo "... PositionHandler.o"
 	@echo "... PositionHandler.i"
 	@echo "... PositionHandler.s"
+	@echo "... RadioHandler.o"
+	@echo "... RadioHandler.i"
+	@echo "... RadioHandler.s"
 	@echo "... camera/camera.o"
 	@echo "... camera/camera.i"
 	@echo "... camera/camera.s"

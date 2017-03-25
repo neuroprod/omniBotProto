@@ -53,7 +53,7 @@ void CameraHandler::update()
             texture.setMat(color);
 
         }
-        threshold(greyMat, greyMat, 150, 255, 0);
+        threshold(greyMat, greyMat, 100, 255, 0);
 
 
         std::vector <std::vector<cv::Point>> contours;
