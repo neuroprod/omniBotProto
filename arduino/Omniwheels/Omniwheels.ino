@@ -79,16 +79,15 @@ void setup() {
     radio.openWritingPipe(addresses[0]);
     radio.openReadingPipe(1,addresses[1]);
   }
+   radio.startListening();
 
-  radio.startListening();
 
-
-  Wire.begin();
-  compass.init();
-  compass.enableDefault();
+  //Wire.begin();
+  //compass.init();
+  //compass.enableDefault();
  
-  compass.m_min = (LSM303::vector<int16_t>){-32767, -32767, -32767};
-  compass.m_max = (LSM303::vector<int16_t>){+32767, +32767, +32767};
+  //compass.m_min = (LSM303::vector<int16_t>){-32767, -32767, -32767};
+  //compass.m_max = (LSM303::vector<int16_t>){+32767, +32767, +32767};
 
 
 
@@ -147,7 +146,8 @@ void setup() {
   analogWrite(pmwPin1, 0);
   analogWrite(pmwPin2, 0);
   analogWrite(pmwPin3, 0);
-
+  Serial.println("READY");
+  //radio.printDetails();
   
 }
 
@@ -161,12 +161,17 @@ void loop() {
 
   if(motorUpdateTime>10000)
   {
+   // radio.stopListening();
+    unsigned long error =123;
+    //radio.write( &error, sizeof( unsigned long) );  
+   // radio.startListening();
+  
       count++;
       float secEllpased = motorUpdateTime/1000000.f;
       float speedFactor = (secEllpased*  64.f*43.7f);
       motorUpdateTime -=10000;
 
-     compass.read();
+    /* compass.read();
       float heading = compass.heading();
       float headingInv = heading- 360;
       if(abs(heading-targetRotate) >abs(headingInv-targetRotate))
@@ -178,6 +183,8 @@ void loop() {
       SetpointR += (heading-SetpointR)/2.f  ;
       InputR = targetRotate;
       pidR.Compute();
+*/
+       OutputR =0;
      // Serial.print(  targetRotate);
       //Serial.print(  " ");
       //Serial.println( SetpointR);
@@ -270,14 +277,21 @@ void loop() {
 
 void handleSerialInput()
 {
-   
+   //Serial.println("radi");
     if( radio.available())
-    {                                                    // Variable for the received timestamp
-      while (radio.available()) {                          // While there is data ready
+    {                                                    
+      while (radio.available()) {      // While there is data ready
+
+        Serial.println("DATA");
+         //radio.read( &radioData, sizeof(radioData) );
+       //  unsigned long got_time;                                 // Grab the response, compare, and send to debugging spew
+        //radio.read( &got_time, sizeof(unsigned long) );
+        //return;
         radio.read( &radioData, sizeof(radioData) );             // Get the payload
       }
       if(radioData.type==0)
       {
+        
           SetpointMove1 =radioData.value1;
           SetpointMove2 =radioData.value2;
           SetpointMove3 =radioData.value3;
@@ -302,9 +316,9 @@ void handleSerialInput()
           KdR =radioData.value3;
           pidR.SetTunings(KpR, KiR, KdR);
        }
-      radio.stopListening();                               // First, stop listening so we can talk  
-      int error =0;                      
-      radio.write( &error, sizeof(int) );              // Send the final one back.      
+     radio.stopListening();                               // First, stop listening so we can talk  
+      //int error =0;                      
+      //radio.write( &error, sizeof(int) );              // Send the final one back.      
       radio.startListening();    
     }
    if (Serial.available() > 0) {
