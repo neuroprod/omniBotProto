@@ -1,0 +1,26 @@
+-x
+c++
+-arch
+x86_64
+-std=c++11
+-stdlib=libc++
+-fpascal-strings
+-O3
+-DNDEBUG=1
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
+-fasm-blocks
+-ffast-math
+-mmacosx-version-min=10.8
+-fvisibility-inlines-hidden
+-iquote
+-iquote
+-iquote../../../cinder_master/include
+-iquote../include
+-I/Users/kris/Documents/omniBotProto/Game_PC/xcode/build/Release/include
+-I../../../cinder_master/include
+-F/Users/kris/Documents/omniBotProto/Game_PC/xcode/build/Release
+x86_64-apple-darwin16.3.0
+"4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)"
+SDK_PRODUCT_BUILD_VERSION=16C58
+16C58
