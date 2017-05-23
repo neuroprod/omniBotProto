@@ -92,7 +92,7 @@ void Player::draw()
 {
 
 
-    gl::color(1,1,1);
+    gl::color(0.5,0.5,0.5);
     gl::drawSolidCircle(drawPosition2D, robotSize);
 
 }

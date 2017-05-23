@@ -38,7 +38,7 @@ class Game_PCApp : public App {
    
  
     bool debugView =false;
-    bool useCameraPositioning =false;
+    bool useCameraPositioning =true;
     vec2 mousePos;
     
     float   mFrameRate;
@@ -181,7 +181,7 @@ void Game_PCApp::draw()
         }
         mParams->draw();
     }
-   // console()<<getAverageFps()<<endl;
+  //console()<<getAverageFps()<<endl;
    
 }
 

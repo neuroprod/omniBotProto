@@ -10,7 +10,7 @@
 #include "glm/gtc/random.hpp"
 #include "cinder/gl/gl.h"
 #include "cinder/Perlin.h"
-
+#include "glm/gtc/matrix_transform.hpp"
 
 using namespace std;
 using namespace ci;
@@ -43,22 +43,20 @@ void ParticleHandler::setup(float radius, glm::vec2 centerPos)
 
 
     
-    leaveMap=gl::Texture::create( loadImage( loadAsset("leave.png") ) );
+ 
     gradientMap=gl::Texture::create( loadImage( loadAsset("gradient.png") ) );
     
     mGlsl = gl::GlslProg::create( loadAsset( "shader.vert" ), loadAsset( "shader.frag" ) );
-    mGlsl->uniform( "uDiffuseMap", 0 );
-     mGlsl->uniform( "uGradientMap", 1 );
+  
     
      mGlslPlain = gl::GlslProg::create( loadAsset( "shaderPlain.vert" ), loadAsset( "shaderPlain.frag" ) );
-    //gl::VboMeshRef mesh = gl::VboMesh::create( ci::geom::Circle().radius (3) );
+    
     
     gl::VboMeshRef mesh= buildVBOMesh();
     
     float sqrRadius =radius*radius;
-    std::vector<vec4> positions;
-     std::vector<vec4> axsises;
-    std::vector<float> colors;
+    std::vector<  glm::mat4> positions;
+    std::vector<  glm::vec2> colors;
     ci::Perlin pnois=Perlin();
                             
                             
@@ -66,78 +64,83 @@ void ParticleHandler::setup(float radius, glm::vec2 centerPos)
        for(int i =0;i< numParticle;i++)
     {
         ParticleRef p= Particle::create();
-        glm::vec2 randomPos = glm::vec2(glm::linearRand(-radius, radius),glm::linearRand(-radius, radius));
         
-        
+        glm::vec2 randomPos;
         bool found =false;
         while(!found){
         
-            if(glm::length2( randomPos)< sqrRadius)
+             randomPos = glm::vec2(glm::linearRand(-radius, radius),glm::linearRand(-radius, radius));
+            if(glm::length2( randomPos)< sqrRadius  )
             {
-                found =true;
-            }else
-            {
-            
-                randomPos = glm::vec2(glm::linearRand(-radius, radius),glm::linearRand(-radius, radius));
-
-            
+                if(pnois.fBm(randomPos.x/200, randomPos.y/200)<-0.1)
+                {
+                
+                    if(glm::linearRand(0.0, 1.0)>0.8)
+                    {
+                        found =true;
+                    }
+                    
+                }else{
+                
+                    found =true;
+                }
             }
-        
-            
-            
         }
-        vec4 axsis;
-        
-        axsis.x=glm::linearRand(-1, 1);
-        axsis.y=glm::linearRand(-1, 1);
-        axsis.z =glm::linearRand(-1, 1);
-        axsis.w =glm::linearRand(0.8, 1.2);
-        axsises.push_back(axsis);
         
         p->friction =glm::linearRand(0.95f, 0.98f);
         
-        float noise =( pnois.fBm(randomPos.x/400, randomPos.y/400)+0.5f)*2;
-       
-        colors.push_back(noise +glm::linearRand(0.0f, 0.01f));
+        float noise =( pnois.fBm(randomPos.x/500, randomPos.y/500)+0.3f)*3;
+        colors.push_back(vec2(noise+glm::linearRand(-0.1f, 0.2f),glm::linearRand(0.3f, 0.8f)));
         
+        p->scale=glm::linearRand(1.0f, 2.0f);
+        
+        
+        p->rotation.x=glm::linearRand(0, 7);
+        p->rotation.y=glm::linearRand(0, 7);
+        p->rotation.z=glm::linearRand(0, 7);
        p->position.x  =randomPos.x+centerPos.x;
        p->position.y  =randomPos.y+centerPos.y;
         p->position.z =glm::linearRand(0.0f, 5.f);
-       p->position.w =glm::linearRand(0.0f, 7.f);
+      
         p->positionStart=  p->position;
-        positions.push_back(p->position);
         
+        
+       
+        
+        
+      
+        glm::mat4 t = glm::translate(vec3(p->position.x,p->position.y,p->position.z));
+        glm::mat4 s =glm::scale(vec3(p->scale,p->scale,p->scale));
+         glm::mat4 rx = glm::rotate(  p->rotation.x, vec3(1,0,0));
+         glm::mat4 ry = glm::rotate(p->rotation.y, vec3(0,1,0));
+         glm::mat4 rz = glm::rotate(p->rotation.z, vec3(0,0,1));
+       
+        p->matrix =t*rx*ry*rz *s;
+       
+       
+        positions.push_back( p->matrix);
+    
         particles.push_back(p);
-    
-    
     
     }
     
-    mInstanceDataVbo = gl::Vbo::create( GL_ARRAY_BUFFER, positions.size() * sizeof(vec4), positions.data(), GL_DYNAMIC_DRAW );
+    mInstanceDataVbo = gl::Vbo::create( GL_ARRAY_BUFFER, positions.size() * sizeof(  glm::mat4), positions.data(), GL_DYNAMIC_DRAW );
     geom::BufferLayout instanceDataLayout;
-    instanceDataLayout.append( geom::Attrib::CUSTOM_0, 4, 0, 0, 1 );
+    instanceDataLayout.append( geom::Attrib::CUSTOM_0, 16, sizeof( mat4 ), 0, 1 );
     mesh->appendVbo( instanceDataLayout, mInstanceDataVbo );
     
-    
-    
-    
-    mInstanceDataVboColor = gl::Vbo::create( GL_ARRAY_BUFFER, colors.size() * sizeof(float), colors.data(), GL_STATIC_DRAW);
+    mInstanceDataVboColor = gl::Vbo::create( GL_ARRAY_BUFFER, colors.size() * sizeof(  glm::vec2), colors.data(), GL_STATIC_DRAW );
     geom::BufferLayout instanceDataLayoutColor;
-    instanceDataLayoutColor.append( geom::Attrib::CUSTOM_1, 1, 0, 0, 1 );
+    instanceDataLayoutColor.append( geom::Attrib::CUSTOM_1, 2,0, 0, 1 );
     mesh->appendVbo( instanceDataLayoutColor, mInstanceDataVboColor );
-    
-    mInstanceDataVboAx = gl::Vbo::create( GL_ARRAY_BUFFER, axsises.size() * sizeof(vec4), axsises.data(), GL_STATIC_DRAW);
-    geom::BufferLayout instanceDataLayoutAx;
-    instanceDataLayoutAx.append( geom::Attrib::CUSTOM_2, 4, 0, 0, 1 );
-    mesh->appendVbo( instanceDataLayoutAx, mInstanceDataVboColor );
-    // now add it to the VboMesh we already made of the Teapot
+
     
     
-    // and finally, build our batch, mapping our CUSTOM_0 attribute to the "vInstancePosition" GLSL vertex attribute
-    mBatch = gl::Batch::create( mesh, mGlsl, { { geom::Attrib::CUSTOM_0, "vInstancePosition" },{ geom::Attrib::CUSTOM_1, "vInstanceColor" },{ geom::Attrib::CUSTOM_2, "vInstanceAxisScale" } } );
+    
+    mBatch = gl::Batch::create( mesh, mGlsl, { { geom::Attrib::CUSTOM_0, "vInstancePosition" },{ geom::Attrib::CUSTOM_1, "vInstanceColor" }} );
     
     
-     mBatchPlain = gl::Batch::create( mesh, mGlslPlain, { { geom::Attrib::CUSTOM_0, "vInstancePosition" },{ geom::Attrib::CUSTOM_1, "vInstanceColor" },{ geom::Attrib::CUSTOM_2, "vInstanceAxisScale" } } );
+    mBatchPlain = gl::Batch::create( mesh, mGlslPlain, { { geom::Attrib::CUSTOM_0, "vInstancePosition" } });
 }
 
 void ParticleHandler::update(PlayerRef player)
@@ -145,11 +148,10 @@ void ParticleHandler::update(PlayerRef player)
     glm::vec2 pos=  player->drawPosition2D;
     glm::vec2 speed= player->moveSpeed2D;
     float speedSize = glm::length(speed);
-    float robotSize  =player->robotSize;
+    float robotSize  =player->robotSize+7;
     float robotsize2 = pow(robotSize,2.0f);
   
-    vec4 *positions = (vec4*)mInstanceDataVbo->mapReplace();
-
+    glm::mat4 *positions = (glm::mat4 *)mInstanceDataVbo->mapReplace();
     
     for(auto p:particles)
     {
@@ -163,16 +165,18 @@ void ParticleHandler::update(PlayerRef player)
             glm::vec2 hitDir =pPos -pos;
             float hitSize =robotSize -glm::length( hitDir);
             hitDir = glm::normalize(hitDir);
-            glm::vec2 moveDir =hitDir*(hitSize+glm::linearRand(0.f, 8.f));
+            glm::vec2 moveDir =hitDir*(hitSize+glm::linearRand(0.f, 0.f));
             p->position.x += moveDir.x;
             p->position.y += moveDir.y;
             
-            
+           
             
             float rand  =glm::linearRand(0.f, speedSize/30.f);
             
             p->speed.x += moveDir.x*rand;
             p->speed.y += moveDir.y*rand;
+            p->speed.z -=hitSize/10;
+            p->position.z +=p->speed.z;
         
         }else
         {
@@ -181,19 +185,36 @@ void ParticleHandler::update(PlayerRef player)
            
         }
     
+       // console()<<p->speed.z<<" "<<p->position.z<<endl;
         
         
-        
-        
-        
+        p->rotation.x+=p->speed.x/20;
+        p->rotation.y+=p->speed.y/20;
         
         p->speed*=p->friction;
         p->position.x+=p->speed.x;
         p->position.y+=p->speed.y;
          p->position.z+=p->speed.z;
-         p->position.w+=(p->speed.x+p->speed.y)/100.f;
-        *positions++  =p->position ;
-    
+        
+        
+        
+        
+        
+        
+        
+        
+        if(p->position.z!= p->positionStart.z){
+        p->speed.z+=0.1;
+    }
+        if(p->position.z> p->positionStart.z)
+        {
+            p->position.z =p->positionStart.z;
+            p->speed.z =0;
+        }
+        
+        
+        p->updateMatrix();
+        *positions++ =  p->matrix;
     }
     
     mInstanceDataVbo->unmap();
@@ -227,14 +248,17 @@ void ParticleHandler::draw()
     
     
     gl::pushMatrices();
-    leaveMap->bind(0);
-    gradientMap->bind(1);
-    mGlsl ->uniform( "uShadowMap", 3 );
+ 
+
+    mGlsl ->uniform( "uShadowMap", 0 );
+     mGlsl ->uniform( "uGradientMap", 1 );
     mGlsl ->uniform( "uLightPos", mvLightPos );
     mGlsl ->uniform( "uShadowMatrix", shadowMatrix );
- gl::ScopedTextureBind texScope2( mShadowMapTex, (uint8_t) 3 );
+    gl::ScopedTextureBind texScope2( mShadowMapTex, (uint8_t) 0 );
+    gl::ScopedTextureBind texScope3( gradientMap, (uint8_t) 1 );
     mBatch->drawInstanced( numParticle );
-     gl::popMatrices();
+    
+    gl::popMatrices();
     gl::disableDepthRead();
     gl::disableDepthWrite();
 }
@@ -250,56 +274,86 @@ void ParticleHandler::reset()
     {
     
         p->position =p->positionStart;
+        p->speed.x=100;
+        p->updateMatrix();
+           p->speed.x=0;
     }
     
 }
 
 gl::VboMeshRef ParticleHandler::buildVBOMesh()
 {
+   
+    vector<vec3> posTemp;
+    
+    posTemp.push_back(vec3(0,-7,3));
+    posTemp.push_back(vec3(-3.3,-3.5,1));
+    posTemp.push_back(vec3(3.3,-3.5,1));
+    posTemp.push_back(vec3(-4,0,0));
+    posTemp.push_back(vec3(4,0,0));
+    posTemp.push_back(vec3(-3.3,3.5,1));
+    posTemp.push_back(vec3(3.3,3.5,1));
+    posTemp.push_back(vec3(0,7,3));
+    
+    
+    
+    vector<unsigned short> indexTemp;
+    
+    indexTemp.push_back(0);
+    indexTemp.push_back(2);
+    indexTemp.push_back(1);
+    
+    indexTemp.push_back(1);
+    indexTemp.push_back(2);
+    indexTemp.push_back(3);
+    
+    indexTemp.push_back(3);
+    indexTemp.push_back(2);
+    indexTemp.push_back(4);
+    
+    indexTemp.push_back(3);
+    indexTemp.push_back(4);
+    indexTemp.push_back(5);
+    
+    indexTemp.push_back(5);
+    indexTemp.push_back(4);
+    indexTemp.push_back(6);
+    
+    indexTemp.push_back(5);
+    indexTemp.push_back(6);
+    indexTemp.push_back(7);
+    
+    
+    
+    
+    
     auto vertices = vector<VertexData>();
-    float size =20;
     
-    VertexData top;
-    top.position.y=-size;
+    for(auto p:posTemp)
+    {
+        VertexData right;
+        right.position =p;
+        
+        
+        
+        vertices.push_back(right);
+
     
-    vertices.push_back(top);
+    }
+       auto layout = geom::BufferLayout();
     
-    VertexData left;
-    left.position.x=size;
-    left.position.y=0;
-    left.position.z=5;
-    
-    left.texture_uv.x=1;
-    vertices.push_back(left);
-    
-    
-    VertexData right;
-    right.position.x=-size;
-    right.position.y=0;
-    right.position.z=5;
-    right.texture_uv.x=0;
-    right.texture_uv.y=1;
-    
-    
-    vertices.push_back(right);
-    vertices.push_back(left);
-    vertices.push_back(right);
- 
-    VertexData bottom;
-    bottom.position.y=size;
-     bottom.texture_uv.y=1;
-      bottom.texture_uv.x=1;
-     vertices.push_back(bottom);
-    
-    auto layout = geom::BufferLayout();
     layout.append(geom::Attrib::POSITION, 3, sizeof(VertexData), offsetof(VertexData, position));
-    layout.append(geom::Attrib::TEX_COORD_0, 2, sizeof(VertexData), offsetof(VertexData, texture_uv));
+  
     
     // upload your data to the GPU
     auto buffer = gl::Vbo::create(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
     
     // construct a VAO that describes the data in the buffer according to your layout.
-   return  gl::VboMesh::create(vertices.size(), GL_TRIANGLES, {{layout, buffer}});
+   gl::VboMeshRef meshRef =gl::VboMesh::create(vertices.size(), GL_TRIANGLES, {{layout, buffer}},indexTemp.size());
+    meshRef->bufferIndices(indexTemp.size()*sizeof(unsigned short), indexTemp.data());
+    console()<<  meshRef->getNumIndices ()<<endl;;
+    
+    return  meshRef;
 }
 void ParticleHandler::renderDepthFbo()
 {
@@ -330,9 +384,9 @@ void ParticleHandler::renderDepthFbo()
 }
 void ParticleHandler::setupShadow()
 {
-    mLightPos.x=screenWidth / 2+200;
-    mLightPos.y=screenHeight / 2+200;
-    mLightPos.z=-500;
+    mLightPos.x=screenWidth / 2+500;
+    mLightPos.y=screenHeight / 2+500;
+    mLightPos.z=-1000;
     
     gl::Texture2d::Format depthFormat;
     
@@ -353,7 +407,7 @@ void ParticleHandler::setupShadow()
     mFbo = gl::Fbo::create( FBO_WIDTH, FBO_HEIGHT, fboFormat );
     
     // Set up camera from the light's viewpoint
-    mLightCam.setPerspective( 100.0f, mFbo->getAspectRatio(), 300.f,800.0f );
+    mLightCam.setPerspective( 100.0f, mFbo->getAspectRatio(), 300.f,2000.0f );
     mLightCam.lookAt( mLightPos, vec3( screenWidth / 2,screenHeight / 2,0) );
 
     mGlslFloor = gl::GlslProg::create( loadAsset( "shadow_shader.vert" ), loadAsset( "shadow_shader.frag" ) );

@@ -21,14 +21,19 @@ class Particle
 
 public:
     Particle();
-    
+    void updateMatrix();
     static ParticleRef create();
     glm::vec4 positionStart;
     glm::vec4 position;
+     ci::vec3 rotation;
     glm::vec3 speed;
+    float scale;
     float friction;
     bool hit;
-
+    glm::mat4 matrix;
+    
+    
+    
 };
 
 

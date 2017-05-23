@@ -21,7 +21,9 @@
 #include "Player.hpp"
 struct VertexData {
     ci::vec3 position;
-    ci::vec2 texture_uv;
+   
+
+    
 };
 const int	FBO_WIDTH = 2048;
 const int	FBO_HEIGHT = 2048;
@@ -43,17 +45,16 @@ public:
     void renderDepthFbo();
     void setupShadow();
     
-    int numParticle =4000;
+    int numParticle =5000;
     std::vector<ParticleRef> particles;
     
     ci::gl::BatchRef		mBatch;
    ci::gl::BatchRef		mBatchPlain;
     
     ci::gl::GlslProgRef		mGlsl;
-      ci::gl::GlslProgRef		mGlslPlain;
+    ci::gl::GlslProgRef		mGlslPlain;
     ci::gl::VboRef			mInstanceDataVbo;
-    ci::gl::VboRef			mInstanceDataVboColor;
-    ci::gl::VboRef			mInstanceDataVboAx;
+   ci::gl::VboRef			mInstanceDataVboColor;
     
     ci::CameraPersp camera;
     
