@@ -22,6 +22,9 @@
 		01FE717B1ED18ABF00447D56 /* ParticleHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71791ED18ABF00447D56 /* ParticleHandler.cpp */; };
 		01FE717E1ED18AD300447D56 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE717C1ED18AD300447D56 /* Particle.cpp */; };
 		01FE71811ED1A16A00447D56 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 01FE71801ED1A16A00447D56 /* assets */; };
+		01FE71881ED5A2E600447D56 /* delaunay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71821ED5A2E600447D56 /* delaunay.cpp */; };
+		01FE71891ED5A2E600447D56 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71851ED5A2E600447D56 /* triangle.cpp */; };
+		01FE718E1ED5A32200447D56 /* Calibrator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE718C1ED5A32200447D56 /* Calibrator.cpp */; };
 		1EBAF5988F1444D58230F7A8 /* Game_PCApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -49,6 +52,14 @@
 		01FE717C1ED18AD300447D56 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../src/Particle.cpp; sourceTree = "<group>"; };
 		01FE717D1ED18AD300447D56 /* Particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Particle.hpp; path = ../src/Particle.hpp; sourceTree = "<group>"; };
 		01FE71801ED1A16A00447D56 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
+		01FE71821ED5A2E600447D56 /* delaunay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = delaunay.cpp; path = ../src/delaunay.cpp; sourceTree = "<group>"; };
+		01FE71831ED5A2E600447D56 /* delaunay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = delaunay.h; path = ../src/delaunay.h; sourceTree = "<group>"; };
+		01FE71841ED5A2E600447D56 /* edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edge.h; path = ../src/edge.h; sourceTree = "<group>"; };
+		01FE71851ED5A2E600447D56 /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = ../src/triangle.cpp; sourceTree = "<group>"; };
+		01FE71861ED5A2E600447D56 /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = triangle.h; path = ../src/triangle.h; sourceTree = "<group>"; };
+		01FE71871ED5A2E600447D56 /* vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector2.h; path = ../src/vector2.h; sourceTree = "<group>"; };
+		01FE718C1ED5A32200447D56 /* Calibrator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Calibrator.cpp; path = ../src/Calibrator.cpp; sourceTree = "<group>"; };
+		01FE718D1ED5A32200447D56 /* Calibrator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Calibrator.hpp; path = ../src/Calibrator.hpp; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -101,15 +112,47 @@
 			name = particles;
 			sourceTree = "<group>";
 		};
-		080E96DDFE201D6D7F000001 /* Source */ = {
+		01FE718A1ED5A2EF00447D56 /* calibration */ = {
 			isa = PBXGroup;
 			children = (
-				01FE717F1ED18ADA00447D56 /* particles */,
-				92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */,
+				01FE718B1ED5A2F900447D56 /* delaunay */,
+				01FE718C1ED5A32200447D56 /* Calibrator.cpp */,
+				01FE718D1ED5A32200447D56 /* Calibrator.hpp */,
+			);
+			name = calibration;
+			sourceTree = "<group>";
+		};
+		01FE718B1ED5A2F900447D56 /* delaunay */ = {
+			isa = PBXGroup;
+			children = (
+				01FE71821ED5A2E600447D56 /* delaunay.cpp */,
+				01FE71831ED5A2E600447D56 /* delaunay.h */,
+				01FE71841ED5A2E600447D56 /* edge.h */,
+				01FE71851ED5A2E600447D56 /* triangle.cpp */,
+				01FE71861ED5A2E600447D56 /* triangle.h */,
+				01FE71871ED5A2E600447D56 /* vector2.h */,
+			);
+			name = delaunay;
+			sourceTree = "<group>";
+		};
+		01FE718F1ED5A56900447D56 /* datainput */ = {
+			isa = PBXGroup;
+			children = (
 				01419C0E1EC8645600D38BE4 /* CameraHandler.cpp */,
 				01419C0F1EC8645600D38BE4 /* CameraHandler.hpp */,
 				01419C111EC8695200D38BE4 /* ArduinoHandler.cpp */,
 				01419C121EC8695200D38BE4 /* ArduinoHandler.hpp */,
+			);
+			name = datainput;
+			sourceTree = "<group>";
+		};
+		080E96DDFE201D6D7F000001 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				01FE718F1ED5A56900447D56 /* datainput */,
+				01FE718A1ED5A2EF00447D56 /* calibration */,
+				01FE717F1ED18ADA00447D56 /* particles */,
+				92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */,
 				01419C141ECAF8EA00D38BE4 /* Player.cpp */,
 				01419C151ECAF8EA00D38BE4 /* Player.hpp */,
 			);
@@ -259,9 +302,12 @@
 				01419C161ECAF8EA00D38BE4 /* Player.cpp in Sources */,
 				01FE717E1ED18AD300447D56 /* Particle.cpp in Sources */,
 				1EBAF5988F1444D58230F7A8 /* Game_PCApp.cpp in Sources */,
+				01FE71891ED5A2E600447D56 /* triangle.cpp in Sources */,
 				01419C101EC8645600D38BE4 /* CameraHandler.cpp in Sources */,
+				01FE71881ED5A2E600447D56 /* delaunay.cpp in Sources */,
 				01419C131EC8695200D38BE4 /* ArduinoHandler.cpp in Sources */,
 				01FE717B1ED18ABF00447D56 /* ParticleHandler.cpp in Sources */,
+				01FE718E1ED5A32200447D56 /* Calibrator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
