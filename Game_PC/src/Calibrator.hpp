@@ -41,7 +41,7 @@ public:
     
     float offX =0;
     float offY =0;
-    
+    std::vector<Triangle>triangles;
 };
 
 #endif /* Calibrator_hpp */

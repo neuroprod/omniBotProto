@@ -10,3 +10,7 @@
 Game_PC/xcode/build/Game_PC.build/Release/Game_PC.build/dgph
 
 *.dat
+
+*.hmap
+
+*.o

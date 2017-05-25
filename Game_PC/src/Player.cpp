@@ -36,9 +36,12 @@ PlayerRef  Player::create()
 
 void Player::setup()
 {
-
+    
+   
+  
+    mBatch = gl::Batch::create( geom::Cylinder().height(100).radius(50).subdivisionsHeight(1).subdivisionsAxis(20),gl::getStockShader(gl::ShaderDef().color())  );
 }
-void Player::update()
+void Player::update(double elapsed)
 {
     robotDir.x =currentDirection.x;
     robotDir.y =currentDirection.y;
@@ -86,6 +89,11 @@ void Player::update()
     
     }
     
+   // console()<< ((float)elapsed*moveOffset)<<" "<<moveSpeed2D<<endl;
+    if(!cameraSet){
+    drawPosition2D +=moveSpeed2D*((float)elapsed*moveOffset);
+    }
+    cameraSet =false;
     
 }
 void Player::draw()
@@ -94,9 +102,10 @@ void Player::draw()
 
     gl::color(0.5,0.5,0.5);
     gl::drawSolidCircle(drawPosition2D, robotSize);
+    gl::drawSolidCircle(drawPosition2DFloor, robotSize);
 
 }
-void Player::drawDebug()
+void Player::drawDebug(ci::Camera cam)
 {
 
     if(btnDown)
@@ -118,9 +127,12 @@ void Player::drawDebug()
     gl::color(0,0,1);
     gl::drawLine(vec2(1280-20,100), vec2(1280-20,100-motorSpeed.z*100));
     gl::color(1,1,1);
-    gl::drawStrokedCircle(vec2(currentPosition.x,currentPosition.y), robotSize);
+    gl::drawStrokedCircle(drawPosition2D, robotSize);
+    gl::color(1,0,0);
+    gl::drawStrokedCircle(drawPosition2DFloor, robotSize);
     
-     gl::drawLine(vec2(currentPosition.x,currentPosition.y+100), vec2(currentPosition.x,currentPosition.y-100));
+    
+    gl::drawLine(vec2(currentPosition.x,currentPosition.y+100), vec2(currentPosition.x,currentPosition.y-100));
      gl::drawLine(vec2(currentPosition.x-100,currentPosition.y), vec2(currentPosition.x+100,currentPosition.y));
     gl::color(1,1,1);
     
@@ -139,7 +151,31 @@ void Player::drawDebug()
         gl::vertex( vec2(currentPosition.x+70,currentPosition.y-20+i*2 ));
     }
     gl::end();
-    gl::color(1,1,1);
+   
+    gl::enableDepth();
+    gl::pushMatrices();
+    gl::setMatrices(cam);
+   
+    
+    
+   
+     gl::color(0.5,0.5,0.5);
+    gl::enableAlphaBlending();
+    gl::translate(drawPosition2DFloor.x, drawPosition2DFloor.y, 0);
+    gl::rotate(3.1415/2,vec3(1,0,0));
+    gl::setWireframeEnabled(true);
+    gl::color(Color::gray(0.2));
+    mBatch->draw();
+    gl::setWireframeEnabled(false);
+    gl::popMatrices();
+    gl::enableDepth(false);
+    gl::enableAlphaBlending(false);
+     gl::color(1,1,1);
+    gl::drawLine(vec2(drawPosition2DFloor.x-20, drawPosition2DFloor.y+robotSize), vec2(drawPosition2DFloor.x+20, drawPosition2DFloor.y+robotSize));
+    gl::drawLine(vec2(drawPosition2DFloor.x+robotSize, drawPosition2DFloor.y-50), vec2(drawPosition2DFloor.x+robotSize, drawPosition2DFloor.y+50));
+    
+    gl::drawLine(vec2(drawPosition2DFloor.x-robotSize, drawPosition2DFloor.y-50), vec2(drawPosition2DFloor.x-robotSize, drawPosition2DFloor.y+50));
+
 }
 
 
@@ -209,18 +245,20 @@ void Player::parseControles(vector<std::string> substrings)
     
 }
 
-void Player::setPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection){
+void Player::setPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection,double elapsed){
 
+    cameraSet =true;
+    cameraPositionSpeed =_currentPosition-currentPosition;
     
-    cameraPositionSpeed =currentPosition-_currentPosition;
+    cameraPositionSpeed/=elapsed;
     currentPosition = _currentPosition;
     currentDirection =_currentDirection;
-    
-    float factor =1;
-    drawPosition2D.x =currentPosition.x+cameraPositionSpeed.x*factor;
-    drawPosition2D.y =currentPosition.y+cameraPositionSpeed.y*factor;
     moveSpeed2D.x =cameraPositionSpeed.x;
     moveSpeed2D.y = cameraPositionSpeed.y;
+    
+    drawPosition2D.x =currentPosition.x;
+    drawPosition2D.y =currentPosition.y;
+    drawPosition2D +=moveSpeed2D*((float)elapsed*moveOffsetStart);
 
 }
 

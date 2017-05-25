@@ -26,13 +26,13 @@ public:
     
     void setup();
     void draw();
-    void drawDebug();
-    void update();
+    void drawDebug(ci::Camera cam);
+    void update(double elapsed);
     
     
     
     void parseControles( std::vector<std::string> substrings);
-    void setPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection);
+    void setPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection,double elapsed);
 
     glm::vec3 motorSpeed;
     
@@ -49,14 +49,18 @@ public:
     std::string command ="";
     
     float robotSize;
-    
+    bool cameraSet =true;
     glm::vec4 cameraPositionSpeed;
     glm::vec2 robotDirRot;
     
     
     glm::vec2 drawPosition2D;
+     glm::vec2 drawPosition2DFloor;
     glm::vec2 moveSpeed2D;
     
+    float moveOffset =0;
+    float moveOffsetStart =0;
     
+    cinder::gl::BatchRef		mBatch;
 };
 #endif /* Player_hpp */

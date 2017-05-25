@@ -25,6 +25,7 @@
 		01FE71881ED5A2E600447D56 /* delaunay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71821ED5A2E600447D56 /* delaunay.cpp */; };
 		01FE71891ED5A2E600447D56 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71851ED5A2E600447D56 /* triangle.cpp */; };
 		01FE718E1ED5A32200447D56 /* Calibrator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE718C1ED5A32200447D56 /* Calibrator.cpp */; };
+		01FE71921ED6D77500447D56 /* ProjectionCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71901ED6D77500447D56 /* ProjectionCamera.cpp */; };
 		1EBAF5988F1444D58230F7A8 /* Game_PCApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -60,6 +61,8 @@
 		01FE71871ED5A2E600447D56 /* vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector2.h; path = ../src/vector2.h; sourceTree = "<group>"; };
 		01FE718C1ED5A32200447D56 /* Calibrator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Calibrator.cpp; path = ../src/Calibrator.cpp; sourceTree = "<group>"; };
 		01FE718D1ED5A32200447D56 /* Calibrator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Calibrator.hpp; path = ../src/Calibrator.hpp; sourceTree = "<group>"; };
+		01FE71901ED6D77500447D56 /* ProjectionCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectionCamera.cpp; path = ../src/ProjectionCamera.cpp; sourceTree = "<group>"; };
+		01FE71911ED6D77500447D56 /* ProjectionCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ProjectionCamera.hpp; path = ../src/ProjectionCamera.hpp; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -155,6 +158,8 @@
 				92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */,
 				01419C141ECAF8EA00D38BE4 /* Player.cpp */,
 				01419C151ECAF8EA00D38BE4 /* Player.hpp */,
+				01FE71901ED6D77500447D56 /* ProjectionCamera.cpp */,
+				01FE71911ED6D77500447D56 /* ProjectionCamera.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01419C161ECAF8EA00D38BE4 /* Player.cpp in Sources */,
+				01FE71921ED6D77500447D56 /* ProjectionCamera.cpp in Sources */,
 				01FE717E1ED18AD300447D56 /* Particle.cpp in Sources */,
 				1EBAF5988F1444D58230F7A8 /* Game_PCApp.cpp in Sources */,
 				01FE71891ED5A2E600447D56 /* triangle.cpp in Sources */,

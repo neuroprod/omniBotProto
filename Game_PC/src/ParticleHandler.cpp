@@ -38,11 +38,12 @@ void ParticleHandler::setup(float radius, glm::vec2 centerPos)
     camera.lookAt(vec3(screenWidth / 2, screenHeight / 2, 0));
     camera.setWorldUp(vec3(0, 0, 1));
     
+   
+    
     setupShadow();
     
 
-
-    
+       updateCameraPosition();
  
     gradientMap=gl::Texture::create( loadImage( loadAsset("gradient.png") ) );
     
@@ -142,10 +143,26 @@ void ParticleHandler::setup(float radius, glm::vec2 centerPos)
     
     mBatchPlain = gl::Batch::create( mesh, mGlslPlain, { { geom::Attrib::CUSTOM_0, "vInstancePosition" } });
 }
-
-void ParticleHandler::update(PlayerRef player)
+void ParticleHandler::updateCameraPosition()
 {
-    glm::vec2 pos=  player->drawPosition2D;
+
+    cameraPosition.x=0;
+    cameraPosition.y=-screenHeight-offyCam ;
+    cameraPosition.z=offzCam;
+
+    cameraProj.setEyePoint(vec3(screenWidth / 2, screenHeight+offyCam /2,offzCam/2));
+    
+    cameraProj.lookAt(vec3(screenWidth / 2,screenHeight+offyCam /2, 0));
+    cameraProj.setCameraPos(cameraPosition);
+   
+
+}
+
+
+
+void ParticleHandler::update(double elapsed,PlayerRef player)
+{
+    glm::vec2 pos=  player->drawPosition2DFloor;
     glm::vec2 speed= player->moveSpeed2D;
     float speedSize = glm::length(speed);
     float robotSize  =player->robotSize+7;
@@ -158,7 +175,7 @@ void ParticleHandler::update(PlayerRef player)
     
         glm::vec2 pPos =glm::vec2(p->position.x,p->position.y);
         float distance2 = glm::distance2(pos, pPos);
-        if(distance2<robotsize2 )
+        if(distance2<robotsize2  && p->position.z>-100)
         {
         
             p->hit  =true;
@@ -175,7 +192,7 @@ void ParticleHandler::update(PlayerRef player)
             
             p->speed.x += moveDir.x*rand;
             p->speed.y += moveDir.y*rand;
-            p->speed.z -=hitSize/10;
+            p->speed.z -=hitSize/20;
             p->position.z +=p->speed.z;
         
         }else
@@ -189,7 +206,7 @@ void ParticleHandler::update(PlayerRef player)
         
         
         p->rotation.x+=p->speed.x/20;
-        p->rotation.y+=p->speed.y/20;
+        p->rotation.y+=p->speed.z/20;
         
         p->speed*=p->friction;
         p->position.x+=p->speed.x;
@@ -205,6 +222,7 @@ void ParticleHandler::update(PlayerRef player)
         
         if(p->position.z!= p->positionStart.z){
         p->speed.z+=0.1;
+            if( p->speed.z>2) p->speed.z=2;
     }
         if(p->position.z> p->positionStart.z)
         {
@@ -226,7 +244,7 @@ void ParticleHandler::draw()
 {
     gl::enableDepthRead();
     gl::enableDepthWrite();
-     gl::setMatrices( camera);
+     gl::setMatrices( cameraProj);
     
     gl::ScopedTextureBind texScope( mShadowMapTex, (uint8_t) 0 );
     
@@ -261,6 +279,8 @@ void ParticleHandler::draw()
     gl::popMatrices();
     gl::disableDepthRead();
     gl::disableDepthWrite();
+    
+    
 }
 
 
@@ -274,6 +294,12 @@ void ParticleHandler::reset()
     {
     
         p->position =p->positionStart;
+        if(glm::linearRand(0.f, 1.f)>0.9)
+        {
+        
+            p->position.z =glm::linearRand(0.f,-5000.f);
+        
+        }
         p->speed.x=100;
         p->updateMatrix();
            p->speed.x=0;

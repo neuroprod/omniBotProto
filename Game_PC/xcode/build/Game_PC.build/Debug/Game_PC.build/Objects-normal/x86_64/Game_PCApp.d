@@ -336,6 +336,7 @@ dependencies: \
   ../../../cinder_master/include/boost/integer_fwd.hpp \
   ../../../cinder_master/include/boost/detail/basic_pointerbuf.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Particle.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/ProjectionCamera.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Calibrator.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/delaunay.h \
   /Users/kris/Documents/omniBotProto/Game_PC/src/vector2.h \

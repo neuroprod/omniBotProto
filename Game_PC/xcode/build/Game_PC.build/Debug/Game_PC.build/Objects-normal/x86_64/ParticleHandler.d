@@ -331,6 +331,7 @@ dependencies: \
   ../../../cinder_master/include/boost/detail/basic_pointerbuf.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Particle.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Player.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/ProjectionCamera.hpp \
   ../../../cinder_master/include/glm/gtc/random.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/xcode/../../../cinder_master/include/glm/gtc/random.inl \
   ../../../cinder_master/include/cinder/Perlin.h

@@ -38,8 +38,17 @@ void Calibrator::addVector(vec2 v)
 
 void Calibrator::draw()
 {
-    gl::color(Color::gray(0.5));
+    gl::color(Color::gray(1));
     gl::draw(mFbo->getColorTexture());
+     gl::color(Color::gray(0));
+    for(auto t:triangles)
+    {
+       
+        gl::drawLine(t.p1.get(),t.p2.get());
+        gl::drawLine(t.p3.get(),t.p2.get());
+        gl::drawLine(t.p1.get(),t.p3.get());
+    }
+
 }
 vec2 Calibrator::getOffsetForPoint(ivec2 point)
 {
@@ -63,7 +72,7 @@ void Calibrator::makeDelaunay()
 {
     Delaunay delaunay;
     delaunay.triangulate(vertices);
-    vector<Triangle>triangles = delaunay.getTriangles();
+    triangles = delaunay.getTriangles();
     
     
     gl::ScopedFramebuffer fbo( mFbo );
@@ -94,7 +103,7 @@ void Calibrator::reset()
     {
         TriVec vec;
         vec.x =0;
-        vec.y =0;
+        vec.y =-280;
         vec.offX =0;
         vec.offY =0;
         vertices.push_back(vec);
@@ -103,7 +112,7 @@ void Calibrator::reset()
     {
         TriVec vec;
         vec.x =1280;
-        vec.y =0;
+        vec.y =-280;
         vec.offX =0;
         vec.offY =0;
         vertices.push_back(vec);
@@ -112,7 +121,7 @@ void Calibrator::reset()
     {
         TriVec vec;
         vec.x =0;
-        vec.y =720;
+        vec.y =720+280;
         vec.offX =0;
         vec.offY =0;
         vertices.push_back(vec);
@@ -121,7 +130,7 @@ void Calibrator::reset()
     {
         TriVec vec;
         vec.x =1280;
-        vec.y =720;
+        vec.y =720+280;
         vec.offX =0;
         vec.offY =0;
         vertices.push_back(vec);

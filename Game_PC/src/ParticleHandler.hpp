@@ -19,6 +19,7 @@
 
 #include "Particle.hpp"
 #include "Player.hpp"
+#include "ProjectionCamera.hpp"
 struct VertexData {
     ci::vec3 position;
    
@@ -37,8 +38,12 @@ public:
     
     ParticleHandler();
     ~ParticleHandler();
+    
+    void updateCameraPosition();
+    glm::vec3 cameraPosition;
+    
     void setup(float radius, glm::vec2 centerPos);
-    void update(PlayerRef player);
+    void update(double elapsed,PlayerRef player);
     void draw();
     void reset();
     ci::gl::VboMeshRef buildVBOMesh();
@@ -57,7 +62,7 @@ public:
    ci::gl::VboRef			mInstanceDataVboColor;
     
     ci::CameraPersp camera;
-    
+    ProjectionCamera cameraProj;
     ci::gl::FboRef			mFbo;
     ci::CameraPersp			mLightCam;
     ci::vec3				mLightPos;
@@ -67,6 +72,10 @@ public:
      ci::gl::TextureRef		gradientMap;
     float screenHeight= 720;
     float screenWidth =1280 ;
+    
+    
+    float offyCam = 1800;
+    float offzCam = -5000;
     
     
     ci::gl::BatchRef		mFloorShadowedBatch;
