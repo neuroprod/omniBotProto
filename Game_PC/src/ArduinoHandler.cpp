@@ -61,6 +61,13 @@ void ArduinoHandler::update()
             
           
         }
+        if(substrings[0]=="1")
+        {
+            
+            player2->parseControles( substrings);
+            
+            
+        }
         
         
         //mSerial->flush();

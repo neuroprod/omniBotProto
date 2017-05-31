@@ -192,7 +192,7 @@ void ParticleHandler::update(double elapsed,PlayerRef player)
             
             p->speed.x += moveDir.x*rand;
             p->speed.y += moveDir.y*rand;
-            p->speed.z -=hitSize/20;
+            p->speed.z -=hitSize/10;
             p->position.z +=p->speed.z;
         
         }else
@@ -294,7 +294,7 @@ void ParticleHandler::reset()
     {
     
         p->position =p->positionStart;
-        if(glm::linearRand(0.f, 1.f)>0.9)
+        if(glm::linearRand(0.f, 1.f)>0.999)
         {
         
             p->position.z =glm::linearRand(0.f,-5000.f);

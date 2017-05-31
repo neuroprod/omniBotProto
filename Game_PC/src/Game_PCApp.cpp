@@ -43,7 +43,7 @@ class Game_PCApp : public App {
    
  
     bool debugView =false;
-    bool useCameraPositioning =false;
+    bool useCameraPositioning =true;
     vec2 mousePos;
    
     float   mFrameRate;
@@ -74,15 +74,17 @@ void Game_PCApp::setup()
     
     cameraHandler.setup("tty.usbserial-A403JIFZ");
     arduinoHandlerOutput.setup("tty.usbmodem14111");
-    arduinoHandlerInput.setup("tty.usbmodem14141");
-    
+    //arduinoHandlerInput.setup("tty.usbmodem14141");
+    arduinoHandlerInput.setup("tty.usbmodem14211");
     
    
     
     player1 =Player::create();
     player1->setup();
+    player1->name ="1:";
     player2 =Player::create();
     player2->setup();
+    player2->name ="2:";
     arduinoHandlerInput.player1 = player1;
     arduinoHandlerInput.player2 = player2;
    
@@ -90,7 +92,7 @@ void Game_PCApp::setup()
     
     updateRobotParams();
     calibratorCam.setup();
-     calibratorFloor.setup("floor");
+    calibratorFloor.setup("floor");
     previousTime  =getElapsedSeconds();
     previousCameraTime = previousTime ;
     setupParams();
@@ -158,6 +160,7 @@ void Game_PCApp::update()
     }
     
     player1->update(elapsed);
+    
     ivec2 input =ivec2 (player1->drawPosition2D.x,player1->drawPosition2D.y);
     vec2 offset =  calibratorFloor.getOffsetForPoint(input);
     offset.y+=12;
@@ -174,6 +177,28 @@ void Game_PCApp::update()
         player1->hasNewCommand =false;
         arduinoHandlerOutput.sendCommand(player1->command);
     }
+    
+    player2->update(elapsed);
+    ivec2 input2 =ivec2 (player2->drawPosition2D.x,player2->drawPosition2D.y);
+    vec2 offset2 =  calibratorFloor.getOffsetForPoint(input2);
+    offset2.y+=12;
+    if(!useFloorCalibration)
+    {
+        offset2.x = calibratorFloor.offX;
+        offset2.y = calibratorFloor.offY+ 12;
+    }
+
+    
+    player2->drawPosition2DFloor =player2->drawPosition2D+offset2;
+    
+    if(player2->hasNewCommand)
+    {
+        player2->hasNewCommand =false;
+        arduinoHandlerOutput.sendCommand(player2->command);
+    }
+
+    
+    
     
     particleHandler.update(elapsed,player1);
     mFrameRate = getAverageFps();
@@ -200,6 +225,7 @@ void Game_PCApp::draw()
    
         particleHandler.draw();
         player1->draw();
+         player2->draw();
       mParams->draw();
     }
     else{
@@ -219,7 +245,7 @@ void Game_PCApp::draw()
         gl::drawLine(vec2(mCircleOffX,0),vec2(mCircleOffX,720));
         gl::drawLine(vec2(0,720/2),vec2(1280,720/2));
 
-        
+         player2->drawDebug(particleHandler.cameraProj);
         player1->drawDebug(particleHandler.cameraProj);
         gl::color(0,1,0);
         for(auto p: cameraHandler.pointsTransform)

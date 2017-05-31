@@ -29,7 +29,7 @@ public:
     void drawDebug(ci::Camera cam);
     void update(double elapsed);
     
-    
+    std::string name;
     
     void parseControles( std::vector<std::string> substrings);
     void setPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection,double elapsed);

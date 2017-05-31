@@ -71,7 +71,7 @@ void Player::update(double elapsed)
     motorSpeed.y =vecX*cosM120-vecY *sinM120-dirAngleComp;
     motorSpeed.z =vecX*cos120-vecY *sin120-dirAngleComp;
 
-    string com="0:" +to_string(motorSpeed.x*2) +":"+to_string(motorSpeed.y*2)  + ":"+ to_string(motorSpeed.z*2) +"\n";
+    string com=name+"0:" +to_string(motorSpeed.x*2) +":"+to_string(motorSpeed.y*2)  + ":"+ to_string(motorSpeed.z*2) +"\n";
     count++;
     if(count>2){
     
@@ -89,25 +89,27 @@ void Player::update(double elapsed)
     
     }
     
-   // console()<< ((float)elapsed*moveOffset)<<" "<<moveSpeed2D<<endl;
+   
     if(!cameraSet){
     drawPosition2D +=moveSpeed2D*((float)elapsed*moveOffset);
     }
-    cameraSet =false;
+     cameraSet =false;
     
 }
 void Player::draw()
 {
 
 
-    gl::color(0.5,0.5,0.5);
+    gl::color(0.0,0.0,0.0);
     gl::drawSolidCircle(drawPosition2D, robotSize);
-    gl::drawSolidCircle(drawPosition2DFloor, robotSize);
+    gl::drawSolidCircle(drawPosition2DFloor, robotSize-1);
 
 }
 void Player::drawDebug(ci::Camera cam)
 {
-
+    float yPos = 100;
+    if(name=="2:")yPos+=200;
+    
     if(btnDown)
     {
         gl::color(1,1,0);
@@ -115,21 +117,30 @@ void Player::drawDebug(ci::Camera cam)
     {
         gl::color(1,1,1);
     }
-    gl::drawLine(vec2(1280-100,100), vec2(1280-100,100)+ controler*80.f);
+    gl::drawLine(vec2(1280-100,yPos), vec2(1280-100,yPos)+ controler*80.f);
     gl::color(1,0,0);
-    gl::drawLine(vec2(1280-100,100), vec2(1280-100,100)+ robotDirRot*80.f);
+    gl::drawLine(vec2(1280-100,yPos), vec2(1280-100,yPos)+ robotDirRot*80.f);
     
-    
+   
     gl::color(1,0,0);
-    gl::drawLine(vec2(1280-60,100), vec2(1280-60,100-motorSpeed.x*100));
+    gl::drawLine(vec2(1280-60,yPos), vec2(1280-60,yPos-motorSpeed.x*100));
     gl::color(0,1,0);
-    gl::drawLine(vec2(1280-40,100), vec2(1280-40,100-motorSpeed.y*100));
+    gl::drawLine(vec2(1280-40,yPos), vec2(1280-40,yPos-motorSpeed.y*100));
     gl::color(0,0,1);
-    gl::drawLine(vec2(1280-20,100), vec2(1280-20,100-motorSpeed.z*100));
+    gl::drawLine(vec2(1280-20,yPos), vec2(1280-20,yPos-motorSpeed.z*100));
+    
+    if(cameraSet){
     gl::color(1,1,1);
+    }
+    else
+    {
+    
+     gl::color(1,0,1);
+    }
+   
     gl::drawStrokedCircle(drawPosition2D, robotSize);
-    gl::color(1,0,0);
-    gl::drawStrokedCircle(drawPosition2DFloor, robotSize);
+    gl::color(1,1,1);
+    
     
     
     gl::drawLine(vec2(currentPosition.x,currentPosition.y+100), vec2(currentPosition.x,currentPosition.y-100));
@@ -141,16 +152,7 @@ void Player::drawDebug(ci::Camera cam)
     
     gl::drawString(posString ,vec2(currentPosition.x+10,currentPosition.y-70));
     
-    gl::begin( GL_POINTS);
-
-     gl::color(1,1,1);
-    
-    for(int i=0;i<20;i++)
-    {
-        gl::vertex( vec2(currentPosition.x-20+i*2,currentPosition.y+70) );
-        gl::vertex( vec2(currentPosition.x+70,currentPosition.y-20+i*2 ));
-    }
-    gl::end();
+  
    
     gl::enableDepth();
     gl::pushMatrices();
@@ -171,6 +173,7 @@ void Player::drawDebug(ci::Camera cam)
     gl::enableDepth(false);
     gl::enableAlphaBlending(false);
      gl::color(1,1,1);
+    gl::drawStrokedCircle(drawPosition2DFloor, robotSize);
     gl::drawLine(vec2(drawPosition2DFloor.x-20, drawPosition2DFloor.y+robotSize), vec2(drawPosition2DFloor.x+20, drawPosition2DFloor.y+robotSize));
     gl::drawLine(vec2(drawPosition2DFloor.x+robotSize, drawPosition2DFloor.y-50), vec2(drawPosition2DFloor.x+robotSize, drawPosition2DFloor.y+50));
     
