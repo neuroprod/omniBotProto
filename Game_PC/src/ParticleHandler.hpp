@@ -20,14 +20,14 @@
 #include "Particle.hpp"
 #include "Player.hpp"
 #include "ProjectionCamera.hpp"
+#include "GameRenderer.hpp"
 struct VertexData {
     ci::vec3 position;
    
 
     
 };
-const int	FBO_WIDTH = 2048;
-const int	FBO_HEIGHT = 2048;
+
 
 
 class ParticleHandler
@@ -39,16 +39,17 @@ public:
     ParticleHandler();
     ~ParticleHandler();
     
-    void updateCameraPosition();
-    glm::vec3 cameraPosition;
+    //void updateCameraPosition();
+  //  glm::vec3 cameraPosition;
     
     void setup(float radius, glm::vec2 centerPos);
-    void update(double elapsed,PlayerRef player);
-    void draw();
+    void update(double elapsed,PlayerRef player1,PlayerRef player2);
+    void draw(GameRenderer * renderer);
+    void drawShadow(GameRenderer * renderer);
     void reset();
     ci::gl::VboMeshRef buildVBOMesh();
-    void renderDepthFbo();
-    void setupShadow();
+  //  void renderDepthFbo();
+   // void setupShadow();
     
     int numParticle =5000;
     std::vector<ParticleRef> particles;
@@ -61,15 +62,16 @@ public:
     ci::gl::VboRef			mInstanceDataVbo;
    ci::gl::VboRef			mInstanceDataVboColor;
     
-    ci::CameraPersp camera;
+   /* ci::CameraPersp camera;
     ProjectionCamera cameraProj;
     ci::gl::FboRef			mFbo;
     ci::CameraPersp			mLightCam;
     ci::vec3				mLightPos;
-    ci::gl::Texture2dRef	mShadowMapTex;
+    ci::gl::Texture2dRef	mShadowMapTex;*/
     
     ci::gl::TextureRef		leaveMap;
      ci::gl::TextureRef		gradientMap;
+    /*
     float screenHeight= 720;
     float screenWidth =1280 ;
     
@@ -79,7 +81,7 @@ public:
     
     
     ci::gl::BatchRef		mFloorShadowedBatch;
-    ci::gl::GlslProgRef		mGlslFloor ;
+    ci::gl::GlslProgRef		mGlslFloor ;*/
 };
 
 #endif /* ParticleHandler_hpp */

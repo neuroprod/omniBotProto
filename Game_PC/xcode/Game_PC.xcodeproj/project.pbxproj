@@ -16,20 +16,22 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00B9955A1B128DF400A5C623 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995581B128DF400A5C623 /* IOKit.framework */; };
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
-		01419C101EC8645600D38BE4 /* CameraHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01419C0E1EC8645600D38BE4 /* CameraHandler.cpp */; };
-		01419C131EC8695200D38BE4 /* ArduinoHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01419C111EC8695200D38BE4 /* ArduinoHandler.cpp */; };
-		01419C161ECAF8EA00D38BE4 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01419C141ECAF8EA00D38BE4 /* Player.cpp */; };
-		01FE717B1ED18ABF00447D56 /* ParticleHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71791ED18ABF00447D56 /* ParticleHandler.cpp */; };
-		01FE717E1ED18AD300447D56 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE717C1ED18AD300447D56 /* Particle.cpp */; };
-		01FE71811ED1A16A00447D56 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 01FE71801ED1A16A00447D56 /* assets */; };
-		01FE71881ED5A2E600447D56 /* delaunay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71821ED5A2E600447D56 /* delaunay.cpp */; };
-		01FE71891ED5A2E600447D56 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71851ED5A2E600447D56 /* triangle.cpp */; };
-		01FE718E1ED5A32200447D56 /* Calibrator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE718C1ED5A32200447D56 /* Calibrator.cpp */; };
-		01FE71921ED6D77500447D56 /* ProjectionCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01FE71901ED6D77500447D56 /* ProjectionCamera.cpp */; };
-		1EBAF5988F1444D58230F7A8 /* Game_PCApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */; };
+		0104A6651EF151BA00AAD57D /* GameRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0104A6631EF151BA00AAD57D /* GameRenderer.cpp */; };
+		0104A6681EF15E2D00AAD57D /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 0104A6671EF15E2D00AAD57D /* assets */; };
+		013223241EF003D8002F486B /* ArduinoHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132231B1EF003D8002F486B /* ArduinoHandler.cpp */; };
+		013223251EF003D8002F486B /* Calibrator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132231D1EF003D8002F486B /* Calibrator.cpp */; };
+		013223261EF003D8002F486B /* CameraHandler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132231F1EF003D8002F486B /* CameraHandler2.cpp */; };
+		013223271EF003D8002F486B /* delaunay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013223211EF003D8002F486B /* delaunay.cpp */; };
+		013223331EF003E5002F486B /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013223281EF003E5002F486B /* Particle.cpp */; };
+		013223341EF003E5002F486B /* ParticleHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132232A1EF003E5002F486B /* ParticleHandler.cpp */; };
+		013223351EF003E5002F486B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132232C1EF003E5002F486B /* Player.cpp */; };
+		013223361EF003E5002F486B /* ProjectionCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132232E1EF003E5002F486B /* ProjectionCamera.cpp */; };
+		013223371EF003E5002F486B /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013223301EF003E5002F486B /* triangle.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		CE88B38CAF9E487EA946927A /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C66C4ECA8DD643D58CA0DD32 /* CinderApp.icns */; };
+		8E308D6378FE4394AEE96F1F /* Game_PCApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19A9B42BDF5E41E28E65050F /* Game_PCApp.cpp */; };
+		B8E83D5D8B9C4ED993BC19F3 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5551809B6D0C4524B6E9EA4D /* CinderApp.icns */; };
+		FAAFCE73B8A547BAA0664560 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A62F2E86FF45B1B95379C9 /* OpenCL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,37 +44,41 @@
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		00B995581B128DF400A5C623 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		00B995591B128DF400A5C623 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
-		01419C0E1EC8645600D38BE4 /* CameraHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CameraHandler.cpp; path = ../src/CameraHandler.cpp; sourceTree = "<group>"; };
-		01419C0F1EC8645600D38BE4 /* CameraHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CameraHandler.hpp; path = ../src/CameraHandler.hpp; sourceTree = "<group>"; };
-		01419C111EC8695200D38BE4 /* ArduinoHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArduinoHandler.cpp; path = ../src/ArduinoHandler.cpp; sourceTree = "<group>"; };
-		01419C121EC8695200D38BE4 /* ArduinoHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ArduinoHandler.hpp; path = ../src/ArduinoHandler.hpp; sourceTree = "<group>"; };
-		01419C141ECAF8EA00D38BE4 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../src/Player.cpp; sourceTree = "<group>"; };
-		01419C151ECAF8EA00D38BE4 /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Player.hpp; path = ../src/Player.hpp; sourceTree = "<group>"; };
-		01FE71791ED18ABF00447D56 /* ParticleHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleHandler.cpp; path = ../src/ParticleHandler.cpp; sourceTree = "<group>"; };
-		01FE717A1ED18ABF00447D56 /* ParticleHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParticleHandler.hpp; path = ../src/ParticleHandler.hpp; sourceTree = "<group>"; };
-		01FE717C1ED18AD300447D56 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../src/Particle.cpp; sourceTree = "<group>"; };
-		01FE717D1ED18AD300447D56 /* Particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Particle.hpp; path = ../src/Particle.hpp; sourceTree = "<group>"; };
-		01FE71801ED1A16A00447D56 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
-		01FE71821ED5A2E600447D56 /* delaunay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = delaunay.cpp; path = ../src/delaunay.cpp; sourceTree = "<group>"; };
-		01FE71831ED5A2E600447D56 /* delaunay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = delaunay.h; path = ../src/delaunay.h; sourceTree = "<group>"; };
-		01FE71841ED5A2E600447D56 /* edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edge.h; path = ../src/edge.h; sourceTree = "<group>"; };
-		01FE71851ED5A2E600447D56 /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = ../src/triangle.cpp; sourceTree = "<group>"; };
-		01FE71861ED5A2E600447D56 /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = triangle.h; path = ../src/triangle.h; sourceTree = "<group>"; };
-		01FE71871ED5A2E600447D56 /* vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector2.h; path = ../src/vector2.h; sourceTree = "<group>"; };
-		01FE718C1ED5A32200447D56 /* Calibrator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Calibrator.cpp; path = ../src/Calibrator.cpp; sourceTree = "<group>"; };
-		01FE718D1ED5A32200447D56 /* Calibrator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Calibrator.hpp; path = ../src/Calibrator.hpp; sourceTree = "<group>"; };
-		01FE71901ED6D77500447D56 /* ProjectionCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectionCamera.cpp; path = ../src/ProjectionCamera.cpp; sourceTree = "<group>"; };
-		01FE71911ED6D77500447D56 /* ProjectionCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ProjectionCamera.hpp; path = ../src/ProjectionCamera.hpp; sourceTree = "<group>"; };
+		0104A6631EF151BA00AAD57D /* GameRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameRenderer.cpp; path = ../src/GameRenderer.cpp; sourceTree = "<group>"; };
+		0104A6641EF151BA00AAD57D /* GameRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameRenderer.hpp; path = ../src/GameRenderer.hpp; sourceTree = "<group>"; };
+		0104A6671EF15E2D00AAD57D /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
+		0132231B1EF003D8002F486B /* ArduinoHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArduinoHandler.cpp; path = ../src/ArduinoHandler.cpp; sourceTree = "<group>"; };
+		0132231C1EF003D8002F486B /* ArduinoHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ArduinoHandler.hpp; path = ../src/ArduinoHandler.hpp; sourceTree = "<group>"; };
+		0132231D1EF003D8002F486B /* Calibrator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Calibrator.cpp; path = ../src/Calibrator.cpp; sourceTree = "<group>"; };
+		0132231E1EF003D8002F486B /* Calibrator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Calibrator.hpp; path = ../src/Calibrator.hpp; sourceTree = "<group>"; };
+		0132231F1EF003D8002F486B /* CameraHandler2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CameraHandler2.cpp; path = ../src/CameraHandler2.cpp; sourceTree = "<group>"; };
+		013223201EF003D8002F486B /* CameraHandler2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CameraHandler2.hpp; path = ../src/CameraHandler2.hpp; sourceTree = "<group>"; };
+		013223211EF003D8002F486B /* delaunay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = delaunay.cpp; path = ../src/delaunay.cpp; sourceTree = "<group>"; };
+		013223221EF003D8002F486B /* delaunay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = delaunay.h; path = ../src/delaunay.h; sourceTree = "<group>"; };
+		013223231EF003D8002F486B /* edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edge.h; path = ../src/edge.h; sourceTree = "<group>"; };
+		013223281EF003E5002F486B /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../src/Particle.cpp; sourceTree = "<group>"; };
+		013223291EF003E5002F486B /* Particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Particle.hpp; path = ../src/Particle.hpp; sourceTree = "<group>"; };
+		0132232A1EF003E5002F486B /* ParticleHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleHandler.cpp; path = ../src/ParticleHandler.cpp; sourceTree = "<group>"; };
+		0132232B1EF003E5002F486B /* ParticleHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParticleHandler.hpp; path = ../src/ParticleHandler.hpp; sourceTree = "<group>"; };
+		0132232C1EF003E5002F486B /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../src/Player.cpp; sourceTree = "<group>"; };
+		0132232D1EF003E5002F486B /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Player.hpp; path = ../src/Player.hpp; sourceTree = "<group>"; };
+		0132232E1EF003E5002F486B /* ProjectionCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectionCamera.cpp; path = ../src/ProjectionCamera.cpp; sourceTree = "<group>"; };
+		0132232F1EF003E5002F486B /* ProjectionCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ProjectionCamera.hpp; path = ../src/ProjectionCamera.hpp; sourceTree = "<group>"; };
+		013223301EF003E5002F486B /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = ../src/triangle.cpp; sourceTree = "<group>"; };
+		013223311EF003E5002F486B /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = triangle.h; path = ../src/triangle.h; sourceTree = "<group>"; };
+		013223321EF003E5002F486B /* vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector2.h; path = ../src/vector2.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		19A9B42BDF5E41E28E65050F /* Game_PCApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = Game_PCApp.cpp; path = ../src/Game_PCApp.cpp; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		48010243C40641C5B0B9D338 /* CinderOpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CinderOpenCV.h; path = "../../../cinder_master/blocks/Cinder-OpenCV3-master/include/CinderOpenCV.h"; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
-		59A95A65032B40D585541E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5551809B6D0C4524B6E9EA4D /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		78A62F2E86FF45B1B95379C9 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		80FA91658C0840CCBF202DC5 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Game_PC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game_PC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = Game_PCApp.cpp; path = ../src/Game_PCApp.cpp; sourceTree = "<group>"; };
-		9543C8318ED54342ACD3CAF4 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
-		C66C4ECA8DD643D58CA0DD32 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
-		E322293D594E40119EA030F5 /* Game_PC_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Game_PC_Prefix.pch; sourceTree = "<group>"; };
+		A35D773DF4CA4880BCB2944A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4DF77E900A14FBCA7F6B3DF /* Game_PC_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Game_PC_Prefix.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,75 +97,79 @@
 				00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */,
 				00B9955A1B128DF400A5C623 /* IOKit.framework in Frameworks */,
 				00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */,
+				FAAFCE73B8A547BAA0664560 /* OpenCL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01B97315FEAEA392516A2CEA /* Blocks */ = {
+		0104A6601EF1510D00AAD57D /* input */ = {
 			isa = PBXGroup;
 			children = (
+				0132231B1EF003D8002F486B /* ArduinoHandler.cpp */,
+				0132231C1EF003D8002F486B /* ArduinoHandler.hpp */,
+				0132231F1EF003D8002F486B /* CameraHandler2.cpp */,
+				013223201EF003D8002F486B /* CameraHandler2.hpp */,
 			);
-			name = Blocks;
+			name = input;
 			sourceTree = "<group>";
 		};
-		01FE717F1ED18ADA00447D56 /* particles */ = {
+		0104A6611EF1512500AAD57D /* calibration */ = {
 			isa = PBXGroup;
 			children = (
-				01FE71791ED18ABF00447D56 /* ParticleHandler.cpp */,
-				01FE717A1ED18ABF00447D56 /* ParticleHandler.hpp */,
-				01FE717C1ED18AD300447D56 /* Particle.cpp */,
-				01FE717D1ED18AD300447D56 /* Particle.hpp */,
-			);
-			name = particles;
-			sourceTree = "<group>";
-		};
-		01FE718A1ED5A2EF00447D56 /* calibration */ = {
-			isa = PBXGroup;
-			children = (
-				01FE718B1ED5A2F900447D56 /* delaunay */,
-				01FE718C1ED5A32200447D56 /* Calibrator.cpp */,
-				01FE718D1ED5A32200447D56 /* Calibrator.hpp */,
+				013223301EF003E5002F486B /* triangle.cpp */,
+				013223311EF003E5002F486B /* triangle.h */,
+				013223321EF003E5002F486B /* vector2.h */,
+				0132231D1EF003D8002F486B /* Calibrator.cpp */,
+				0132231E1EF003D8002F486B /* Calibrator.hpp */,
+				013223211EF003D8002F486B /* delaunay.cpp */,
+				013223221EF003D8002F486B /* delaunay.h */,
+				013223231EF003D8002F486B /* edge.h */,
 			);
 			name = calibration;
 			sourceTree = "<group>";
 		};
-		01FE718B1ED5A2F900447D56 /* delaunay */ = {
+		0104A6621EF1516100AAD57D /* rendering */ = {
 			isa = PBXGroup;
 			children = (
-				01FE71821ED5A2E600447D56 /* delaunay.cpp */,
-				01FE71831ED5A2E600447D56 /* delaunay.h */,
-				01FE71841ED5A2E600447D56 /* edge.h */,
-				01FE71851ED5A2E600447D56 /* triangle.cpp */,
-				01FE71861ED5A2E600447D56 /* triangle.h */,
-				01FE71871ED5A2E600447D56 /* vector2.h */,
+				0132232E1EF003E5002F486B /* ProjectionCamera.cpp */,
+				0132232F1EF003E5002F486B /* ProjectionCamera.hpp */,
+				0104A6631EF151BA00AAD57D /* GameRenderer.cpp */,
+				0104A6641EF151BA00AAD57D /* GameRenderer.hpp */,
 			);
-			name = delaunay;
+			name = rendering;
 			sourceTree = "<group>";
 		};
-		01FE718F1ED5A56900447D56 /* datainput */ = {
+		0104A6661EF1550D00AAD57D /* gameObjects */ = {
 			isa = PBXGroup;
 			children = (
-				01419C0E1EC8645600D38BE4 /* CameraHandler.cpp */,
-				01419C0F1EC8645600D38BE4 /* CameraHandler.hpp */,
-				01419C111EC8695200D38BE4 /* ArduinoHandler.cpp */,
-				01419C121EC8695200D38BE4 /* ArduinoHandler.hpp */,
+				0132232C1EF003E5002F486B /* Player.cpp */,
+				0132232D1EF003E5002F486B /* Player.hpp */,
+				013223281EF003E5002F486B /* Particle.cpp */,
+				013223291EF003E5002F486B /* Particle.hpp */,
+				0132232A1EF003E5002F486B /* ParticleHandler.cpp */,
+				0132232B1EF003E5002F486B /* ParticleHandler.hpp */,
 			);
-			name = datainput;
+			name = gameObjects;
+			sourceTree = "<group>";
+		};
+		01B97315FEAEA392516A2CEA /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				34717E1332A44ED992024F3D /* OpenCV3 */,
+			);
+			name = Blocks;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				01FE718F1ED5A56900447D56 /* datainput */,
-				01FE718A1ED5A2EF00447D56 /* calibration */,
-				01FE717F1ED18ADA00447D56 /* particles */,
-				92DF3FB9132E4A488614DCD1 /* Game_PCApp.cpp */,
-				01419C141ECAF8EA00D38BE4 /* Player.cpp */,
-				01419C151ECAF8EA00D38BE4 /* Player.hpp */,
-				01FE71901ED6D77500447D56 /* ProjectionCamera.cpp */,
-				01FE71911ED6D77500447D56 /* ProjectionCamera.hpp */,
+				0104A6661EF1550D00AAD57D /* gameObjects */,
+				0104A6621EF1516100AAD57D /* rendering */,
+				0104A6611EF1512500AAD57D /* calibration */,
+				0104A6601EF1510D00AAD57D /* input */,
+				19A9B42BDF5E41E28E65050F /* Game_PCApp.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -202,13 +212,13 @@
 		29B97314FDCFA39411CA2CEA /* Game_PC */ = {
 			isa = PBXGroup;
 			children = (
-				01FE71801ED1A16A00447D56 /* assets */,
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97315FDCFA39411CA2CEA /* Headers */,
 				080E96DDFE201D6D7F000001 /* Source */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				0104A6671EF15E2D00AAD57D /* assets */,
 			);
 			name = Game_PC;
 			sourceTree = "<group>";
@@ -216,8 +226,8 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				9543C8318ED54342ACD3CAF4 /* Resources.h */,
-				E322293D594E40119EA030F5 /* Game_PC_Prefix.pch */,
+				80FA91658C0840CCBF202DC5 /* Resources.h */,
+				A4DF77E900A14FBCA7F6B3DF /* Game_PC_Prefix.pch */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -225,8 +235,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C66C4ECA8DD643D58CA0DD32 /* CinderApp.icns */,
-				59A95A65032B40D585541E8C /* Info.plist */,
+				5551809B6D0C4524B6E9EA4D /* CinderApp.icns */,
+				A35D773DF4CA4880BCB2944A /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -236,8 +246,25 @@
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				78A62F2E86FF45B1B95379C9 /* OpenCL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34717E1332A44ED992024F3D /* OpenCV3 */ = {
+			isa = PBXGroup;
+			children = (
+				DE9048C685884DC792C693A8 /* include */,
+			);
+			name = OpenCV3;
+			sourceTree = "<group>";
+		};
+		DE9048C685884DC792C693A8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				48010243C40641C5B0B9D338 /* CinderOpenCV.h */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,8 +319,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE88B38CAF9E487EA946927A /* CinderApp.icns in Resources */,
-				01FE71811ED1A16A00447D56 /* assets in Resources */,
+				B8E83D5D8B9C4ED993BC19F3 /* CinderApp.icns in Resources */,
+				0104A6681EF15E2D00AAD57D /* assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,16 +331,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01419C161ECAF8EA00D38BE4 /* Player.cpp in Sources */,
-				01FE71921ED6D77500447D56 /* ProjectionCamera.cpp in Sources */,
-				01FE717E1ED18AD300447D56 /* Particle.cpp in Sources */,
-				1EBAF5988F1444D58230F7A8 /* Game_PCApp.cpp in Sources */,
-				01FE71891ED5A2E600447D56 /* triangle.cpp in Sources */,
-				01419C101EC8645600D38BE4 /* CameraHandler.cpp in Sources */,
-				01FE71881ED5A2E600447D56 /* delaunay.cpp in Sources */,
-				01419C131EC8695200D38BE4 /* ArduinoHandler.cpp in Sources */,
-				01FE717B1ED18ABF00447D56 /* ParticleHandler.cpp in Sources */,
-				01FE718E1ED5A32200447D56 /* Calibrator.cpp in Sources */,
+				013223351EF003E5002F486B /* Player.cpp in Sources */,
+				013223361EF003E5002F486B /* ProjectionCamera.cpp in Sources */,
+				013223341EF003E5002F486B /* ParticleHandler.cpp in Sources */,
+				013223371EF003E5002F486B /* triangle.cpp in Sources */,
+				0104A6651EF151BA00AAD57D /* GameRenderer.cpp in Sources */,
+				013223261EF003D8002F486B /* CameraHandler2.cpp in Sources */,
+				013223331EF003E5002F486B /* Particle.cpp in Sources */,
+				013223271EF003D8002F486B /* delaunay.cpp in Sources */,
+				8E308D6378FE4394AEE96F1F /* Game_PCApp.cpp in Sources */,
+				013223241EF003D8002F486B /* ArduinoHandler.cpp in Sources */,
+				013223251EF003D8002F486B /* Calibrator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +366,27 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
+				OTHER_LDFLAGS = (
+					"\"$(CINDER_PATH)/lib/libcinder_d.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_calib3d.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_core.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_features2d.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_flann.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_hal.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_imgproc.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_ml.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_objdetect.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_photo.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_shape.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_stitching.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_superres.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_video.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_ts.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_videoio.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_videostab.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libippicv.a\"",
+					"\"-lz\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Game_PC;
 				SYMROOT = ./build;
@@ -365,7 +413,27 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
+				OTHER_LDFLAGS = (
+					"\"$(CINDER_PATH)/lib/libcinder.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_calib3d.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_core.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_features2d.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_flann.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_hal.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_imgproc.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_ml.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_objdetect.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_photo.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_shape.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_stitching.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_superres.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_video.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_ts.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_videoio.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libopencv_videostab.a\"",
+					"\"../../../cinder_master/blocks/Cinder-OpenCV3-master/lib/macosx/libippicv.a\"",
+					"\"-lz\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Game_PC;
 				STRIP_INSTALLED_PRODUCT = YES;
@@ -388,7 +456,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"../../../cinder_master/blocks/Cinder-OpenCV3-master/include\"";
 			};
 			name = Debug;
 		};
@@ -404,7 +472,7 @@
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"../../../cinder_master/blocks/Cinder-OpenCV3-master/include\"";
 			};
 			name = Release;
 		};

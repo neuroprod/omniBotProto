@@ -332,6 +332,7 @@ dependencies: \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Particle.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Player.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/ProjectionCamera.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/GameRenderer.hpp \
   ../../../cinder_master/include/glm/gtc/random.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/xcode/../../../cinder_master/include/glm/gtc/random.inl \
   ../../../cinder_master/include/cinder/Perlin.h

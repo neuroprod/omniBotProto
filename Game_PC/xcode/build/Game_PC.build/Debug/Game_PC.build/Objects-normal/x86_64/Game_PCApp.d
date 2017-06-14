@@ -3,7 +3,8 @@ dependencies: \
   ../../../cinder_master/include/cinder/app/RendererGl.h \
   ../../../cinder_master/include/cinder/Serial.h \
   ../../../cinder_master/include/cinder/params/Params.h \
-  /Users/kris/Documents/omniBotProto/Game_PC/src/CameraHandler.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/CameraHandler2.hpp \
+  ../../../cinder_master/include/cinder/Capture.h \
   /Users/kris/Documents/omniBotProto/Game_PC/src/ArduinoHandler.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Player.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/ParticleHandler.hpp \
@@ -337,6 +338,7 @@ dependencies: \
   ../../../cinder_master/include/boost/detail/basic_pointerbuf.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Particle.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/ProjectionCamera.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/GameRenderer.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Calibrator.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/delaunay.h \
   /Users/kris/Documents/omniBotProto/Game_PC/src/vector2.h \

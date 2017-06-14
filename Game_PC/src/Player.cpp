@@ -100,7 +100,7 @@ void Player::draw()
 {
 
 
-    gl::color(0.0,0.0,0.0);
+    gl::color(0.3,0.3,0.3);
     gl::drawSolidCircle(drawPosition2D, robotSize);
     gl::drawSolidCircle(drawPosition2DFloor, robotSize-1);
 
@@ -135,7 +135,7 @@ void Player::drawDebug(ci::Camera cam)
     else
     {
     
-     gl::color(1,0,1);
+     gl::color(1,1,1);
     }
    
     gl::drawStrokedCircle(drawPosition2D, robotSize);
@@ -167,7 +167,7 @@ void Player::drawDebug(ci::Camera cam)
     gl::rotate(3.1415/2,vec3(1,0,0));
     gl::setWireframeEnabled(true);
     gl::color(Color::gray(0.2));
-    mBatch->draw();
+   // mBatch->draw();
     gl::setWireframeEnabled(false);
     gl::popMatrices();
     gl::enableDepth(false);

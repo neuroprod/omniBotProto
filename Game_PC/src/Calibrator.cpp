@@ -62,7 +62,7 @@ vec2 Calibrator::getOffsetForPoint(ivec2 point)
     
     
     offset-=0.5;
-    offset*=25.6;
+    offset*=25.6*2;
 
     
     return offset;

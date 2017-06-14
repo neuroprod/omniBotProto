@@ -4,11 +4,13 @@
 #include "cinder/Serial.h"
 #include "cinder/params/Params.h"
 
-#include "CameraHandler.hpp"
+#include "CameraHandler2.hpp"
+
 #include "ArduinoHandler.hpp"
 #include "Player.hpp"
 #include "ParticleHandler.hpp"
 #include "Calibrator.hpp"
+#include "GameRenderer.hpp"
 
 
 
@@ -26,8 +28,12 @@ class Game_PCApp : public App {
 	void draw() override;
     void setupParams();
     void updateRobotParams();
-   
-    CameraHandler cameraHandler;
+    
+    void drawDebug();
+    
+    GameRenderer renderer;
+    
+    CameraHandler2 cameraHandler;
     ArduinoHandler arduinoHandlerInput;
     ArduinoHandler arduinoHandlerOutput;
    
@@ -38,21 +44,21 @@ class Game_PCApp : public App {
 
     params::InterfaceGlRef	mParams;
     
-    float mCircleOffX =695 ;
-    float robotSize =50;
+    float mCircleOffX =689 ;
+    float robotSize =52;
    
  
     bool debugView =false;
-    bool useCameraPositioning =true;
+    bool useCameraPositioning =false;
     vec2 mousePos;
    
     float   mFrameRate;
     
    
-     bool useCameraCalibration =true;
+    bool useCameraCalibration =true;
     bool showCameraCalibration =false;
-     bool useFloorCalibration =true;
-     bool showFloorCalibration =false;
+    bool useFloorCalibration =true;
+    bool showFloorCalibration =false;
     Calibrator calibratorCam;
     Calibrator calibratorFloor;
     
@@ -63,7 +69,7 @@ class Game_PCApp : public App {
 void Game_PCApp::setup()
 {
     //projector size = 1280 720
-    //camera size =640*480;
+    //camera size =1280 720;
     
     setWindowSize(1280, 720);
     
@@ -71,11 +77,12 @@ void Game_PCApp::setup()
     for( const auto &dev : Serial::getDevices() )
         console() << "Device: " << dev.getName() << endl;
     
-    
-    cameraHandler.setup("tty.usbserial-A403JIFZ");
+    if(useCameraPositioning){
+        cameraHandler.setup(true);
+    }
     arduinoHandlerOutput.setup("tty.usbmodem14111");
-    //arduinoHandlerInput.setup("tty.usbmodem14141");
-    arduinoHandlerInput.setup("tty.usbmodem14211");
+    arduinoHandlerInput.setup("tty.usbmodem14141");
+    //arduinoHandlerInput.setup("tty.usbmodem14211");
     
    
     
@@ -91,11 +98,18 @@ void Game_PCApp::setup()
     particleHandler.setup(720/2, vec2(mCircleOffX,720/2));
     
     updateRobotParams();
+    
     calibratorCam.setup();
     calibratorFloor.setup("floor");
+    
     previousTime  =getElapsedSeconds();
     previousCameraTime = previousTime ;
+    
+    renderer.setup();
+    
     setupParams();
+    
+    
 }
 void Game_PCApp::keyDown( KeyEvent event )
 {
@@ -136,28 +150,48 @@ void Game_PCApp::update()
     
     if(!calibratorCam.loaded)calibratorCam.loadCalibration();
     if(!calibratorFloor.loaded)calibratorFloor.loadCalibration();
-    cameraHandler.update();
-    arduinoHandlerInput.update();
+    if (useCameraPositioning)cameraHandler.update();
     
+    
+    arduinoHandlerInput.update();
+    arduinoHandlerOutput.update();
     
     if(useCameraPositioning )
     {
         if(cameraHandler.newPos){
+            
             cameraHandler.newPos =false;
             double elapsedCamera = (currentTime-previousCameraTime)*1000;
             previousCameraTime =currentTime;
-            vec4 pos = cameraHandler.currentPosition;
-            ivec2 input =ivec2 (pos.x,pos.y);
-            vec2 offset =  calibratorCam.getOffsetForPoint(input);
-            pos.x+=offset.x;
-            pos.y+=offset.y;
-            player1->setPosition(pos,cameraHandler.currentDirection,elapsedCamera);
+            
+            
+            vec4 pos1 = cameraHandler.position1.currentPosition;
+            ivec2 input1 =ivec2 (pos1.x,pos1.y);
+            vec2 offset1 =  calibratorCam.getOffsetForPoint(input1);
+            pos1.x+=offset1.x;
+            pos1.y+=offset1.y;
+            player1->setPosition(pos1,cameraHandler.position1.currentDirection,elapsedCamera);
+            
+            
+            vec4 pos2 = cameraHandler.position2.currentPosition;
+            ivec2 input2 =ivec2 (pos2.x,pos2.y);
+            vec2 offset2 =  calibratorCam.getOffsetForPoint(input2);
+            pos2.x+=offset2.x;
+            pos2.y+=offset2.y;
+            player2->setPosition(pos2,cameraHandler.position2.currentDirection,elapsedCamera);
+            
         }
     }
     else
     {
         player1->setPosition(vec4(mousePos.x,mousePos.y,0,1),vec4(1,0,0,1),elapsed);
+        //player2->setPosition(vec4(mousePos.x+200,mousePos.y,0,1),vec4(1,0,0,1),elapsed);
     }
+    
+    ///////////////////////////////////
+    ///////////////////////////////////
+    
+    
     
     player1->update(elapsed);
     
@@ -178,7 +212,16 @@ void Game_PCApp::update()
         arduinoHandlerOutput.sendCommand(player1->command);
     }
     
+    
+    
+    ///////////////////////////////////
+    ///////////////////////////////////
+    
+    
+    
+    
     player2->update(elapsed);
+    
     ivec2 input2 =ivec2 (player2->drawPosition2D.x,player2->drawPosition2D.y);
     vec2 offset2 =  calibratorFloor.getOffsetForPoint(input2);
     offset2.y+=12;
@@ -198,41 +241,62 @@ void Game_PCApp::update()
     }
 
     
-    
-    
-    particleHandler.update(elapsed,player1);
+    particleHandler.update(elapsed,player1,player2);
     mFrameRate = getAverageFps();
+    
+    
+    
+    
+    
 }
 
 void Game_PCApp::draw()
 {
+    
 	gl::clear( Color( 0,0,0 ) );
+
+    if(debugView){
     
-    
-    if(!debugView){
-    
-        gl::color(54.f/556.f,65.f/556.f,1.f/556.f);
-    
-        /*gl::drawSolidCircle(vec2(mCircleOffX,720/2), 720/2 );
-        gl::drawSolidCircle(vec2(mCircleOffX-(720/2),720/2), robotSize );
-        gl::drawSolidCircle(vec2(mCircleOffX+(720/2),720/2), robotSize );
-    */
-        gl::color(1,1,1);
-       
- 
-    
-    
-   
-        particleHandler.draw();
-        player1->draw();
-         player2->draw();
-      mParams->draw();
+        drawDebug();
     }
-    else{
+    else
+    {
+      
+        
+        renderer.startShadowDraw();
+        particleHandler.drawShadow(&renderer);
+        renderer.stopShadowDraw();
+        
+        gl::color(1,1,1);
+        
+        ////////////
+        
+        renderer.startMainDraw();
+        
+        particleHandler.draw(&renderer);
+        
+        renderer.stopMainDraw();
+        
+        
+        player1->draw();
+        player2->draw();
+
+          }
+ 
+   
+}
+
+
+
+
+
+void Game_PCApp::drawDebug()
+{
+   
         
         gl::color(1,1,1);
         if(showCameraCalibration)
-        calibratorCam.draw();
+            calibratorCam.draw();
         
         if(showFloorCalibration)
             calibratorFloor.draw();
@@ -244,43 +308,83 @@ void Game_PCApp::draw()
         gl::drawLine(vec2(1280/2,0),vec2(1280/2,720));
         gl::drawLine(vec2(mCircleOffX,0),vec2(mCircleOffX,720));
         gl::drawLine(vec2(0,720/2),vec2(1280,720/2));
-
-         player2->drawDebug(particleHandler.cameraProj);
-        player1->drawDebug(particleHandler.cameraProj);
-        gl::color(0,1,0);
-        for(auto p: cameraHandler.pointsTransform)
+        
+        
+        if(useCameraCalibration)
         {
-            gl::drawLine(vec2(p.x-10,p.y),vec2(p.x+10,p.y));
-            gl::drawLine(vec2(p.x,p.y-10),vec2(p.x,p.y+10));
-            // gl::drawStrokedCircle(vec2(p.x,p.y),5);
-    
+            player2->drawDebug(renderer.cameraProj);
+            player1->drawDebug(renderer.cameraProj);
         }
-        gl::color(1,1,1);
-        for(auto d: cameraHandler.pointsTransform)
+        
+        
+        ;
+        
+        
+        if(!useCameraCalibration)
         {
             
-            ivec2 input =ivec2 (d.x,d.y);
-            
-            vec2 offset =  calibratorCam.getOffsetForPoint(input);
-            if(!useCameraCalibration)
-            {
-                offset.x = calibratorCam.offX;
-                offset.y = calibratorCam.offY;
-            }
-            vec2 p = vec2(d.x,d.y)+offset;
-            
+            vec2 offset;
+            offset.x = calibratorCam.offX;
+            offset.y = calibratorCam.offY;
+            vec2 p ;
+            p.x =cameraHandler.position2.currentPosition.x;
+            p.y =cameraHandler.position2.currentPosition.y;
+            gl::color(0,1,0);
             gl::drawLine(vec2(p.x-10,p.y),vec2(p.x+10,p.y));
             gl::drawLine(vec2(p.x,p.y-10),vec2(p.x,p.y+10));
-           // gl::drawStrokedCircle(vec2(p.x,p.y),5);
+            
+            
+            gl::color(1,1,1);
+            p.x+=offset.x*2;
+            p.y+=offset.y*2;
+            gl::drawLine(vec2(p.x-10,p.y),vec2(p.x+10,p.y));
+            gl::drawLine(vec2(p.x,p.y-10),vec2(p.x,p.y+10));
             
         }
         
+        if(useCameraCalibration)
+        {
+            gl::color(0,1,0);
+            for(auto p: cameraHandler.pointsTransform)
+            {
+                gl::drawLine(vec2(p.x-10,p.y),vec2(p.x+10,p.y));
+                gl::drawLine(vec2(p.x,p.y-10),vec2(p.x,p.y+10));
+                // gl::drawStrokedCircle(vec2(p.x,p.y),5);
+                
+            }
+            gl::color(1,1,1);
+            
+            for(auto d: cameraHandler.pointsTransform)
+            {
+                
+                ivec2 input =ivec2 (d.x,d.y);
+                
+                vec2 offset =  calibratorCam.getOffsetForPoint(input);
+                if(!useCameraCalibration)
+                {
+                    offset.x = calibratorCam.offX;
+                    offset.y = calibratorCam.offY;
+                }
+                vec2 p = vec2(d.x,d.y)+offset;
+                
+                gl::drawLine(vec2(p.x-10,p.y),vec2(p.x+10,p.y));
+                gl::drawLine(vec2(p.x,p.y-10),vec2(p.x,p.y+10));
+                // gl::drawStrokedCircle(vec2(p.x,p.y),5);
+                
+            }
+        }
         
         mParams->draw();
-    }
-  //console()<<getAverageFps()<<endl;
    
+    
 }
+
+
+
+
+
+
+
 
 void Game_PCApp::updateRobotParams()
 {
@@ -292,15 +396,12 @@ void Game_PCApp::setupParams()
 {
     mParams = params::InterfaceGl::create( getWindow(), "App parameters", toPixels( ivec2( 200, 700 ) ) );
     
-    
-   
-    
     mParams->addSeparator();
     mParams->addParam( "Framerate", &mFrameRate, "", true );
     mParams->addSeparator();
     
-    mParams->addParam( "offY_viewer", &particleHandler.offyCam ).step( 10.f ).updateFn( [this] {particleHandler.updateCameraPosition(); });
-    mParams->addParam( "offZ_viewer", &particleHandler.offzCam ).step( 10.f ).updateFn( [this] {particleHandler.updateCameraPosition(); });
+    mParams->addParam( "offY_viewer", &renderer.offyCam ).step( 10.f ).updateFn( [this] {renderer.updateCameraPosition(); });
+    mParams->addParam( "offZ_viewer", &renderer.offzCam ).step( 10.f ).updateFn( [this] {renderer.updateCameraPosition(); });
      mParams->addSeparator();
     mParams->addText("game position");
     mParams->addSeparator();
@@ -313,8 +414,8 @@ void Game_PCApp::setupParams()
     mParams->addSeparator();
     mParams->addParam( "offX", &cameraHandler.mOffX ).min( 1280/2 -200 ).max( 1280/2 +200).precision( 1 ).step( 0.2f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
     mParams->addParam( "offY", &cameraHandler.mOffY ).min( 720/2  -200 ).max(720/2  +200).precision( 1 ).step( 0.2f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
-    mParams->addParam( "scaleX", &cameraHandler.mScaleX).min( 1 ).max( 3).precision( 2 ).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
-    mParams->addParam( "scaleY", &cameraHandler.mScaleY ).min( 1 ).max( 3).precision( 2 ).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
+    mParams->addParam( "scaleX", &cameraHandler.mScaleX).min( 0.5 ).max( 3).precision( 2 ).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
+    mParams->addParam( "scaleY", &cameraHandler.mScaleY ).min( 0.5 ).max( 3).precision( 2 ).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
     mParams->addParam( "mRot", &cameraHandler.mRot ).min( -0.5 ).max( 0.5).precision( 2).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
     
     
@@ -330,10 +431,10 @@ void Game_PCApp::setupParams()
     mParams->addText("camera calibration detail");
     mParams->addParam("showCamCalibration", &showCameraCalibration);
     mParams->addParam("useCamCalibration", &useCameraCalibration);
-    mParams->addParam( "offX_cal", &calibratorCam.offX ).min( -12.5 ).max( 12.5).precision( 1 ).step( 0.2f );
-    mParams->addParam( "offY_cal", &calibratorCam.offY ).min( -12.5 ).max( 12.5).precision( 1 ).step( 0.2f );
+    mParams->addParam( "offX_cal", &calibratorCam.offX ).min( -12.5 ).max( 12.5).precision( 1 ).step( 0.1f );
+    mParams->addParam( "offY_cal", &calibratorCam.offY ).min( -12.5 ).max( 12.5).precision( 1 ).step( 0.1f );
     mParams->addButton("savePoint", [this] {
-        calibratorCam.addVector(vec2(cameraHandler.currentPosition.x,cameraHandler.currentPosition.y));
+        calibratorCam.addVector(vec2(cameraHandler.position2.currentPosition.x,cameraHandler.position2.currentPosition.y));
     });
     mParams->addButton("saveData", [this] {calibratorCam.saveCalibration(); });
     mParams->addButton("resetData", [this] {calibratorCam.reset(); });
@@ -347,7 +448,7 @@ void Game_PCApp::setupParams()
     mParams->addButton("savePoint_f", [this] {
         
         
-        vec4 pos = cameraHandler.currentPosition;
+        vec4 pos = cameraHandler.position1.currentPosition;
         ivec2 input =ivec2 (pos.x,pos.y);
         vec2 offset =  calibratorCam.getOffsetForPoint(input);
         pos.x+=offset.x;

@@ -30,7 +30,7 @@ ParticleHandler::~ParticleHandler()
 void ParticleHandler::setup(float radius, glm::vec2 centerPos)
 {
   
-    float viewAngle =10;
+   /* float viewAngle =10;
     float distance = screenHeight / 2 / sinf(glm::radians(viewAngle / 2))*  sinf(glm::radians(90 - viewAngle / 2));
     
     camera.setEyePoint(vec3(screenWidth / 2, screenHeight / 2, -distance));
@@ -44,13 +44,13 @@ void ParticleHandler::setup(float radius, glm::vec2 centerPos)
     
 
        updateCameraPosition();
- 
+ */
     gradientMap=gl::Texture::create( loadImage( loadAsset("gradient.png") ) );
     
-    mGlsl = gl::GlslProg::create( loadAsset( "shader.vert" ), loadAsset( "shader.frag" ) );
+    mGlsl = gl::GlslProg::create( loadAsset( "leave_shader.vert" ), loadAsset( "leave_shader.frag" ) );
   
     
-     mGlslPlain = gl::GlslProg::create( loadAsset( "shaderPlain.vert" ), loadAsset( "shaderPlain.frag" ) );
+     mGlslPlain = gl::GlslProg::create( loadAsset( "shadow_shader.vert" ), loadAsset( "shadow_shader.frag" ) );
     
     
     gl::VboMeshRef mesh= buildVBOMesh();
@@ -143,29 +143,21 @@ void ParticleHandler::setup(float radius, glm::vec2 centerPos)
     
     mBatchPlain = gl::Batch::create( mesh, mGlslPlain, { { geom::Attrib::CUSTOM_0, "vInstancePosition" } });
 }
-void ParticleHandler::updateCameraPosition()
+
+
+
+void ParticleHandler::update(double elapsed,PlayerRef player1,PlayerRef player2)
 {
-
-    cameraPosition.x=0;
-    cameraPosition.y=-screenHeight-offyCam ;
-    cameraPosition.z=offzCam;
-
-    cameraProj.setEyePoint(vec3(screenWidth / 2, screenHeight+offyCam /2,offzCam/2));
+    glm::vec2 pos1=  player1->drawPosition2DFloor;
+    glm::vec2 speed1= player1->moveSpeed2D;
+    float speedSize1 = glm::length(speed1);
     
-    cameraProj.lookAt(vec3(screenWidth / 2,screenHeight+offyCam /2, 0));
-    cameraProj.setCameraPos(cameraPosition);
-   
-
-}
-
-
-
-void ParticleHandler::update(double elapsed,PlayerRef player)
-{
-    glm::vec2 pos=  player->drawPosition2DFloor;
-    glm::vec2 speed= player->moveSpeed2D;
-    float speedSize = glm::length(speed);
-    float robotSize  =player->robotSize+7;
+    glm::vec2 pos2=  player2->drawPosition2DFloor;
+    glm::vec2 speed2= player2->moveSpeed2D;
+    float speedSize2 = glm::length(speed2);
+    
+    
+    float robotSize  =player1->robotSize+7;
     float robotsize2 = pow(robotSize,2.0f);
   
     glm::mat4 *positions = (glm::mat4 *)mInstanceDataVbo->mapReplace();
@@ -174,12 +166,14 @@ void ParticleHandler::update(double elapsed,PlayerRef player)
     {
     
         glm::vec2 pPos =glm::vec2(p->position.x,p->position.y);
-        float distance2 = glm::distance2(pos, pPos);
-        if(distance2<robotsize2  && p->position.z>-100)
+        
+        ///player1
+        float distance12 = glm::distance2(pos1, pPos);
+        if(distance12<robotsize2  && p->position.z>-100)
         {
         
             p->hit  =true;
-            glm::vec2 hitDir =pPos -pos;
+            glm::vec2 hitDir =pPos -pos1;
             float hitSize =robotSize -glm::length( hitDir);
             hitDir = glm::normalize(hitDir);
             glm::vec2 moveDir =hitDir*(hitSize+glm::linearRand(0.f, 0.f));
@@ -188,21 +182,42 @@ void ParticleHandler::update(double elapsed,PlayerRef player)
             
            
             
-            float rand  =glm::linearRand(0.f, speedSize/30.f);
+            float rand  =glm::linearRand(0.f, speedSize1/30.f);
             
             p->speed.x += moveDir.x*rand;
             p->speed.y += moveDir.y*rand;
             p->speed.z -=hitSize/10;
             p->position.z +=p->speed.z;
         
-        }else
-        {
-        
-            p->hit =false;
-           
         }
-    
-       // console()<<p->speed.z<<" "<<p->position.z<<endl;
+        
+        ///player2
+        float distance22 = glm::distance2(pos2, pPos);
+        if(distance22<robotsize2  && p->position.z>-100)
+        {
+            
+            p->hit  =true;
+            glm::vec2 hitDir =pPos -pos2;
+            float hitSize =robotSize -glm::length( hitDir);
+            hitDir = glm::normalize(hitDir);
+            glm::vec2 moveDir =hitDir*(hitSize+glm::linearRand(0.f, 0.f));
+            p->position.x += moveDir.x;
+            p->position.y += moveDir.y;
+            
+            
+            
+            float rand  =glm::linearRand(0.f, speedSize2/30.f);
+            
+            p->speed.x += moveDir.x*rand;
+            p->speed.y += moveDir.y*rand;
+            p->speed.z -=hitSize/10;
+            p->position.z +=p->speed.z;
+            
+        }
+
+        
+        
+  
         
         
         p->rotation.x+=p->speed.x/20;
@@ -211,7 +226,7 @@ void ParticleHandler::update(double elapsed,PlayerRef player)
         p->speed*=p->friction;
         p->position.x+=p->speed.x;
         p->position.y+=p->speed.y;
-         p->position.z+=p->speed.z;
+        p->position.z+=p->speed.z;
         
         
         
@@ -220,10 +235,12 @@ void ParticleHandler::update(double elapsed,PlayerRef player)
         
         
         
-        if(p->position.z!= p->positionStart.z){
-        p->speed.z+=0.1;
+        if(p->position.z!= p->positionStart.z)
+        {
+            p->speed.z+=0.1;
             if( p->speed.z>2) p->speed.z=2;
-    }
+        }
+        
         if(p->position.z> p->positionStart.z)
         {
             p->position.z =p->positionStart.z;
@@ -237,12 +254,12 @@ void ParticleHandler::update(double elapsed,PlayerRef player)
     
     mInstanceDataVbo->unmap();
     
-    renderDepthFbo();
+  //  renderDepthFbo();
 }
 
-void ParticleHandler::draw()
+void ParticleHandler::draw(GameRenderer * renderer)
 {
-    gl::enableDepthRead();
+    /*gl::enableDepthRead();
     gl::enableDepthWrite();
      gl::setMatrices( cameraProj);
     
@@ -263,22 +280,22 @@ void ParticleHandler::draw()
     mFloorShadowedBatch->draw();
     gl::popMatrices();
     
-    
+    */
     
     gl::pushMatrices();
  
 
     mGlsl ->uniform( "uShadowMap", 0 );
-     mGlsl ->uniform( "uGradientMap", 1 );
-    mGlsl ->uniform( "uLightPos", mvLightPos );
-    mGlsl ->uniform( "uShadowMatrix", shadowMatrix );
-    gl::ScopedTextureBind texScope2( mShadowMapTex, (uint8_t) 0 );
+    mGlsl ->uniform( "uGradientMap", 1 );
+    mGlsl ->uniform( "uLightPos",  renderer->mvLightPos );
+    mGlsl ->uniform( "uShadowMatrix",  renderer->shadowMatrix );
+    gl::ScopedTextureBind texScope2( renderer->mShadowMapTex, (uint8_t) 0 );
     gl::ScopedTextureBind texScope3( gradientMap, (uint8_t) 1 );
     mBatch->drawInstanced( numParticle );
     
-    gl::popMatrices();
-    gl::disableDepthRead();
-    gl::disableDepthWrite();
+  gl::popMatrices();
+  //  gl::disableDepthRead();
+   // gl::disableDepthWrite();
     
     
 }
@@ -381,33 +398,38 @@ gl::VboMeshRef ParticleHandler::buildVBOMesh()
     
     return  meshRef;
 }
-void ParticleHandler::renderDepthFbo()
+
+
+
+void ParticleHandler::drawShadow(GameRenderer * renderer)
 {
-    gl::enableDepthRead();
+  /*gl::enableDepthRead();
     gl::enableDepthWrite();
     gl::enable( GL_POLYGON_OFFSET_FILL );
     glPolygonOffset( 2.0f, 2.0f );
     
     // Render scene to fbo from the view of the light
-    gl::ScopedFramebuffer fbo( mFbo );
-    gl::ScopedViewport viewport( vec2( 0.0f ), mFbo->getSize() );
-    gl::clear( Color::black() );
+    gl::ScopedFramebuffer fbo( renderer->mFbo );
+    
+    gl::ScopedViewport viewport( vec2( 0.0f ), renderer->mFbo->getSize() );
+    gl::clear( Color::white() );
     gl::color( Color::white() );
      gl::pushMatrices();
-    gl::setMatrices( mLightCam );
+    gl::setMatrices( renderer->mLightCam );
     
    
+    */
+   mBatchPlain->drawInstanced( numParticle );
     
-    mBatchPlain->drawInstanced( numParticle );
-    
-    gl::popMatrices();
+   /* gl::popMatrices();
     
     // Disable polygon offset for final render
     gl::disable( GL_POLYGON_OFFSET_FILL );
     gl::disableDepthRead();
-    gl::disableDepthWrite();
+    gl::disableDepthWrite();*/
 
 }
+/*
 void ParticleHandler::setupShadow()
 {
     mLightPos.x=screenWidth / 2+500;
@@ -442,5 +464,5 @@ void ParticleHandler::setupShadow()
     mFloorShadowedBatch		= gl::Batch::create( floor, mGlslFloor );
 
 }
-
+*/
 

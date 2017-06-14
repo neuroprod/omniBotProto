@@ -58,8 +58,8 @@ public:
      glm::vec2 drawPosition2DFloor;
     glm::vec2 moveSpeed2D;
     
-    float moveOffset =0;
-    float moveOffsetStart =0;
+    float moveOffset =0.0;
+    float moveOffsetStart =0.0;
     
     cinder::gl::BatchRef		mBatch;
 };
