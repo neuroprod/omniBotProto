@@ -41,8 +41,37 @@ void Player::setup()
   
     mBatch = gl::Batch::create( geom::Cylinder().height(100).radius(50).subdivisionsHeight(1).subdivisionsAxis(20),gl::getStockShader(gl::ShaderDef().color())  );
 }
+
+void Player::setUseCamera(bool _useCamera)
+{
+    useCamera = _useCamera;
+    if(!useCamera)
+    {
+        if(name =="1:")
+        {
+            setPosition(vec4(350,350,0,1),vec4(0,1,0,1),0.1);
+        
+        }else
+        {
+            setPosition(vec4(1000,350,0,1),vec4(0,1,0,1),0.1);
+        
+        }
+    
+    
+    }
+
+};
+
+
 void Player::update(double elapsed)
 {
+    if(!useCamera)
+    {
+        setPosition( currentPosition+vec4(controler.x *4,controler.y*4,0,0),vec4(0,1,0,1),elapsed);
+        
+        
+    }
+
     robotDir.x =currentDirection.x;
     robotDir.y =currentDirection.y;
     robotDir = glm::normalize(robotDir);
@@ -243,7 +272,6 @@ void Player::parseControles(vector<std::string> substrings)
     controler.y =y;
     btnDown = btn ;
     
-   
     
     
 }

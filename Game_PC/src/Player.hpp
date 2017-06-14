@@ -28,6 +28,9 @@ public:
     void draw();
     void drawDebug(ci::Camera cam);
     void update(double elapsed);
+    void setUseCamera(bool _useCamera);
+    
+    bool useCamera =true;
     
     std::string name;
     
@@ -62,5 +65,8 @@ public:
     float moveOffsetStart =0.0;
     
     cinder::gl::BatchRef		mBatch;
+    
+   
+    
 };
 #endif /* Player_hpp */

@@ -50,7 +50,7 @@ void ArduinoHandler::update()
     {
         //console()<<mSerial->getNumBytesAvailable()<<" ";
         string input = mSerial->readStringUntil('\n');
-        console()<<"---"<< input<<endl;;
+  //      console()<<"---"<< input<<endl;;
         
         vector<string> substrings = split( input, " " );
 
@@ -77,7 +77,7 @@ void ArduinoHandler::update()
 
 void ArduinoHandler::sendCommand(std::string command)
 {
-    console()<<"writecomand"<<endl;
+    
     if(mSerial){
         mSerial->writeString(command);
     }

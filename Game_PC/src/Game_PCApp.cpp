@@ -89,9 +89,13 @@ void Game_PCApp::setup()
     player1 =Player::create();
     player1->setup();
     player1->name ="1:";
+    player1->setUseCamera(useCameraPositioning);
+    
     player2 =Player::create();
     player2->setup();
     player2->name ="2:";
+    player2->setUseCamera(useCameraPositioning);
+    
     arduinoHandlerInput.player1 = player1;
     arduinoHandlerInput.player2 = player2;
    
@@ -184,7 +188,8 @@ void Game_PCApp::update()
     }
     else
     {
-        player1->setPosition(vec4(mousePos.x,mousePos.y,0,1),vec4(1,0,0,1),elapsed);
+        //console()<<mousePos<<endl;
+        //player1->setPosition(vec4(mousePos.x,mousePos.y,0,1),vec4(1,0,0,1),elapsed);
         //player2->setPosition(vec4(mousePos.x+200,mousePos.y,0,1),vec4(1,0,0,1),elapsed);
     }
     
@@ -281,7 +286,7 @@ void Game_PCApp::draw()
         player1->draw();
         player2->draw();
 
-          }
+    }
  
    
 }

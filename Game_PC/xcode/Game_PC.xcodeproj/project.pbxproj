@@ -18,6 +18,8 @@
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
 		0104A6651EF151BA00AAD57D /* GameRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0104A6631EF151BA00AAD57D /* GameRenderer.cpp */; };
 		0104A6681EF15E2D00AAD57D /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 0104A6671EF15E2D00AAD57D /* assets */; };
+		0104A66B1EF16FEB00AAD57D /* Trail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0104A6691EF16FEB00AAD57D /* Trail.cpp */; };
+		0104A66D1EF1719800AAD57D /* Game_PCapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0104A66C1EF1719800AAD57D /* Game_PCapp.cpp */; };
 		013223241EF003D8002F486B /* ArduinoHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132231B1EF003D8002F486B /* ArduinoHandler.cpp */; };
 		013223251EF003D8002F486B /* Calibrator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132231D1EF003D8002F486B /* Calibrator.cpp */; };
 		013223261EF003D8002F486B /* CameraHandler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132231F1EF003D8002F486B /* CameraHandler2.cpp */; };
@@ -29,7 +31,6 @@
 		013223371EF003E5002F486B /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013223301EF003E5002F486B /* triangle.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		8E308D6378FE4394AEE96F1F /* Game_PCApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19A9B42BDF5E41E28E65050F /* Game_PCApp.cpp */; };
 		B8E83D5D8B9C4ED993BC19F3 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5551809B6D0C4524B6E9EA4D /* CinderApp.icns */; };
 		FAAFCE73B8A547BAA0664560 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A62F2E86FF45B1B95379C9 /* OpenCL.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,9 @@
 		0104A6631EF151BA00AAD57D /* GameRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameRenderer.cpp; path = ../src/GameRenderer.cpp; sourceTree = "<group>"; };
 		0104A6641EF151BA00AAD57D /* GameRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameRenderer.hpp; path = ../src/GameRenderer.hpp; sourceTree = "<group>"; };
 		0104A6671EF15E2D00AAD57D /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
+		0104A6691EF16FEB00AAD57D /* Trail.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Trail.cpp; path = ../src/Trail.cpp; sourceTree = "<group>"; };
+		0104A66A1EF16FEB00AAD57D /* Trail.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Trail.hpp; path = ../src/Trail.hpp; sourceTree = "<group>"; };
+		0104A66C1EF1719800AAD57D /* Game_PCapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game_PCapp.cpp; path = ../src/Game_PCapp.cpp; sourceTree = "<group>"; };
 		0132231B1EF003D8002F486B /* ArduinoHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArduinoHandler.cpp; path = ../src/ArduinoHandler.cpp; sourceTree = "<group>"; };
 		0132231C1EF003D8002F486B /* ArduinoHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ArduinoHandler.hpp; path = ../src/ArduinoHandler.hpp; sourceTree = "<group>"; };
 		0132231D1EF003D8002F486B /* Calibrator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Calibrator.cpp; path = ../src/Calibrator.cpp; sourceTree = "<group>"; };
@@ -68,7 +72,6 @@
 		013223311EF003E5002F486B /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = triangle.h; path = ../src/triangle.h; sourceTree = "<group>"; };
 		013223321EF003E5002F486B /* vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector2.h; path = ../src/vector2.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		19A9B42BDF5E41E28E65050F /* Game_PCApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = Game_PCApp.cpp; path = ../src/Game_PCApp.cpp; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		48010243C40641C5B0B9D338 /* CinderOpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CinderOpenCV.h; path = "../../../cinder_master/blocks/Cinder-OpenCV3-master/include/CinderOpenCV.h"; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				013223291EF003E5002F486B /* Particle.hpp */,
 				0132232A1EF003E5002F486B /* ParticleHandler.cpp */,
 				0132232B1EF003E5002F486B /* ParticleHandler.hpp */,
+				0104A6691EF16FEB00AAD57D /* Trail.cpp */,
+				0104A66A1EF16FEB00AAD57D /* Trail.hpp */,
 			);
 			name = gameObjects;
 			sourceTree = "<group>";
@@ -169,7 +174,7 @@
 				0104A6621EF1516100AAD57D /* rendering */,
 				0104A6611EF1512500AAD57D /* calibration */,
 				0104A6601EF1510D00AAD57D /* input */,
-				19A9B42BDF5E41E28E65050F /* Game_PCApp.cpp */,
+				0104A66C1EF1719800AAD57D /* Game_PCapp.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -336,10 +341,11 @@
 				013223341EF003E5002F486B /* ParticleHandler.cpp in Sources */,
 				013223371EF003E5002F486B /* triangle.cpp in Sources */,
 				0104A6651EF151BA00AAD57D /* GameRenderer.cpp in Sources */,
+				0104A66D1EF1719800AAD57D /* Game_PCapp.cpp in Sources */,
 				013223261EF003D8002F486B /* CameraHandler2.cpp in Sources */,
+				0104A66B1EF16FEB00AAD57D /* Trail.cpp in Sources */,
 				013223331EF003E5002F486B /* Particle.cpp in Sources */,
 				013223271EF003D8002F486B /* delaunay.cpp in Sources */,
-				8E308D6378FE4394AEE96F1F /* Game_PCApp.cpp in Sources */,
 				013223241EF003D8002F486B /* ArduinoHandler.cpp in Sources */,
 				013223251EF003D8002F486B /* Calibrator.cpp in Sources */,
 			);
