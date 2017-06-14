@@ -14,3 +14,9 @@ Game_PC/xcode/build/Game_PC.build/Release/Game_PC.build/dgph
 *.hmap
 
 *.o
+
+*.o
+
+*.d
+
+*.hmap
