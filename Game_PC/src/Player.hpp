@@ -28,18 +28,42 @@ public:
     void draw();
     void drawDebug(ci::Camera cam);
     void update(double elapsed);
+    void updateWorldOffset();
     void setUseCamera(bool _useCamera);
-    
     bool useCamera =true;
     
-    std::string name;
+   
     
     void parseControles( std::vector<std::string> substrings);
-    void setPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection,double elapsed);
+    void setRobotPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection,double elapsed);
 
-    glm::vec3 motorSpeed;
+    std::string name;
+    int id;
     
-    int count=0;
+    
+    float levelSize;
+    
+    
+    
+    glm::vec2 robotRotation;//keep robot strait/resolve move
+    glm::vec2 robotCurrentPos;//current calibrated camera pos
+    
+    glm::vec2 robotTargetMove;
+    glm::vec2 robotTargetPos;
+    
+    
+    
+    glm::vec2 playerWorldPos;
+    glm::vec2 playerViewPos;
+    glm::vec2 playerWorldOffset;
+
+    
+    
+    glm::vec3 motorSpeed;
+    glm::vec2 circleCenter;
+ 
+    
+    
     glm::vec4 currentPosition;
     glm::vec4 currentDirection;
     glm::vec2 robotDir;
@@ -51,7 +75,7 @@ public:
     bool hasNewCommand=false;
     std::string command ="";
     
-    float robotSize;
+    float robotSize=52;
     bool cameraSet =true;
     glm::vec4 cameraPositionSpeed;
     glm::vec2 robotDirRot;
@@ -61,11 +85,15 @@ public:
      glm::vec2 drawPosition2DFloor;
     glm::vec2 moveSpeed2D;
     
-    float moveOffset =0.0;
-    float moveOffsetStart =0.0;
+   // float moveOffset =0.0;
+    // float moveOffsetStart =0.0;
     
-    cinder::gl::BatchRef		mBatch;
     
+    glm::vec2 intersection;
+    
+    
+    
+    int sendCount;
    
     
 };

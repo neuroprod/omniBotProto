@@ -29,6 +29,10 @@
 		013223351EF003E5002F486B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132232C1EF003E5002F486B /* Player.cpp */; };
 		013223361EF003E5002F486B /* ProjectionCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132232E1EF003E5002F486B /* ProjectionCamera.cpp */; };
 		013223371EF003E5002F486B /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013223301EF003E5002F486B /* triangle.cpp */; };
+		01E83BEE1EF3DE5C0013D65B /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E83BEC1EF3DE5C0013D65B /* Level.cpp */; };
+		01E83BF21EF3EC340013D65B /* LevelTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E83BF01EF3EC340013D65B /* LevelTile.cpp */; };
+		01E83BF51EF5526E0013D65B /* PlayerLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E83BF31EF5526E0013D65B /* PlayerLevel.cpp */; };
+		01E83BF81EF558EE0013D65B /* PlayerTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E83BF61EF558EE0013D65B /* PlayerTile.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		B8E83D5D8B9C4ED993BC19F3 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5551809B6D0C4524B6E9EA4D /* CinderApp.icns */; };
@@ -71,6 +75,14 @@
 		013223301EF003E5002F486B /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = ../src/triangle.cpp; sourceTree = "<group>"; };
 		013223311EF003E5002F486B /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = triangle.h; path = ../src/triangle.h; sourceTree = "<group>"; };
 		013223321EF003E5002F486B /* vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector2.h; path = ../src/vector2.h; sourceTree = "<group>"; };
+		01E83BEC1EF3DE5C0013D65B /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Level.cpp; path = ../src/Level.cpp; sourceTree = "<group>"; };
+		01E83BED1EF3DE5C0013D65B /* Level.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Level.hpp; path = ../src/Level.hpp; sourceTree = "<group>"; };
+		01E83BF01EF3EC340013D65B /* LevelTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelTile.cpp; path = ../src/LevelTile.cpp; sourceTree = "<group>"; };
+		01E83BF11EF3EC340013D65B /* LevelTile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LevelTile.hpp; path = ../src/LevelTile.hpp; sourceTree = "<group>"; };
+		01E83BF31EF5526E0013D65B /* PlayerLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerLevel.cpp; path = ../src/PlayerLevel.cpp; sourceTree = "<group>"; };
+		01E83BF41EF5526E0013D65B /* PlayerLevel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PlayerLevel.hpp; path = ../src/PlayerLevel.hpp; sourceTree = "<group>"; };
+		01E83BF61EF558EE0013D65B /* PlayerTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerTile.cpp; path = ../src/PlayerTile.cpp; sourceTree = "<group>"; };
+		01E83BF71EF558EE0013D65B /* PlayerTile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PlayerTile.hpp; path = ../src/PlayerTile.hpp; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -147,14 +159,17 @@
 		0104A6661EF1550D00AAD57D /* gameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				01E83BEF1EF3EBE90013D65B /* temputils */,
 				0132232C1EF003E5002F486B /* Player.cpp */,
 				0132232D1EF003E5002F486B /* Player.hpp */,
-				013223281EF003E5002F486B /* Particle.cpp */,
-				013223291EF003E5002F486B /* Particle.hpp */,
-				0132232A1EF003E5002F486B /* ParticleHandler.cpp */,
-				0132232B1EF003E5002F486B /* ParticleHandler.hpp */,
-				0104A6691EF16FEB00AAD57D /* Trail.cpp */,
-				0104A66A1EF16FEB00AAD57D /* Trail.hpp */,
+				01E83BEC1EF3DE5C0013D65B /* Level.cpp */,
+				01E83BED1EF3DE5C0013D65B /* Level.hpp */,
+				01E83BF01EF3EC340013D65B /* LevelTile.cpp */,
+				01E83BF11EF3EC340013D65B /* LevelTile.hpp */,
+				01E83BF31EF5526E0013D65B /* PlayerLevel.cpp */,
+				01E83BF41EF5526E0013D65B /* PlayerLevel.hpp */,
+				01E83BF61EF558EE0013D65B /* PlayerTile.cpp */,
+				01E83BF71EF558EE0013D65B /* PlayerTile.hpp */,
 			);
 			name = gameObjects;
 			sourceTree = "<group>";
@@ -165,6 +180,19 @@
 				34717E1332A44ED992024F3D /* OpenCV3 */,
 			);
 			name = Blocks;
+			sourceTree = "<group>";
+		};
+		01E83BEF1EF3EBE90013D65B /* temputils */ = {
+			isa = PBXGroup;
+			children = (
+				013223281EF003E5002F486B /* Particle.cpp */,
+				013223291EF003E5002F486B /* Particle.hpp */,
+				0132232A1EF003E5002F486B /* ParticleHandler.cpp */,
+				0132232B1EF003E5002F486B /* ParticleHandler.hpp */,
+				0104A6691EF16FEB00AAD57D /* Trail.cpp */,
+				0104A66A1EF16FEB00AAD57D /* Trail.hpp */,
+			);
+			name = temputils;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* Source */ = {
@@ -336,13 +364,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01E83BF21EF3EC340013D65B /* LevelTile.cpp in Sources */,
 				013223351EF003E5002F486B /* Player.cpp in Sources */,
 				013223361EF003E5002F486B /* ProjectionCamera.cpp in Sources */,
+				01E83BEE1EF3DE5C0013D65B /* Level.cpp in Sources */,
 				013223341EF003E5002F486B /* ParticleHandler.cpp in Sources */,
 				013223371EF003E5002F486B /* triangle.cpp in Sources */,
+				01E83BF51EF5526E0013D65B /* PlayerLevel.cpp in Sources */,
 				0104A6651EF151BA00AAD57D /* GameRenderer.cpp in Sources */,
 				0104A66D1EF1719800AAD57D /* Game_PCapp.cpp in Sources */,
 				013223261EF003D8002F486B /* CameraHandler2.cpp in Sources */,
+				01E83BF81EF558EE0013D65B /* PlayerTile.cpp in Sources */,
 				0104A66B1EF16FEB00AAD57D /* Trail.cpp in Sources */,
 				013223331EF003E5002F486B /* Particle.cpp in Sources */,
 				013223271EF003D8002F486B /* delaunay.cpp in Sources */,

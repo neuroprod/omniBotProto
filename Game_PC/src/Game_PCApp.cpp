@@ -12,7 +12,7 @@
 #include "Calibrator.hpp"
 #include "GameRenderer.hpp"
 
-
+#include "Level.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -21,13 +21,11 @@ using namespace std;
 class Game_PCApp : public App {
   public:
 	void setup() override;
-	void mouseDown( MouseEvent event ) override;
-    void mouseMove( MouseEvent event ) override;
-    void keyDown( KeyEvent event ) override;
+	    void keyDown( KeyEvent event ) override;
 	void update() override;
 	void draw() override;
     void setupParams();
-    void updateRobotParams();
+  
     
     void drawDebug();
     
@@ -40,6 +38,11 @@ class Game_PCApp : public App {
     PlayerRef player1;
     PlayerRef player2;
     
+    
+    Level level;
+    
+    
+    
     ParticleHandler particleHandler;
 
     params::InterfaceGlRef	mParams;
@@ -50,9 +53,7 @@ class Game_PCApp : public App {
  
     bool debugView =false;
     bool useCameraPositioning =false;
-    vec2 mousePos;
-   
-    float   mFrameRate;
+  
     
    
     bool useCameraCalibration =true;
@@ -62,8 +63,16 @@ class Game_PCApp : public App {
     Calibrator calibratorCam;
     Calibrator calibratorFloor;
     
+  
+    float   mFrameRate;
     double previousTime;
     double previousCameraTime;
+    
+    vec2 pointCenter1;
+    vec2 pointCenter2;
+
+    vec2 pointCenter1off;
+    vec2 pointCenter2off;
 };
 
 void Game_PCApp::setup()
@@ -89,30 +98,41 @@ void Game_PCApp::setup()
     player1 =Player::create();
     player1->setup();
     player1->name ="1:";
+    player1->id =0;
+    player1->circleCenter =vec2(mCircleOffX, 720/2);
     player1->setUseCamera(useCameraPositioning);
     
     player2 =Player::create();
     player2->setup();
     player2->name ="2:";
+    player2->id =1;
+     player2->circleCenter =vec2(mCircleOffX, 720/2);
     player2->setUseCamera(useCameraPositioning);
     
     arduinoHandlerInput.player1 = player1;
     arduinoHandlerInput.player2 = player2;
    
+    
+    level.setup(player1,player2);
+    player1->levelSize =level.levelSize;
+    player2->levelSize =level.levelSize;
+    
+    
     particleHandler.setup(720/2, vec2(mCircleOffX,720/2));
     
-    updateRobotParams();
+   
     
     calibratorCam.setup();
     calibratorFloor.setup("floor");
-    
-    previousTime  =getElapsedSeconds();
-    previousCameraTime = previousTime ;
     
     renderer.setup();
     
     setupParams();
     
+    
+    previousTime  =getElapsedSeconds();
+    previousCameraTime = previousTime ;
+
     
 }
 void Game_PCApp::keyDown( KeyEvent event )
@@ -135,30 +155,29 @@ void Game_PCApp::keyDown( KeyEvent event )
     }
 
 };
-void Game_PCApp::mouseMove( MouseEvent event )
-{
-    
-   mousePos =  event.getPos();
-    
-    
-}
-void Game_PCApp::mouseDown( MouseEvent event )
-{
-}
+
 
 void Game_PCApp::update()
 {
+    // why asinc?
+    if(!calibratorCam.loaded)calibratorCam.loadCalibration();
+    if(!calibratorFloor.loaded)calibratorFloor.loadCalibration();
+
+    
+    
     double currentTime  =getElapsedSeconds();
     double elapsed = (currentTime-previousTime)*1000;
     previousTime =currentTime;
     
-    if(!calibratorCam.loaded)calibratorCam.loadCalibration();
-    if(!calibratorFloor.loaded)calibratorFloor.loadCalibration();
+    
+    
+    
+
     if (useCameraPositioning)cameraHandler.update();
-    
-    
     arduinoHandlerInput.update();
     arduinoHandlerOutput.update();
+    
+    
     
     if(useCameraPositioning )
     {
@@ -174,7 +193,14 @@ void Game_PCApp::update()
             vec2 offset1 =  calibratorCam.getOffsetForPoint(input1);
             pos1.x+=offset1.x;
             pos1.y+=offset1.y;
-            player1->setPosition(pos1,cameraHandler.position1.currentDirection,elapsedCamera);
+            
+            
+            
+            player1->setRobotPosition(pos1,cameraHandler.position1.currentDirection,elapsedCamera);
+            
+            
+            
+            
             
             
             vec4 pos2 = cameraHandler.position2.currentPosition;
@@ -182,25 +208,70 @@ void Game_PCApp::update()
             vec2 offset2 =  calibratorCam.getOffsetForPoint(input2);
             pos2.x+=offset2.x;
             pos2.y+=offset2.y;
-            player2->setPosition(pos2,cameraHandler.position2.currentDirection,elapsedCamera);
+            player2->setRobotPosition(pos2,cameraHandler.position2.currentDirection,elapsedCamera);
             
         }
     }
-    else
-    {
-        //console()<<mousePos<<endl;
-        //player1->setPosition(vec4(mousePos.x,mousePos.y,0,1),vec4(1,0,0,1),elapsed);
-        //player2->setPosition(vec4(mousePos.x+200,mousePos.y,0,1),vec4(1,0,0,1),elapsed);
-    }
+   
     
-    ///////////////////////////////////
-    ///////////////////////////////////
-    
-    
+    //set LevelPos
     
     player1->update(elapsed);
+    player2->update(elapsed);
     
-    ivec2 input =ivec2 (player1->drawPosition2D.x,player1->drawPosition2D.y);
+    //calculate mask
+    
+    vec2 distVec =player1->playerViewPos-  player2->playerViewPos;
+    float distance = glm::length(distVec );
+    
+    vec2 perpVec =vec2(-distVec.y ,distVec.x);
+    
+    vec2 centerPos = (player1->playerViewPos+  player2->playerViewPos)/2.f;
+    vec2 perpVecNorm = glm::normalize(perpVec);
+    
+    pointCenter1=centerPos-perpVecNorm*720.f;
+    pointCenter2 =centerPos+perpVecNorm*720.f;
+    
+    vec2 distVecNorm =glm::normalize(distVec);
+    
+    pointCenter1off = pointCenter1+distVecNorm*720.f;
+    pointCenter2off =pointCenter2+distVecNorm*720.f;
+    
+   //calculate robot distance
+    
+    if(distance<150)
+    {
+    
+        float offsetDistance = 150-distance;
+        
+        vec2 distVecN = glm::normalize(distVec);
+        
+        player1->playerViewPos+=distVecN*offsetDistance/2.f;
+        player2->playerViewPos-=distVecN*offsetDistance/2.f;
+    
+    }
+    
+    //set finall robot pos
+    
+    player1->updateWorldOffset();
+    player2->updateWorldOffset();
+    
+    
+    //
+    level.updatePlayerPositions( pointCenter1,pointCenter2);
+    
+    //update all physics
+    level.update();
+    
+    
+    //
+    
+    
+    
+    
+  //  player1->update(elapsed);
+    
+  /*  ivec2 input =ivec2 (player1->drawPosition2D.x,player1->drawPosition2D.y);
     vec2 offset =  calibratorFloor.getOffsetForPoint(input);
     offset.y+=12;
     if(!useFloorCalibration)
@@ -211,12 +282,7 @@ void Game_PCApp::update()
 
     player1->drawPosition2DFloor =player1->drawPosition2D+offset;
     
-    if(player1->hasNewCommand)
-    {
-        player1->hasNewCommand =false;
-        arduinoHandlerOutput.sendCommand(player1->command);
-    }
-    
+    */
     
     
     ///////////////////////////////////
@@ -225,9 +291,9 @@ void Game_PCApp::update()
     
     
     
-    player2->update(elapsed);
+  // player2->update(elapsed);
     
-    ivec2 input2 =ivec2 (player2->drawPosition2D.x,player2->drawPosition2D.y);
+  /*  ivec2 input2 =ivec2 (player2->drawPosition2D.x,player2->drawPosition2D.y);
     vec2 offset2 =  calibratorFloor.getOffsetForPoint(input2);
     offset2.y+=12;
     if(!useFloorCalibration)
@@ -236,17 +302,37 @@ void Game_PCApp::update()
         offset2.y = calibratorFloor.offY+ 12;
     }
 
-    
     player2->drawPosition2DFloor =player2->drawPosition2D+offset2;
+    */
+    
+    
+    
+    //particleHandler.update(elapsed,player1,player2);
+    
+    
+    
+    //send new commands to the robot
+    
+    
+    if(player1->hasNewCommand)
+    {
+        player1->hasNewCommand =false;
+        arduinoHandlerOutput.sendCommand(player1->command);
+    }
+
     
     if(player2->hasNewCommand)
     {
         player2->hasNewCommand =false;
         arduinoHandlerOutput.sendCommand(player2->command);
     }
+    
 
     
-    particleHandler.update(elapsed,player1,player2);
+    
+    
+    
+    
     mFrameRate = getAverageFps();
     
     
@@ -266,25 +352,78 @@ void Game_PCApp::draw()
     }
     else
     {
+     
+        
+        
+        
+        glEnable(GL_STENCIL_TEST);
+        gl::clear( Color( 0,0,0 ) );
+         glStencilMask(0xFF);
+        gl::clear( GL_STENCIL_BUFFER_BIT );
+        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+        // Draw floor
+        
+        glStencilFunc(GL_ALWAYS, 1, 0xFF); // Set any stencil to 1
+        glStencilMask(0xFF); // Write to stencil buffer
+        
+        gl::color(0.5,0.5,0.5,1);
+        
+        gl::drawSolidTriangle(pointCenter1, pointCenter2 ,pointCenter1off);
+         gl::drawSolidTriangle(pointCenter2 ,pointCenter2off,pointCenter1off);
+        
+        
+        glStencilFunc(GL_EQUAL, 1, 0xFF);
       
+      
+        level.draw(0);
+     
+        glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
         
-        renderer.startShadowDraw();
-        particleHandler.drawShadow(&renderer);
-        renderer.stopShadowDraw();
+        level.draw(1);
         
-        gl::color(1,1,1);
+       
         
-        ////////////
         
-        renderer.startMainDraw();
+         glDisable(GL_STENCIL_TEST);
+        glStencilMask(0x00);
         
-        particleHandler.draw(&renderer);
         
-        renderer.stopMainDraw();
+       
         
+        
+        
+        
+        gl::color(0,0,0);
+       
+        gl::drawStrokedCircle(vec2(mCircleOffX,720/2), 720/2,4,40);
+          gl::lineWidth(4);
+        
+        gl::drawLine(pointCenter1, pointCenter2);
+        //gl::drawLine(pointCenter1off, pointCenter2off);
+        
+        
+        
+        /* renderer.startShadowDraw();
+         // particleHandler.drawShadow(&renderer);
+         renderer.stopShadowDraw();
+         
+         gl::color(1,1,1);
+         
+         ////////////
+         
+         renderer.startMainDraw();
+         
+         
+         
+         // particleHandler.draw(&renderer);
+         
+         renderer.stopMainDraw();*/
         
         player1->draw();
+        
         player2->draw();
+        
+
 
     }
  
@@ -387,16 +526,6 @@ void Game_PCApp::drawDebug()
 
 
 
-
-
-
-
-void Game_PCApp::updateRobotParams()
-{
-
-    player1->robotSize = robotSize;
-    player2->robotSize = robotSize;
-}
 void Game_PCApp::setupParams()
 {
     mParams = params::InterfaceGl::create( getWindow(), "App parameters", toPixels( ivec2( 200, 700 ) ) );
@@ -422,14 +551,6 @@ void Game_PCApp::setupParams()
     mParams->addParam( "scaleX", &cameraHandler.mScaleX).min( 0.5 ).max( 3).precision( 2 ).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
     mParams->addParam( "scaleY", &cameraHandler.mScaleY ).min( 0.5 ).max( 3).precision( 2 ).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
     mParams->addParam( "mRot", &cameraHandler.mRot ).min( -0.5 ).max( 0.5).precision( 2).step( 0.01f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     mParams->addSeparator();
@@ -464,19 +585,15 @@ void Game_PCApp::setupParams()
     mParams->addButton("saveData_f", [this] {calibratorFloor.saveCalibration(); });
     mParams->addButton("resetData_f", [this] {calibratorFloor.reset(); });
     
-    
-    
-    
-    
-    
-    
+
     mParams->addSeparator();
     mParams->addText("robot");
-    mParams->addParam( "robotsize", & robotSize  ).min( 20 ).max( 70).precision( 1 ).step( 0.2f ).updateFn( [this] {updateRobotParams();  });
+    mParams->addParam( "robotsize", & robotSize  ).min( 20 ).max( 70).precision( 1 ).step( 0.2f ).updateFn( [this] { player1->robotSize = robotSize;
+        player2->robotSize = robotSize; });
 
-    mParams->addParam( "moveOffset", &player1->moveOffset  ).min( 0 ).max( 70).precision( 1 ).step( 0.1f );
-    mParams->addParam( "moveOffsetStart", &player1->moveOffsetStart  ).min( 0 ).max( 70).precision( 1 ).step( 0.1f );
+   // mParams->addParam( "moveOffset", &player1->moveOffset  ).min( 0 ).max( 70).precision( 1 ).step( 0.1f );
+    //mParams->addParam( "moveOffsetStart", &player1->moveOffsetStart  ).min( 0 ).max( 70).precision( 1 ).step( 0.1f );
 }
 
 //CINDER_APP( Game_PCApp,RendererGl(  ) )
-CINDER_APP( Game_PCApp,RendererGl( RendererGl::Options().msaa( 16 ) ) )
+CINDER_APP( Game_PCApp,RendererGl( RendererGl::Options().msaa( 16 ).stencil() ) )

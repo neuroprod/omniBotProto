@@ -343,4 +343,8 @@ dependencies: \
   /Users/kris/Documents/omniBotProto/Game_PC/src/delaunay.h \
   /Users/kris/Documents/omniBotProto/Game_PC/src/vector2.h \
   /Users/kris/Documents/omniBotProto/Game_PC/src/triangle.h \
-  /Users/kris/Documents/omniBotProto/Game_PC/src/edge.h
+  /Users/kris/Documents/omniBotProto/Game_PC/src/edge.h \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/Level.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/LevelTile.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerLevel.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerTile.hpp
