@@ -26,8 +26,8 @@ public:
     void setup();
     
     
-    void startShadowDraw();
-    void stopShadowDraw();
+    void startShadowDraw(int id);
+    void stopShadowDraw(int id);
     
     void startMainDraw();
     void stopMainDraw();
@@ -39,18 +39,19 @@ public:
     ProjectionCamera cameraProj;
     
     
-    ci::gl::FboRef			mFbo;
+    ci::gl::FboRef			mFbo1;
+    ci::gl::FboRef			mFbo2;
     ci::CameraPersp			mLightCam;
     ci::vec3				mLightPos;
     ci::gl::Texture2dRef	mShadowMapTex;
-
+    ci::gl::Texture2dRef	mShadowMapTex2;
     
     float screenHeight= 720;
     float screenWidth =1280 ;
     
-    
+    float off=0;
     float offyCam = 1800;
-    float offzCam = -5000;
+    float offzCam = -2000;
     
     glm::vec3 cameraPosition;
     

@@ -358,7 +358,7 @@ gl::VboMeshRef ParticleHandler::buildVBOMesh()
     // construct a VAO that describes the data in the buffer according to your layout.
    gl::VboMeshRef meshRef =gl::VboMesh::create(vertices.size(), GL_TRIANGLES, {{layout, buffer}},indexTemp.size());
     meshRef->bufferIndices(indexTemp.size()*sizeof(unsigned short), indexTemp.data());
-    console()<<  meshRef->getNumIndices ()<<endl;;
+    
     
     return  meshRef;
 }

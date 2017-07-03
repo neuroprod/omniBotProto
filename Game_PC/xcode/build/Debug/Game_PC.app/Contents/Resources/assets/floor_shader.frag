@@ -1,14 +1,18 @@
 #version 150 core
 
-uniform vec3 uLightPos;
+uniform sampler2D uFloorMap;
+
+
 uniform sampler2DShadow uShadowMap;
 
-in vec4 vColor;
-in vec4 vPosition;
-in vec3 vNormal;
+
 in vec4 vShadowCoord;
 
+
+in vec2	vTexCoord0;
 out vec4 Color;
+
+
 float samplePCF3x3( vec4 sc )
 {
     const int s = 1;
@@ -31,21 +35,18 @@ float samplePCF3x3( vec4 sc )
 
 void main( void )
 {
-	vec3 Normal			= normalize( vNormal );
-	vec3 LightVec		= normalize( uLightPos - vPosition.xyz );
-	float NdotL			= max( dot( vNormal, LightVec ), 0.0 );
-	
-	vec3 Diffuse		= vec3( NdotL );
-	vec3 Ambient		= vec3( 0.3 );
-	
+		
 	vec4 ShadowCoord	= vShadowCoord / vShadowCoord.w;
 	float Shadow		= 1.0;
 	
 	if ( ShadowCoord.z > -1 && ShadowCoord.z < 1 ) {
         Shadow = samplePCF3x3(ShadowCoord) ;
 	}
-    Shadow =clamp(Shadow,0.2,1.0);
+    Shadow =clamp(Shadow,0.7,1.0);
 
-    Color.rgb = vec3(0.08,0.08,0.00)*Shadow;
+    
+     vec4 color = texture(uFloorMap, vTexCoord0);
+    Color.rgb = color.xyz*Shadow;
+   
 	Color.a	= 1.0;
 }

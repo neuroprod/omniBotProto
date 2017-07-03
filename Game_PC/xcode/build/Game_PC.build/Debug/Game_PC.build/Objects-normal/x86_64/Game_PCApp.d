@@ -346,5 +346,9 @@ dependencies: \
   /Users/kris/Documents/omniBotProto/Game_PC/src/edge.h \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Level.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/LevelTile.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/GrassPatch.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerLevel.hpp \
-  /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerTile.hpp
+  /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerTile.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/FloorMapping.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/ObjectMap.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/GrassRenderer.hpp

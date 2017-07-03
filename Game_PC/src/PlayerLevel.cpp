@@ -40,16 +40,50 @@ void PlayerLevel::update(glm::vec2 deviderLineP1,glm::vec2 deviderLineP2)
         for(auto tile : playerTiles)
         {
             tile->update(playerTilePosX,playerTilePosY,numTiles,player->playerWorldOffset,player->circleCenter,deviderLineP1, deviderLineP2);
-            
+          
         }
  
     }
-    
-   
+    for(auto tile : playerTiles)
+    {
+        if( tile->visible)
+        {
+             tile->updatePlayer(player->playerWorldPos);
+            tile->tile->visible =true;
+        }
+        
+    }
+
     
 }
-
-
+void PlayerLevel::drawGrass()
+{
+    gl::pushMatrices();
+    gl::translate( player->playerWorldOffset);
+    
+    for(auto tile : playerTiles)
+    {
+        tile->drawGrass();
+    }
+    
+    
+    gl::popMatrices();
+    
+}
+void PlayerLevel::drawFloor()
+{
+    gl::pushMatrices();
+    gl::translate( player->playerWorldOffset);
+   
+    for(auto tile : playerTiles)
+    {
+            tile->drawFloor();
+    }
+   
+    
+    gl::popMatrices();
+    
+}
 void PlayerLevel::draw()
 {
     gl::pushMatrices();

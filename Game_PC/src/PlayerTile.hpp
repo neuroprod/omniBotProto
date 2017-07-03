@@ -27,8 +27,10 @@ public:
     LevelTileRef tile;
     void setup();
     void update(int playerTilePosX,int playerTilePosY,int numTiles,glm::vec2 offset,glm::vec2 circleCenter,glm::vec2 deviderLineP1,glm::vec2 deviderLineP2);
+    void updatePlayer(ci::vec2 playerPos);
     void draw();
-    
+    void drawFloor();
+    void drawGrass();
     int xR;
     int yR;
     float size;

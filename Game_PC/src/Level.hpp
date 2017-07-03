@@ -14,7 +14,9 @@
 #include "LevelTile.hpp"
 #include "Player.hpp"
 #include "PlayerLevel.hpp"
-
+#include "FloorMapping.hpp"
+#include "ObjectMap.hpp"
+#include "GrassRenderer.hpp"
 class Level
 {
 
@@ -29,15 +31,19 @@ public:
     
     
     
-    void draw(int playerID);
-
-    float tileSize =200;
-    int numTiles=30;
+    void draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix);
+    void drawShadow(int playerID);
+    float tileSize =256;
+    int numTiles=10;
     float levelSize;
-    
+    double currentTime;
     
     PlayerLevel player1Level;
     PlayerLevel player2Level;
+    
+    FloorMapping floorMap;
+    ObjectMap objMap;
+    GrassRenderer grassRenderer;
     
     
     std::vector<LevelTileRef> tiles;

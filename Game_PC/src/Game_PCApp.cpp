@@ -21,7 +21,7 @@ using namespace std;
 class Game_PCApp : public App {
   public:
 	void setup() override;
-	    void keyDown( KeyEvent event ) override;
+    void keyDown( KeyEvent event ) override;
 	void update() override;
 	void draw() override;
     void setupParams();
@@ -41,7 +41,7 @@ class Game_PCApp : public App {
     
     Level level;
     
-    
+     ci::gl::TextureRef mask;
     
     ParticleHandler particleHandler;
 
@@ -106,7 +106,7 @@ void Game_PCApp::setup()
     player2->setup();
     player2->name ="2:";
     player2->id =1;
-     player2->circleCenter =vec2(mCircleOffX, 720/2);
+    player2->circleCenter =vec2(mCircleOffX, 720/2);
     player2->setUseCamera(useCameraPositioning);
     
     arduinoHandlerInput.player1 = player1;
@@ -129,7 +129,7 @@ void Game_PCApp::setup()
     
     setupParams();
     
-    
+    mask =gl::Texture::create( loadImage(getAssetPath("mask.png")),gl::Texture::Format().loadTopDown());
     previousTime  =getElapsedSeconds();
     previousCameraTime = previousTime ;
 
@@ -239,10 +239,10 @@ void Game_PCApp::update()
     
    //calculate robot distance
     
-    if(distance<150)
+    if(distance<200)
     {
     
-        float offsetDistance = 150-distance;
+        float offsetDistance = 200-distance;
         
         vec2 distVecN = glm::normalize(distVec);
         
@@ -328,7 +328,15 @@ void Game_PCApp::update()
     }
     
 
+   renderer.startShadowDraw(0);
+    level.drawShadow(0);
+    renderer.stopShadowDraw(0);
     
+  
+    
+    renderer.startShadowDraw(1);
+    level.drawShadow(1);
+    renderer.stopShadowDraw(1);
     
     
     
@@ -358,7 +366,7 @@ void Game_PCApp::draw()
         
         glEnable(GL_STENCIL_TEST);
         gl::clear( Color( 0,0,0 ) );
-         glStencilMask(0xFF);
+        glStencilMask(0xFF);
         gl::clear( GL_STENCIL_BUFFER_BIT );
         glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
         // Draw floor
@@ -370,63 +378,47 @@ void Game_PCApp::draw()
         
         gl::drawSolidTriangle(pointCenter1, pointCenter2 ,pointCenter1off);
          gl::drawSolidTriangle(pointCenter2 ,pointCenter2off,pointCenter1off);
-        
+       
+     
         
         glStencilFunc(GL_EQUAL, 1, 0xFF);
-      
-      
-        level.draw(0);
+     
+        renderer.startMainDraw();
+        level.draw(0,renderer.mFbo1,renderer.shadowMatrix);
      
         glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
         
-        level.draw(1);
+        level.draw(1,renderer.mFbo2,renderer.shadowMatrix);
         
-       
+        
+        renderer.stopMainDraw();
+        
+        
         
         
          glDisable(GL_STENCIL_TEST);
         glStencilMask(0x00);
-        
-        
-       
-        
-        
+      
         
         
         gl::color(0,0,0);
        
-        gl::drawStrokedCircle(vec2(mCircleOffX,720/2), 720/2,4,40);
-          gl::lineWidth(4);
+       
         
         gl::drawLine(pointCenter1, pointCenter2);
-        //gl::drawLine(pointCenter1off, pointCenter2off);
-        
-        
-        
-        /* renderer.startShadowDraw();
-         // particleHandler.drawShadow(&renderer);
-         renderer.stopShadowDraw();
-         
-         gl::color(1,1,1);
-         
-         ////////////
-         
-         renderer.startMainDraw();
-         
-         
-         
-         // particleHandler.draw(&renderer);
-         
-         renderer.stopMainDraw();*/
+     
         
         player1->draw();
         
         player2->draw();
         
-
+       gl::draw(mask);
+        gl::color(1,1,1);
+        //gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,400,400));
+        //gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,300,300,600));
 
     }
- 
+  // mParams->draw();
    
 }
 

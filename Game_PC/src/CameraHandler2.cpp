@@ -179,7 +179,7 @@ void CameraHandler2::update()
             
         }
           double prev =getElapsedSeconds()*1000 -current;
-        ci::app::console()<<prev<<endl;;
+     
         mTexture = gl::Texture::create( fromOcv( greyMat ), gl::Texture::Format().loadTopDown() );
         
     }

@@ -26,6 +26,19 @@ void PlayerTile::setup()
     float sizeDia2=  sqrt(powf(size,2.0f) *2)/2;
     radius2 =    powf((360+sizeDia2),2.f);
 }
+
+void PlayerTile::updatePlayer(vec2 playerPos)
+{
+    vec2 lPos = playerPos-localTrans;
+    if(glm::length(lPos)<200){
+        if(tile->grassPatch)
+        {
+            tile->grassPatch->updatePlayer(lPos);
+    
+        }
+    }
+}
+
 void PlayerTile::update(int playerTilePosX,int playerTilePosY,int numTiles,glm::vec2 offset,glm::vec2 circleCenter,glm::vec2 deviderLineP1,glm::vec2 deviderLineP2)
 {
     int numTiles2 = numTiles/2;
@@ -75,7 +88,39 @@ void PlayerTile::update(int playerTilePosX,int playerTilePosY,int numTiles,glm::
        
     }
     
+        
+   
+}
+
+void PlayerTile::drawGrass()
+{
+    //translateLocakl
+    if(!visible ||  !tile->grassPatch)
+    {
+        return;
     }
+    gl::pushMatrices();
+    gl::translate(localTrans);
+     tile->grassPatch->draw();
+    //tile->grassBatch->draw();
+    gl::popMatrices();
+    
+}
+void PlayerTile::drawFloor()
+{
+    //translateLocakl
+    if(!visible)
+    {
+        return;
+    }
+    gl::pushMatrices();
+    gl::translate(localTrans);
+   
+    tile->drawFloor();
+    gl::popMatrices();
+    
+}
+
 void PlayerTile::draw()
 {
     //translateLocakl

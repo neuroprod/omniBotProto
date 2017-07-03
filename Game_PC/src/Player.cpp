@@ -48,7 +48,7 @@ void Player::update(double elapsed)
     if(playerWorldPos.x<0)
     {
         playerWorldPos.x+= levelSize;
-    
+        
     }  if(playerWorldPos.y<0)
     {
         playerWorldPos.y+= levelSize;
@@ -66,82 +66,80 @@ void Player::update(double elapsed)
     
     
     
-    if(controler.x ==0 && controler.y ==0)
+    if(controler.x !=0 || controler.y !=0)
     {
-    //??
-        return;
-    
-    }
-    vec2 LineP1 =playerViewPos;
-    vec2 LineP2 =playerViewPos+controler ;
-    vec2 LocalP1 = LineP1-circleCenter;
-    vec2 LocalP2 = LineP2-circleCenter;
-    // Precalculate this value. We use it often
-    vec2 P2MinusP1 = LocalP2-LocalP1;
-    
-    
-    
-    
-    float a = (P2MinusP1.x) * (P2MinusP1.x) + (P2MinusP1.y) * (P2MinusP1.y);
-    float b = 2 * ((P2MinusP1.x * LocalP1.x) + (P2MinusP1.y * LocalP1.y));
-    float c = (LocalP1.x * LocalP1.x) + (LocalP1.y * LocalP1.y) - ((720/2)*(720/2));//720 =radius
-    float delta = b * b - (4 * a * c);
-    if (delta < 0){
         
-        // No intersection
-        console()<<"ERROR? noItersection"<<endl;
-    }
-    else if (delta == 0){
         
-         console()<<"ERROR? 1Itersection"<<endl;
-        // One intersection
-        //float  u = -b / (2 * a);
-        // return LineP1 + (u * P2MinusP1)
-   
-    }
-    else if (delta > 0){
-        /// console()<<"2intersection"<<endl;
-        // Two intersections
-        float SquareRootDelta = sqrt(delta);
-        
-        float  u1 = (-b + SquareRootDelta) / (2 * a);
-        float  u2 = (-b - SquareRootDelta) / (2 * a);
-        
-        vec2 intersection1  = LineP1 + (u1 * P2MinusP1);
+        vec2 LineP1 =playerViewPos;
+        vec2 LineP2 =playerViewPos+controler ;
+        vec2 LocalP1 = LineP1-circleCenter;
+        vec2 LocalP2 = LineP2-circleCenter;
+        // Precalculate this value. We use it often
+        vec2 P2MinusP1 = LocalP2-LocalP1;
         
         
         
-        if(glm::distance2(intersection1, LineP1 )>glm::distance2(intersection1, LineP2 ))
-        {
-            intersection =intersection1;
         
-        }else
-        {
-          intersection = LineP1 + (u2 * P2MinusP1);
-        
+        float a = (P2MinusP1.x) * (P2MinusP1.x) + (P2MinusP1.y) * (P2MinusP1.y);
+        float b = 2 * ((P2MinusP1.x * LocalP1.x) + (P2MinusP1.y * LocalP1.y));
+        float c = (LocalP1.x * LocalP1.x) + (LocalP1.y * LocalP1.y) - ((720/2)*(720/2));//720 =radius
+        float delta = b * b - (4 * a * c);
+        if (delta < 0){
+            
+            // No intersection
+            console()<<"ERROR? noItersection"<<endl;
+        }
+        else if (delta == 0){
+            
+            console()<<"ERROR? 1Itersection"<<endl;
+            // One intersection
+            //float  u = -b / (2 * a);
+            // return LineP1 + (u * P2MinusP1)
+            
+        }
+        else if (delta > 0){
+            /// console()<<"2intersection"<<endl;
+            // Two intersections
+            float SquareRootDelta = sqrt(delta);
+            
+            float  u1 = (-b + SquareRootDelta) / (2 * a);
+            float  u2 = (-b - SquareRootDelta) / (2 * a);
+            
+            vec2 intersection1  = LineP1 + (u1 * P2MinusP1);
+            
+            
+            
+            if(glm::distance2(intersection1, LineP1 )>glm::distance2(intersection1, LineP2 ))
+            {
+                intersection =intersection1;
+                
+            }else
+            {
+                intersection = LineP1 + (u2 * P2MinusP1);
+                
+            }
+            
         }
         
+        float distance  = glm::distance(intersection, playerViewPos);
+        float factor = (distance-100)/150;
+        
+        factor = glm::clamp(factor, 0.f, 1.f);
+        
+        
+        
+        playerViewPos+=controler*factor;
     }
-    
-    float distance  = glm::distance(intersection, playerViewPos);
-    float factor = (distance-100)/150;
-   
-    factor = glm::clamp(factor, 0.f, 1.f);
-    
-    
-    
-    playerViewPos+=controler*factor;
-   
     vec2 centerVec =playerViewPos-circleCenter;
     float centerVecLength =glm::length(centerVec);
     if(centerVecLength>250)
     {
-    
+        
         centerVec = glm::normalize( centerVec );
         playerViewPos+=centerVec *(250- centerVecLength);
-    
+        
     }
-   
+    
     
     
     
@@ -155,57 +153,57 @@ void Player::update(double elapsed)
     
     
     
-   /* if(!useCamera)
-    {
-        setRobotPosition( currentPosition+vec4(controler.x *4,controler.y*4,0,0),vec4(0,1,0,1),elapsed);
-        
-        
-    }*/
-/*
-    
-    robotDir.x =currentDirection.x;
-    robotDir.y =currentDirection.y;
-    robotDir = glm::normalize(robotDir);
-    
-    float robotAngle=atan2(robotDir.y, robotDir.x);
-    
-    float robotAngleAdj=3.1415/2- robotAngle-3.1415;
-  
-    float dirAngleComp=0;
-    robotDirRot.x =controler.x * cos(robotAngleAdj) -controler.y * sin(robotAngleAdj);
-    robotDirRot.y=controler.x * sin(robotAngleAdj) +controler.y * cos(robotAngleAdj);
-
-    
-    float vecX = controler.x;
-    float vecY = -controler.y;
-    
-    
-    vecX = round( robotDirRot.x*10)/10;
-    vecY = round(-robotDirRot.y*10)/10;
-    
-    motorSpeed.x =vecX -dirAngleComp;
-    motorSpeed.y =vecX*cosM120-vecY *sinM120-dirAngleComp;
-    motorSpeed.z =vecX*cos120-vecY *sin120-dirAngleComp;
-
-    string com=name+"0:" +to_string(motorSpeed.x*2) +":"+to_string(motorSpeed.y*2)  + ":"+ to_string(motorSpeed.z*2) +"\n";
-    
-    sendCount++;
-    if(sendCount>2){
-    
-        if(com !=command)
-        {
-            command =com;
-            hasNewCommand =true;
-            sendCount=0;
-       
-        }
-    }
-    
-    */
-   //syncing
-  /*  if(!cameraSet){
-        drawPosition2D +=moveSpeed2D*((float)elapsed*moveOffset);
-    }
+    /* if(!useCamera)
+     {
+     setRobotPosition( currentPosition+vec4(controler.x *4,controler.y*4,0,0),vec4(0,1,0,1),elapsed);
+     
+     
+     }*/
+    /*
+     
+     robotDir.x =currentDirection.x;
+     robotDir.y =currentDirection.y;
+     robotDir = glm::normalize(robotDir);
+     
+     float robotAngle=atan2(robotDir.y, robotDir.x);
+     
+     float robotAngleAdj=3.1415/2- robotAngle-3.1415;
+     
+     float dirAngleComp=0;
+     robotDirRot.x =controler.x * cos(robotAngleAdj) -controler.y * sin(robotAngleAdj);
+     robotDirRot.y=controler.x * sin(robotAngleAdj) +controler.y * cos(robotAngleAdj);
+     
+     
+     float vecX = controler.x;
+     float vecY = -controler.y;
+     
+     
+     vecX = round( robotDirRot.x*10)/10;
+     vecY = round(-robotDirRot.y*10)/10;
+     
+     motorSpeed.x =vecX -dirAngleComp;
+     motorSpeed.y =vecX*cosM120-vecY *sinM120-dirAngleComp;
+     motorSpeed.z =vecX*cos120-vecY *sin120-dirAngleComp;
+     
+     string com=name+"0:" +to_string(motorSpeed.x*2) +":"+to_string(motorSpeed.y*2)  + ":"+ to_string(motorSpeed.z*2) +"\n";
+     
+     sendCount++;
+     if(sendCount>2){
+     
+     if(com !=command)
+     {
+     command =com;
+     hasNewCommand =true;
+     sendCount=0;
+     
+     }
+     }
+     
+     */
+    //syncing
+    /*  if(!cameraSet){
+     drawPosition2D +=moveSpeed2D*((float)elapsed*moveOffset);
+     }
      cameraSet =false;*/
     
 }
@@ -220,7 +218,7 @@ void Player::draw()
 
     
      gl::color(0.8,0.8,0.8);
-    gl::drawSolidCircle(playerViewPos, robotSize);
+    gl::drawStrokedCircle(playerViewPos, robotSize);
    
    
     
