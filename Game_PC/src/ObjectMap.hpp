@@ -13,7 +13,7 @@
 #include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 #include "LevelTile.hpp"
-
+#include "cinder/Perlin.h"
 
 class ObjectMap{
 
@@ -23,6 +23,7 @@ public:
     ci::Surface grassGradient;
     void load();
     void setTileFloorMesh(LevelTileRef tile,int numTiles);
-    
+    ci::Perlin perlin;
+
 };
 #endif /* ObjectMap_hpp */

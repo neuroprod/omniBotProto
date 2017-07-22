@@ -161,12 +161,12 @@ void GameRenderer::setupShadow()
     
     
     mLightPos.x= screenWidth / 2;
-    mLightPos.y=screenHeight / 2+2000;
-    mLightPos.z=2000;
+    mLightPos.y=screenHeight / 2+1000;
+    mLightPos.z=-2000;
     
     // Set up camera from the light's viewpoint
     mLightCam.setPerspective( 25.0f, mFbo1->getAspectRatio(), 2000.f,5000.0f );
-    mLightCam.lookAt( mLightPos, vec3( screenWidth / 2,screenHeight / 2,0) );
+    mLightCam.lookAt( mLightPos, vec3( screenWidth / 2,screenHeight / 2,0));
   
     
 }

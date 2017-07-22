@@ -26,8 +26,7 @@ public:
     
     void setup(int x,int y, float size);
     void update();
-    void draw();
-    void drawFloor();
+   
 
     int xR;
     int yR;
@@ -38,8 +37,8 @@ public:
     float posYWorld;
     
     ci::Color testColor;
-    ci::gl::VboMeshRef meshFloor;
     
+    ci::gl::VboMeshRef meshFloor;
 
     GrassPatchRef grassPatch;
     bool visible;

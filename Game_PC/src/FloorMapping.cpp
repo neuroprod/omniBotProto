@@ -16,7 +16,7 @@ using namespace std;
 void FloorMapping::load()
 {
 
-
+    generator.setup();
     texture =gl::Texture::create( loadImage(getAssetPath("level.png")),gl::Texture::Format().loadTopDown());
    
    
@@ -24,9 +24,9 @@ void FloorMapping::load()
                            .fragment( loadAsset( "floor_shader.frag" ) )
                           );
   
-    //mGlsl ->uniform( "uShadowMap", 0 );
+    
     prog ->uniform( "uFloorMap", 0 );
-prog->uniform( "uShadowMap", 1 );
+    prog->uniform( "uShadowMap", 1 );
 }
 
 
@@ -101,14 +101,35 @@ void FloorMapping::setTileFloorMesh(LevelTileRef tile,int numTiles)
     tile->meshFloor = meshRef;
     
 }
-void FloorMapping::startDraw(ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
+void FloorMapping::startDraw(ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix, PlayerLevel &playerLevel)
 {
+    
+    
     prog->bind();
-    texture->bind(0);
+    generator.mFbo->bindTexture(0);
     
     shadowFBO->getDepthTexture()->bind(1);
    
     prog->uniform( "uShadowMatrix",  shadowMatrix );
+    
+   
+    
+    gl::pushMatrices();
+    gl::translate( playerLevel.player->playerWorldOffset);
+    
+    for(auto tile : playerLevel.playerTiles)
+    {
+        tile->drawFloor();
+    }
+    
+    
+    gl::popMatrices();
+    
+    
+    
+    stopDraw();
+    shadowFBO->getDepthTexture()->unbind();
+
 
 }
 void FloorMapping::stopDraw()

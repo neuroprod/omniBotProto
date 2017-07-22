@@ -62,7 +62,6 @@ void Level::update()
     currentTime =getElapsedSeconds();
     for(auto tile:tiles)
     {
-    
         tile->update();
     }
 }
@@ -71,78 +70,29 @@ void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
 {
     if(playerID==0)
     {
-        
-        grassRenderer.mGlsl->bind();
-        grassRenderer.mGlsl->uniform("time", (float)currentTime/20);
-        grassRenderer.texture->bind(0);
-        shadowFBO->getDepthTexture()->bind(1);
-        
-          grassRenderer.mGlsl->uniform( "uShadowMatrix",  shadowMatrix );
-        
-        player1Level.drawGrass();
-        shadowFBO->getDepthTexture()->unbind();
-        
-        
-        
-        floorMap.startDraw(shadowFBO,shadowMatrix);
-        player1Level.drawFloor();
-        floorMap.stopDraw();
-        shadowFBO->getDepthTexture()->unbind();
-       // player1Level.draw();
+        grassRenderer.draw(shadowFBO,shadowMatrix,player1Level,currentTime);
+        floorMap.startDraw(shadowFBO,shadowMatrix,player1Level);
+       
     }
     else
     {
-       grassRenderer.mGlsl->bind();
-        
-       
-        grassRenderer.mGlsl->uniform("time", (float)currentTime/20);
-        grassRenderer.texture->bind(0);
-        shadowFBO->getDepthTexture()->bind(1);
-        grassRenderer.mGlsl->uniform( "uShadowMatrix",  shadowMatrix );
-        player2Level.drawGrass();
-        
-        shadowFBO->getDepthTexture()->unbind();
-        
-        
-        
-        
-        floorMap.startDraw(shadowFBO,shadowMatrix);
-        player2Level.drawFloor();
-        floorMap.stopDraw();
-        shadowFBO->getDepthTexture()->unbind();
-        
-        //player2Level.draw();
+       grassRenderer.draw(shadowFBO,shadowMatrix,player2Level,currentTime);
+       floorMap.startDraw(shadowFBO,shadowMatrix,player2Level);
+     
     }
 }
 
 void Level::drawShadow(int playerID)
 {
+    
     if(playerID==0)
     {
-        
-        grassRenderer.mGlslShadow->bind();
-        grassRenderer.mGlslShadow->uniform("time", (float)currentTime/20);
-        grassRenderer.texture->bind(0);
-        player1Level.drawGrass();
-        
-        
-        grassRenderer.texture->unbind();
-        gl::getStockShader( gl::ShaderDef().color() )->bind() ;
-
-        
-        
-        // player1Level.draw();
+        grassRenderer.drawShadowMap(player1Level, currentTime);
     }
     else
     {
-        grassRenderer.mGlslShadow->bind();
-        grassRenderer.mGlslShadow->uniform("time", (float)currentTime/20);
-        grassRenderer.texture->bind(0);
-
-        player2Level.drawGrass();
-       grassRenderer.texture->unbind();
-        gl::getStockShader( gl::ShaderDef().color() )->bind() ;
-
-        
+        grassRenderer.drawShadowMap(player2Level, currentTime);
     }
+    
+    gl::getStockShader( gl::ShaderDef().color() )->bind() ;
 }

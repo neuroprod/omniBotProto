@@ -37,7 +37,7 @@ public:
     
         cameraPosition =_cameraPosition;
         mNearClip = 0.1f;
-        mFarClip = 10000.f;
+        mFarClip = 3000.f;
         calcProjection();
     }
     virtual bool	isPersp() const { return true; }

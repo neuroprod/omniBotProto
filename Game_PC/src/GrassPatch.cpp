@@ -24,11 +24,11 @@ void GrassPatch::addGrass(float x,float y,float xL,float yL,float size2,ci::Surf
     Perlin perlin;
     perlin.setSeed(20);
 
-    vec2 rot = vec2(glm::linearRand(-1.f,1.f),glm::linearRand(-2.f,1.f));
+    vec2 rot = vec2(glm::linearRand(0.f,1.f),glm::linearRand(0.f,1.f));
     
     rot =glm::normalize(rot);
     
-    float noise = perlin.fBm(vec2(xL/500.f,yL/500.f) )*2+0.5+glm::linearRand(-0.5f,0.5f);
+    float noise = perlin.fBm(vec2(xL/800.f,yL/800.f) )*2+0.5+glm::linearRand(-0.5f,0.5f);
     if(noise<0)noise =0;
     if(noise>1)noise =1;
     
@@ -36,7 +36,8 @@ void GrassPatch::addGrass(float x,float y,float xL,float yL,float size2,ci::Surf
     
     
     color.push_back(vec3(grassColor.r,grassColor.g, grassColor.b));
-    texCoord0.push_back(vec3(rot.x,rot.y, glm::linearRand(10.f,20.f)));
+    // color.push_back(vec3(glm::linearRand(0.0f,1.0f),glm::linearRand(0.0f,1.0f),glm::linearRand(0.0f,1.0f)));
+    texCoord0.push_back(vec3(rot.x,rot.y,glm::linearRand(10.0, 50.0)));
     vertex.push_back(vec2(x-size2,y-size2));
     
     
@@ -52,7 +53,8 @@ void GrassPatch::updatePlayer(ci::vec2 playerPos)
         if(glm::distance2(playerPos,vertex[i] )<2500)
         {
         
-            flat[i]=0;
+            flat[i]-=0.1;
+            if(flat[i]<0.2)flat[i]=0.2;
         }
     
     }
@@ -65,7 +67,7 @@ void GrassPatch::update()
     for( int i = 0; i < mVboMesh->getNumVertices(); i++ ) {
         float &pos = *mappedPosAttrib;
         
-        if(flat[i]<0.3)
+        if(flat[i]<1.0)
         {
             flat[i]+=0.01;
            

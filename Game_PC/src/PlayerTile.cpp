@@ -94,19 +94,30 @@ void PlayerTile::update(int playerTilePosX,int playerTilePosY,int numTiles,glm::
 
 void PlayerTile::drawGrass()
 {
-    //translateLocakl
     if(!visible ||  !tile->grassPatch)
     {
         return;
     }
     gl::pushMatrices();
     gl::translate(localTrans);
-     tile->grassPatch->draw();
-    //tile->grassBatch->draw();
+    tile->grassPatch->draw();
     gl::popMatrices();
     
 }
 void PlayerTile::drawFloor()
+{
+    if(!visible)
+    {
+        return;
+    }
+    gl::pushMatrices();
+    gl::translate(localTrans);
+    gl::draw(tile->meshFloor);
+    gl::popMatrices();
+    
+}
+
+void PlayerTile::drawCube()
 {
     //translateLocakl
     if(!visible)
@@ -116,22 +127,8 @@ void PlayerTile::drawFloor()
     gl::pushMatrices();
     gl::translate(localTrans);
    
-    tile->drawFloor();
-    gl::popMatrices();
+    ////
     
-}
-
-void PlayerTile::draw()
-{
-    //translateLocakl
-    if(!visible)
-    {
-        return;
-    }
-    gl::pushMatrices();
-    gl::translate(localTrans);
-    gl::drawString(testString, vec2(-20,-30));
-    tile->draw();
     gl::popMatrices();
     
 }

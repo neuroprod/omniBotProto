@@ -23,9 +23,7 @@ public:
     PlayerLevel(){}
     void setup();
     void update(glm::vec2 deviderLineP1,glm::vec2 deviderLineP2);
-    void draw();
-    void drawFloor();
-    void drawGrass();
+    
     PlayerRef player;
     
     float tileSize ;

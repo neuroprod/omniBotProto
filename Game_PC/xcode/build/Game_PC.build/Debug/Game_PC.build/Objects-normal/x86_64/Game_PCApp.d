@@ -350,5 +350,7 @@ dependencies: \
   /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerLevel.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerTile.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/FloorMapping.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/FloorTextureGenerator.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/ObjectMap.hpp \
+  ../../../cinder_master/include/cinder/Perlin.h \
   /Users/kris/Documents/omniBotProto/Game_PC/src/GrassRenderer.hpp

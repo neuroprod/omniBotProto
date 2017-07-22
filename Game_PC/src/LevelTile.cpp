@@ -49,16 +49,5 @@ void LevelTile::update()
     }
 
 }
-void LevelTile::drawFloor()
-{
-    gl::draw(meshFloor);
-}
-void LevelTile::draw()
-{
-     //gl::drawSolidRect(Rectf( -size/2,  -size/2,size/2, size/2));
-    // gl::color(1,1,1);
-   // gl::drawStrokedRect(Rectf( -size/2,  -size/2,size/2, size/2));
-    gl::color(testColor);
-    gl::drawSolidRect(Rectf( -size/2,  -size/2,size/2, size/2));
-    //gl::drawString(to_string(xR)+"-"+to_string(yR), vec2(5,5));
-}
+
+

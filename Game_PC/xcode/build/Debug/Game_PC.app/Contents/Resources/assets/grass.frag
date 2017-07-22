@@ -36,8 +36,7 @@ void main()
     if ( ShadowCoord.z > -1 && ShadowCoord.z < 1 ) {
         Shadow = samplePCF3x3(ShadowCoord) ;
     }
-    Shadow =clamp(Shadow,0.7,1.0);
+    Shadow =clamp(Shadow,1.0,1.0);
 
-  
     outColor = vec4( vColor*Shadow, 1.0);
 }

@@ -20,18 +20,17 @@ void ObjectMap::load()
 {
     
     
-    dataSurface =  loadImage(getAssetPath("levelObj.png"));
+    dataSurface =  loadImage(getAssetPath("noise.jpg"));
     grassGradient =loadImage(getAssetPath("grassGradient.png"));
    
-    
+    perlin.setSeed(20);
 }
 
 
 void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
 {
-    Perlin perlin;
-    perlin.setSeed(20);
-      int size = tile->size;
+    
+    int size = tile->size;
     int size2 = size/2;
     int xPos = tile->xR*size;
     int yPos = tile->yR*size;
@@ -42,7 +41,7 @@ void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
     GrassPatchRef grassPatch = GrassPatch::create();
     
     bool hasGrass =false;
-
+    float fullSize = size*numTiles;
     for(int y=0;y < size ; y++)
     {
         int lY = y+yPos;
@@ -51,12 +50,15 @@ void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
         {
             int lX = x+xPos;
             
+            vec2 posNormal =vec2((float)lX/fullSize,(float)lY/fullSize);
+            ColorA color1= dataSurface.getPixel(posNormal *500.f);
+            ColorA color2= dataSurface.getPixel(mod((posNormal *2000.f),vec2(500.f,500.f)));
+            ColorA color3= dataSurface.getPixel(mod((posNormal *8000.f),vec2(500.f,500.f)));
             
-            ColorA col= dataSurface.getPixel(vec2(lX,lY));
-            
-            if(col.r ==0 && col.g==1 && col.b==0)
+          
+            if( color1.r>0.4 && color2.r>0.4 && color3.r>0.4 )
             {
-                if(glm::linearRand(0.f,1.f)>0.8)
+                if(glm::linearRand(0.f,1.f)>0.990)
                 {
                     hasGrass =true;
                

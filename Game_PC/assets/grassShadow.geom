@@ -29,28 +29,125 @@ void main()
     vec2 uv = pos.xy/1000.0;
     uv.x+=time;
     uv.y+=time;
-    vec2 dirWind =(texture(uNoiseMap, uv).xy - vec2(0.5,0.5) )*15*fla +dirS+dirS*flaInv*5;
-    
+   vec2 dirWind = (texture(uNoiseMap, uv).xy - vec2(0.5,0.5) )*15*fla +dirS*2.0+dirS*flaInv*text[0].z*0.5;
 
     
-    gl_Position = ciProjectionMatrix * (pos+vec4( dir.x* 2,0,dir.y*2 ,0) );
-    EmitVertex();
-	
-    gl_Position = ciProjectionMatrix * (pos+vec4( dir.x* -2,0,dir.x* -2,0) );
-    EmitVertex();
+    //top
+    vec4 offsetTop = vec4( dirWind*3.0 ,size, 0.0 );
+    vec4 posTop = ciProjectionMatrix * (pos + offsetTop);
+    
+    
+    
+    
+    //base
+    vec4 offsetBase1 = vec4( dir.xy* 5.0 ,0.0, 0.0 );
+    vec4 posBase1 = ciProjectionMatrix * (pos + offsetBase1);
+   
+    
+    vec4 offsetBase2 = vec4( dir.xy* -5.0 ,0.0, 0.0 );
+    vec4 posBase2 = ciProjectionMatrix * (pos + offsetBase2);
+    
+    
+    
+    vec4 offsetBase3 = vec4( dirS.xy*7.0 ,0.0, 0.0 );
+    vec4 posBase3 = ciProjectionMatrix * (pos + offsetBase3);
    
     
     
-    gl_Position = ciProjectionMatrix * (pos+vec4( (dir.x* 1) +dirWind.x,-size/2.0,(dir.y)+dirWind.y,0 ) );
+    
+    //mid
+    vec4 offsetMid1 = vec4( dir.xy* 3.0+dirWind ,+size/2.0, 0.0 );
+    vec4 posMid1 = ciProjectionMatrix * (pos + offsetMid1);
+    
+    
+    
+    vec4 offsetMid2 = vec4( dir.xy* -3.0 +dirWind,+size/2.0, 0.0 );
+    vec4 posMid2 = ciProjectionMatrix * (pos + offsetMid2);
+   
+    
+    
+    vec4 offsetMid3 = vec4( dirS.xy*5.0 +dirWind,+size/2.0, 0.0 );
+    vec4 posMid3 = ciProjectionMatrix * (pos + offsetMid3);
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // vColor =vec3(1,0,0);
+    
+    gl_Position = posBase1;
+       EmitVertex();
+    
+    gl_Position = posBase2;
     EmitVertex();
     
-    gl_Position = ciProjectionMatrix * (pos+vec4( (dir.x*-1)+dirWind.x ,-size/2.0,(dir.y*-1)+dirWind.y ,0 ) );
+    gl_Position = posMid1;
     EmitVertex();
-
-    vec4 offset4 = vec4(dirWind.x*3 ,-size,dirWind.y*3, 0.0 );
-    gl_Position = ciProjectionMatrix * (gl_in[0].gl_Position + offset4);
+    
+    gl_Position = posMid2;
     EmitVertex();
+    
+    gl_Position = posTop;
+    EmitVertex();
+    
+    EndPrimitive();
+    //////////////////////////////////////
+    //vColor =vec3(0,1,0);
+    gl_Position = posBase3;
    
-	
-	EndPrimitive();
+    EmitVertex();
+    
+    
+    gl_Position = posBase1;
+   
+    EmitVertex();
+    
+    gl_Position = posMid3;
+
+    EmitVertex();
+    
+    
+    gl_Position = posMid1;
+  
+    EmitVertex();
+    
+    
+    gl_Position = posTop;
+   
+    EmitVertex();
+    EndPrimitive();
+    
+    //////////////////////////////////
+    //vColor =vec3(0,0,1);
+    gl_Position = posBase3;
+
+    EmitVertex();
+    
+    gl_Position = posBase2;
+
+    EmitVertex();
+    
+    gl_Position = posMid3;
+  
+    EmitVertex();
+    
+    gl_Position = posMid2;
+ 
+    EmitVertex();
+    
+    
+    
+    
+    gl_Position = posTop;
+   
+    EmitVertex();
+    EndPrimitive();
 }

@@ -47,7 +47,7 @@ class Game_PCApp : public App {
 
     params::InterfaceGlRef	mParams;
     
-    float mCircleOffX =689 ;
+    float mCircleOffX =674.2 ;
     float robotSize =52;
    
  
@@ -268,52 +268,6 @@ void Game_PCApp::update()
     
     
     
-    
-  //  player1->update(elapsed);
-    
-  /*  ivec2 input =ivec2 (player1->drawPosition2D.x,player1->drawPosition2D.y);
-    vec2 offset =  calibratorFloor.getOffsetForPoint(input);
-    offset.y+=12;
-    if(!useFloorCalibration)
-    {
-        offset.x = calibratorFloor.offX;
-        offset.y = calibratorFloor.offY+ 12;
-    }
-
-    player1->drawPosition2DFloor =player1->drawPosition2D+offset;
-    
-    */
-    
-    
-    ///////////////////////////////////
-    ///////////////////////////////////
-    
-    
-    
-    
-  // player2->update(elapsed);
-    
-  /*  ivec2 input2 =ivec2 (player2->drawPosition2D.x,player2->drawPosition2D.y);
-    vec2 offset2 =  calibratorFloor.getOffsetForPoint(input2);
-    offset2.y+=12;
-    if(!useFloorCalibration)
-    {
-        offset2.x = calibratorFloor.offX;
-        offset2.y = calibratorFloor.offY+ 12;
-    }
-
-    player2->drawPosition2DFloor =player2->drawPosition2D+offset2;
-    */
-    
-    
-    
-    //particleHandler.update(elapsed,player1,player2);
-    
-    
-    
-    //send new commands to the robot
-    
-    
     if(player1->hasNewCommand)
     {
         player1->hasNewCommand =false;
@@ -328,7 +282,9 @@ void Game_PCApp::update()
     }
     
 
-   renderer.startShadowDraw(0);
+    //render shadows
+    
+    renderer.startShadowDraw(0);
     level.drawShadow(0);
     renderer.stopShadowDraw(0);
     
@@ -339,7 +295,7 @@ void Game_PCApp::update()
     renderer.stopShadowDraw(1);
     
     
-    
+    //
     
     mFrameRate = getAverageFps();
     
@@ -351,8 +307,10 @@ void Game_PCApp::update()
 
 void Game_PCApp::draw()
 {
-    
-	gl::clear( Color( 0,0,0 ) );
+    gl::color(1,1,1);
+    level.floorMap.generator.generate();
+
+   	gl::clear( Color( 0,0,0 ) );
 
     if(debugView){
     
@@ -380,14 +338,16 @@ void Game_PCApp::draw()
          gl::drawSolidTriangle(pointCenter2 ,pointCenter2off,pointCenter1off);
        
      
+        renderer.startMainDraw();
         
+       
         glStencilFunc(GL_EQUAL, 1, 0xFF);
      
-        renderer.startMainDraw();
+       
         level.draw(0,renderer.mFbo1,renderer.shadowMatrix);
      
         glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-        
+        gl::clear(GL_DEPTH_BUFFER_BIT);
         level.draw(1,renderer.mFbo2,renderer.shadowMatrix);
         
         
@@ -412,13 +372,17 @@ void Game_PCApp::draw()
         
         player2->draw();
         
-       gl::draw(mask);
-        gl::color(1,1,1);
+        gl::draw(mask,vec2(((1280/2)-mCircleOffX)/2,0));
+       
         //gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,400,400));
         //gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,300,300,600));
 
     }
-  // mParams->draw();
+
+    // gl::color(1,1,1);
+   // gl::draw(level.floorMap.generator.mFbo->getColorTexture(),Rectf(0,0,800,800));
+ gl::color(1,1,1);
+   mParams->draw();
    
 }
 

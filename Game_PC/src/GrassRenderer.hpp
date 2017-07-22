@@ -14,7 +14,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/gl/GlslProg.h"
 #include "cinder/gl/Batch.h"
-
+#include "PlayerLevel.hpp"
 class GrassRenderer
 {
 
@@ -25,6 +25,10 @@ public:
     ci::gl::GlslProgRef		mGlsl;
     ci::gl::GlslProgRef		mGlslShadow;
      ci::gl::TextureRef texture;
+    
+    
+    void draw(ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix,PlayerLevel &playerLevel,double currentTime);
+    void drawShadowMap(PlayerLevel &playerLevel,double currentTime);
 };
 
 #endif /* GrassRenderer_hpp */

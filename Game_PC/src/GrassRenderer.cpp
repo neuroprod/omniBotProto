@@ -28,3 +28,54 @@ void GrassRenderer::setup()
     
 
 }
+
+void GrassRenderer::draw(ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix,PlayerLevel &playerLevel,double currentTime)
+{
+
+    mGlsl->bind();
+    mGlsl->uniform("time", (float)currentTime/20);
+    texture->bind(0);
+    shadowFBO->getDepthTexture()->bind(1);
+    
+    mGlsl->uniform( "uShadowMatrix",  shadowMatrix );
+    
+    gl::pushMatrices();
+    gl::translate( playerLevel.player->playerWorldOffset);
+    
+    for(auto tile : playerLevel.playerTiles)
+    {
+        tile->drawGrass();
+    }
+    
+    
+    gl::popMatrices();
+    
+    
+    shadowFBO->getDepthTexture()->unbind();
+
+
+
+}
+void GrassRenderer::drawShadowMap(PlayerLevel &playerLevel,double currentTime)
+{
+    mGlslShadow->bind();
+    mGlslShadow->uniform("time", (float)currentTime/20);
+    texture->bind(0);
+    
+    gl::pushMatrices();
+    gl::translate( playerLevel.player->playerWorldOffset);
+    
+    for(auto tile : playerLevel.playerTiles)
+    {
+        tile->drawGrass();
+    }
+    
+    
+    gl::popMatrices();
+
+    
+    
+    texture->unbind();
+
+
+}
