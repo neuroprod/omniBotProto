@@ -60,7 +60,7 @@ public:
     ci::gl::GlslProgRef		mGlslFloor ;
 
 
-    glm::vec3 mvLightPos	;
+   // glm::vec3 mvLightPos	;
     glm::mat4 shadowMatrix;
 };
 #endif /* Renderer_hpp */

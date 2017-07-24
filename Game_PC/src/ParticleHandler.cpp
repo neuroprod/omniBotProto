@@ -252,7 +252,7 @@ void ParticleHandler::draw(GameRenderer * renderer)
 
     mGlsl ->uniform( "uShadowMap", 0 );
     mGlsl ->uniform( "uGradientMap", 1 );
-    mGlsl ->uniform( "uLightPos",  renderer->mvLightPos );
+    mGlsl ->uniform( "uLightPos",  renderer->mLightPos );
     mGlsl ->uniform( "uShadowMatrix",  renderer->shadowMatrix );
     gl::ScopedTextureBind texScope2( renderer->mShadowMapTex, (uint8_t) 0 );
     gl::ScopedTextureBind texScope3( gradientMap, (uint8_t) 1 );

@@ -55,6 +55,7 @@ void GameRenderer::startShadowDraw(int id)
     
        // Set up camera from the light's viewpoint
     mLightCam.setPerspective( 20.0f, mFbo1->getAspectRatio(), 1.f,5000.0f );
+  
     mLightCam.lookAt( mLightPos, vec3( screenWidth / 2,screenHeight / 2,0) );
 
     
@@ -113,6 +114,7 @@ void GameRenderer::updateCameraPosition()
     
     cameraProj.lookAt(vec3(screenWidth / 2,screenHeight+offyCam /2, 0));
     cameraProj.setCameraPos(cameraPosition);
+    
     
     
 }

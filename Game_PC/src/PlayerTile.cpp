@@ -126,7 +126,7 @@ void PlayerTile::drawCube()
     }
     gl::pushMatrices();
     gl::translate(localTrans);
-   
+    gl::drawColorCube(vec3(0,0,0), vec3(50,50,50));
     ////
     
     gl::popMatrices();

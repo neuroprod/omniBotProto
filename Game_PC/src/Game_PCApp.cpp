@@ -337,7 +337,7 @@ void Game_PCApp::draw()
         gl::drawSolidTriangle(pointCenter1, pointCenter2 ,pointCenter1off);
          gl::drawSolidTriangle(pointCenter2 ,pointCenter2off,pointCenter1off);
        
-     
+        glStencilMask(0x00);
         renderer.startMainDraw();
         
        
@@ -357,7 +357,7 @@ void Game_PCApp::draw()
         
         
          glDisable(GL_STENCIL_TEST);
-        glStencilMask(0x00);
+      
       
         
         
@@ -374,14 +374,14 @@ void Game_PCApp::draw()
         
         gl::draw(mask,vec2(((1280/2)-mCircleOffX)/2,0));
        
-        //gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,400,400));
-        //gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,300,300,600));
+        gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,300,300));
+        gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,300,300,600));
 
     }
 
     // gl::color(1,1,1);
    // gl::draw(level.floorMap.generator.mFbo->getColorTexture(),Rectf(0,0,800,800));
- gl::color(1,1,1);
+gl::color(1,1,1);
    mParams->draw();
    
 }
@@ -493,6 +493,14 @@ void Game_PCApp::setupParams()
     mParams->addParam( "offY_viewer", &renderer.offyCam ).step( 10.f ).updateFn( [this] {renderer.updateCameraPosition(); });
     mParams->addParam( "offZ_viewer", &renderer.offzCam ).step( 10.f ).updateFn( [this] {renderer.updateCameraPosition(); });
      mParams->addSeparator();
+    
+    
+    mParams->addParam( "lightX", &renderer.mLightPos.x ).step( 10.f ).updateFn( [this] {renderer.updateCameraPosition(); });
+    mParams->addParam( "lightY", &renderer.mLightPos.y ).step( 10.f ).updateFn( [this] {renderer.updateCameraPosition(); });
+     mParams->addParam( "lightZ", &renderer.mLightPos.z ).step( 10.f ).updateFn( [this] {renderer.updateCameraPosition(); });
+    mParams->addSeparator();
+    
+    
     mParams->addText("game position");
     mParams->addSeparator();
     mParams->addParam( "circleOffX", &mCircleOffX ).min( 1280/2 -200 ).max( 1280/2 +200).precision( 1 ).step( 0.2f ).updateFn( [this] {cameraHandler.updateMappingMatrix(); } );
