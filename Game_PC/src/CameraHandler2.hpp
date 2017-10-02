@@ -24,9 +24,15 @@ public:
     ~CameraPosition(){};
     glm::vec4 currentPosition;
     glm::vec4 currentDirection;
+    glm::vec2 speed;
+    glm::vec2 speedLP;
     float bestDistance;
     int id;
-    
+    void setSpeedLP(glm::vec2 controlerSpeed,float move,float lp)
+    {
+        speedLP.x += ((controlerSpeed.x*move)-speedLP.x)*lp;
+        speedLP.y += ((controlerSpeed.y*move)-speedLP.y)*lp;
+    };
 };
 
 
@@ -58,8 +64,8 @@ public:
     
     glm::mat4 mappingMatrix;
     
-    float mOffX =517.8 ;
-    float mOffY=327.8;
+    float mOffX =526.0 ;
+    float mOffY=301.6;
     float mScaleX=0.87;
     float mScaleY=0.87;
     float mRot=0.0;

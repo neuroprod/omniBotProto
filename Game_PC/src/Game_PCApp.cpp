@@ -20,6 +20,12 @@ using namespace std;
 
 class Game_PCApp : public App {
   public:
+    
+    bool debugView =false;
+    bool useCameraPositioning =false;
+    
+    ///////////////////////////
+    
 	void setup() override;
     void keyDown( KeyEvent event ) override;
 	void update() override;
@@ -51,8 +57,7 @@ class Game_PCApp : public App {
     float robotSize =52;
    
  
-    bool debugView =false;
-    bool useCameraPositioning =false;
+   
   
     
    
@@ -73,6 +78,9 @@ class Game_PCApp : public App {
 
     vec2 pointCenter1off;
     vec2 pointCenter2off;
+    
+    float moveDelayFactor=12;
+    float moveDelayLowPass =0.5;
 };
 
 void Game_PCApp::setup()
@@ -83,12 +91,13 @@ void Game_PCApp::setup()
     setWindowSize(1280, 720);
     
     
-    for( const auto &dev : Serial::getDevices() )
+    for( const auto &dev : Serial::getDevices() ){
         console() << "Device: " << dev.getName() << endl;
-    
+    }
     if(useCameraPositioning){
         cameraHandler.setup(true);
     }
+    
     arduinoHandlerOutput.setup("tty.usbmodem14111");
     arduinoHandlerInput.setup("tty.usbmodem14141");
     //arduinoHandlerInput.setup("tty.usbmodem14211");
@@ -118,7 +127,7 @@ void Game_PCApp::setup()
     player2->levelSize =level.levelSize;
     
     
-    particleHandler.setup(720/2, vec2(mCircleOffX,720/2));
+   // particleHandler.setup(720/2, vec2(mCircleOffX,720/2));
     
    
     
@@ -150,7 +159,7 @@ void Game_PCApp::keyDown( KeyEvent event )
     }
     if(event.getCode() == KeyEvent::KEY_r)
     {
-        particleHandler.reset();
+      //  particleHandler.reset();
         
     }
 
@@ -183,6 +192,7 @@ void Game_PCApp::update()
     {
         if(cameraHandler.newPos){
             
+            //set new player pos
             cameraHandler.newPos =false;
             double elapsedCamera = (currentTime-previousCameraTime)*1000;
             previousCameraTime =currentTime;
@@ -191,10 +201,14 @@ void Game_PCApp::update()
             vec4 pos1 = cameraHandler.position1.currentPosition;
             ivec2 input1 =ivec2 (pos1.x,pos1.y);
             vec2 offset1 =  calibratorCam.getOffsetForPoint(input1);
-            pos1.x+=offset1.x;
-            pos1.y+=offset1.y;
             
             
+            cameraHandler.position1.setSpeedLP(player1->controler, moveDelayFactor, moveDelayLowPass);
+            
+            
+            pos1.x+=offset1.x+cameraHandler.position1.speedLP.x;
+            pos1.y+=offset1.y+cameraHandler.position1.speedLP.y;
+           
             
             player1->setRobotPosition(pos1,cameraHandler.position1.currentDirection,elapsedCamera);
             
@@ -206,18 +220,33 @@ void Game_PCApp::update()
             vec4 pos2 = cameraHandler.position2.currentPosition;
             ivec2 input2 =ivec2 (pos2.x,pos2.y);
             vec2 offset2 =  calibratorCam.getOffsetForPoint(input2);
-            pos2.x+=offset2.x;
-            pos2.y+=offset2.y;
+            
+            cameraHandler.position2.setSpeedLP(player2->controler, moveDelayFactor, moveDelayLowPass);
+
+            
+            pos2.x+=offset2.x+cameraHandler.position2.speedLP.x;
+            pos2.y+=offset2.y+cameraHandler.position2.speedLP.y;
+            
             player2->setRobotPosition(pos2,cameraHandler.position2.currentDirection,elapsedCamera);
+            
             
         }
     }
    
     
     //set LevelPos
+    if(debugView)
+    {
     
-    player1->update(elapsed);
-    player2->update(elapsed);
+        player1->updateDebug(elapsed);
+        player2->updateDebug(elapsed);
+    }else
+    {
+        //update player pos
+        player1->update(elapsed);
+        player2->update(elapsed);
+    
+    }
     
     //calculate mask
     
@@ -239,7 +268,7 @@ void Game_PCApp::update()
     
    //calculate robot distance
     
-    if(distance<200)
+   /* if(distance<200)
     {
     
         float offsetDistance = 200-distance;
@@ -249,14 +278,16 @@ void Game_PCApp::update()
         player1->playerViewPos+=distVecN*offsetDistance/2.f;
         player2->playerViewPos-=distVecN*offsetDistance/2.f;
     
-    }
+    }*/
     
     //set finall robot pos
+    if(!debugView)
+    {
+        player1->updateWorldOffset();
+        player2->updateWorldOffset();
     
-    player1->updateWorldOffset();
-    player2->updateWorldOffset();
-    
-    
+    }
+
     //
     level.updatePlayerPositions( pointCenter1,pointCenter2);
     
@@ -374,16 +405,16 @@ void Game_PCApp::draw()
         
         gl::draw(mask,vec2(((1280/2)-mCircleOffX)/2,0));
        
-        gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,300,300));
-        gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,300,300,600));
+    //    gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,300,300));
+     //   gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,300,300,600));
 
     }
 
     // gl::color(1,1,1);
    // gl::draw(level.floorMap.generator.mFbo->getColorTexture(),Rectf(0,0,800,800));
-gl::color(1,1,1);
-   mParams->draw();
-   
+    gl::color(1,1,1);
+   // mParams->draw();
+    drawDebug();
 }
 
 
@@ -417,8 +448,7 @@ void Game_PCApp::drawDebug()
         }
         
         
-        ;
-        
+    
         
         if(!useCameraCalibration)
         {
@@ -437,8 +467,13 @@ void Game_PCApp::drawDebug()
             gl::color(1,1,1);
             p.x+=offset.x*2;
             p.y+=offset.y*2;
+            
+            
+            
             gl::drawLine(vec2(p.x-10,p.y),vec2(p.x+10,p.y));
             gl::drawLine(vec2(p.x,p.y-10),vec2(p.x,p.y+10));
+            
+            gl::drawStrokedCircle(p, robotSize);
             
         }
         
@@ -548,11 +583,15 @@ void Game_PCApp::setupParams()
     });
     mParams->addButton("saveData_f", [this] {calibratorFloor.saveCalibration(); });
     mParams->addButton("resetData_f", [this] {calibratorFloor.reset(); });
-    
-
+     mParams->addSeparator();
+    mParams->addParam( "moveDelayFactor", & moveDelayFactor ).min( 0 ).max( 20).precision( 2 ).step( 0.01f );
+    mParams->addParam( "moveDelayLPowPass", & moveDelayLowPass ).min( 0 ).max( 1).precision( 2 ).step( 0.01f );
     mParams->addSeparator();
     mParams->addText("robot");
     mParams->addParam( "robotsize", & robotSize  ).min( 20 ).max( 70).precision( 1 ).step( 0.2f ).updateFn( [this] { player1->robotSize = robotSize;
+      
+        
+        
         player2->robotSize = robotSize; });
 
    // mParams->addParam( "moveOffset", &player1->moveOffset  ).min( 0 ).max( 70).precision( 1 ).step( 0.1f );

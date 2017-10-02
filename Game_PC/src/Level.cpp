@@ -36,7 +36,6 @@ void Level::setup(PlayerRef player1,PlayerRef player2)
     player1Level.player = player1;
     player1Level.tileSize =tileSize;
     player1Level.numTiles=numTiles;
-
     player1Level.setup();
     
     
@@ -77,7 +76,7 @@ void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
         
         for(auto tile : player1Level.playerTiles)
         {
-            tile->drawCube();
+           // tile->drawCube();
         }
         
         
@@ -93,7 +92,7 @@ void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
         
         for(auto tile : player2Level.playerTiles)
         {
-            tile->drawCube();
+           // tile->drawCube();
         }
         
         
@@ -113,7 +112,7 @@ void Level::drawShadow(int playerID)
     
         for(auto tile : player1Level.playerTiles)
         {
-            tile->drawCube();
+           // tile->drawCube();
         }
         
         
@@ -128,7 +127,7 @@ void Level::drawShadow(int playerID)
     
         for(auto tile : player2Level.playerTiles)
         {
-            tile->drawCube();
+            //tile->drawCube();
         }
         
         

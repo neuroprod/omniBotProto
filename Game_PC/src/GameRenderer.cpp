@@ -55,8 +55,8 @@ void GameRenderer::startShadowDraw(int id)
     
        // Set up camera from the light's viewpoint
     mLightCam.setPerspective( 20.0f, mFbo1->getAspectRatio(), 1.f,5000.0f );
-  
-    mLightCam.lookAt( mLightPos, vec3( screenWidth / 2,screenHeight / 2,0) );
+    mLightCam.setWorldUp(vec3(0,0,1));
+    mLightCam.lookAt( mLightPos, vec3( screenWidth / 2,screenHeight / 2,0),vec3(0,0,1) );
 
     
     gl::setMatrices( mLightCam);

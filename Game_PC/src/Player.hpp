@@ -24,10 +24,15 @@ public:
     
     static PlayerRef create();
     
+    
+    ci::gl::TextureRef overlay;
+    
+    
     void setup();
     void draw();
     void drawDebug(ci::Camera cam);
     void update(double elapsed);
+    void updateDebug(double elapsed);
     void updateWorldOffset();
     void setUseCamera(bool _useCamera);
     bool useCamera =true;
@@ -44,6 +49,7 @@ public:
     float levelSize;
     
     
+    bool hasPosSet  =false;
     
     glm::vec2 robotRotation;//keep robot strait/resolve move
     glm::vec2 robotCurrentPos;//current calibrated camera pos
@@ -93,7 +99,7 @@ public:
     
     
     
-    int sendCount;
+    int sendCount =0;
    
     
 };

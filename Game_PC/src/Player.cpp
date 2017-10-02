@@ -36,13 +36,56 @@ PlayerRef  Player::create()
 
 void Player::setup()
 {
-   
+   overlay =gl::Texture::create( loadImage(getAssetPath("insideOverlay.png")),gl::Texture::Format().loadTopDown());
 }
 
 
+void Player::updateDebug(double elapsed)
+{
+    
+    robotDir.x =currentDirection.x;
+    robotDir.y =currentDirection.y;
+    robotDir = glm::normalize(robotDir);
+    
+    float robotAngle=atan2(robotDir.y, robotDir.x);
+    
+    float robotAngleAdj=3.1415/2- robotAngle-3.1415;
+    
+    float dirAngleComp=0;
+    robotDirRot.x =controler.x * cos(robotAngleAdj) -controler.y * sin(robotAngleAdj);
+    robotDirRot.y=controler.x * sin(robotAngleAdj) +controler.y * cos(robotAngleAdj);
+    
+    //console()<<name <<glm::length(controler)<<endl;
+    float vecX = controler.x;
+    float vecY = -controler.y;
+    
+    
+    vecX = round( robotDirRot.x*10)/10;
+    vecY = round(-robotDirRot.y*10)/10;
+    
+    motorSpeed.x =vecX -dirAngleComp;
+    motorSpeed.y =vecX*cosM120-vecY *sinM120-dirAngleComp;
+    motorSpeed.z =vecX*cos120-vecY *sin120-dirAngleComp;
+    
+    string com=name+"0:" +to_string(motorSpeed.x*2) +":"+to_string(motorSpeed.y*2)  + ":"+ to_string(motorSpeed.z*2) +"\n";
+    
+    sendCount++;
+    if(sendCount>2){
+        
+        if(com !=command)
+        {
+           
+            command =com;
+            hasNewCommand =true;
+            sendCount=0;
+            
+        }
+    }
 
+}
 void Player::update(double elapsed)
 {
+    if(!hasPosSet ) return;
     
     playerWorldPos+=controler;
     if(playerWorldPos.x<0)
@@ -63,7 +106,6 @@ void Player::update(double elapsed)
         playerWorldPos.y-= levelSize;
         
     }
-    
     
     
     if(controler.x !=0 || controler.y !=0)
@@ -136,80 +178,72 @@ void Player::update(double elapsed)
     {
         
         centerVec = glm::normalize( centerVec );
-        playerViewPos+=centerVec *(250- centerVecLength);
+       // playerViewPos+=centerVec *(250- centerVecLength);
         
     }
     
     
     
     
-    //vec2 playerViewPosTemp = playerViewPos+controler;
-    
-    
-    //playerViewPos =playerViewPosTemp;
-    
-    //playerWorldOffset =playerViewPos-playerWorldPos;
-    
-    
-    
-    
-    /* if(!useCamera)
-     {
-     setRobotPosition( currentPosition+vec4(controler.x *4,controler.y*4,0,0),vec4(0,1,0,1),elapsed);
-     
-     
-     }*/
-    /*
-     
-     robotDir.x =currentDirection.x;
-     robotDir.y =currentDirection.y;
-     robotDir = glm::normalize(robotDir);
-     
-     float robotAngle=atan2(robotDir.y, robotDir.x);
-     
-     float robotAngleAdj=3.1415/2- robotAngle-3.1415;
-     
-     float dirAngleComp=0;
-     robotDirRot.x =controler.x * cos(robotAngleAdj) -controler.y * sin(robotAngleAdj);
-     robotDirRot.y=controler.x * sin(robotAngleAdj) +controler.y * cos(robotAngleAdj);
-     
-     
-     float vecX = controler.x;
-     float vecY = -controler.y;
-     
-     
-     vecX = round( robotDirRot.x*10)/10;
-     vecY = round(-robotDirRot.y*10)/10;
-     
-     motorSpeed.x =vecX -dirAngleComp;
-     motorSpeed.y =vecX*cosM120-vecY *sinM120-dirAngleComp;
-     motorSpeed.z =vecX*cos120-vecY *sin120-dirAngleComp;
-     
-     string com=name+"0:" +to_string(motorSpeed.x*2) +":"+to_string(motorSpeed.y*2)  + ":"+ to_string(motorSpeed.z*2) +"\n";
-     
-     sendCount++;
-     if(sendCount>2){
-     
-     if(com !=command)
-     {
-     command =com;
-     hasNewCommand =true;
-     sendCount=0;
-     
-     }
-     }
-     
-     */
-    //syncing
-    /*  if(!cameraSet){
-     drawPosition2D +=moveSpeed2D*((float)elapsed*moveOffset);
-     }
-     cameraSet =false;*/
-    
 }
 void Player::updateWorldOffset()
 {
+    if(!hasPosSet) return;
+    
+    
     playerWorldOffset =playerViewPos-playerWorldPos;
+    
+    
+    //send move to robots
+    
+    //robot move vector
+    
+    vec2 move = vec2(currentPosition.x,currentPosition.y)-playerViewPos;
+    
+    
+    //robot rotation
+    
+    robotDir.x =currentDirection.x;
+    robotDir.y =currentDirection.y;
+    robotDir = glm::normalize(robotDir);
+    float robotAngle=atan2(robotDir.y, robotDir.x);
+    float robotAngleAdj=3.1415/2- robotAngle-3.1415;
+    float dirAngleComp=0;
+    
+    
+    //adjust move dir with rotation
+    robotDirRot.x =move.x * cos(robotAngleAdj) -move.y * sin(robotAngleAdj);
+    robotDirRot.y=move.x * sin(robotAngleAdj) +move.y * cos(robotAngleAdj);
+    
+    
+    float vecX = move.x;
+    float vecY = -move.y;
+    
+    
+    vecX = round(-robotDirRot.x*10)/10;
+    vecY = round(robotDirRot.y*10)/10;
+    
+    
+    motorSpeed.x =vecX -dirAngleComp;
+    motorSpeed.y =vecX*cosM120-vecY *sinM120-dirAngleComp;
+    motorSpeed.z =vecX*cos120-vecY *sin120-dirAngleComp;
+    
+    string com=name+"0:" +to_string(motorSpeed.x) +":"+to_string(motorSpeed.y)  + ":"+ to_string(motorSpeed.z) +"\n";
+    
+    sendCount++;
+    if(sendCount>2){
+        
+        if(com !=command)
+        {
+            command =com;
+            hasNewCommand =true;
+            sendCount=0;
+        }
+    }
+
+    
+    
+    
 
 }
 void Player::draw()
@@ -219,10 +253,10 @@ void Player::draw()
     
      gl::color(0.8,0.8,0.8);
     gl::drawStrokedCircle(playerViewPos, robotSize);
-   
-   
+   // gl::draw(overlay,Rectf(playerViewPos.x-robotSize,playerViewPos.y-robotSize,playerViewPos.x+robotSize,playerViewPos.y+robotSize));
     
-    // gl::drawSolidCircle(drawPosition2DFloor, robotSize-1);
+    
+     gl::drawSolidCircle(playerViewPos, robotSize);
 
 }
 
@@ -232,12 +266,20 @@ void Player::draw()
 
 void Player::setRobotPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirection,double elapsed){
 
+    hasPosSet  =true;
     cameraSet =true;
     cameraPositionSpeed =_currentPosition-currentPosition;
     cameraPositionSpeed/=elapsed;
     
     
+    console()<<name<<glm::length(cameraPositionSpeed)<<endl;
+    
+    
+    playerViewPos.x =_currentPosition.x;
+    playerViewPos.y =_currentPosition.y;
     currentPosition = _currentPosition;
+    
+    
     currentDirection =_currentDirection;
     
     
@@ -259,6 +301,43 @@ void Player::setRobotPosition(glm::vec4 _currentPosition,glm::vec4 _currentDirec
 void Player::setUseCamera(bool _useCamera)
 {
     useCamera = _useCamera;
+    
+    
+    
+    
+    
+    if(name =="1:")
+    {
+        // setPosition(vec4(350,350,0,1),vec4(0,1,0,1),0.1);
+        playerWorldPos.x = 0;
+        playerWorldPos.y = 0;
+        
+        playerViewPos.x = 450;
+        playerViewPos.y = 350;
+        
+        
+        
+    }else
+    {
+        
+        
+        
+        playerWorldPos.x = 500;
+        playerWorldPos.y = 500;
+        
+        playerViewPos.x = 1000;
+        playerViewPos.y = 350;
+        
+        
+        
+        
+        
+    }
+
+    
+    
+    
+    
     if(!useCamera)
     {
         if(name =="1:")
@@ -363,8 +442,8 @@ void Player::parseControles(vector<std::string> substrings)
     
     
     int btn =stoi(substrings[3]);
-    controler.x =x*6;
-    controler.y =y*6;
+    controler.x =x;
+    controler.y =y;
     btnDown = btn ;
     
     
@@ -417,7 +496,7 @@ void Player::drawDebug(ci::Camera cam)
     string posString = "x: "+to_string((int)currentPosition.x)+" y: "+to_string((int)currentPosition.y);
     
     gl::drawString(posString ,vec2(currentPosition.x+10,currentPosition.y-70));
-    
+    gl::drawString(name ,vec2(currentPosition.x,currentPosition.y));
     
     
     gl::enableDepth();

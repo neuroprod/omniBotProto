@@ -27,21 +27,42 @@ CameraHandler2::~CameraHandler2()
 
 void CameraHandler2::setup(bool _useThread)
 {
+    
+   // 462.453,  179.233,    0.000,    1.000]
+    //[  798.955,  146.477,    0.000,    1.000
+     
+     
+     
+    position1.currentPosition = vec4(462.453,  179.233,    0.000,    1.000);
+    position2.currentPosition = vec4(798.955,  146.477,    0.000,    1.000);
+    position1.speedLP =vec2(0,0);
+     position2.speedLP =vec2(0,0);
     updateMappingMatrix();
     useThread =_useThread;
     
     for( const auto &device : Capture::getDevices() ) {
-        console() << "Device: " << device->getName() << endl;
+        if(device->getName() ==  "USB 2.0 Camera")
+        {
+            mCapture = Capture::create( 1280, 720,device );
+          
+            
+            
+        }
     }
     
-    mCapture = Capture::create( 1280, 720 );
-    mCapture->start();
-    
-    if(useThread)
+    if(  mCapture){
+        mCapture->start();
+        if(useThread)
+        {
+            stopThread = false;
+            cameraThread = std::thread(std::bind(&CameraHandler2::worker, this));
+        }
+    }else
     {
-        stopThread = false;
-        cameraThread = std::thread(std::bind(&CameraHandler2::worker, this));
+    
+        console()<<"CAMERA NOT FOUND"<<endl;
     }
+
 }
 void CameraHandler2::update()
 {
@@ -64,12 +85,35 @@ void CameraHandler2::update()
     
     vector <CameraPosition> tempPositions;
     
+    
     for(int i=0;i<pointsTransform.size()-1;i++)
     {
         
         for(int j=i+1;j<pointsTransform.size();j++)
         {
             float dist = glm::distance(pointsTransform[i], pointsTransform[j]);
+
+            if(dist<3)
+            {
+                pointsTransform.erase(pointsTransform.begin()+j);
+                j--;
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    for(int i=0;i<pointsTransform.size()-1;i++)
+    {
+        
+        for(int j=i+1;j<pointsTransform.size();j++)
+        {
+            float dist = glm::distance(pointsTransform[i], pointsTransform[j]);
+           
             if(dist > 60 && dist <80)
             {
                 center =(pointsTransform[i]+ pointsTransform[j])/2.f;
@@ -87,7 +131,7 @@ void CameraHandler2::update()
                             CameraPosition pos;
                             pos.currentPosition =currentPosition;
                             pos.currentDirection =currentDirection;
-                            
+                  //          console()<<"found"<<endl;
                             tempPositions.push_back(pos);
                         }
                     }
@@ -104,6 +148,7 @@ void CameraHandler2::update()
     
     for(auto pos: tempPositions)
     {
+       
         
         float dist1 = glm::distance(pos.currentPosition,position1.currentPosition);
         float dist2 = glm::distance(pos.currentPosition,position2.currentPosition);
@@ -112,6 +157,9 @@ void CameraHandler2::update()
             if(dist1<position1.bestDistance)
             {
                 position1.bestDistance=dist1;
+                
+                position1.speed.x =pos.currentPosition.x-position1.currentPosition.x ;
+                position1.speed.y =pos.currentPosition.y-position1.currentPosition.y ;
                 position1.currentPosition = pos.currentPosition;
                 position1.currentDirection = pos.currentDirection;
             }
@@ -121,6 +169,8 @@ void CameraHandler2::update()
             if(dist2<position2.bestDistance)
             {
                 position2.bestDistance=dist2;
+                position2.speed.x =pos.currentPosition.x-position2.currentPosition.x ;
+                position2.speed.y =pos.currentPosition.y-position2.currentPosition.y ;
                 position2.currentPosition = pos.currentPosition;
                 position2.currentDirection = pos.currentDirection;
             }
@@ -178,7 +228,7 @@ void CameraHandler2::update()
             centers.push_back(p);
             
         }
-          double prev =getElapsedSeconds()*1000 -current;
+         // double prev =getElapsedSeconds()*1000 -current;
      
         mTexture = gl::Texture::create( fromOcv( greyMat ), gl::Texture::Format().loadTopDown() );
         
@@ -247,13 +297,13 @@ void CameraHandler2::worker()
             count++;
             if(count%10==0){
              double current =getElapsedSeconds()*1000;
-                console()<<" "<<(int)(10000/(current-pervTime))<<" fps"<<endl;
+                //console()<<" "<<(int)(10000/(current-pervTime))<<" fps"<<endl;
             
             pervTime =current;
             }
         }
 
-        //std::this_thread::sleep_for(std::chrono::milliseconds(5));
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
     }
 }
 void CameraHandler2::draw()

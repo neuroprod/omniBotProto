@@ -37,7 +37,7 @@ void GrassPatch::addGrass(float x,float y,float xL,float yL,float size2,ci::Surf
     
     color.push_back(vec3(grassColor.r,grassColor.g, grassColor.b));
     // color.push_back(vec3(glm::linearRand(0.0f,1.0f),glm::linearRand(0.0f,1.0f),glm::linearRand(0.0f,1.0f)));
-    texCoord0.push_back(vec3(rot.x,rot.y,glm::linearRand(10.0, 50.0)));
+    texCoord0.push_back(vec3(rot.x,rot.y,glm::linearRand(5.0, 20.0)));
     vertex.push_back(vec2(x-size2,y-size2));
     
     
