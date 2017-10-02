@@ -37,7 +37,7 @@ void GrassPatch::addGrass(float x,float y,float xL,float yL,float size2,ci::Surf
     
     color.push_back(vec3(grassColor.r,grassColor.g, grassColor.b));
     // color.push_back(vec3(glm::linearRand(0.0f,1.0f),glm::linearRand(0.0f,1.0f),glm::linearRand(0.0f,1.0f)));
-    texCoord0.push_back(vec3(rot.x,rot.y,glm::linearRand(5.0, 20.0)));
+    texCoord0.push_back(vec3(rot.x,rot.y,-glm::linearRand(20.0, 30.0)));
     vertex.push_back(vec2(x-size2,y-size2));
     
     
@@ -48,7 +48,7 @@ void GrassPatch::addGrass(float x,float y,float xL,float yL,float size2,ci::Surf
 void GrassPatch::updatePlayer(ci::vec2 playerPos)
 {
 
-    for(int i=0;i< flat.size();i++)
+   /* for(int i=0;i< flat.size();i++)
     {
         if(glm::distance2(playerPos,vertex[i] )<2500)
         {
@@ -57,7 +57,7 @@ void GrassPatch::updatePlayer(ci::vec2 playerPos)
             if(flat[i]<0.2)flat[i]=0.2;
         }
     
-    }
+    }*/
 
 }
 void GrassPatch::update()

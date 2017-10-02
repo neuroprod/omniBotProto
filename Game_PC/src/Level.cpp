@@ -76,7 +76,7 @@ void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
         
         for(auto tile : player1Level.playerTiles)
         {
-           // tile->drawCube();
+           tile->drawCube();
         }
         
         
@@ -92,7 +92,7 @@ void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
         
         for(auto tile : player2Level.playerTiles)
         {
-           // tile->drawCube();
+            tile->drawCube();
         }
         
         
@@ -106,28 +106,29 @@ void Level::drawShadow(int playerID)
     if(playerID==0)
     {
         grassRenderer.drawShadowMap(player1Level, currentTime);
+        
         gl::pushMatrices();
         gl::translate( player1Level.player->playerWorldOffset);
         gl::getStockShader( gl::ShaderDef().color() )->bind() ;
     
         for(auto tile : player1Level.playerTiles)
         {
-           // tile->drawCube();
+            tile->drawCube();
         }
-        
         
         gl::popMatrices();
     }
     else
     {
         grassRenderer.drawShadowMap(player2Level, currentTime);
+       
         gl::pushMatrices();
         gl::translate( player2Level.player->playerWorldOffset);
         gl::getStockShader( gl::ShaderDef().color() )->bind() ;
     
         for(auto tile : player2Level.playerTiles)
         {
-            //tile->drawCube();
+            tile->drawCube();
         }
         
         

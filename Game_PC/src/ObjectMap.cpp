@@ -58,7 +58,7 @@ void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
           
             if( color1.r>0.4 && color2.r>0.4 && color3.r>0.4 )
             {
-                if(glm::linearRand(0.f,1.f)>0.990)
+                if(glm::linearRand(0.f,1.f)>0.991)
                 {
                     hasGrass =true;
                

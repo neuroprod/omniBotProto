@@ -1,5 +1,5 @@
 #version 150
-uniform mat4 ciModelView;
+uniform mat4 ciModelMatrix;
 
 
 in vec4 ciPosition;
@@ -18,7 +18,7 @@ out vec4 posN;
 void main()
 {
     posN =ciPosition;
-    gl_Position = ciModelView * ciPosition;
+    gl_Position = ciModelMatrix * ciPosition;
    color=ciColor;
     
    // vvShadowCoord	= ( biasMatrix * uShadowMatrix * ciModelMatrix ) * ciPosition;

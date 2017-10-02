@@ -10,6 +10,7 @@ uniform	float	time;
 uniform mat4 ciModelMatrix;
 uniform mat4 uShadowMatrix;
 
+uniform mat4 ciViewMatrix;
 uniform mat4 ciProjectionMatrix;
 in vec3 color[];
 in vec3 text[];
@@ -46,15 +47,15 @@ void main()
     vec2 uv = pos.xy/1000.0;
     uv.x+=time;
     uv.y+=time;
-    vec2 dirWind = (texture(uNoiseMap, uv).xy - vec2(0.5,0.5) )*15*fla +dirS*2.0+dirS*flaInv*text[0].z*0.5;
-    
+    vec2 dirWind =(texture(uNoiseMap, uv).xy - vec2(0.5,0.5) )*15*fla +dirS*2.0+dirS*flaInv*text[0].z*0.5;
+  //  dirWind = vec2(0);
 
     
     mat4 shadowMatrix = biasMatrix * uShadowMatrix * ciModelMatrix;
     
     //top
     vec4 offsetTop = vec4( dirWind*3.0 ,size, 0.0 );
-    vec4 posTop = ciProjectionMatrix * (pos + offsetTop);
+    vec4 posTop = ciProjectionMatrix *ciViewMatrix* (pos + offsetTop);
     vec4 schadowCordTop 	= ( biasMatrix * uShadowMatrix * ciModelMatrix ) * (posn + offsetTop);
 
     
@@ -62,19 +63,19 @@ void main()
     
     //base
     vec4 offsetBase1 = vec4( dir.xy* 5.0 ,0.0, 0.0 );
-    vec4 posBase1 = ciProjectionMatrix * (pos + offsetBase1);
+    vec4 posBase1 = ciProjectionMatrix *ciViewMatrix* (pos + offsetBase1);
     vec4 schadowCordBase1 	= shadowMatrix * (posn + offsetBase1);
 
     
     
     vec4 offsetBase2 = vec4( dir.xy* -5.0 ,0.0, 0.0 );
-    vec4 posBase2 = ciProjectionMatrix * (pos + offsetBase2);
+    vec4 posBase2 = ciProjectionMatrix *ciViewMatrix* (pos + offsetBase2);
     vec4 schadowCordBase2 	=  shadowMatrix* (posn + offsetBase2);
     
   
     
     vec4 offsetBase3 = vec4( dirS.xy*7.0 ,0.0, 0.0 );
-    vec4 posBase3 = ciProjectionMatrix * (pos + offsetBase3);
+    vec4 posBase3 = ciProjectionMatrix *ciViewMatrix* (pos + offsetBase3);
     vec4 schadowCordBase3 	=  shadowMatrix * (posn + offsetBase3);
     
     
@@ -83,19 +84,19 @@ void main()
     
     //mid
     vec4 offsetMid1 = vec4( dir.xy* 3.0+dirWind ,+size/2.0, 0.0 );
-    vec4 posMid1 = ciProjectionMatrix * (pos + offsetMid1);
+    vec4 posMid1 = ciProjectionMatrix *ciViewMatrix* (pos + offsetMid1);
     vec4 schadowCordMid1 	= shadowMatrix * (posn + offsetMid1);
     
     
     
     vec4 offsetMid2 = vec4( dir.xy* -3.0 +dirWind,+size/2.0, 0.0 );
-    vec4 posMid2 = ciProjectionMatrix * (pos + offsetMid2);
+    vec4 posMid2 = ciProjectionMatrix *ciViewMatrix* (pos + offsetMid2);
     vec4 schadowCordMid2 	=  shadowMatrix* (posn + offsetMid2);
     
     
     
     vec4 offsetMid3 = vec4( dirS.xy*5.0 +dirWind,+size/2.0, 0.0 );
-    vec4 posMid3 = ciProjectionMatrix * (pos + offsetMid3);
+    vec4 posMid3 = ciProjectionMatrix *ciViewMatrix* (pos + offsetMid3);
     vec4 schadowCordMid3 	=  shadowMatrix * (posn + offsetMid3);
 
     

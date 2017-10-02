@@ -125,8 +125,11 @@ void PlayerTile::drawCube()
         return;
     }
     gl::pushMatrices();
+   
     gl::translate(localTrans);
-    gl::drawColorCube(vec3(0,0,0), vec3(50,50,50));
+    rotCount+=0.01;
+    gl::rotate(rotCount);
+    gl::drawColorCube(vec3(0,0,-40+ -sin(rotCount)*20), vec3(40,40,40));
     ////
     
     gl::popMatrices();

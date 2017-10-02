@@ -403,15 +403,16 @@ void Game_PCApp::draw()
         
         player2->draw();
         
-        gl::draw(mask,vec2(((1280/2)-mCircleOffX)/2,0));
-       
-    //    gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,300,300));
-     //   gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,300,300,600));
+      //  gl::draw(mask,vec2(((1280/2)-mCircleOffX)/2,0));
+        
+        gl::color(0.8,0.8,0.8);
+      // gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,300,300));
+       // gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,0,600,600));
 
     }
 
-    // gl::color(1,1,1);
-   // gl::draw(level.floorMap.generator.mFbo->getColorTexture(),Rectf(0,0,800,800));
+    gl::color(1,1,1);
+  // gl::draw(level.floorMap.generator.mFbo->getColorTexture(),Rectf(0,0,800,800));
     gl::color(1,1,1);
    // mParams->draw();
     drawDebug();

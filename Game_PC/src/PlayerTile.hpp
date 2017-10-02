@@ -40,6 +40,7 @@ public:
     std::string testString;
     bool visible;
     float radius2;
+    float rotCount =0;
 };
 
 

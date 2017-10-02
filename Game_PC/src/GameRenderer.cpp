@@ -162,8 +162,8 @@ void GameRenderer::setupShadow()
     mFbo2 = gl::Fbo::create( FBO_WIDTH, FBO_HEIGHT, fboFormat2 );
     
     
-    mLightPos.x= screenWidth / 2;
-    mLightPos.y=screenHeight / 2+1000;
+    mLightPos.x= screenWidth / 2+1000;
+    mLightPos.y=screenHeight / 2-500;
     mLightPos.z=-2000;
     
     // Set up camera from the light's viewpoint

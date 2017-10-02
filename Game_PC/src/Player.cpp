@@ -251,12 +251,12 @@ void Player::draw()
 
 
     
-     gl::color(0.8,0.8,0.8);
+    gl::color(0.8,0.8,0.8);
     gl::drawStrokedCircle(playerViewPos, robotSize);
    // gl::draw(overlay,Rectf(playerViewPos.x-robotSize,playerViewPos.y-robotSize,playerViewPos.x+robotSize,playerViewPos.y+robotSize));
     
     
-     gl::drawSolidCircle(playerViewPos, robotSize);
+   //  gl::drawSolidCircle(playerViewPos, robotSize);*/
 
 }
 
