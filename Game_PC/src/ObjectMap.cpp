@@ -21,7 +21,7 @@ void ObjectMap::load()
     
     
     dataSurface =  loadImage(getAssetPath("noise.jpg"));
-    grassGradient =loadImage(getAssetPath("grassGradient.png"));
+    grassGradient =loadImage(getAssetPath("grass/grassGradient.png"));
    
     perlin.setSeed(20);
 }
@@ -39,8 +39,13 @@ void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
     
        
     GrassPatchRef grassPatch = GrassPatch::create();
-    
     bool hasGrass =false;
+    
+    
+    FlowerPatchRef flowerPatch = FlowerPatch::create();
+    bool hasFlower = false;
+    
+    
     float fullSize = size*numTiles;
     for(int y=0;y < size ; y++)
     {
@@ -58,7 +63,7 @@ void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
           
             if( color1.r>0.4 && color2.r>0.4 && color3.r>0.4 )
             {
-                if(glm::linearRand(0.f,1.f)>0.991)
+                if(glm::linearRand(0.f,1.f)>0.990)
                 {
                     hasGrass =true;
                
@@ -67,7 +72,18 @@ void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
                     
                 }
             }
-            
+            if( color1.r>0.4 && color2.r>0.4 && color3.r<0.4 )
+            {
+                if(glm::linearRand(0.f,1.f)>0.995)
+                {
+                    hasFlower =true;
+             
+                    flowerPatch->addFlower(x,y,lX,lY,size2,  grassGradient);
+                    
+                    
+                }
+            }
+
         }
     }
    
@@ -76,5 +92,13 @@ void ObjectMap::setTileFloorMesh(LevelTileRef tile,int numTiles)
        
         grassPatch->setup();
         tile->grassPatch = grassPatch;
+    }
+    
+    
+    if(hasFlower)
+    {
+        
+        flowerPatch->setup();
+        tile->flowerPatch = flowerPatch;
     }
 }

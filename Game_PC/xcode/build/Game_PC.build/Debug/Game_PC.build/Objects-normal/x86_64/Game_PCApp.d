@@ -347,10 +347,14 @@ dependencies: \
   /Users/kris/Documents/omniBotProto/Game_PC/src/Level.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/LevelTile.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/GrassPatch.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/FlowerPatch.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/Butterfly.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerLevel.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/PlayerTile.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/FloorMapping.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/FloorTextureGenerator.hpp \
   /Users/kris/Documents/omniBotProto/Game_PC/src/ObjectMap.hpp \
   ../../../cinder_master/include/cinder/Perlin.h \
-  /Users/kris/Documents/omniBotProto/Game_PC/src/GrassRenderer.hpp
+  /Users/kris/Documents/omniBotProto/Game_PC/src/GrassRenderer.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/FlowerRenderer.hpp \
+  /Users/kris/Documents/omniBotProto/Game_PC/src/ButterflyRenderer.hpp

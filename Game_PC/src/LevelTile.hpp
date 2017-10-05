@@ -12,6 +12,8 @@
 #include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 #include "GrassPatch.hpp"
+#include "FlowerPatch.hpp"
+#include "Butterfly.hpp"
 class LevelTile;
 typedef std::shared_ptr<LevelTile> LevelTileRef;
 
@@ -41,7 +43,10 @@ public:
     ci::gl::VboMeshRef meshFloor;
 
     GrassPatchRef grassPatch;
+    FlowerPatchRef flowerPatch;
     bool visible;
+    
+    std::vector<ButterflyRef> butterflys;
     
 };
 #endif /* LevelTile_hpp */

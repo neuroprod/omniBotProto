@@ -22,7 +22,7 @@ void FloorTextureGenerator::setup()
     gl::ScopedFramebuffer fbo( mFbo );
     gl::clear( Color::gray(0.5));
     
-    gradient =  Surface::create(loadImage( loadAsset("floorgradient.png") ));
+    gradient =  Surface::create(loadImage( loadAsset("floor/floorgradient.png") ));
     noise =  Surface::create(loadImage( loadAsset("noise.jpg") ));
     noiseSize = noise->getWidth();
 
@@ -151,7 +151,7 @@ void FloorTextureGenerator::generate(){
 
         ColorA b =gradient->getPixel(ivec2(c.r*255,0));
 
-        gl::color(b.r,b.g,b.b);
+        gl::color(b.r*0.8,b.g*0.8,b.b*0.8);
         gl::drawSolidTriangle(t.p1.get(), t.p2.get(), t.p3.get() );
         
         

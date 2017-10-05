@@ -16,7 +16,12 @@
 #include "PlayerLevel.hpp"
 #include "FloorMapping.hpp"
 #include "ObjectMap.hpp"
+
 #include "GrassRenderer.hpp"
+#include "FlowerRenderer.hpp"
+#include "ButterflyRenderer.hpp"
+
+
 class Level
 {
 
@@ -31,7 +36,7 @@ public:
     
     
     
-    void draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix);
+    void draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix,ci::vec3 lightPos);
     void drawShadow(int playerID);
     float tileSize =256;
     int numTiles=10;
@@ -44,8 +49,8 @@ public:
     FloorMapping floorMap;
     ObjectMap objMap;
     GrassRenderer grassRenderer;
-    
-    
+    FlowerRenderer flowerRenderer;
+    ButterflyRenderer butterflyRenderer;
     std::vector<LevelTileRef> tiles;
 
 };

@@ -92,6 +92,48 @@ void PlayerTile::update(int playerTilePosX,int playerTilePosY,int numTiles,glm::
    
 }
 
+
+void PlayerTile::drawButterflys()
+{
+    if(!visible ||  !tile->butterflys.size())
+    {
+        return;
+    }
+    
+    gl::pushMatrices();
+    gl::translate(localTrans);
+    
+    
+    
+    gl::VertBatch vb( GL_POINTS );
+    for(auto t:tile->butterflys)
+    {
+        vb.color(ColorA( t->speed.x,t->speed.y,t->speed.z,t->random) );
+        
+        vb.vertex(t->positionDraw );
+    }
+    
+    vb.draw();
+  
+    gl::popMatrices();
+    
+}
+
+
+
+void PlayerTile::drawFlowers()
+{
+    if(!visible ||  !tile->flowerPatch)
+    {
+        return;
+    }
+   
+    gl::pushMatrices();
+    gl::translate(localTrans);
+    tile->flowerPatch->draw();
+    gl::popMatrices();
+    
+}
 void PlayerTile::drawGrass()
 {
     if(!visible ||  !tile->grassPatch)

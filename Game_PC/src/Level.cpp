@@ -31,6 +31,8 @@ void Level::setup(PlayerRef player1,PlayerRef player2)
     }
     
     grassRenderer.setup();
+    flowerRenderer.setup();
+    butterflyRenderer.setup(tileSize,numTiles,tiles);
     
     player1Level.tiles =tiles;
     player1Level.player = player1;
@@ -59,19 +61,24 @@ void Level::update()
 //resolve tile physics;
    
     currentTime =getElapsedSeconds();
+    butterflyRenderer.update();
     for(auto tile:tiles)
     {
         tile->update();
     }
 }
 
-void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
+void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix,ci::vec3 lightPos)
 {
     if(playerID==0)
     {
-        grassRenderer.draw(shadowFBO,shadowMatrix,player1Level,currentTime);
+        grassRenderer.draw(shadowFBO,shadowMatrix,player1Level,currentTime,lightPos);
+        flowerRenderer.draw(shadowFBO,shadowMatrix,player1Level,currentTime);
+        
         floorMap.startDraw(shadowFBO,shadowMatrix,player1Level);
-        gl::pushMatrices();
+        butterflyRenderer.draw(player1Level,currentTime,lightPos);
+        
+      /*  gl::pushMatrices();
         gl::translate( player1Level.player->playerWorldOffset);
         
         for(auto tile : player1Level.playerTiles)
@@ -80,14 +87,19 @@ void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
         }
         
         
-        gl::popMatrices();
+        gl::popMatrices();*/
        
     }
     else
     {
-       grassRenderer.draw(shadowFBO,shadowMatrix,player2Level,currentTime);
-       floorMap.startDraw(shadowFBO,shadowMatrix,player2Level);
-        gl::pushMatrices();
+        grassRenderer.draw(shadowFBO,shadowMatrix,player2Level,currentTime,lightPos);
+        flowerRenderer.draw(shadowFBO,shadowMatrix,player2Level,currentTime);
+      
+        
+        
+        floorMap.startDraw(shadowFBO,shadowMatrix,player2Level);
+        butterflyRenderer.draw(player2Level,currentTime,lightPos);
+        /*gl::pushMatrices();
         gl::translate( player2Level.player->playerWorldOffset);
         
         for(auto tile : player2Level.playerTiles)
@@ -96,18 +108,20 @@ void Level::draw(int playerID,ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix)
         }
         
         
-        gl::popMatrices();
+        gl::popMatrices();*/
     }
 }
 
 void Level::drawShadow(int playerID)
 {
-    
+    vec3 lightPos;
     if(playerID==0)
     {
         grassRenderer.drawShadowMap(player1Level, currentTime);
-        
-        gl::pushMatrices();
+        flowerRenderer.drawShadowMap(player1Level, currentTime);
+        butterflyRenderer.draw(player1Level,currentTime,lightPos);
+
+       /* gl::pushMatrices();
         gl::translate( player1Level.player->playerWorldOffset);
         gl::getStockShader( gl::ShaderDef().color() )->bind() ;
     
@@ -116,13 +130,15 @@ void Level::drawShadow(int playerID)
             tile->drawCube();
         }
         
-        gl::popMatrices();
+        gl::popMatrices();*/
     }
     else
     {
         grassRenderer.drawShadowMap(player2Level, currentTime);
-       
-        gl::pushMatrices();
+        flowerRenderer.drawShadowMap(player2Level, currentTime);
+        butterflyRenderer.draw(player2Level,currentTime,lightPos);
+
+       /* gl::pushMatrices();
         gl::translate( player2Level.player->playerWorldOffset);
         gl::getStockShader( gl::ShaderDef().color() )->bind() ;
     
@@ -132,7 +148,7 @@ void Level::drawShadow(int playerID)
         }
         
         
-        gl::popMatrices();
+        gl::popMatrices();*/
     }
     
     gl::getStockShader( gl::ShaderDef().color() )->bind() ;

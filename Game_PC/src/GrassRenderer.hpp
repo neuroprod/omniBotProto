@@ -27,7 +27,7 @@ public:
      ci::gl::TextureRef texture;
     
     
-    void draw(ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix,PlayerLevel &playerLevel,double currentTime);
+    void draw(ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix,PlayerLevel &playerLevel,double currentTime,ci::vec3 lightPos);
     void drawShadowMap(PlayerLevel &playerLevel,double currentTime);
 };
 

@@ -375,11 +375,11 @@ void Game_PCApp::draw()
         glStencilFunc(GL_EQUAL, 1, 0xFF);
      
        
-        level.draw(0,renderer.mFbo1,renderer.shadowMatrix);
+        level.draw(0,renderer.mFbo1,renderer.shadowMatrix,renderer.mLightPos);
      
         glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
         gl::clear(GL_DEPTH_BUFFER_BIT);
-        level.draw(1,renderer.mFbo2,renderer.shadowMatrix);
+        level.draw(1,renderer.mFbo2,renderer.shadowMatrix,renderer.mLightPos);
         
         
         renderer.stopMainDraw();
@@ -403,9 +403,9 @@ void Game_PCApp::draw()
         
         player2->draw();
         
-      //  gl::draw(mask,vec2(((1280/2)-mCircleOffX)/2,0));
+       gl::draw(mask,vec2(((1280/2)-mCircleOffX)/2,0));
         
-        gl::color(0.8,0.8,0.8);
+       // gl::color(0.8,0.8,0.8);
       // gl::draw(renderer.mFbo1->getColorTexture(),Rectf(0,0,300,300));
        // gl::draw(renderer.mFbo2->getColorTexture(),Rectf(0,0,600,600));
 
@@ -414,8 +414,8 @@ void Game_PCApp::draw()
     gl::color(1,1,1);
   // gl::draw(level.floorMap.generator.mFbo->getColorTexture(),Rectf(0,0,800,800));
     gl::color(1,1,1);
-   // mParams->draw();
-    drawDebug();
+    mParams->draw();
+   // drawDebug();
 }
 
 

@@ -1,6 +1,7 @@
 #version 150
 
 in vec3 vColor;
+in vec3 vNormal;
 in vec4 vShadowCoord;
 
 out vec4 outColor;
@@ -37,6 +38,7 @@ void main()
         Shadow = samplePCF3x3(ShadowCoord) ;
     }
     Shadow =clamp(Shadow,1.0,1.0);
-
+   // float v =  min(1.0,  dot(vNormal,vec3(0.0,0.0,1.0))*0.4+0.7);
     outColor = vec4( vColor*Shadow, 1.0);
+   //outColor =vec4(vec3(v),1.0);
 }

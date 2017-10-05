@@ -29,14 +29,14 @@ public:
         mProjectionCached = false;
         mModelViewCached = true;
         mInverseModelViewCached = true;
-        mNearClip = 2000.f;
-        mFarClip = 24000.f;
+       // mNearClip = 2000.f;
+        //mFarClip = 5000.f;
     }
     void setCameraPos(glm::vec3 _cameraPosition)
     {
     
         cameraPosition =_cameraPosition;
-        mNearClip = 0.1f;
+        mNearClip = 100.f;
         mFarClip = 3000.f;
         calcProjection();
     }

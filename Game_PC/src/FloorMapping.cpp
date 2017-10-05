@@ -17,11 +17,11 @@ void FloorMapping::load()
 {
 
     generator.setup();
-    texture =gl::Texture::create( loadImage(getAssetPath("level.png")),gl::Texture::Format().loadTopDown());
+    //texture =gl::Texture::create( loadImage(getAssetPath("level.png")),gl::Texture::Format().loadTopDown());
    
    
-   prog = gl::GlslProg::create( gl::GlslProg::Format().vertex( loadAsset( "floor_shader.vert" ) )
-                           .fragment( loadAsset( "floor_shader.frag" ) )
+   prog = gl::GlslProg::create( gl::GlslProg::Format().vertex( loadAsset( "floor/floor_shader.vert" ) )
+                           .fragment( loadAsset( "floor/floor_shader.frag" ) )
                           );
   
     
@@ -134,7 +134,7 @@ void FloorMapping::startDraw(ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix, Pl
 }
 void FloorMapping::stopDraw()
 {
-    texture->unbind();
+   // texture->unbind();
      gl::getStockShader( gl::ShaderDef().color() )->bind() ;
 }
 

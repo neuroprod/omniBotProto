@@ -30,8 +30,13 @@
 		013223361EF003E5002F486B /* ProjectionCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0132232E1EF003E5002F486B /* ProjectionCamera.cpp */; };
 		013223371EF003E5002F486B /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013223301EF003E5002F486B /* triangle.cpp */; };
 		0133E85C1EF93B5600DF1D3B /* GrassRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0133E85A1EF93B5600DF1D3B /* GrassRenderer.cpp */; };
+		0159C7851F862FED0013F47D /* TrailRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0159C7831F862FED0013F47D /* TrailRenderer.cpp */; };
 		0163CCFE1F06537500797F8E /* GrassPatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0163CCFC1F06537500797F8E /* GrassPatch.cpp */; };
 		0163CD031F0A4E3A00797F8E /* FloorTextureGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0163CD011F0A4E3A00797F8E /* FloorTextureGenerator.cpp */; };
+		0187FC8C1F838B500059B16C /* FlowerPatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0187FC8A1F838B500059B16C /* FlowerPatch.cpp */; };
+		0187FC901F838B880059B16C /* FlowerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0187FC8E1F838B880059B16C /* FlowerRenderer.cpp */; };
+		0187FC941F83A5FD0059B16C /* ButterflyRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0187FC921F83A5FD0059B16C /* ButterflyRenderer.cpp */; };
+		0187FC971F83A6D20059B16C /* Butterfly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0187FC951F83A6D20059B16C /* Butterfly.cpp */; };
 		01C7214A1EFD222900BA85FC /* ObjectMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C721481EFD222900BA85FC /* ObjectMap.cpp */; };
 		01E83BEE1EF3DE5C0013D65B /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E83BEC1EF3DE5C0013D65B /* Level.cpp */; };
 		01E83BF21EF3EC340013D65B /* LevelTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E83BF01EF3EC340013D65B /* LevelTile.cpp */; };
@@ -82,10 +87,20 @@
 		013223321EF003E5002F486B /* vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector2.h; path = ../src/vector2.h; sourceTree = "<group>"; };
 		0133E85A1EF93B5600DF1D3B /* GrassRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GrassRenderer.cpp; path = ../src/GrassRenderer.cpp; sourceTree = "<group>"; };
 		0133E85B1EF93B5600DF1D3B /* GrassRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GrassRenderer.hpp; path = ../src/GrassRenderer.hpp; sourceTree = "<group>"; };
+		0159C7831F862FED0013F47D /* TrailRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrailRenderer.cpp; path = ../src/TrailRenderer.cpp; sourceTree = "<group>"; };
+		0159C7841F862FED0013F47D /* TrailRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TrailRenderer.hpp; path = ../src/TrailRenderer.hpp; sourceTree = "<group>"; };
 		0163CCFC1F06537500797F8E /* GrassPatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GrassPatch.cpp; path = ../src/GrassPatch.cpp; sourceTree = "<group>"; };
 		0163CCFD1F06537500797F8E /* GrassPatch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GrassPatch.hpp; path = ../src/GrassPatch.hpp; sourceTree = "<group>"; };
 		0163CD011F0A4E3A00797F8E /* FloorTextureGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FloorTextureGenerator.cpp; path = ../src/FloorTextureGenerator.cpp; sourceTree = "<group>"; };
 		0163CD021F0A4E3A00797F8E /* FloorTextureGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FloorTextureGenerator.hpp; path = ../src/FloorTextureGenerator.hpp; sourceTree = "<group>"; };
+		0187FC8A1F838B500059B16C /* FlowerPatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlowerPatch.cpp; path = ../src/FlowerPatch.cpp; sourceTree = "<group>"; };
+		0187FC8B1F838B500059B16C /* FlowerPatch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FlowerPatch.hpp; path = ../src/FlowerPatch.hpp; sourceTree = "<group>"; };
+		0187FC8E1F838B880059B16C /* FlowerRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlowerRenderer.cpp; path = ../src/FlowerRenderer.cpp; sourceTree = "<group>"; };
+		0187FC8F1F838B880059B16C /* FlowerRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FlowerRenderer.hpp; path = ../src/FlowerRenderer.hpp; sourceTree = "<group>"; };
+		0187FC921F83A5FD0059B16C /* ButterflyRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButterflyRenderer.cpp; path = ../src/ButterflyRenderer.cpp; sourceTree = "<group>"; };
+		0187FC931F83A5FD0059B16C /* ButterflyRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ButterflyRenderer.hpp; path = ../src/ButterflyRenderer.hpp; sourceTree = "<group>"; };
+		0187FC951F83A6D20059B16C /* Butterfly.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Butterfly.cpp; path = ../src/Butterfly.cpp; sourceTree = "<group>"; };
+		0187FC961F83A6D20059B16C /* Butterfly.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Butterfly.hpp; path = ../src/Butterfly.hpp; sourceTree = "<group>"; };
 		01C721481EFD222900BA85FC /* ObjectMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectMap.cpp; path = ../src/ObjectMap.cpp; sourceTree = "<group>"; };
 		01C721491EFD222900BA85FC /* ObjectMap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ObjectMap.hpp; path = ../src/ObjectMap.hpp; sourceTree = "<group>"; };
 		01E83BEC1EF3DE5C0013D65B /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Level.cpp; path = ../src/Level.cpp; sourceTree = "<group>"; };
@@ -190,6 +205,15 @@
 			name = gameObjects;
 			sourceTree = "<group>";
 		};
+		0159C7821F862FCD0013F47D /* trail */ = {
+			isa = PBXGroup;
+			children = (
+				0159C7831F862FED0013F47D /* TrailRenderer.cpp */,
+				0159C7841F862FED0013F47D /* TrailRenderer.hpp */,
+			);
+			name = trail;
+			sourceTree = "<group>";
+		};
 		0163CCFF1F0667D200797F8E /* floor */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +234,28 @@
 				0163CCFD1F06537500797F8E /* GrassPatch.hpp */,
 			);
 			name = grass;
+			sourceTree = "<group>";
+		};
+		0187FC881F838B270059B16C /* flower */ = {
+			isa = PBXGroup;
+			children = (
+				0187FC8A1F838B500059B16C /* FlowerPatch.cpp */,
+				0187FC8B1F838B500059B16C /* FlowerPatch.hpp */,
+				0187FC8E1F838B880059B16C /* FlowerRenderer.cpp */,
+				0187FC8F1F838B880059B16C /* FlowerRenderer.hpp */,
+			);
+			name = flower;
+			sourceTree = "<group>";
+		};
+		0187FC911F83A5A80059B16C /* butterfly */ = {
+			isa = PBXGroup;
+			children = (
+				0187FC921F83A5FD0059B16C /* ButterflyRenderer.cpp */,
+				0187FC931F83A5FD0059B16C /* ButterflyRenderer.hpp */,
+				0187FC951F83A6D20059B16C /* Butterfly.cpp */,
+				0187FC961F83A6D20059B16C /* Butterfly.hpp */,
+			);
+			name = butterfly;
 			sourceTree = "<group>";
 		};
 		01B65A731F23383D00FE25BD /* cube */ = {
@@ -243,6 +289,9 @@
 		01E83BFC1EF810470013D65B /* env */ = {
 			isa = PBXGroup;
 			children = (
+				0159C7821F862FCD0013F47D /* trail */,
+				0187FC911F83A5A80059B16C /* butterfly */,
+				0187FC881F838B270059B16C /* flower */,
 				01B65A731F23383D00FE25BD /* cube */,
 				0163CD001F0667E400797F8E /* grass */,
 				0163CCFF1F0667D200797F8E /* floor */,
@@ -427,19 +476,24 @@
 				0133E85C1EF93B5600DF1D3B /* GrassRenderer.cpp in Sources */,
 				01C7214A1EFD222900BA85FC /* ObjectMap.cpp in Sources */,
 				01E83BFB1EF810400013D65B /* FloorMapping.cpp in Sources */,
+				0187FC941F83A5FD0059B16C /* ButterflyRenderer.cpp in Sources */,
 				01E83BEE1EF3DE5C0013D65B /* Level.cpp in Sources */,
 				013223341EF003E5002F486B /* ParticleHandler.cpp in Sources */,
 				0163CD031F0A4E3A00797F8E /* FloorTextureGenerator.cpp in Sources */,
 				013223371EF003E5002F486B /* triangle.cpp in Sources */,
 				01E83BF51EF5526E0013D65B /* PlayerLevel.cpp in Sources */,
+				0187FC971F83A6D20059B16C /* Butterfly.cpp in Sources */,
+				0159C7851F862FED0013F47D /* TrailRenderer.cpp in Sources */,
 				0104A6651EF151BA00AAD57D /* GameRenderer.cpp in Sources */,
 				0163CCFE1F06537500797F8E /* GrassPatch.cpp in Sources */,
+				0187FC901F838B880059B16C /* FlowerRenderer.cpp in Sources */,
 				0104A66D1EF1719800AAD57D /* Game_PCapp.cpp in Sources */,
 				013223261EF003D8002F486B /* CameraHandler2.cpp in Sources */,
 				01E83BF81EF558EE0013D65B /* PlayerTile.cpp in Sources */,
 				0104A66B1EF16FEB00AAD57D /* Trail.cpp in Sources */,
 				013223331EF003E5002F486B /* Particle.cpp in Sources */,
 				013223271EF003D8002F486B /* delaunay.cpp in Sources */,
+				0187FC8C1F838B500059B16C /* FlowerPatch.cpp in Sources */,
 				013223241EF003D8002F486B /* ArduinoHandler.cpp in Sources */,
 				013223251EF003D8002F486B /* Calibrator.cpp in Sources */,
 			);

@@ -36,7 +36,7 @@ PlayerRef  Player::create()
 
 void Player::setup()
 {
-   overlay =gl::Texture::create( loadImage(getAssetPath("insideOverlay.png")),gl::Texture::Format().loadTopDown());
+   //overlay =gl::Texture::create( loadImage(getAssetPath("insideOverlay.png")),gl::Texture::Format().loadTopDown());
 }
 
 
