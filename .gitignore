@@ -20,3 +20,12 @@ Game_PC/xcode/build/Game_PC.build/Release/Game_PC.build/dgph
 *.d
 
 *.hmap
+*.tlog
+*.obj
+*.pdb
+*.dll
+*.log
+*.idb
+*.ilk
+*.opensdf
+*.exe
