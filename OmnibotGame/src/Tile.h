@@ -12,6 +12,7 @@ public:
 	Tile();
 	static TileRef create();
 	void setup(int x, int z, float size);
+	void drawDebug();
 	void draw();
 
 	float xR;

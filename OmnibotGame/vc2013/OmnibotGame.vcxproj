@@ -110,9 +110,6 @@
       <Command>xcopy /y "..\blocks\FMOD\lib\msw\fmodex.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Resources.rc" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup />
   <ItemGroup>
@@ -121,6 +118,8 @@
     <ClCompile Include="..\src\OmnibotGameApp.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\PlayerInput.cpp" />
+    <ClCompile Include="..\src\GSettings.cpp" />
+    <ClCompile Include="..\src\ProjectionCamera.cpp" />
     <ClCompile Include="..\src\Tile.cpp" />
     <ClCompile Include="..\src\World.cpp" />
   </ItemGroup>
@@ -130,6 +129,8 @@
     <ClInclude Include="..\src\KeyHandler.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\PlayerInput.h" />
+    <ClInclude Include="..\src\GSettings.h" />
+    <ClInclude Include="..\src\ProjectionCamera.hpp" />
     <ClInclude Include="..\src\Tile.h" />
     <ClInclude Include="..\src\World.h" />
   </ItemGroup>

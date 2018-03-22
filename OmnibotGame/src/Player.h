@@ -28,7 +28,7 @@ public:
 	float worldSize;
 	void resolveScreenMatrix(PlayerRef other);
 
-	float size = 50;
+	float size =40;
 
 	PlayerInputRef controlesInput;
 	bool isMoving = false;
@@ -37,6 +37,9 @@ public:
 
 	ci::mat4 screenMatrix;//virtual screen matrix
 	ci::mat4 screenMatrixInv;
+
+	ci::mat4 viewMatrix;
+
 
 	ci::mat4 rotMatrix;
 	float angle = 0;
@@ -50,5 +53,7 @@ public:
 
 
 	void setTempRealPosition();
+
+	int currentTileIndex;
 
 };

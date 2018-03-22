@@ -1,3 +1,5 @@
+#include "GSettings.h"
+
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
@@ -5,9 +7,16 @@
 #include "InputControler.h"
 #include "Player.h"
 #include "World.h"
+#include "ProjectionCamera.hpp"
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+
+//
+// WARNING!!!   Z ==up (don't ask)
+//
+
 
 class OmnibotGameApp : public App {
   public:
@@ -30,13 +39,15 @@ class OmnibotGameApp : public App {
 
 	vec2 pointCenter1off;
 	vec2 pointCenter2off;
+	ProjectionCamera camera;
 };
 
 void OmnibotGameApp::setup()
 {
-	setWindowSize(1280, 720);
+	setWindowSize(GSettings::windowWidth, GSettings::windowHeight);
 	setFrameRate(120);
-	
+
+
 	inputControler.init();
 	world.setup();
 
@@ -56,6 +67,23 @@ void OmnibotGameApp::setup()
 	player2->setLevelPosition(vec3(200, 0, 500));
 	player2->controlesInput = inputControler.player2Input;
 
+	vec3 cameraPosition;
+	float offyCam = 1800;
+	float offzCam = -2000;
+
+	cameraPosition.x = 0;
+	cameraPosition.y = -GSettings::windowHeight - offyCam;
+	cameraPosition.z = offzCam;
+
+	camera.setEyePoint(vec3(GSettings::windowWidth / 2, GSettings::windowHeight + offyCam / 2, offzCam / 2));
+
+	camera.lookAt(vec3(GSettings::windowWidth / 2,GSettings::windowHeight + offyCam / 2, 0));
+	camera.setCameraPos(cameraPosition);
+
+
+
+	
+
 
 }
 
@@ -65,6 +93,7 @@ void OmnibotGameApp::setup()
 
 void OmnibotGameApp::update()
 {
+	
 	double currentTime = getElapsedSeconds();
 	double delta = currentTime - prevTime;
 	prevTime = currentTime;
@@ -87,6 +116,20 @@ void OmnibotGameApp::update()
 	player2->setTempRealPosition();
 
 
+	vec2 player1Screen = vec2(player1->screenPosition.x, player1->screenPosition.z);
+	vec2 player2Screen = vec2(player2->screenPosition.x, player2->screenPosition.z);
+	vec2 distVec = player1Screen - player2Screen;
+	vec2 perpVec = vec2(-distVec.y, distVec.x);
+	vec2 centerPos = (player1Screen + player2Screen) / 2.f;
+	vec2 perpVecNorm = glm::normalize(perpVec);
+
+	pointCenter1 = centerPos - perpVecNorm*720.f;
+	pointCenter2 = centerPos + perpVecNorm*720.f;
+
+	vec2 distVecNorm = glm::normalize(distVec);
+
+	pointCenter1off = pointCenter1 + distVecNorm*720.f;
+	pointCenter2off = pointCenter2 + distVecNorm*720.f;
 
 }
 void OmnibotGameApp::updateVirtualPlayers()
@@ -101,18 +144,9 @@ void OmnibotGameApp::updateVirtualPlayers()
 	vec2 distVec = player1Screen - player2Screen;
 	float distance = glm::length(distVec);
 
-	vec2 perpVec = vec2(-distVec.y, distVec.x);
+	//vec2 perpVec = vec2(-distVec.y, distVec.x);
 
-	vec2 centerPos = (player1Screen + player2Screen) / 2.f;
-	vec2 perpVecNorm = glm::normalize(perpVec);
-
-	pointCenter1 = centerPos - perpVecNorm*720.f;
-	pointCenter2 = centerPos + perpVecNorm*720.f;
-
-	vec2 distVecNorm = glm::normalize(distVec);
-
-	pointCenter1off = pointCenter1 + distVecNorm*720.f;
-	pointCenter2off = pointCenter2 + distVecNorm*720.f;
+	
 
 
 	if (distance<150)
@@ -152,24 +186,40 @@ void OmnibotGameApp::draw()
 
 
 
+	
+	
+	//drawVirtualPosition();
+	gl::pushMatrices();
+		gl::setMatrices(camera);
+		gl::enableDepth(true);
+
+		gl::pushMatrices();
+			gl::setModelMatrix(player1->screenMatrix);
+			player1->draw();
+			world.drawPlayerTiles(player1->currentTileIndex);
+		gl::popMatrices();
+
+		gl::pushMatrices();
+			gl::setModelMatrix(player2->screenMatrix);
+			player2->draw();
+			world.drawPlayerTiles(player2->currentTileIndex);
+		gl::popMatrices();
+	gl::popMatrices();
+
+
+	gl::enableDepth(false);
+
+
+
 	gl::pushMatrices();
 	gl::translate(getWindowCenter());
 	gl::drawStrokedCircle(vec2(0, 0), getWindowHeight() / 2);
 	gl::drawLine(pointCenter1, pointCenter2);
 	gl::popMatrices();
-	
-	drawVirtualPosition();
-	
 
-	gl::pushMatrices();
-	gl::setModelMatrix(player1->screenMatrix);
-	player1->draw();
-	gl::popMatrices();
 
-	gl::pushMatrices();
-	gl::setModelMatrix(player2->screenMatrix);
-	player2->draw();
-	gl::popMatrices();
+	//drawVirtualPosition();
+
 
 	//draw debug
 	inputControler.draw();

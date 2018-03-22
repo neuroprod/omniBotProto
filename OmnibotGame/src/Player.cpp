@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "cinder/gl/gl.h"
-
-
+#include "GSettings.h"
+#include "glm\gtc\random.hpp"
 using namespace std;
 using namespace ci::app;
 using namespace ci;
@@ -62,8 +62,8 @@ void Player::setScreenPosition(vec3 pos)
 void Player::setLevelPosition(vec3 pos)
 {
 	levelPositionVirtual = pos;
-	levelPosition = pos;
-
+	levelPosition.x = pos.x;
+	levelPosition.y = pos.z;
 }
 
 void Player::resolveScreenMatrix(PlayerRef other)
@@ -102,15 +102,14 @@ void Player::resolveScreenMatrix(PlayerRef other)
 	screenMatrix = glm::rotate(screenMatrix, -angle, vec3(0, 0, 1));
 	screenMatrix = translate(screenMatrix, vec3(-screenPositionVirtual.x, -screenPositionVirtual.z, 0));
 	screenMatrix = translate(screenMatrix, vec3(-levelPositionVirtual.x + screenPositionVirtual.x, -levelPositionVirtual.z + screenPositionVirtual.z, 0));
+	
 	screenMatrixInv = glm::inverse(screenMatrix);
-
 
 	screenMatrix = centerMatrix*screenMatrix;
 
 	rotMatrix = glm::mat4();
 	
-
-
+	
 }
 ci::vec3  Player::getClosestLevelPosition(ci::vec3 posMe, ci::vec3 posOther)
 {
@@ -140,14 +139,16 @@ void Player::drawVirtual()
 {
 
 	gl::drawLine(vec2(levelPositionVirtual.x, levelPositionVirtual.z), vec2(posOther.x, posOther.z));
-	gl::drawStrokedCircle(vec2(levelPositionVirtual.x, levelPositionVirtual.z), size/2);
+	gl::drawStrokedCircle(vec2(levelPositionVirtual.x, levelPositionVirtual.z), size);
 
 }
 void Player::draw()
 {
-
 	
-	gl::drawStrokedCircle(vec2(levelPosition.x, levelPosition.z), size);
+	
+	gl::drawColorCube(levelPosition, vec3(40, 40, 40));
+	
+	gl::drawStrokedCircle(vec2(levelPosition.x, levelPosition.y), size);
 
 }
 
@@ -158,10 +159,22 @@ void Player::setTempRealPosition()
 
 	vec4 levelPosition4 = screenMatrixInv*vec4(screenPosition.x, screenPosition.z, 0, 1.0f);
 	
-	levelPosition.x = levelPosition4.x ;
-	
-	levelPosition.z = levelPosition4.y ;
+	levelPosition.x = levelPosition4.x;
+	levelPosition.y = levelPosition4.y;
 
+	if (levelPosition.x < 0)levelPosition.x += worldSize;
+	if (levelPosition.x > worldSize)levelPosition.x -= worldSize;
+	if (levelPosition.y < 0)levelPosition.y += worldSize;
+	if (levelPosition.y > worldSize)levelPosition.y -= worldSize;
+
+	
+	int indexX = levelPosition.x / GSettings::tileSize;
+	int indexY = levelPosition.y / GSettings::tileSize;
+
+	indexX %= GSettings::numTiles;
+	indexY %= GSettings::numTiles;
+	
+	currentTileIndex = indexX + indexY*GSettings::numTiles;
 	
 
 }

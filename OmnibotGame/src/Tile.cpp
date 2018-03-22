@@ -22,3 +22,8 @@ void Tile::draw()
 {
 	gl::drawStrokedRect(Rectf(xRWorld, zRWorld, xRWorld + size, zRWorld + size));
 }
+
+void Tile::drawDebug()
+{
+	gl::drawStrokedRect(Rectf(xRWorld, zRWorld, xRWorld + size, zRWorld + size));
+}
