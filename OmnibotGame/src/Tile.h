@@ -1,6 +1,6 @@
 #pragma once
 #include "cinder/app/App.h"
-
+#include "cinder/gl/VboMesh.h"
 class Tile;
 typedef std::shared_ptr<Tile> TileRef;
 
@@ -17,8 +17,15 @@ public:
 
 	float xR;
 	float zR;
+	float yR;
 	float size;
 	float xRWorld;
 	float zRWorld;
+	float yRWorld;
+	std::vector<int> friendIndices;
+	std::vector<ci::vec2> friendPositions;
+
+
+	ci::gl::VboMeshRef meshFloor;
 
 };

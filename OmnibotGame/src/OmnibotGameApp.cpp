@@ -8,7 +8,7 @@
 #include "Player.h"
 #include "World.h"
 #include "ProjectionCamera.hpp"
-
+#include "CinderImGui.h"
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -46,7 +46,7 @@ void OmnibotGameApp::setup()
 {
 	setWindowSize(GSettings::windowWidth, GSettings::windowHeight);
 	setFrameRate(120);
-
+	ImGui::initialize();
 
 	inputControler.init();
 	world.setup();
@@ -67,18 +67,8 @@ void OmnibotGameApp::setup()
 	player2->setLevelPosition(vec3(200, 0, 500));
 	player2->controlesInput = inputControler.player2Input;
 
-	vec3 cameraPosition;
-	float offyCam = 1800;
-	float offzCam = -2000;
-
-	cameraPosition.x = 0;
-	cameraPosition.y = -GSettings::windowHeight - offyCam;
-	cameraPosition.z = offzCam;
-
-	camera.setEyePoint(vec3(GSettings::windowWidth / 2, GSettings::windowHeight + offyCam / 2, offzCam / 2));
-
-	camera.lookAt(vec3(GSettings::windowWidth / 2,GSettings::windowHeight + offyCam / 2, 0));
-	camera.setCameraPos(cameraPosition);
+	
+	camera.updateSetting();
 
 
 
@@ -182,31 +172,61 @@ void OmnibotGameApp::updateVirtualPlayers()
 
 void OmnibotGameApp::draw()
 {
+	gl::color(1, 1, 1);
+
+
 	gl::clear( Color( 0, 0, 0 ) ); 
 
 
+	glEnable(GL_STENCIL_TEST);
+	gl::clear(Color(0, 0, 0));
+	glStencilMask(0xFF);
+	gl::clear(GL_STENCIL_BUFFER_BIT);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+	glStencilFunc(GL_ALWAYS, 1, 0xFF); // Set any stencil to 1
+	glStencilMask(0xFF); // Write to stencil buffer
 
 	
+	gl::pushMatrices();
 	
+	gl::translate(GSettings::windowWidth / 2, GSettings::windowHeight / 2);
+
+	gl::drawSolidTriangle(pointCenter1, pointCenter2, pointCenter1off);
+	gl::drawSolidTriangle(pointCenter2, pointCenter2off, pointCenter1off);
+	gl::popMatrices();
+	glStencilMask(0x00);
+
+
+
+
+
 	//drawVirtualPosition();
 	gl::pushMatrices();
+
 		gl::setMatrices(camera);
 		gl::enableDepth(true);
 
+	glStencilFunc(GL_EQUAL, 1, 0xFF);
+	gl::clear(Color(0, 0, 0));
+	gl::clear(GL_DEPTH_BUFFER_BIT);
 		gl::pushMatrices();
 			gl::setModelMatrix(player1->screenMatrix);
 			player1->draw();
 			world.drawPlayerTiles(player1->currentTileIndex);
 		gl::popMatrices();
 
+	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+	gl::clear(GL_DEPTH_BUFFER_BIT);
+
 		gl::pushMatrices();
 			gl::setModelMatrix(player2->screenMatrix);
 			player2->draw();
 			world.drawPlayerTiles(player2->currentTileIndex);
 		gl::popMatrices();
+
 	gl::popMatrices();
 
-
+	glDisable(GL_STENCIL_TEST);
 	gl::enableDepth(false);
 
 
@@ -223,7 +243,11 @@ void OmnibotGameApp::draw()
 
 	//draw debug
 	inputControler.draw();
-	gl::drawString(toString(getAverageFps()), vec2(0, 0));
+
+	//Um::SliderFloat("Min Radius", &minRadius, 1, 499);
+	string a = "fps: " + toString(getAverageFps());
+	ImGui::Text(a.c_str());
+	
 }
 
 void OmnibotGameApp::drawVirtualPosition()
@@ -253,4 +277,4 @@ void OmnibotGameApp::drawVirtualPosition()
 
 }
 
-CINDER_APP( OmnibotGameApp, RendererGl )
+CINDER_APP(OmnibotGameApp, RendererGl(RendererGl::Options().msaa(8).stencil()))

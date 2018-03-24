@@ -72,26 +72,27 @@ void Player::resolveScreenMatrix(PlayerRef other)
 
 	posOther = getClosestLevelPosition(levelPositionVirtual, other->levelPositionVirtual);
 	float screenDistance = glm::distance(screenPositionVirtual, other->screenPositionVirtual);
+
+	float targetAngle = 0;
+
 	if (currentDistance <= screenDistance)
 	{
 	
 		float angleLevel = atan2f(levelPositionVirtual.z - posOther.z, levelPositionVirtual.x - posOther.x);
 		float angleScreen = atan2f(screenPositionVirtual.z - other->screenPositionVirtual.z, screenPositionVirtual.x - other->screenPositionVirtual.x);
-		angle = angleLevel - angleScreen;
-		//if (!other->isMoving)angle = angleLevel;
+		targetAngle = angleLevel - angleScreen;
+		if (targetAngle < 3.1415)targetAngle += 3.1415 * 2;
+		if (targetAngle > 3.1415)targetAngle -= 3.1415 * 2;
+		//console() << targetAngle << " " << id << endl;
 
-		
-		//angle = 0;
+		//TODO: get closest angle
 		//console() << "FOUND HIM" << endl;
 		
 	
-	
-	} else 
-	{
-	
-		angle = 0;
-	
-	}
+	} 
+
+	angle += ( targetAngle-angle) / 20;
+
 	glm::mat4 centerMatrix = glm::mat4();
 	centerMatrix = translate(centerMatrix, vec3(1280 / 2, 720 / 2, 0));
 

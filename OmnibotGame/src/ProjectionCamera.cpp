@@ -9,6 +9,27 @@
 #include "ProjectionCamera.hpp"
 #include "GSettings.h"
 
+void ProjectionCamera::updateSetting()
+{
+
+
+	float offyCam = 1800;
+	float offzCam = -2000;
+
+	cameraPosition.x = 0;
+	cameraPosition.y = -GSettings::windowHeight - offyCam;
+	cameraPosition.z = offzCam;
+
+	setEyePoint(ci::vec3(GSettings::windowWidth / 2, GSettings::windowHeight + offyCam / 2, offzCam / 2));
+
+	lookAt(ci::vec3(GSettings::windowWidth / 2, GSettings::windowHeight + offyCam / 2, 0));
+
+	mNearClip = 100.f;
+	mFarClip = 3000.f;
+	calcProjection();
+
+}
+
 
 void	ProjectionCamera::calcProjection() const
 {

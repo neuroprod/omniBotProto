@@ -22,25 +22,11 @@ public:
     
     ProjectionCamera()
     {
-    
-        cameraPosition.x =0;
-        cameraPosition.y =0;
-        cameraPosition.z=-1000;
-        calcProjection();
         mProjectionCached = false;
         mModelViewCached = true;
-        mInverseModelViewCached = true;
-       // mNearClip = 2000.f;
-        //mFarClip = 5000.f;
+        mInverseModelViewCached = true; 
     }
-    void setCameraPos(glm::vec3 _cameraPosition)
-    {
-    
-        cameraPosition =_cameraPosition;
-        mNearClip = 100.f;
-        mFarClip = 3000.f;
-        calcProjection();
-    }
+	void updateSetting();
     virtual bool	isPersp() const { return true; }
     glm::vec3 cameraPosition;
 protected:

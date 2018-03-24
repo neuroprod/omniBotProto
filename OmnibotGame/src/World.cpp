@@ -1,5 +1,9 @@
 #include "World.h"
 #include "GSettings.h"
+#include "cinder/gl/gl.h"
+
+using namespace std;
+using namespace ci;
 
 World::World()
 {
@@ -8,7 +12,10 @@ World::World()
 
 void World::setup()
 {
-	worldSize = GSettings::tileSize*GSettings::numTiles;
+
+	floorMapping.load();
+
+	worldSize = GSettings::worldSize;
 	
 	for (int y = 0; y<GSettings::numTiles; y++)
 	{
@@ -16,16 +23,25 @@ void World::setup()
 		{
 			TileRef tile = Tile::create();
 			tile->setup(x, y, GSettings::tileSize);
-			
+			floorMapping.setTileFloorMesh(tile, GSettings::numTiles);
 			tiles.push_back(tile);
 		}
 
 	}
+	leafHandler.setup();
+	
 }
 void World::drawPlayerTiles(int index)
 {
 	
-	tiles[index]->draw();
+	vector<int> indices = tiles[index]->friendIndices;
+	vector<vec2> positions = tiles[index]->friendPositions;
+
+	floorMapping.draw(tiles, indices, positions);
+	leafHandler.draw(indices, positions);
+
+	
+	
 
 }
 

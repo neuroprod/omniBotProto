@@ -54,7 +54,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;"..\..\..\cinder_master\include";..\blocks\FMOD\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\blocks\cinder-ImGui\lib\imgui;..\include;..\..\..\cinder_master\include;..\blocks\Cinder-ImGui\include;..\blocks\FMOD\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -81,7 +81,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"..\..\..\cinder_master\include";..\blocks\FMOD\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\blocks\cinder-ImGui\lib\imgui;..\include;..\..\..\cinder_master\include;..\blocks\Cinder-ImGui\include;..\blocks\FMOD\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -110,28 +110,59 @@
       <Command>xcopy /y "..\blocks\FMOD\lib\msw\fmodex.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="..\assets\floor\floor_shader.frag" />
+    <None Include="..\assets\floor\floor_shader.vert" />
+    <None Include="..\assets\leafs\leaf_shader.frag" />
+    <None Include="..\assets\leafs\leaf_shader.vert" />
+  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ClCompile Include="..\blocks\Cinder-ImGui\lib\imgui\imgui.cpp" />
+    <ClCompile Include="..\blocks\Cinder-ImGui\lib\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\blocks\Cinder-ImGui\lib\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\blocks\Cinder-ImGui\src\CinderImGui.cpp" />
+    <ClCompile Include="..\src\delaunay.cpp" />
+    <ClCompile Include="..\src\FloorMapping.cpp" />
+    <ClCompile Include="..\src\FloorTextureGenerator.cpp" />
     <ClCompile Include="..\src\InputControler.cpp" />
     <ClCompile Include="..\src\KeyHandler.cpp" />
+    <ClCompile Include="..\src\Leaf.cpp" />
+    <ClCompile Include="..\src\LeafHandler.cpp" />
+    <ClCompile Include="..\src\LeafTile.cpp" />
     <ClCompile Include="..\src\OmnibotGameApp.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\PlayerInput.cpp" />
     <ClCompile Include="..\src\GSettings.cpp" />
     <ClCompile Include="..\src\ProjectionCamera.cpp" />
     <ClCompile Include="..\src\Tile.cpp" />
+    <ClCompile Include="..\src\triangle.cpp" />
     <ClCompile Include="..\src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\imconfig.h" />
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\imgui.h" />
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\imgui_internal.h" />
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\stb_rect_pack.h" />
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\stb_textedit.h" />
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\stb_truetype.h" />
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\src\delaunay.h" />
+    <ClInclude Include="..\src\edge.h" />
+    <ClInclude Include="..\src\FloorMapping.hpp" />
+    <ClInclude Include="..\src\FloorTextureGenerator.hpp" />
     <ClInclude Include="..\src\InputControler.h" />
     <ClInclude Include="..\src\KeyHandler.h" />
+    <ClInclude Include="..\src\Leaf.h" />
+    <ClInclude Include="..\src\LeafHandler.h" />
+    <ClInclude Include="..\src\LeafTile.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\PlayerInput.h" />
     <ClInclude Include="..\src\GSettings.h" />
     <ClInclude Include="..\src\ProjectionCamera.hpp" />
     <ClInclude Include="..\src\Tile.h" />
+    <ClInclude Include="..\src\triangle.h" />
+    <ClInclude Include="..\src\vector2.h" />
     <ClInclude Include="..\src\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

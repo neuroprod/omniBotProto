@@ -13,6 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="bloks">
+      <UniqueIdentifier>{899ae388-5db7-46dc-a2c7-74c5f97bf439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{2420b61a-9523-4140-a84b-7ea3dc82d890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{bd119553-708c-452b-8211-1ac209699d8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils\delaunay">
+      <UniqueIdentifier>{6ff9d825-55ed-4013-adf7-460ae1879d02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobjects">
+      <UniqueIdentifier>{a1787726-0adb-4e6d-86b9-d5e748567883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobjects\leafs">
+      <UniqueIdentifier>{99d9cf5c-f2c4-4bba-a5e3-ef5e60d618e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobjects\floor">
+      <UniqueIdentifier>{f2009c82-d28a-4609-b889-18f51590f1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{52e9dd66-c088-4b7f-88e6-85c52dac2827}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\OmnibotGameApp.cpp">
@@ -24,12 +48,6 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClCompile Include="..\src\KeyHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\InputControler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\PlayerInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,19 +66,49 @@
     <ClCompile Include="..\src\ProjectionCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\blocks\Cinder-ImGui\src\CinderImGui.cpp">
+      <Filter>bloks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Cinder-ImGui\lib\imgui\imgui.cpp">
+      <Filter>bloks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Cinder-ImGui\lib\imgui\imgui_demo.cpp">
+      <Filter>bloks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Cinder-ImGui\lib\imgui\imgui_draw.cpp">
+      <Filter>bloks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InputControler.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\KeyHandler.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\delaunay.cpp">
+      <Filter>Source Files\utils\delaunay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\triangle.cpp">
+      <Filter>Source Files\utils\delaunay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FloorTextureGenerator.cpp">
+      <Filter>Source Files\gameobjects\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FloorMapping.cpp">
+      <Filter>Source Files\gameobjects\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Leaf.cpp">
+      <Filter>Source Files\gameobjects\leafs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LeafHandler.cpp">
+      <Filter>Source Files\gameobjects\leafs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LeafTile.cpp">
+      <Filter>Source Files\gameobjects\leafs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\KeyHandler.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\InputControler.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PlayerInput.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Player.h">
       <Filter>Source Files</Filter>
@@ -77,5 +125,73 @@
     <ClInclude Include="..\src\ProjectionCamera.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\imconfig.h">
+      <Filter>bloks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\imgui.h">
+      <Filter>bloks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\imgui_internal.h">
+      <Filter>bloks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\stb_rect_pack.h">
+      <Filter>bloks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\stb_textedit.h">
+      <Filter>bloks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\stb_truetype.h">
+      <Filter>bloks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InputControler.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\KeyHandler.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerInput.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\triangle.h">
+      <Filter>Source Files\utils\delaunay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\delaunay.h">
+      <Filter>Source Files\utils\delaunay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\edge.h">
+      <Filter>Source Files\utils\delaunay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vector2.h">
+      <Filter>Source Files\utils\delaunay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FloorTextureGenerator.hpp">
+      <Filter>Source Files\gameobjects\floor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FloorMapping.hpp">
+      <Filter>Source Files\gameobjects\floor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Leaf.h">
+      <Filter>Source Files\gameobjects\leafs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LeafHandler.h">
+      <Filter>Source Files\gameobjects\leafs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LeafTile.h">
+      <Filter>Source Files\gameobjects\leafs</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\floor\floor_shader.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\assets\floor\floor_shader.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\assets\leafs\leaf_shader.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\assets\leafs\leaf_shader.vert">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
