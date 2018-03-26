@@ -29,7 +29,7 @@ void FloorMapping::load()
    // prog->uniform( "uShadowMap", 1 );
 }
 
-void FloorMapping::draw(std::vector<TileRef> &tiles, std::vector<int>&indices, std::vector<ci::vec2> &positions)
+void FloorMapping::draw(std::vector<TileRef> &tiles, std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata)
 {
 
 	startDraw();

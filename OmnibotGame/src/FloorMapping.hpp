@@ -13,6 +13,7 @@
 #include "cinder/gl/gl.h"
 #include "Tile.h"
 #include "FloorTextureGenerator.hpp"
+#include "RenderData.h"
 
 struct VertexDataFloor {
     ci::vec3 position;
@@ -31,7 +32,7 @@ public:
     void load();
     void setTileFloorMesh(TileRef tile,int numTiles);
 
-	void draw(std::vector<TileRef> &tiles, std::vector<int>&indices, std::vector<ci::vec2> &positions);
+	void draw(std::vector<TileRef> &tiles, std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata);
 	void startDraw();//ci::gl::FboRef shadowFBO,ci::mat4 &shadowMatrix);
     void stopDraw();
     ci::gl::GlslProgRef prog;

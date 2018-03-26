@@ -4,11 +4,11 @@
 #include "cinder/gl/Texture.h"
 #include "LeafTile.h"
 #include "Leaf.h"
-
+#include "RenderData.h"
 struct VertexData {
 
 	ci::vec3 position;
-
+	ci::vec3 normal;
 };
 
 
@@ -18,7 +18,7 @@ class LeafHandler
 public:
 	LeafHandler();
 	void setup();
-	void draw( std::vector<int>&indices, std::vector<ci::vec2> &positions);
+	void draw(std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata);
 	void buildLeafs();
 	void setupRendering();
 

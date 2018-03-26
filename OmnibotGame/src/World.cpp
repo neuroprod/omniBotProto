@@ -31,14 +31,15 @@ void World::setup()
 	leafHandler.setup();
 	
 }
-void World::drawPlayerTiles(int index)
+void World::drawPlayerTiles(int index, RenderDataRef renderdata)
 {
 	
 	vector<int> indices = tiles[index]->friendIndices;
 	vector<vec2> positions = tiles[index]->friendPositions;
 
-	floorMapping.draw(tiles, indices, positions);
-	leafHandler.draw(indices, positions);
+	floorMapping.draw(tiles, indices, positions,renderdata);
+	
+	leafHandler.draw(indices, positions,renderdata);
 
 	
 	

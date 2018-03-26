@@ -4,6 +4,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Perlin.h"
 #include "glm/gtc/matrix_transform.hpp"
+#include "NormalGenerator.h"
 
 using namespace std;
 using namespace ci;
@@ -29,7 +30,13 @@ void LeafHandler::setup()
 void LeafHandler::setupRendering()
 {
 	gradientMap = gl::Texture::create(loadImage(loadAsset("leafs/gradient.png")));
-	mGlsl = gl::GlslProg::create(loadAsset("leafs/leaf_shader.vert"), loadAsset("leafs/leaf_shader.frag"));
+	try
+	{
+		mGlsl = gl::GlslProg::create(loadAsset("leafs/leaf_shader.vert"), loadAsset("leafs/leaf_shader.frag"));
+	}
+	catch (const std::exception& e) {
+		console()<<"Shader Failed (env_map)" << e.what() <<endl;
+	}
 }
 void LeafHandler::buildLeafs()
 {
@@ -51,22 +58,13 @@ void LeafHandler::buildLeafs()
 			if (pnois.fBm(randomPos.x / 1000, randomPos.y / 1000)<0.1)
 			{
 
-				if (glm::linearRand(0.0, 1.0)>0.99)
-				{
-						//found = true;
-				}
-
 			}
 			else if (pnois.fBm(randomPos.x / 200, randomPos.y / 200) < -0.1)
 			{
-				if (glm::linearRand(0.0, 1.0)>0.8)
-				{
-					found = true;
-				}
-
+			
 			}
-			else{
-
+			else
+			{
 					found = true;
 			}
 			
@@ -77,14 +75,15 @@ void LeafHandler::buildLeafs()
 		float noise = (pnois.fBm(randomPos.x / 500, randomPos.y / 500) + 0.3f) * 3;
 		
 
-		p->scale = glm::linearRand(1.0f, 2.0f);
+		p->scale = glm::linearRand(0.5f, 1.5f);
 
 		p->rotation.x = glm::linearRand(0, 7);
 		p->rotation.y = glm::linearRand(0, 7);
 		p->rotation.z = glm::linearRand(0, 7);
-		p->position.x = randomPos.x ;
-		p->position.y = randomPos.y ;
-		p->position.z = glm::linearRand(0.0f, 5.f);
+		vec2 sRand = glm::diskRand(150.f);
+		p->position.x = randomPos.x + sRand.x;
+		p->position.y = randomPos.y + sRand.y;
+		p->position.z = glm::linearRand(0.f, -5.f);
 
 		p->positionStart = p->position;
 
@@ -93,6 +92,10 @@ void LeafHandler::buildLeafs()
 
 		
 		p->color = vec2(noise + glm::linearRand(-0.1f, 0.2f), glm::linearRand(0.3f, 0.8f));
+		if (p->position.x < 0)p->position.x += GSettings::worldSize;
+		if (p->position.y < 0)p->position.y += GSettings::worldSize;
+		if (p->position.x > GSettings::worldSize)p->position.x -= GSettings::worldSize;
+		if (p->position.y > GSettings::worldSize)p->position.y -= GSettings::worldSize;
 
 		int indexX = p->position.x / GSettings::tileSize;
 		int indexY = p->position.y / GSettings::tileSize;
@@ -130,12 +133,14 @@ void LeafHandler::buildTiles()
 	}
 }
 
-void LeafHandler::draw(vector<int>&indices, vector<ci::vec2> &positions)
+void LeafHandler::draw(vector<int>&indices, vector<ci::vec2> &positions, RenderDataRef renderdata)
 {
 
 	mGlsl->bind();
 	mGlsl->uniform("uGradientMap", 0);
 	gradientMap->bind(0);
+	mGlsl->uniform("uIrradianceMap",1);
+	renderdata->irradianceCubeMap->bind(1);
 
 	for (int i = 0; i < indices.size(); i++)
 	{
@@ -163,6 +168,11 @@ ci::gl::VboMeshRef  LeafHandler::buildVBOMesh()
 	posTemp.push_back(vec3(3.3, 3.5, 1));
 	posTemp.push_back(vec3(0, 7, 3));
 
+	int s = posTemp.size();
+	for (int i = 0; i < s; i++)
+	{
+		posTemp.push_back(posTemp[i]);
+	}
 
 
 	vector<unsigned short> indexTemp;
@@ -191,17 +201,31 @@ ci::gl::VboMeshRef  LeafHandler::buildVBOMesh()
 	indexTemp.push_back(6);
 	indexTemp.push_back(7);
 
+	int maxIndex = 8;
 
+	s = indexTemp.size();
+	for (int i = 0; i < s; i+=3)
+	{
+		indexTemp.push_back(indexTemp[i] + maxIndex);
+		
+		indexTemp.push_back(indexTemp[i + 2] + maxIndex);
+		indexTemp.push_back(indexTemp[i + 1] + maxIndex);
+	}
+
+
+
+	NormalGenerator ng;
+	vector<vec3> normalsTemp = ng.getNormals(posTemp, indexTemp);
 
 
 
 	auto vertices = vector<VertexData>();
 
-	for (auto p : posTemp)
+	for (int i = 0; i < posTemp.size();i++)
 	{
 		VertexData right;
-		right.position = p;
-
+		right.position = posTemp[i];
+		right.normal = normalsTemp[i];
 
 
 		vertices.push_back(right);
@@ -211,7 +235,7 @@ ci::gl::VboMeshRef  LeafHandler::buildVBOMesh()
 	auto layout = geom::BufferLayout();
 
 	layout.append(geom::Attrib::POSITION, 3, sizeof(VertexData), offsetof(VertexData, position));
-
+	layout.append(geom::Attrib::NORMAL, 3, sizeof(VertexData), offsetof(VertexData, normal));
 
 	// upload your data to the GPU
 	auto buffer = gl::Vbo::create(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);

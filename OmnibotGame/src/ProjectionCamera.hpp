@@ -13,6 +13,8 @@
 #include "cinder/app/App.h"
 #include "cinder/Camera.h"
 #include "glm/gtc/matrix_transform.hpp"
+class ProjectionCamera;
+	typedef std::shared_ptr<ProjectionCamera> ProjectionCameraRef;
 
 class ProjectionCamera: public cinder::Camera {
 
@@ -26,6 +28,7 @@ public:
         mModelViewCached = true;
         mInverseModelViewCached = true; 
     }
+	static ProjectionCameraRef create();
 	void updateSetting();
     virtual bool	isPersp() const { return true; }
     glm::vec3 cameraPosition;

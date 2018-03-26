@@ -2,7 +2,8 @@
 #include "cinder/app/App.h"
 #include "Tile.h"
 #include "FloorMapping.hpp"  
-#include "LeafHandler.h" 
+#include "LeafHandler.h"
+#include "RenderData.h"
 class World
 {
 public:
@@ -14,7 +15,7 @@ public:
 
 	std::vector<TileRef> tiles;
 	void draw();
-	void drawPlayerTiles(int index);
+	void drawPlayerTiles(int index, RenderDataRef renderdata);
 
 	FloorMapping floorMapping;
 	LeafHandler leafHandler;

@@ -9,6 +9,7 @@
 #include "World.h"
 #include "ProjectionCamera.hpp"
 #include "CinderImGui.h"
+#include "RenderData.h"
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -39,7 +40,10 @@ class OmnibotGameApp : public App {
 
 	vec2 pointCenter1off;
 	vec2 pointCenter2off;
-	ProjectionCamera camera;
+	ProjectionCameraRef camera;
+
+	RenderDataRef renderData;
+
 };
 
 void OmnibotGameApp::setup()
@@ -67,10 +71,12 @@ void OmnibotGameApp::setup()
 	player2->setLevelPosition(vec3(200, 0, 500));
 	player2->controlesInput = inputControler.player2Input;
 
-	
-	camera.updateSetting();
+	camera = ProjectionCamera::create();
+	camera->updateSetting();
 
-
+	renderData = RenderData::create();
+	renderData->setup();
+	renderData->camera = camera;
 
 	
 
@@ -203,7 +209,7 @@ void OmnibotGameApp::draw()
 	//drawVirtualPosition();
 	gl::pushMatrices();
 
-		gl::setMatrices(camera);
+		gl::setMatrices(*camera.get());
 		gl::enableDepth(true);
 
 	glStencilFunc(GL_EQUAL, 1, 0xFF);
@@ -211,8 +217,9 @@ void OmnibotGameApp::draw()
 	gl::clear(GL_DEPTH_BUFFER_BIT);
 		gl::pushMatrices();
 			gl::setModelMatrix(player1->screenMatrix);
+			
+			world.drawPlayerTiles(player1->currentTileIndex,renderData);
 			player1->draw();
-			world.drawPlayerTiles(player1->currentTileIndex);
 		gl::popMatrices();
 
 	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
@@ -220,8 +227,9 @@ void OmnibotGameApp::draw()
 
 		gl::pushMatrices();
 			gl::setModelMatrix(player2->screenMatrix);
+		
+			world.drawPlayerTiles(player2->currentTileIndex, renderData);
 			player2->draw();
-			world.drawPlayerTiles(player2->currentTileIndex);
 		gl::popMatrices();
 
 	gl::popMatrices();

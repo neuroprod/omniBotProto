@@ -8,6 +8,11 @@
 
 #include "ProjectionCamera.hpp"
 #include "GSettings.h"
+ProjectionCameraRef ProjectionCamera::create()
+{
+
+	return std::make_shared<ProjectionCamera>();
+}
 
 void ProjectionCamera::updateSetting()
 {

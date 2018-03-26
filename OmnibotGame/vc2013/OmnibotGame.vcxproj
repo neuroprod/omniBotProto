@@ -130,11 +130,13 @@
     <ClCompile Include="..\src\Leaf.cpp" />
     <ClCompile Include="..\src\LeafHandler.cpp" />
     <ClCompile Include="..\src\LeafTile.cpp" />
+    <ClCompile Include="..\src\NormalGenerator.cpp" />
     <ClCompile Include="..\src\OmnibotGameApp.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\PlayerInput.cpp" />
     <ClCompile Include="..\src\GSettings.cpp" />
     <ClCompile Include="..\src\ProjectionCamera.cpp" />
+    <ClCompile Include="..\src\RenderData.cpp" />
     <ClCompile Include="..\src\Tile.cpp" />
     <ClCompile Include="..\src\triangle.cpp" />
     <ClCompile Include="..\src\World.cpp" />
@@ -156,10 +158,12 @@
     <ClInclude Include="..\src\Leaf.h" />
     <ClInclude Include="..\src\LeafHandler.h" />
     <ClInclude Include="..\src\LeafTile.h" />
+    <ClInclude Include="..\src\NormalGenerator.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\PlayerInput.h" />
     <ClInclude Include="..\src\GSettings.h" />
     <ClInclude Include="..\src\ProjectionCamera.hpp" />
+    <ClInclude Include="..\src\RenderData.h" />
     <ClInclude Include="..\src\Tile.h" />
     <ClInclude Include="..\src\triangle.h" />
     <ClInclude Include="..\src\vector2.h" />
