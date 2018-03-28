@@ -32,6 +32,10 @@ public:
 	void updateSetting();
     virtual bool	isPersp() const { return true; }
     glm::vec3 cameraPosition;
+
+	float offyCam = 0;
+	float offzCam = -1000;
+
 protected:
     virtual void	calcProjection() const;
    

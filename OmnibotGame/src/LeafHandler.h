@@ -19,9 +19,11 @@ public:
 	LeafHandler();
 	void setup();
 	void draw(std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata);
+	void drawDepth(std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata);
 	void buildLeafs();
 	void setupRendering();
 
+	ci::gl::GlslProgRef		mGlslDepth;
 	ci::gl::GlslProgRef		mGlsl;
 	ci::gl::TextureRef		gradientMap;
 	

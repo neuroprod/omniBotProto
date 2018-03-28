@@ -37,6 +37,15 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{52e9dd66-c088-4b7f-88e6-85c52dac2827}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\rendering">
+      <UniqueIdentifier>{daee66ca-2570-4064-ae26-c60ae78cd87e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\floor">
+      <UniqueIdentifier>{df66ba85-c2ba-4321-a517-8ddb7ba5f033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\leafs">
+      <UniqueIdentifier>{0a9ce479-2411-479f-8d56-175bced15409}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\OmnibotGameApp.cpp">
@@ -58,9 +67,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\GSettings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ProjectionCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\blocks\Cinder-ImGui\src\CinderImGui.cpp">
@@ -108,8 +114,14 @@
     <ClCompile Include="..\src\PlayerInput.cpp">
       <Filter>Source Files\input</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ProjectionCamera.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\RenderData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Shadow.cpp">
+      <Filter>Source Files\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -126,9 +138,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GSettings.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ProjectionCamera.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\blocks\Cinder-ImGui\lib\imgui\imconfig.h">
@@ -188,22 +197,34 @@
     <ClInclude Include="..\src\NormalGenerator.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\ProjectionCamera.hpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClInclude>
     <ClInclude Include="..\src\RenderData.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Shadow.h">
+      <Filter>Source Files\rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\floor\floor_shader.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\floor</Filter>
     </None>
     <None Include="..\assets\floor\floor_shader.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\floor</Filter>
+    </None>
+    <None Include="..\assets\leafs\leaf_depth_shader.frag">
+      <Filter>shaders\leafs</Filter>
+    </None>
+    <None Include="..\assets\leafs\leaf_depth_shader.vert">
+      <Filter>shaders\leafs</Filter>
     </None>
     <None Include="..\assets\leafs\leaf_shader.frag">
-      <Filter>shaders</Filter>
+      <Filter>shaders\leafs</Filter>
     </None>
     <None Include="..\assets\leafs\leaf_shader.vert">
-      <Filter>shaders</Filter>
+      <Filter>shaders\leafs</Filter>
     </None>
   </ItemGroup>
 </Project>

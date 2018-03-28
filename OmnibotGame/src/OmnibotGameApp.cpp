@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "World.h"
 #include "ProjectionCamera.hpp"
+#include "Shadow.h"
 #include "CinderImGui.h"
 #include "RenderData.h"
 using namespace ci;
@@ -15,7 +16,7 @@ using namespace ci::app;
 using namespace std;
 
 //
-// WARNING!!!   Z ==up (don't ask)
+// WARNING!!!   Z ==down (don't ask)
 //
 
 
@@ -25,8 +26,9 @@ class OmnibotGameApp : public App {
 	void update() override;
 	void updateVirtualPlayers() ;
 	void drawVirtualPosition() ;
+	void drawGUI();
 	void draw() override;
-
+	void drawShadow();
 	InputControler inputControler;
 	double prevTime;
 
@@ -41,7 +43,7 @@ class OmnibotGameApp : public App {
 	vec2 pointCenter1off;
 	vec2 pointCenter2off;
 	ProjectionCameraRef camera;
-
+	ShadowRef shadow;
 	RenderDataRef renderData;
 
 };
@@ -74,10 +76,15 @@ void OmnibotGameApp::setup()
 	camera = ProjectionCamera::create();
 	camera->updateSetting();
 
+	shadow = Shadow::create();
+	shadow->setup();
+
+
+
 	renderData = RenderData::create();
 	renderData->setup();
 	renderData->camera = camera;
-
+	renderData->shadow = shadow;
 	
 
 
@@ -174,15 +181,38 @@ void OmnibotGameApp::updateVirtualPlayers()
 
 	player1->resolveScreenMatrix(player2);
 	player2->resolveScreenMatrix(player1);
-}
 
+	
+
+}
+void OmnibotGameApp::drawShadow()
+{
+
+	shadow->startDraw(0);
+	gl::pushMatrices();
+	gl::setModelMatrix(player1->screenMatrix);
+	world.drawPlayerTilesShadow(player1->currentTileIndex, renderData);
+	player1->draw();
+	gl::popMatrices();
+	shadow->stopDraw(0);
+
+
+	shadow->startDraw(1);
+	gl::pushMatrices();
+	gl::setModelMatrix(player2->screenMatrix);
+	world.drawPlayerTilesShadow(player2->currentTileIndex, renderData);
+	player2->draw();
+	gl::popMatrices();
+	shadow->stopDraw(1);
+}
 void OmnibotGameApp::draw()
 {
+
+	drawShadow();
+
+
 	gl::color(1, 1, 1);
-
-
 	gl::clear( Color( 0, 0, 0 ) ); 
-
 
 	glEnable(GL_STENCIL_TEST);
 	gl::clear(Color(0, 0, 0));
@@ -217,7 +247,7 @@ void OmnibotGameApp::draw()
 	gl::clear(GL_DEPTH_BUFFER_BIT);
 		gl::pushMatrices();
 			gl::setModelMatrix(player1->screenMatrix);
-			
+			renderData->playerID = 1;
 			world.drawPlayerTiles(player1->currentTileIndex,renderData);
 			player1->draw();
 		gl::popMatrices();
@@ -227,7 +257,7 @@ void OmnibotGameApp::draw()
 
 		gl::pushMatrices();
 			gl::setModelMatrix(player2->screenMatrix);
-		
+			renderData->playerID = 2;
 			world.drawPlayerTiles(player2->currentTileIndex, renderData);
 			player2->draw();
 		gl::popMatrices();
@@ -237,8 +267,14 @@ void OmnibotGameApp::draw()
 	glDisable(GL_STENCIL_TEST);
 	gl::enableDepth(false);
 
+	gl::color(1, 1, 1);
+	
+	/*gl::pushMatrices();
+	gl::draw(shadow->mFbo1->getColorTexture(), Rectf(0, 0, 300, 300));
+	 gl::draw(shadow->mFbo2->getColorTexture(),Rectf(300,0,600,300));
 
-
+	gl::popMatrices();*/
+	
 	gl::pushMatrices();
 	gl::translate(getWindowCenter());
 	gl::drawStrokedCircle(vec2(0, 0), getWindowHeight() / 2);
@@ -253,11 +289,17 @@ void OmnibotGameApp::draw()
 	inputControler.draw();
 
 	//Um::SliderFloat("Min Radius", &minRadius, 1, 499);
+	drawGUI();
+
+}
+void OmnibotGameApp::drawGUI()
+{
 	string a = "fps: " + toString(getAverageFps());
 	ImGui::Text(a.c_str());
-	
+	ImGui::SliderFloat("offyCam", &camera->offyCam, 0.0f, 2000.0f);
+	ImGui::SliderFloat("offzCam", &camera->offzCam, 0.0f, -2000.0f);
+	camera->updateSetting();
 }
-
 void OmnibotGameApp::drawVirtualPosition()
 {
 

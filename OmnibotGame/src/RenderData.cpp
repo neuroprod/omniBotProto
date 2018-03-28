@@ -19,11 +19,18 @@ RenderDataRef  RenderData::create()
 
 void RenderData::setup()
 {
-	console() << "setup hdr" << endl;
+	
 	
 	ci::ImageSourceRef img = loadImage(loadAsset("irrad.hdr"));
 	gl::TextureCubeMap::Format format;
 	format.setDataType(GL_FLOAT);
 	 irradianceCubeMap = gl::TextureCubeMap::create(loadImage(loadAsset("irrad.hdr")), format.internalFormat(GL_RGB));
 	
+}
+
+ci::gl::FboRef RenderData::getShadowMap()
+{
+	if (playerID == 1) return shadow->mFbo1;
+
+	return shadow->mFbo2;
 }

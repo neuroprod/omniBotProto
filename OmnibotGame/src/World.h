@@ -16,7 +16,7 @@ public:
 	std::vector<TileRef> tiles;
 	void draw();
 	void drawPlayerTiles(int index, RenderDataRef renderdata);
-
+	void drawPlayerTilesShadow(int index, RenderDataRef renderdata);
 	FloorMapping floorMapping;
 	LeafHandler leafHandler;
 };

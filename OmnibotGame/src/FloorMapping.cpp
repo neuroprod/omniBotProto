@@ -32,7 +32,7 @@ void FloorMapping::load()
 void FloorMapping::draw(std::vector<TileRef> &tiles, std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata)
 {
 
-	startDraw();
+	startDraw( renderdata);
 	for (int i = 0; i < indices.size(); i++){
 
 
@@ -119,35 +119,22 @@ void FloorMapping::setTileFloorMesh(TileRef tile,int numTiles)
     tile->meshFloor = meshRef;
     
 }
-void FloorMapping::startDraw()// ci::gl::FboRef shadowFBO, ci::mat4 &shadowMatrix)
+void FloorMapping::startDraw(RenderDataRef renderdata)// ci::gl::FboRef shadowFBO, ci::mat4 &shadowMatrix)
 {
     
     
     prog->bind();
+	prog->uniform("uFloorMap", 0);
 	generator.map->bind(0);
 
-    
-   // shadowFBO->getDepthTexture()->bind(1);
+	prog->uniform("uShadowMap", 1);
+	renderdata->getShadowMap()->getDepthTexture()->bind(1);
    
-   // prog->uniform( "uShadowMatrix",  shadowMatrix );
+	prog->uniform("uShadowMatrix", renderdata->shadow->shadowMatrix);
     
    
     
-   // gl::pushMatrices();
-   /* gl::translate( playerLevel.player->playerWorldOffset);
-    
-    for(auto tile : playerLevel.playerTiles)
-    {
-        tile->drawFloor();
-    }
-    
-    
-    gl::popMatrices();
-    
-    */
-    
-  //  stopDraw();
-    //shadowFBO->getDepthTexture()->unbind();
+   
 
 
 }

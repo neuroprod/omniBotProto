@@ -18,8 +18,7 @@ void ProjectionCamera::updateSetting()
 {
 
 
-	float offyCam = 1800;
-	float offzCam = -2000;
+	
 
 	cameraPosition.x = 0;
 	cameraPosition.y = -GSettings::windowHeight - offyCam;

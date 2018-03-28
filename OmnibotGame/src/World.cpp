@@ -4,7 +4,7 @@
 
 using namespace std;
 using namespace ci;
-
+using namespace ci::app;
 World::World()
 {
 
@@ -45,7 +45,19 @@ void World::drawPlayerTiles(int index, RenderDataRef renderdata)
 	
 
 }
+void World::drawPlayerTilesShadow(int index, RenderDataRef renderdata)
+{
 
+	vector<int> indices = tiles[index]->friendIndices;
+	vector<vec2> positions = tiles[index]->friendPositions;
+
+	
+	leafHandler.drawDepth(indices, positions, renderdata);
+
+
+
+
+}
 void World::draw()
 {
 	for (auto t : tiles)

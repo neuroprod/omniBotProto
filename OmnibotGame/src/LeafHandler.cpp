@@ -35,7 +35,14 @@ void LeafHandler::setupRendering()
 		mGlsl = gl::GlslProg::create(loadAsset("leafs/leaf_shader.vert"), loadAsset("leafs/leaf_shader.frag"));
 	}
 	catch (const std::exception& e) {
-		console()<<"Shader Failed (env_map)" << e.what() <<endl;
+		console()<<"Shader Failed (leafs)" << e.what() <<endl;
+	}
+	try
+	{
+		mGlslDepth = gl::GlslProg::create(loadAsset("leafs/leaf_depth_shader.vert"), loadAsset("leafs/leaf_depth_shader.frag"));
+	}
+	catch (const std::exception& e) {
+		console() << "Shader Failed (leafs depth)" << e.what() << endl;
 	}
 }
 void LeafHandler::buildLeafs()
@@ -139,8 +146,29 @@ void LeafHandler::draw(vector<int>&indices, vector<ci::vec2> &positions, RenderD
 	mGlsl->bind();
 	mGlsl->uniform("uGradientMap", 0);
 	gradientMap->bind(0);
-	mGlsl->uniform("uIrradianceMap",1);
-	renderdata->irradianceCubeMap->bind(1);
+	mGlsl->uniform("uIrradianceMap",2);
+	renderdata->irradianceCubeMap->bind(2);
+
+	mGlsl->uniform("uShadowMap", 1);
+	renderdata->getShadowMap()->getDepthTexture()->bind(1);
+
+	mGlsl->uniform("uShadowMatrix", renderdata->shadow->shadowMatrix);
+
+	for (int i = 0; i < indices.size(); i++)
+	{
+		gl::pushMatrices();
+		gl::translate(positions[i]);
+		tiles[indices[i]]->draw();
+		gl::popMatrices();
+	}
+	gl::getStockShader(gl::ShaderDef().color())->bind();
+}
+
+void LeafHandler::drawDepth(vector<int>&indices, vector<ci::vec2> &positions, RenderDataRef renderdata)
+{
+
+	mGlslDepth->bind();
+	
 
 	for (int i = 0; i < indices.size(); i++)
 	{

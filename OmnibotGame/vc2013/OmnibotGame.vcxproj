@@ -113,6 +113,8 @@
   <ItemGroup>
     <None Include="..\assets\floor\floor_shader.frag" />
     <None Include="..\assets\floor\floor_shader.vert" />
+    <None Include="..\assets\leafs\leaf_depth_shader.frag" />
+    <None Include="..\assets\leafs\leaf_depth_shader.vert" />
     <None Include="..\assets\leafs\leaf_shader.frag" />
     <None Include="..\assets\leafs\leaf_shader.vert" />
   </ItemGroup>
@@ -137,6 +139,7 @@
     <ClCompile Include="..\src\GSettings.cpp" />
     <ClCompile Include="..\src\ProjectionCamera.cpp" />
     <ClCompile Include="..\src\RenderData.cpp" />
+    <ClCompile Include="..\src\Shadow.cpp" />
     <ClCompile Include="..\src\Tile.cpp" />
     <ClCompile Include="..\src\triangle.cpp" />
     <ClCompile Include="..\src\World.cpp" />
@@ -164,6 +167,7 @@
     <ClInclude Include="..\src\GSettings.h" />
     <ClInclude Include="..\src\ProjectionCamera.hpp" />
     <ClInclude Include="..\src\RenderData.h" />
+    <ClInclude Include="..\src\Shadow.h" />
     <ClInclude Include="..\src\Tile.h" />
     <ClInclude Include="..\src\triangle.h" />
     <ClInclude Include="..\src\vector2.h" />
