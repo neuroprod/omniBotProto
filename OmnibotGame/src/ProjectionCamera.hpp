@@ -34,7 +34,7 @@ public:
     glm::vec3 cameraPosition;
 
 	float offyCam = 0;
-	float offzCam = -1000;
+	float offzCam = -2000;
 
 protected:
     virtual void	calcProjection() const;

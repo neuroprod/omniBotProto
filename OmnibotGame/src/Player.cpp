@@ -94,7 +94,7 @@ void Player::resolveScreenMatrix(PlayerRef other)
 	angle += ( targetAngle-angle) / 20;
 
 	glm::mat4 centerMatrix = glm::mat4();
-	centerMatrix = translate(centerMatrix, vec3(1280 / 2, 720 / 2, 0));
+	centerMatrix = translate(centerMatrix, vec3(GSettings::windowHeight / 2, GSettings::windowHeight / 2, 0));
 
 
 	screenMatrix = glm::mat4();
@@ -138,7 +138,7 @@ ci::vec3  Player::getClosestLevelPosition(ci::vec3 posMe, ci::vec3 posOther)
 }
 void Player::drawVirtual()
 {
-
+	
 	gl::drawLine(vec2(levelPositionVirtual.x, levelPositionVirtual.z), vec2(posOther.x, posOther.z));
 	gl::drawStrokedCircle(vec2(levelPositionVirtual.x, levelPositionVirtual.z), size);
 

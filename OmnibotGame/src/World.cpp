@@ -29,6 +29,7 @@ void World::setup()
 
 	}
 	leafHandler.setup();
+	grassHandler.setup();
 	
 }
 void World::drawPlayerTiles(int index, RenderDataRef renderdata)
@@ -40,7 +41,7 @@ void World::drawPlayerTiles(int index, RenderDataRef renderdata)
 	floorMapping.draw(tiles, indices, positions,renderdata);
 	
 	leafHandler.draw(indices, positions,renderdata);
-
+	grassHandler.draw(indices, positions, renderdata);
 	
 	
 

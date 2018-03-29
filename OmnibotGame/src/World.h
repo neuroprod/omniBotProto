@@ -3,6 +3,7 @@
 #include "Tile.h"
 #include "FloorMapping.hpp"  
 #include "LeafHandler.h"
+#include "GrassHandler.h"
 #include "RenderData.h"
 class World
 {
@@ -19,4 +20,5 @@ public:
 	void drawPlayerTilesShadow(int index, RenderDataRef renderdata);
 	FloorMapping floorMapping;
 	LeafHandler leafHandler;
+	GrassHandler grassHandler;
 };

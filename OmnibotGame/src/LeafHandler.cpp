@@ -47,7 +47,7 @@ void LeafHandler::setupRendering()
 }
 void LeafHandler::buildLeafs()
 {
-	int numLeafs = 100000;
+	int numLeafs = 200000;
 	ci::Perlin pnois = Perlin();
 
 
@@ -142,7 +142,7 @@ void LeafHandler::buildTiles()
 
 void LeafHandler::draw(vector<int>&indices, vector<ci::vec2> &positions, RenderDataRef renderdata)
 {
-
+	gl::clear(GL_DEPTH_BUFFER_BIT);
 	mGlsl->bind();
 	mGlsl->uniform("uGradientMap", 0);
 	gradientMap->bind(0);
@@ -161,6 +161,7 @@ void LeafHandler::draw(vector<int>&indices, vector<ci::vec2> &positions, RenderD
 		tiles[indices[i]]->draw();
 		gl::popMatrices();
 	}
+	
 	gl::getStockShader(gl::ShaderDef().color())->bind();
 }
 

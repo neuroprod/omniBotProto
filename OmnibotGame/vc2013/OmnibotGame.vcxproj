@@ -113,6 +113,12 @@
   <ItemGroup>
     <None Include="..\assets\floor\floor_shader.frag" />
     <None Include="..\assets\floor\floor_shader.vert" />
+    <None Include="..\assets\grass\grass.frag" />
+    <None Include="..\assets\grass\grass.geom" />
+    <None Include="..\assets\grass\grass.vert" />
+    <None Include="..\assets\grass\grassShadow.frag" />
+    <None Include="..\assets\grass\grassShadow.geom" />
+    <None Include="..\assets\grass\grassShadow.vert" />
     <None Include="..\assets\leafs\leaf_depth_shader.frag" />
     <None Include="..\assets\leafs\leaf_depth_shader.vert" />
     <None Include="..\assets\leafs\leaf_shader.frag" />
@@ -127,6 +133,8 @@
     <ClCompile Include="..\src\delaunay.cpp" />
     <ClCompile Include="..\src\FloorMapping.cpp" />
     <ClCompile Include="..\src\FloorTextureGenerator.cpp" />
+    <ClCompile Include="..\src\GrassHandler.cpp" />
+    <ClCompile Include="..\src\GrassTile.cpp" />
     <ClCompile Include="..\src\InputControler.cpp" />
     <ClCompile Include="..\src\KeyHandler.cpp" />
     <ClCompile Include="..\src\Leaf.cpp" />
@@ -156,6 +164,9 @@
     <ClInclude Include="..\src\edge.h" />
     <ClInclude Include="..\src\FloorMapping.hpp" />
     <ClInclude Include="..\src\FloorTextureGenerator.hpp" />
+    <ClInclude Include="..\src\Grass.h" />
+    <ClInclude Include="..\src\GrassHandler.h" />
+    <ClInclude Include="..\src\GrassTile.h" />
     <ClInclude Include="..\src\InputControler.h" />
     <ClInclude Include="..\src\KeyHandler.h" />
     <ClInclude Include="..\src\Leaf.h" />

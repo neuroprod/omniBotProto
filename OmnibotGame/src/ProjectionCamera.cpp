@@ -24,9 +24,9 @@ void ProjectionCamera::updateSetting()
 	cameraPosition.y = -GSettings::windowHeight - offyCam;
 	cameraPosition.z = offzCam;
 
-	setEyePoint(ci::vec3(GSettings::windowWidth / 2, GSettings::windowHeight + offyCam / 2, offzCam / 2));
+	setEyePoint(ci::vec3(GSettings::windowHeight / 2, GSettings::windowHeight + offyCam / 2, offzCam / 2));
 
-	lookAt(ci::vec3(GSettings::windowWidth / 2, GSettings::windowHeight + offyCam / 2, 0));
+	lookAt(ci::vec3(GSettings::windowHeight / 2, GSettings::windowHeight + offyCam / 2, 0));
 
 	mNearClip = 100.f;
 	mFarClip = 3000.f;
@@ -39,7 +39,7 @@ void	ProjectionCamera::calcProjection() const
 {
     
     
-	float w = GSettings::windowWidth;
+	float w = GSettings::windowHeight;
 	float h = GSettings::windowHeight;
   
     mFrustumLeft = mNearClip* (-w- cameraPosition.x) / cameraPosition.z;

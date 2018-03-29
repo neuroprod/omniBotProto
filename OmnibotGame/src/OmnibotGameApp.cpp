@@ -237,6 +237,7 @@ void OmnibotGameApp::draw()
 
 
 	//drawVirtualPosition();
+	gl::viewport(vec2((GSettings::windowWidth-GSettings::windowHeight)/2,0), vec2(GSettings::windowHeight, GSettings::windowHeight));
 	gl::pushMatrices();
 
 		gl::setMatrices(*camera.get());
@@ -266,7 +267,7 @@ void OmnibotGameApp::draw()
 
 	glDisable(GL_STENCIL_TEST);
 	gl::enableDepth(false);
-
+	gl::viewport(vec2(0.0f), vec2(GSettings::windowWidth, GSettings::windowHeight));
 	gl::color(1, 1, 1);
 	
 	/*gl::pushMatrices();
