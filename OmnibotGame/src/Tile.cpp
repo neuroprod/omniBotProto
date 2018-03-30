@@ -46,8 +46,14 @@ void Tile::setup(int x, int y, float _size)
 			vec2 drawPos;
 			drawPos.x = posX*GSettings::tileSize;
 			drawPos.y = posY*GSettings::tileSize;
-
+			
 			friendPositions.push_back(drawPos);
+
+			vec2 localPosAdj;
+			localPosAdj.x = -xi*GSettings::tileSize;
+			localPosAdj.y = -yi*GSettings::tileSize;
+
+			friendLocalPosAdj.push_back(localPosAdj);
 		}
 	
 	

@@ -28,7 +28,7 @@ public:
 	float worldSize;
 	void resolveScreenMatrix(PlayerRef other);
 
-	float size =40;
+	float size ;
 
 	PlayerInputRef controlesInput;
 	bool isMoving = false;

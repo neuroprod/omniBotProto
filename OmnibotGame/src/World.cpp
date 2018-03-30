@@ -1,5 +1,6 @@
 #include "World.h"
 #include "GSettings.h"
+#include "LocalPlayerPos.h"
 #include "cinder/gl/gl.h"
 
 using namespace std;
@@ -9,7 +10,12 @@ World::World()
 {
 
 };
+void World::updateGL()
+{
+	leafHandler.updateGL();
 
+
+}
 void World::setup()
 {
 
@@ -31,6 +37,78 @@ void World::setup()
 	leafHandler.setup();
 	grassHandler.setup();
 	
+}
+
+void World::resolvePlayerPos(PlayerRef player)
+{
+	int index = player->currentTileIndex;
+	TileRef playerTile = tiles[index];
+
+	vec2 playerLokalPos;
+	playerLokalPos.x = player->levelPosition.x-playerTile->xRWorld;
+	playerLokalPos.y = player->levelPosition.y - playerTile->yRWorld;;
+
+	vector<int> indices = tiles[index]->friendIndices;
+	vector<vec2> positionAdj = tiles[index]->friendLocalPosAdj;
+	float size = GSettings::tileSize;
+
+	vector<LocalPlayerPos> playerPositions;
+
+
+	for (int i = 0; i < positionAdj.size(); i++)
+	{
+		TileRef friendTile = tiles[indices[i]];
+		vec2 playerTilePos = playerLokalPos + positionAdj[i];
+		float dist;
+		if (i == 0)
+		{
+			dist =glm::length(playerLokalPos);
+		}
+		else if (i == 1)
+		{
+			dist = playerLokalPos.y;
+		}
+		else if (i == 2)
+		{
+			dist = glm::distance(playerLokalPos, vec2(0, size));
+		}
+		else if (i == 3)
+		{
+			dist = playerLokalPos.x;
+		}
+		else if (i == 4)
+		{
+			dist = 0;
+		}
+		else if (i == 5)
+		{
+			dist =size- playerLokalPos.x;
+		}
+		else if (i == 6)
+		{
+			dist = glm::distance(playerLokalPos, vec2(size, 0));
+		}
+		else if (i == 7)
+		{
+			dist = size - playerLokalPos.y;
+		}
+		else if (i == 8)
+		{
+			dist = glm::distance(playerLokalPos, vec2(size, size));
+		}
+
+		LocalPlayerPos lpp;
+		lpp.dist = dist;
+		lpp.position = playerTilePos;
+		lpp.index = indices[i];
+
+		playerPositions.push_back(lpp);
+	}
+
+	leafHandler.resolvePlayer(playerPositions);
+
+	
+
 }
 void World::drawPlayerTiles(int index, RenderDataRef renderdata)
 {

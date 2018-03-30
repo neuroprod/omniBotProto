@@ -13,19 +13,31 @@ using namespace ci::app;
 
 LeafHandler::LeafHandler(){}
 
+void LeafHandler::updateGL()
+{
+	
+	for (auto tile : tiles)
+	{
+		tile->updateVbo();
+	}
 
+}
+void LeafHandler::resolvePlayer(std::vector<LocalPlayerPos> &playerPositions)
+{
+	for (LocalPlayerPos  playerPos :  playerPositions)
+	{
+		if (playerPos.dist < GSettings::playerRad)
+		{
+			tiles[playerPos.index]->setPlayerPos(playerPos);
+		}
+	}
+}
 void LeafHandler::setup()
 {
-
-
 	setupRendering();
-
-	
 	buildTiles();
 	buildLeafs();
 	
-
-
 }
 void LeafHandler::setupRendering()
 {

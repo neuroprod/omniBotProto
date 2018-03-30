@@ -24,7 +24,7 @@ public:
 	float yRWorld;
 	std::vector<int> friendIndices;
 	std::vector<ci::vec2> friendPositions;
-
+	std::vector<ci::vec2> friendLocalPosAdj;
 
 	ci::gl::VboMeshRef meshFloor;
 

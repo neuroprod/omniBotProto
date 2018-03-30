@@ -11,4 +11,5 @@ public:
 	static int tileSize;
 	static int numTiles;
 	static int worldSize;
+	static float playerRad;
 };

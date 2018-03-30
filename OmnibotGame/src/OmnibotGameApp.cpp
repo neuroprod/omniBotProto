@@ -119,6 +119,10 @@ void OmnibotGameApp::update()
 	player2->setTempRealPosition();
 
 
+
+	world.resolvePlayerPos(player1);
+	world.resolvePlayerPos(player2);
+
 	vec2 player1Screen = vec2(player1->screenPosition.x, player1->screenPosition.z);
 	vec2 player2Screen = vec2(player2->screenPosition.x, player2->screenPosition.z);
 	vec2 distVec = player1Screen - player2Screen;
@@ -133,6 +137,10 @@ void OmnibotGameApp::update()
 
 	pointCenter1off = pointCenter1 + distVecNorm*720.f;
 	pointCenter2off = pointCenter2 + distVecNorm*720.f;
+
+
+	/////
+	world.updateGL();
 
 }
 void OmnibotGameApp::updateVirtualPlayers()

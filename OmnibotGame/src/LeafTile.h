@@ -3,6 +3,7 @@
 #include "cinder/gl/VboMesh.h"
 #include "Leaf.h"
 #include "cinder/gl/gl.h"
+#include "LocalPlayerPos.h"
 class LeafTile;
 typedef std::shared_ptr<LeafTile> LeafTileRef;
 
@@ -12,10 +13,12 @@ class LeafTile
 
 public:
 	LeafTile();
+
 	static LeafTileRef create();
 
 	void setup(int posX, int posY);
-
+	void setPlayerPos(LocalPlayerPos  & playerPos);
+	void updateVbo();
 	void addLeaf(LeafRef l);
 
 	void makeBatch(ci::gl::VboMeshRef meshRef, ci::gl::GlslProgRef		mGlsl);
@@ -35,4 +38,6 @@ public:
 
 	float xRWorld;
 	float yRWorld;
+
+	bool isDirty = false;
 };

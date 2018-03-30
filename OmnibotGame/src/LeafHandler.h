@@ -5,6 +5,7 @@
 #include "LeafTile.h"
 #include "Leaf.h"
 #include "RenderData.h"
+#include "LocalPlayerPos.h"
 struct VertexData {
 
 	ci::vec3 position;
@@ -18,6 +19,8 @@ class LeafHandler
 public:
 	LeafHandler();
 	void setup();
+	void updateGL();
+	void resolvePlayer(std::vector<LocalPlayerPos> &playerPositions);
 	void draw(std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata);
 	void drawDepth(std::vector<int>&indices, std::vector<ci::vec2> &positions, RenderDataRef renderdata);
 	void buildLeafs();

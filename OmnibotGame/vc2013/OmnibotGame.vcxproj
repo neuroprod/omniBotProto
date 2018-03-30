@@ -172,6 +172,7 @@
     <ClInclude Include="..\src\Leaf.h" />
     <ClInclude Include="..\src\LeafHandler.h" />
     <ClInclude Include="..\src\LeafTile.h" />
+    <ClInclude Include="..\src\LocalPlayerPos.h" />
     <ClInclude Include="..\src\NormalGenerator.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\PlayerInput.h" />

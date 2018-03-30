@@ -1,6 +1,6 @@
 #include "GSettings.h"
 
-
+float  GSettings::playerRad = 50;
 int GSettings::windowWidth = 1280;
  int GSettings::windowHeight=720;
 

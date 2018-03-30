@@ -9,7 +9,7 @@ using namespace ci;
 
 Player::Player()
 {
-
+	size = GSettings::playerRad;
 }
 
 PlayerRef Player::create()
@@ -147,7 +147,7 @@ void Player::draw()
 {
 	
 	
-	gl::drawColorCube(levelPosition, vec3(40, 40, 40));
+	//gl::drawColorCube(levelPosition, vec3(40, 40, 40));
 	
 	gl::drawStrokedCircle(vec2(levelPosition.x, levelPosition.y), size);
 

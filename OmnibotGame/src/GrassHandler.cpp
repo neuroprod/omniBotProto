@@ -108,7 +108,7 @@ void GrassHandler::buildGrass()
 		vec2 lookDir = glm::circularRand(1.f);
 		g.normal.x = lookDir.x;
 		g.normal.y = lookDir.y;
-		g.normal.z = glm::linearRand(10,50);
+		g.normal.z = glm::linearRand(10,20);
 
 		int tileIndex = indexX + indexY*GSettings::numTiles;
 		tiles[tileIndex]->addGrass(g);

@@ -3,7 +3,7 @@
 #include "GSettings.h"
 using namespace std;
 using namespace ci;
-
+using namespace ci::app;
 LeafTile::LeafTile(){}
 
 LeafTileRef  LeafTile::create()
@@ -12,10 +12,53 @@ LeafTileRef  LeafTile::create()
 }
 void LeafTile::addLeaf(LeafRef l)
 {
-	l->worldOffX = xRWorld;
-	l->worldOffY = yRWorld;
+	l->position.x -= xRWorld;
+	l->position.y -= yRWorld;
 	leafs.push_back(l);
 
+}
+
+void LeafTile::setPlayerPos(LocalPlayerPos  & playerPos)
+{
+	isDirty = true;
+	vec2 pos = playerPos.position;
+	
+	float size2 = GSettings::playerRad *  GSettings::playerRad;
+	console() << leafs.size() << endl;
+	for (LeafRef l: leafs)
+	{
+		float dist2 = glm::distance2(pos, vec2(l->position.x, l->position.y));
+		if (dist2 < size2)
+		{
+			l->rotation.x += 0.1;
+			l->updateMatrix();
+		}
+	
+	}
+
+
+
+}
+void LeafTile::updateVbo()
+{
+	if (!isDirty)return;
+
+	glm::mat4 *positions = (glm::mat4 *)mInstanceDataVbo->mapReplace();
+
+	for (auto p : leafs)
+	{
+		*positions++ = p->matrix;
+	}
+
+	mInstanceDataVbo->unmap();
+
+
+
+
+
+
+
+	 isDirty = false;
 }
 void LeafTile::makeBatch(ci::gl::VboMeshRef mesh, ci::gl::GlslProgRef mGlsl)
 {

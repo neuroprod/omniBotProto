@@ -5,6 +5,11 @@
 #include "LeafHandler.h"
 #include "GrassHandler.h"
 #include "RenderData.h"
+#include "Player.h"
+
+
+
+
 class World
 {
 public:
@@ -16,6 +21,9 @@ public:
 
 	std::vector<TileRef> tiles;
 	void draw();
+
+	void resolvePlayerPos(PlayerRef player);
+	void updateGL();
 	void drawPlayerTiles(int index, RenderDataRef renderdata);
 	void drawPlayerTilesShadow(int index, RenderDataRef renderdata);
 	FloorMapping floorMapping;

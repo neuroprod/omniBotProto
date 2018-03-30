@@ -227,6 +227,9 @@
     <ClInclude Include="..\src\Grass.h">
       <Filter>Source Files\gameobjects\grass</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\LocalPlayerPos.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\floor\floor_shader.frag">
