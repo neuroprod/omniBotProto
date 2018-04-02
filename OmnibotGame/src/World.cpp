@@ -13,7 +13,7 @@ World::World()
 void World::updateGL()
 {
 	leafHandler.updateGL();
-
+	grassHandler.updateGL();
 
 }
 void World::setup()
@@ -106,7 +106,7 @@ void World::resolvePlayerPos(PlayerRef player)
 	}
 
 	leafHandler.resolvePlayer(playerPositions);
-
+	grassHandler.resolvePlayer(playerPositions);
 	
 
 }

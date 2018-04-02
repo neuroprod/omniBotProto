@@ -220,7 +220,7 @@ void OmnibotGameApp::drawShadow()
 void OmnibotGameApp::draw()
 {
 	
-	
+	renderData->time = getElapsedSeconds();
 	drawShadow();
 
 
@@ -283,12 +283,12 @@ void OmnibotGameApp::draw()
 	gl::viewport(vec2(0.0f), vec2(GSettings::windowWidth, GSettings::windowHeight));
 	gl::color(1, 1, 1);
 	
-	gl::pushMatrices();
+	/*gl::pushMatrices();
 	gl::draw(shadow->mFbo1->getColorTexture(), Rectf(0, 0, 300, 300));
 	 gl::draw(shadow->mFbo2->getColorTexture(),Rectf(300,0,600,300));
 
 	gl::popMatrices();
-	
+	*/
 	gl::pushMatrices();
 	gl::translate(getWindowCenter());
 	gl::drawStrokedCircle(vec2(0, 0), getWindowHeight() / 2);

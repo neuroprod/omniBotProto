@@ -5,7 +5,7 @@ layout(triangle_strip, max_vertices = 15) out;
 
 
 uniform	sampler2D	uNoiseMap;
-uniform	float	time;
+uniform	float	uTime;
 
 uniform mat4 ciProjectionMatrix;
 uniform mat4 ciViewMatrix;

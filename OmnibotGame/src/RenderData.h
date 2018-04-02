@@ -18,7 +18,7 @@ public:
 	
 	ProjectionCameraRef camera;
 	ShadowRef shadow;
-
+	float time;
 	int playerID;
 	ci::gl::TextureCubeMapRef  irradianceCubeMap;
 };

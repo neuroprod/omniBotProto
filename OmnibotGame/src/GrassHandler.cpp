@@ -20,6 +20,28 @@ void GrassHandler::setup()
 	buildGrass();
 }
 
+
+void GrassHandler::updateGL()
+{
+
+	for (auto tile : tiles)
+	{
+		tile->updateVbo();
+	}
+
+}
+
+
+void GrassHandler::resolvePlayer(std::vector<LocalPlayerPos> &playerPositions)
+{
+	for (LocalPlayerPos playerPos : playerPositions)
+	{
+		if (playerPos.dist < GSettings::playerRad)
+		{
+			tiles[playerPos.index]->setPlayerPos(playerPos);
+		}
+	}
+}
 void GrassHandler::setupRendering()
 {
 	mGlsl = gl::GlslProg::create(gl::GlslProg::Format().vertex(loadAsset("grass/grass.vert"))
@@ -56,7 +78,7 @@ void GrassHandler::buildTiles()
 void GrassHandler::buildGrass()
 {
 
-	int numGrass = 10000;
+	int numGrass = 30000;
 	ci::Perlin pnois = Perlin();
 
 
@@ -126,7 +148,8 @@ void GrassHandler::draw(vector<int>&indices, vector<ci::vec2> &positions, Render
 {
 	//gl::clear(GL_DEPTH_BUFFER_BIT);
 	mGlsl->bind();
-	
+	mGlsl->uniform("uTime", renderdata->time);
+
 	mGlsl->uniform("uIrradianceMap", 1);
 	renderdata->irradianceCubeMap->bind(1);
 	/*
