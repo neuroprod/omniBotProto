@@ -52,6 +52,12 @@
     <Filter Include="shaders\grass">
       <UniqueIdentifier>{36b9f094-7b7a-4534-b6fa-30e6f768137f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gameobjects\flowers">
+      <UniqueIdentifier>{9388e1f7-fa95-43c6-9ba9-52d93a91dab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\flowers">
+      <UniqueIdentifier>{9e0cc427-fb1f-4dd3-baba-c29ac2059f3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\OmnibotGameApp.cpp">
@@ -134,6 +140,12 @@
     </ClCompile>
     <ClCompile Include="..\src\GrassTile.cpp">
       <Filter>Source Files\gameobjects\grass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FLowerHandler.cpp">
+      <Filter>Source Files\gameobjects\flowers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FlowerTile.cpp">
+      <Filter>Source Files\gameobjects\flowers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +242,15 @@
     <ClInclude Include="..\src\LocalPlayerPos.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Flower.h">
+      <Filter>Source Files\gameobjects\flowers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FLowerHandler.h">
+      <Filter>Source Files\gameobjects\flowers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FlowerTile.h">
+      <Filter>Source Files\gameobjects\flowers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\floor\floor_shader.frag">
@@ -267,6 +288,15 @@
     </None>
     <None Include="..\assets\grass\grass.frag">
       <Filter>shaders\grass</Filter>
+    </None>
+    <None Include="..\assets\flowers\flower.frag">
+      <Filter>shaders\flowers</Filter>
+    </None>
+    <None Include="..\assets\flowers\flower.geom">
+      <Filter>shaders\flowers</Filter>
+    </None>
+    <None Include="..\assets\flowers\flower.vert">
+      <Filter>shaders\flowers</Filter>
     </None>
   </ItemGroup>
 </Project>

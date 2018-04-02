@@ -4,6 +4,8 @@
 #include "FloorMapping.hpp"  
 #include "LeafHandler.h"
 #include "GrassHandler.h"
+#include "FlowerHandler.h"
+
 #include "RenderData.h"
 #include "Player.h"
 
@@ -29,4 +31,5 @@ public:
 	FloorMapping floorMapping;
 	LeafHandler leafHandler;
 	GrassHandler grassHandler;
+	FlowerHandler flowerHandler;
 };

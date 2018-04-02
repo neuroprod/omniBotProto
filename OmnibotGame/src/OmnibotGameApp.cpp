@@ -50,8 +50,12 @@ class OmnibotGameApp : public App {
 
 void OmnibotGameApp::setup()
 {
+
 	setWindowSize(GSettings::windowWidth, GSettings::windowHeight);
 	setFrameRate(120);
+//	gl::enableVerticalSync(false);
+	//disableFrameRate();
+	
 	ImGui::initialize();
 
 	inputControler.init();
@@ -96,7 +100,7 @@ void OmnibotGameApp::setup()
 
 void OmnibotGameApp::update()
 {
-	
+
 	double currentTime = getElapsedSeconds();
 	double delta = currentTime - prevTime;
 	prevTime = currentTime;
@@ -215,7 +219,8 @@ void OmnibotGameApp::drawShadow()
 }
 void OmnibotGameApp::draw()
 {
-
+	
+	
 	drawShadow();
 
 
@@ -278,11 +283,11 @@ void OmnibotGameApp::draw()
 	gl::viewport(vec2(0.0f), vec2(GSettings::windowWidth, GSettings::windowHeight));
 	gl::color(1, 1, 1);
 	
-	/*gl::pushMatrices();
+	gl::pushMatrices();
 	gl::draw(shadow->mFbo1->getColorTexture(), Rectf(0, 0, 300, 300));
 	 gl::draw(shadow->mFbo2->getColorTexture(),Rectf(300,0,600,300));
 
-	gl::popMatrices();*/
+	gl::popMatrices();
 	
 	gl::pushMatrices();
 	gl::translate(getWindowCenter());
@@ -307,6 +312,10 @@ void OmnibotGameApp::drawGUI()
 	ImGui::Text(a.c_str());
 	ImGui::SliderFloat("offyCam", &camera->offyCam, 0.0f, 2000.0f);
 	ImGui::SliderFloat("offzCam", &camera->offzCam, 0.0f, -2000.0f);
+
+	ImGui::SliderFloat("lightX", &shadow->mLightPos.x, -2000.0f, 2000.0f);
+	ImGui::SliderFloat("LightY", &shadow->mLightPos.y, -2000.0f, 2000.0f);
+	ImGui::SliderFloat("LightZ", &shadow->mLightPos.z, 0.0f, -2000.0f);
 	camera->updateSetting();
 }
 void OmnibotGameApp::drawVirtualPosition()
@@ -336,4 +345,6 @@ void OmnibotGameApp::drawVirtualPosition()
 
 }
 
-CINDER_APP(OmnibotGameApp, RendererGl(RendererGl::Options().msaa(8).stencil()))
+CINDER_APP(OmnibotGameApp, RendererGl(RendererGl::Options().msaa(8).stencil()), [&](App::Settings *settings) {
+	
+})

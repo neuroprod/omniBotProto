@@ -9,7 +9,7 @@ out vec3 dir_in;
 void main()
 {
   
-    gl_Position =ciViewMatrix* ciModelMatrix * ciPosition;
+    gl_Position =ciPosition;
    dir_in=ciNormal;
     
    // vvShadowCoord	= ( biasMatrix * uShadowMatrix * ciModelMatrix ) * ciPosition;

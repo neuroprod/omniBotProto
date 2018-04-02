@@ -18,15 +18,15 @@ void drawTriangle(vec4 pos1,vec4 pos2,vec4 pos3)
 
     vNormal = normalize(cross( pos2.xyz-pos1.xyz, pos3.xyz-pos1.xyz));
     
-    gl_Position = ciProjectionMatrix *pos1;
+    gl_Position = ciProjectionMatrix* ciViewMatrix* ciModelMatrix  *pos1;
    
     EmitVertex();
     
-    gl_Position = ciProjectionMatrix *pos2;
+    gl_Position = ciProjectionMatrix * ciViewMatrix* ciModelMatrix   *pos2;
  
     EmitVertex();
 
-    gl_Position = ciProjectionMatrix *pos3;
+    gl_Position = ciProjectionMatrix * ciViewMatrix* ciModelMatrix *pos3;
  
     EmitVertex();
     EndPrimitive();

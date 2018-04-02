@@ -113,6 +113,9 @@
   <ItemGroup>
     <None Include="..\assets\floor\floor_shader.frag" />
     <None Include="..\assets\floor\floor_shader.vert" />
+    <None Include="..\assets\flowers\flower.frag" />
+    <None Include="..\assets\flowers\flower.geom" />
+    <None Include="..\assets\flowers\flower.vert" />
     <None Include="..\assets\grass\grass.frag" />
     <None Include="..\assets\grass\grass.geom" />
     <None Include="..\assets\grass\grass.vert" />
@@ -133,6 +136,8 @@
     <ClCompile Include="..\src\delaunay.cpp" />
     <ClCompile Include="..\src\FloorMapping.cpp" />
     <ClCompile Include="..\src\FloorTextureGenerator.cpp" />
+    <ClCompile Include="..\src\FLowerHandler.cpp" />
+    <ClCompile Include="..\src\FlowerTile.cpp" />
     <ClCompile Include="..\src\GrassHandler.cpp" />
     <ClCompile Include="..\src\GrassTile.cpp" />
     <ClCompile Include="..\src\InputControler.cpp" />
@@ -164,6 +169,9 @@
     <ClInclude Include="..\src\edge.h" />
     <ClInclude Include="..\src\FloorMapping.hpp" />
     <ClInclude Include="..\src\FloorTextureGenerator.hpp" />
+    <ClInclude Include="..\src\Flower.h" />
+    <ClInclude Include="..\src\FLowerHandler.h" />
+    <ClInclude Include="..\src\FlowerTile.h" />
     <ClInclude Include="..\src\Grass.h" />
     <ClInclude Include="..\src\GrassHandler.h" />
     <ClInclude Include="..\src\GrassTile.h" />

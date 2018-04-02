@@ -132,7 +132,7 @@ void World::drawPlayerTilesShadow(int index, RenderDataRef renderdata)
 
 	
 	leafHandler.drawDepth(indices, positions, renderdata);
-
+	grassHandler.draw(indices, positions, renderdata);
 
 
 

@@ -56,7 +56,7 @@ void GrassHandler::buildTiles()
 void GrassHandler::buildGrass()
 {
 
-	int numGrass = 300000;
+	int numGrass = 10000;
 	ci::Perlin pnois = Perlin();
 
 
@@ -108,7 +108,7 @@ void GrassHandler::buildGrass()
 		vec2 lookDir = glm::circularRand(1.f);
 		g.normal.x = lookDir.x;
 		g.normal.y = lookDir.y;
-		g.normal.z = glm::linearRand(10,20);
+		g.normal.z =- glm::linearRand(50,60);
 
 		int tileIndex = indexX + indexY*GSettings::numTiles;
 		tiles[tileIndex]->addGrass(g);
@@ -124,7 +124,7 @@ void GrassHandler::buildGrass()
 
 void GrassHandler::draw(vector<int>&indices, vector<ci::vec2> &positions, RenderDataRef renderdata)
 {
-	gl::clear(GL_DEPTH_BUFFER_BIT);
+	//gl::clear(GL_DEPTH_BUFFER_BIT);
 	mGlsl->bind();
 	
 	mGlsl->uniform("uIrradianceMap", 1);

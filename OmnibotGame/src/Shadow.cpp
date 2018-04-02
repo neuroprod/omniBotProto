@@ -58,8 +58,8 @@ void Shadow::setup()
 	mFbo2 = gl::Fbo::create(FBO_WIDTH, FBO_HEIGHT, fboFormat2);
 
 
-	mLightPos.x = GSettings::windowWidth / 2 + 1000;
-	mLightPos.y = GSettings::windowHeight / 2 - 500;
+	mLightPos.x = GSettings::windowHeight / 2 ;
+	mLightPos.y = GSettings::windowHeight/ 2;
 	mLightPos.z = -2000;
 
 
@@ -87,7 +87,7 @@ void Shadow::startDraw(int id)
 
 	// Set up camera from the light's viewpoint
 	mLightCam.setPerspective(50.0f, mFbo1->getAspectRatio(), 1.f, 5000.0f);
-	mLightCam.setWorldUp(vec3(0, 0, 1));
+	mLightCam.setWorldUp(vec3(0, 0, -1));
 	mLightCam.lookAt(mLightPos, vec3(GSettings::windowWidth / 2, GSettings::windowHeight / 2, 0), vec3(0, 0, 1));
 
 
