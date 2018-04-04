@@ -4,7 +4,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Perlin.h"
 #include "glm/gtc/matrix_transform.hpp"
-#include "NormalGenerator.h"
+
 #include "Grass.h"
 using namespace std;
 using namespace ci;
@@ -78,7 +78,7 @@ void GrassHandler::buildTiles()
 void GrassHandler::buildGrass()
 {
 
-	int numGrass = 30000;
+	int numGrass = GSettings::numGrass;;
 	ci::Perlin pnois = Perlin();
 
 

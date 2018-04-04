@@ -53,11 +53,11 @@ void main()
 {
     
 
-    vec4 pos = gl_in[0].gl_Position;
-
+    vec4 pos = gl_in[0].gl_Position*2.0;
+	pos.w =1;
     vec3 dir =  dir_in[0];
     vec3 flatl =  flat_in[0];
-   mat4 rotationMatrix  = getRotationMatrix(vec3(flatl.xy,0.0),flatl.z );
+   mat4 rotationMatrix  = getRotationMatrix(vec3(flatl.xy,0.0),flatl.z*-1.2 );
 
 
     float base1 =3.0;
@@ -74,14 +74,14 @@ void main()
 	pos0.y=dir.y*base1;
 	pos0.z=0.0;
 	pos0.w=1.0;
-	  pos0= pos+ rotationMatrix*pos0;
+	  pos0= pos+pos0;
 
     vec4 pos1  ;
 	pos1.x=-dir.x*base1;
 	pos1.y=-dir.y*base1;
 	pos1.w=1.0;
 	pos1.z=0.0;
-    pos1= pos+ rotationMatrix*pos1;
+    pos1= pos+pos1;
 
 	////////////////////////////
 	 vec4 pos2 ;

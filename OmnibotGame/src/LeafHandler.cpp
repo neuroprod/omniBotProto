@@ -59,7 +59,7 @@ void LeafHandler::setupRendering()
 }
 void LeafHandler::buildLeafs()
 {
-	int numLeafs =10000;
+	int numLeafs =GSettings::numLeafs;
 	ci::Perlin pnois = Perlin();
 
 

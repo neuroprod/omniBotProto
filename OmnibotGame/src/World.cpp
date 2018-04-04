@@ -14,7 +14,7 @@ void World::updateGL()
 {
 	leafHandler.updateGL();
 	grassHandler.updateGL();
-
+	flowerHandler.updateGL();
 }
 void World::setup()
 {
@@ -36,7 +36,7 @@ void World::setup()
 	}
 	leafHandler.setup();
 	grassHandler.setup();
-	
+	flowerHandler.setup();
 }
 
 void World::resolvePlayerPos(PlayerRef player)
@@ -107,7 +107,7 @@ void World::resolvePlayerPos(PlayerRef player)
 
 	leafHandler.resolvePlayer(playerPositions);
 	grassHandler.resolvePlayer(playerPositions);
-	
+	flowerHandler.resolvePlayer(playerPositions);
 
 }
 void World::drawPlayerTiles(int index, RenderDataRef renderdata)
@@ -120,6 +120,7 @@ void World::drawPlayerTiles(int index, RenderDataRef renderdata)
 	
 	leafHandler.draw(indices, positions,renderdata);
 	grassHandler.draw(indices, positions, renderdata);
+	flowerHandler.draw(indices, positions, renderdata);
 	
 	
 
@@ -130,10 +131,10 @@ void World::drawPlayerTilesShadow(int index, RenderDataRef renderdata)
 	vector<int> indices = tiles[index]->friendIndices;
 	vector<vec2> positions = tiles[index]->friendPositions;
 
-	
+
 	leafHandler.drawDepth(indices, positions, renderdata);
 	grassHandler.draw(indices, positions, renderdata);
-
+	flowerHandler.draw(indices, positions, renderdata);
 
 
 }

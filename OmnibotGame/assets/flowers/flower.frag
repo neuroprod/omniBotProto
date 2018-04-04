@@ -2,14 +2,17 @@
 
 
 in vec3 vNormal;
-
+in vec2 vUV;
 out vec4 outColor;
 uniform samplerCube uIrradianceMap;
-
+uniform sampler2D uFlowerMap;
 
 void main()
 {
-    vec3 albedo = pow(vec3(0.2,0.7,0.1), vec3(2.2));
+	vec4 f = texture2D(uFlowerMap,vUV);
+	if(f.w==0)  discard;
+    
+	vec3 albedo = pow(f.xyz, vec3(2.2));
 	vec3 irradiance = texture(uIrradianceMap, vNormal.xzy).xyz;
 
 
@@ -21,6 +24,6 @@ void main()
 	
 
 
-    outColor = vec4( color, 1.0);
+    outColor = vec4( color, f.w);
   
 }

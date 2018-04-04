@@ -19,12 +19,36 @@ void FlowerHandler::setup()
 	buildTiles();
 	buildFlower();
 }
+void FlowerHandler::updateGL()
+{
+	for (auto tile : tiles)
+	{
+		tile->updateVbo();
+	}
 
+}
+void FlowerHandler::resolvePlayer(std::vector<LocalPlayerPos> &playerPositions)
+{
+	for (LocalPlayerPos playerPos : playerPositions)
+	{
+		if (playerPos.dist < GSettings::playerRad)
+		{
+			tiles[playerPos.index]->setPlayerPos(playerPos);
+		}
+	}
+
+
+}
 void FlowerHandler::setupRendering()
 {
-	mGlsl = gl::GlslProg::create(gl::GlslProg::Format().vertex(loadAsset("flower/flower.vert"))
-		.fragment(loadAsset("flower/flower.frag"))
-		.geometry(loadAsset("flower/flower.geom")));
+
+	flowerMap = gl::Texture::create(loadImage(loadAsset("flowers/flower.png")));
+
+
+
+	mGlsl = gl::GlslProg::create(gl::GlslProg::Format().vertex(loadAsset("flowers/flower.vert"))
+		.fragment(loadAsset("flowers/flower.frag"))
+		.geometry(loadAsset("flowers/flower.geom")));
 
 
 	/*mGlsl->uniform("uNoiseMap", 0);
@@ -56,7 +80,7 @@ void FlowerHandler::buildTiles()
 void FlowerHandler::buildFlower()
 {
 
-	int numFlower = 100000;
+	int numFlower = GSettings::numFlowers;
 	ci::Perlin pnois = Perlin();
 
 
@@ -71,7 +95,7 @@ void FlowerHandler::buildFlower()
 
 			randomPos = glm::vec2(glm::linearRand(0, GSettings::worldSize), glm::linearRand(0, GSettings::worldSize));
 
-			if (pnois.fBm(randomPos.x / 1000, randomPos.y / 1000)<0.0)
+			if (pnois.fBm(randomPos.x / 1000, randomPos.y / 1000)<-0.1)
 			{
 				if (pnois.fBm(randomPos.x / 200, randomPos.y / 200) < -0.1)
 				{
@@ -88,7 +112,7 @@ void FlowerHandler::buildFlower()
 
 
 	
-		vec2 sRand = glm::diskRand(50.f);
+		vec2 sRand = glm::diskRand(5.f);
 		vec3 position;
 		position.x = sRand.x + randomPos.x;
 		position.y = sRand.y + randomPos.y;
@@ -108,7 +132,7 @@ void FlowerHandler::buildFlower()
 		vec2 lookDir = glm::circularRand(1.f);
 		g.normal.x = lookDir.x;
 		g.normal.y = lookDir.y;
-		g.normal.z = glm::linearRand(50,60);
+		g.normal.z = -glm::linearRand(50,60);
 
 		int tileIndex = indexX + indexY*GSettings::numTiles;
 		tiles[tileIndex]->addFlower(g);
@@ -124,11 +148,14 @@ void FlowerHandler::buildFlower()
 
 void FlowerHandler::draw(vector<int>&indices, vector<ci::vec2> &positions, RenderDataRef renderdata)
 {
-	gl::clear(GL_DEPTH_BUFFER_BIT);
+
 	mGlsl->bind();
-	
+	mGlsl->uniform("uTime", renderdata->time);
 	mGlsl->uniform("uIrradianceMap", 1);
 	renderdata->irradianceCubeMap->bind(1);
+	mGlsl->uniform("uFlowerMap", 2);
+	flowerMap->bind(2);
+
 	/*
 	mGlsl->uniform("uShadowMap", 1);
 	renderdata->getShadowMap()->getDepthTexture()->bind(1);

@@ -173,6 +173,7 @@
     <ClInclude Include="..\src\FLowerHandler.h" />
     <ClInclude Include="..\src\FlowerTile.h" />
     <ClInclude Include="..\src\Grass.h" />
+    <ClInclude Include="..\src\GrassFlatness.h" />
     <ClInclude Include="..\src\GrassHandler.h" />
     <ClInclude Include="..\src\GrassTile.h" />
     <ClInclude Include="..\src\InputControler.h" />
